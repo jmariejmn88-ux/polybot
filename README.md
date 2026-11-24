@@ -108,7 +108,13 @@ Dans `.github/workflows/polybot.yml`, section `env:` :
 
 - `MIN_EDGE` : plus haut = moins de paris, plus sélectifs (ex. `0.10`) ;
 - `ASSETS` : `btc`, `eth`, `sol`, `xrp` (séparés par des virgules) ;
-- `START_BANKROLL`, `STAKE`, `MAX_STAKE_PCT`.
+- `START_BANKROLL`, `STAKE`, `MAX_STAKE_PCT` ;
+- `USE_KELLY` : `0` par défaut (mise fixe). Le bot calcule quand même la **mise de Kelly**
+  (`KELLY_FRACTION`, ¼ par défaut) et la note dans le journal et `trades.csv`. Mettre `1` pour
+  l'utiliser vraiment, seulement après avoir comparé les deux sur 200+ paris ;
+- `LOG_CONTEXT` : `1` par défaut. À chaque pari, le bot note le contexte de marché
+  **CoinLobster** (activité des baleines, funding, open interest), sans s'en servir pour décider.
+  Ces colonnes de `trades.csv` permettront de vérifier plus tard si ce contexte aide.
 
 Pour **repartir de zéro** : supprime le dossier `data/` dans le dépôt.
 

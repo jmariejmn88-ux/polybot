@@ -47,6 +47,12 @@ CFG = {
     #   moyenne de la DERNIÈRE minute ≥ moyenne de la minute AVANT le début (flux TWAP 60 s Chainlink)
     #   → modèle "close". Le modèle "twap" (moyenne des 15 min) concorde moins bien (84 %).
     "MODEL": os.getenv("MODEL", "close"),
+    # Mise de Kelly : f* = (p - coût) / (1 - coût). On joue une fraction (25 %) par prudence.
+    # USE_KELLY=0 : la mise Kelly est seulement calculée et notée (décisions inchangées).
+    "KELLY_FRACTION": _f("KELLY_FRACTION", 0.25),
+    "USE_KELLY": os.getenv("USE_KELLY", "0") == "1",
+    # Contexte CoinLobster (baleines, funding, open interest) noté à chaque pari, sans l'utiliser.
+    "LOG_CONTEXT": os.getenv("LOG_CONTEXT", "1") == "1",
     "EVENT_PAUSE_MIN": _f("EVENT_PAUSE_MIN", 30),    # pas de pari ±30 min autour d'une annonce
     "REPORT_HOUR_UTC": _f("REPORT_HOUR_UTC", 20),    # rapport Telegram quotidien vers 20h UTC
 }
@@ -59,6 +65,7 @@ PRODUCTS = {"btc": "BTC-USD", "eth": "ETH-USD", "sol": "SOL-USD", "xrp": "XRP-US
 GAMMA = "https://gamma-api.polymarket.com"
 CLOB = "https://clob.polymarket.com"
 COINBASE = "https://api.exchange.coinbase.com"
+COINLOBSTER = "https://coinlobster.com/api/public"
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
@@ -178,6 +185,45 @@ def spot_and_candles(product, t_start):
     closes = [float(c[4]) for c in candles]
     inwin = [float(c[4]) for c in candles if t_start <= c[0] < now - 60]  # minutes terminées
     return spot, open_price, closes, inwin
+
+
+def market_context(asset):
+    """
+    Contexte de marché CoinLobster (API publique gratuite, sans clé), noté avec chaque pari
+    pour vérifier plus tard s'il aide. Données descriptives : ce ne sont pas des prédictions.
+    Ne bloque jamais le bot : en cas d'échec, renvoie ce qui a pu être lu.
+    """
+    ctx = {}
+    coin = asset.upper()
+
+    def get(path, params):
+        url = f"{COINLOBSTER}/{path}?" + urllib.parse.urlencode(params)
+        req = urllib.request.Request(url, headers={"User-Agent": "polybot-paper/1.0",
+                                                   "Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=6) as r:
+            return json.loads(r.read().decode())
+
+    try:
+        w = (get("whale-context", {"coin": coin}) or {}).get("ctx") or {}
+        ctx.update(whale_mult=w.get("mult"), whale_net24_usd=w.get("net24"),
+                   whale_buyshare24=w.get("buyShare24"))
+    except Exception as e:  # noqa: BLE001
+        ctx["whale_err"] = str(e)[:80]
+    try:
+        b = get("baseline", {"pair": f"{coin}/USD"}) or {}
+        f, o = b.get("funding") or {}, b.get("oi") or {}
+        ctx.update(funding=f.get("value"), funding_pct=f.get("percentile"), funding_band=f.get("band"),
+                   oi_pct=o.get("percentile"), oi_band=o.get("band"))
+    except Exception as e:  # noqa: BLE001
+        ctx["baseline_err"] = str(e)[:80]
+    return ctx
+
+
+def kelly_fraction(p, cost):
+    """Fraction du capital selon Kelly pour un contrat qui paie 1 $ : (p - coût) / (1 - coût)."""
+    if cost >= 1 or p <= cost:
+        return 0.0
+    return (p - cost) / (1 - cost)
 
 
 # ----------------------------------------------------------------- modèle
@@ -313,7 +359,13 @@ def try_trade(st, asset):
         return log(st, f"{info} | pas d'avantage suffisant ({e})")
 
     max_cost = st["bankroll"] * CFG["MAX_STAKE_PCT"]
-    shares = max(CFG["STAKE"] / best["cps"], ev["min_size"])
+    p_side = model[best["side"]]
+    kelly_f = kelly_fraction(p_side, best["cps"])
+    kelly_stake = round(st["bankroll"] * kelly_f * CFG["KELLY_FRACTION"], 2)
+    target = kelly_stake if CFG["USE_KELLY"] else CFG["STAKE"]
+    if target <= 0:
+        return log(st, f"{info} | mise Kelly nulle, pas de pari")
+    shares = max(target / best["cps"], ev["min_size"])
     shares = min(shares, best["size"])
     cost = shares * best["cps"]
     if shares < ev["min_size"] or cost > max_cost or cost > st["bankroll"]:
@@ -325,30 +377,52 @@ def try_trade(st, asset):
            "model_p": round(model[best["side"]], 4), "edge": round(best["edge"], 4),
            "secs_left": secs_left, "spot": spot, "open_price": open_price,
            "sigma_min": round(sigma, 6), "fee": round(shares * (best["cps"] - best["ask"]), 4),
-           "mode": MODE,
+           "mode": MODE, "kelly_f": round(kelly_f, 4), "kelly_stake": kelly_stake,
+           "sizing": "kelly" if CFG["USE_KELLY"] else "fixe",
+           "ctx": market_context(asset) if CFG["LOG_CONTEXT"] else {},
            "reason": f"modèle {model[best['side']]:.2f} vs prix {best['ask']:.2f} → avantage {best['edge']:+.3f}",
            "opened_at": now_iso()}
     st["bankroll"] = round(st["bankroll"] - cost, 4)
     st["open"].append(pos)
+    c = pos["ctx"]
+    ctx_txt = (f" | baleines x{c['whale_mult']}" if c.get("whale_mult") is not None else "") + \
+              (f", funding {c['funding_band']}" if c.get("funding_band") else "")
     log(st, f"{info} | 🟢 ACHAT fictif {pos['shares']:.2f} parts {best['side']} à "
-            f"{best['ask']:.2f} (coût {cost:.2f} $, avantage {best['edge']:+.3f})")
+            f"{best['ask']:.2f} (coût {cost:.2f} $, avantage {best['edge']:+.3f}, "
+            f"Kelly ¼ suggère {kelly_stake:.2f} $){ctx_txt}")
+
+
+CSV_HEADER = ["mode", "ouvert", "réglé", "crypto", "marché", "côté", "prix", "parts",
+              "coût", "frais", "proba_modèle", "avantage", "secondes_restantes",
+              "prix_ouverture", "prix_entrée", "volatilité_min", "raison",
+              "gagné", "gain_net", "R",
+              "mise_type", "kelly_fraction", "mise_kelly_suggérée",
+              "baleines_mult", "baleines_net24_usd", "baleines_part_achat24",
+              "funding", "funding_percentile", "funding_bande", "oi_percentile", "oi_bande"]
 
 
 def append_csv(p):
-    new = not os.path.exists(TRADES_FILE)
     os.makedirs(DATA, exist_ok=True)
+    if os.path.exists(TRADES_FILE):  # ancien format de colonnes → archivé à part
+        with open(TRADES_FILE, newline="") as fh:
+            first = next(csv.reader(fh), [])
+        if first != CSV_HEADER:
+            os.replace(TRADES_FILE, TRADES_FILE.replace(".csv", "_ancien_format.csv"))
+    new = not os.path.exists(TRADES_FILE)
+    c = p.get("ctx") or {}
     with open(TRADES_FILE, "a", newline="") as fh:
         w = csv.writer(fh)
         if new:
-            w.writerow(["mode", "ouvert", "réglé", "crypto", "marché", "côté", "prix", "parts",
-                        "coût", "frais", "proba_modèle", "avantage", "secondes_restantes",
-                        "prix_ouverture", "prix_entrée", "volatilité_min", "raison",
-                        "gagné", "gain_net", "R"])
+            w.writerow(CSV_HEADER)
         w.writerow([p.get("mode", MODE), p["opened_at"], p["settled_at"], p["asset"].upper(),
                     p["title"], p["side"], p["price"], p["shares"], p["cost"], p.get("fee", ""),
                     p["model_p"], p["edge"], p.get("secs_left", ""), p.get("open_price", ""),
                     p.get("spot", ""), p.get("sigma_min", ""), p.get("reason", ""),
-                    "oui" if p["won"] else "non", p["pnl"], round(p["pnl"] / p["cost"], 3)])
+                    "oui" if p["won"] else "non", p["pnl"], round(p["pnl"] / p["cost"], 3),
+                    p.get("sizing", "fixe"), p.get("kelly_f", ""), p.get("kelly_stake", ""),
+                    c.get("whale_mult", ""), c.get("whale_net24_usd", ""), c.get("whale_buyshare24", ""),
+                    c.get("funding", ""), c.get("funding_pct", ""), c.get("funding_band", ""),
+                    c.get("oi_pct", ""), c.get("oi_band", "")])
 
 
 def write_summary(st):
