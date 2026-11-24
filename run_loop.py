@@ -6,7 +6,7 @@ Pourquoi : sur le plan gratuit, GitHub ne lance pas un workflow « toutes les
 5 minutes » de façon fiable (parfois une fois toutes les 1 à 2 heures). Ici,
 chaque lancement garde le bot actif ~5h45 : un passage par minute, et une
 sauvegarde des résultats dans le dépôt toutes les 5 minutes (ou dès qu'un pari
-est pris ou réglé).
+est pris ou réglé). Le module sport (sports.py) tourne dans la même boucle.
 
 Usage : python run_loop.py --minutes 345 --every 60 --save-every 300
 """
@@ -19,6 +19,7 @@ import time
 import traceback
 
 import bot
+import sports
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -28,12 +29,15 @@ def git(*args, check=False):
 
 
 def nb_paris():
-    try:
-        with open(bot.STATE_FILE) as fh:
-            st = json.load(fh)
-        return len(st.get("open", [])), len(st.get("closed", []))
-    except (OSError, ValueError):
-        return 0, 0
+    total = []
+    for f in (bot.STATE_FILE, sports.STATE_FILE):
+        try:
+            with open(f) as fh:
+                st = json.load(fh)
+            total += [len(st.get("open", [])), len(st.get("closed", []))]
+        except (OSError, ValueError):
+            total += [0, 0]
+    return tuple(total)
 
 
 def sauvegarder(motif):
@@ -69,6 +73,11 @@ def main():
             bot.main()
         except Exception:  # noqa: BLE001 — le bot ne doit jamais s'arrêter sur une erreur ponctuelle
             traceback.print_exc()
+        if os.environ.get("SPORTS", "1") == "1":
+            try:
+                sports.main()  # règle les paris finis ; cherche de nouveaux paris toutes les 10 min
+            except Exception:  # noqa: BLE001
+                traceback.print_exc()
         tours += 1
         apres = nb_paris()
         if apres != avant:
