@@ -1,0 +1,13 @@
+{
+  "start_bankroll": 100.0,
+  "bankroll": 100.0,
+  "created": "2026-11-24 18:46:36 UTC",
+  "open": [],
+  "closed": [],
+  "log": [
+    "2026-11-24 18:46:36 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 18:46:36 UTC  BTC : 804s restantes, hors plage d'entrée",
+    "2026-11-24 18:46:36 UTC  ETH : 804s restantes, hors plage d'entrée"
+  ],
+  "halted": false
+}
