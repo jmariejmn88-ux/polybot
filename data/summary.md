@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-24 18:46:36 UTC_
+_Mis à jour : 2026-11-24 20:02:35 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -24,4 +24,7 @@ _Mis à jour : 2026-11-24 18:46:36 UTC_
 2026-11-24 18:46:36 UTC  — exécution — MODE : PAPER
 2026-11-24 18:46:36 UTC  BTC : 804s restantes, hors plage d'entrée
 2026-11-24 18:46:36 UTC  ETH : 804s restantes, hors plage d'entrée
+2026-11-24 20:02:35 UTC  — exécution — MODE : PAPER
+2026-11-24 20:02:35 UTC  BTC : 745s restantes, hors plage d'entrée
+2026-11-24 20:02:35 UTC  ETH : 745s restantes, hors plage d'entrée
 ```
