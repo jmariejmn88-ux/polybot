@@ -1,0 +1,15 @@
+# Annonces économiques américaines qui font bouger le Bitcoin.
+# Le bot ne prend AUCUN nouveau pari 30 min avant et 30 min après chaque heure listée.
+# Format : AAAA-MM-JJ HH:MM  description   (heure UTC = heure d'Abidjan)
+# Sources : bls.gov (inflation CPI, emploi) et federalreserve.gov (Fed / FOMC).
+# À compléter chaque mois avec les nouvelles dates officielles.
+
+2026-12-09 19:00  Fed (FOMC) : décision sur les taux
+2026-12-10 13:30  Inflation US (CPI) de novembre
+2027-01-08 13:30  Emploi US de décembre
+2027-01-13 13:30  Inflation US (CPI) de décembre
+2027-01-27 19:00  Fed (FOMC) : décision sur les taux
+2027-02-05 13:30  Emploi US de janvier
+2027-02-11 13:30  Inflation US (CPI) de janvier
+2027-03-10 13:30  Inflation US (CPI) de février
+2027-03-17 18:00  Fed (FOMC) : décision sur les taux (heure d'été US)
