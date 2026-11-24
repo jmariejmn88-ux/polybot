@@ -1,28 +1,8 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 99.6298,
+  "bankroll": 104.6298,
   "created": "2026-11-24 18:46:36 UTC",
-  "open": [
-    {
-      "slug": "eth-updown-15m-1795562100",
-      "title": "Ethereum Up or Down - November 24, 6:15PM-6:30PM ET",
-      "asset": "eth",
-      "side": "Up",
-      "price": 0.6,
-      "shares": 5.0,
-      "cost": 3.084,
-      "model_p": 0.6853,
-      "edge": 0.0685,
-      "secs_left": 474,
-      "spot": 1681.96,
-      "open_price": 1681.0,
-      "sigma_min": 0.00044,
-      "fee": 0.084,
-      "mode": "PAPER",
-      "reason": "modèle 0.69 vs prix 0.60 → avantage +0.069",
-      "opened_at": "2026-11-24 23:22:06 UTC"
-    }
-  ],
+  "open": [],
   "closed": [
     {
       "slug": "eth-updown-15m-1795560300",
@@ -46,6 +26,29 @@
       "payout": 5.0,
       "pnl": 2.7138,
       "settled_at": "2026-11-24 23:02:05 UTC"
+    },
+    {
+      "slug": "eth-updown-15m-1795562100",
+      "title": "Ethereum Up or Down - November 24, 6:15PM-6:30PM ET",
+      "asset": "eth",
+      "side": "Up",
+      "price": 0.6,
+      "shares": 5.0,
+      "cost": 3.084,
+      "model_p": 0.6853,
+      "edge": 0.0685,
+      "secs_left": 474,
+      "spot": 1681.96,
+      "open_price": 1681.0,
+      "sigma_min": 0.00044,
+      "fee": 0.084,
+      "mode": "PAPER",
+      "reason": "modèle 0.69 vs prix 0.60 → avantage +0.069",
+      "opened_at": "2026-11-24 23:22:06 UTC",
+      "won": true,
+      "payout": 5.0,
+      "pnl": 1.916,
+      "settled_at": "2026-11-24 23:37:05 UTC"
     }
   ],
   "log": [
@@ -238,7 +241,17 @@
     "2026-11-24 23:33:05 UTC  ETH : 715s restantes, hors plage d'entrée",
     "2026-11-24 23:34:05 UTC  — exécution — MODE : PAPER",
     "2026-11-24 23:34:05 UTC  BTC : 655s restantes, hors plage d'entrée",
-    "2026-11-24 23:34:05 UTC  ETH : 655s restantes, hors plage d'entrée"
+    "2026-11-24 23:34:05 UTC  ETH : 655s restantes, hors plage d'entrée",
+    "2026-11-24 23:35:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 23:35:06 UTC  BTC ouverture 59,948.63 spot 59,786.09 σ/min 0.038% → P(Up) modèle 0.03 | pas d'avantage suffisant (+0.026 sur Down à 0.94)",
+    "2026-11-24 23:35:06 UTC  ETH ouverture 1,681.32 spot 1,677.38 σ/min 0.046% → P(Up) modèle 0.05 | pas d'avantage suffisant (+0.020 sur Down à 0.93)",
+    "2026-11-24 23:36:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 23:36:06 UTC  BTC ouverture 59,948.63 spot 59,753.32 σ/min 0.039% → P(Up) modèle 0.03 | pas d'avantage suffisant (aucun prix)",
+    "2026-11-24 23:36:06 UTC  ETH ouverture 1,681.32 spot 1,676.66 σ/min 0.046% → P(Up) modèle 0.03 | pas d'avantage suffisant (aucun prix)",
+    "2026-11-24 23:37:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 23:37:05 UTC  ✅ GAGNÉ Ethereum Up or Down - November 24, 6:15PM-6:30PM ET [Up] P&L +1.92 $ → capital 104.63 $",
+    "2026-11-24 23:37:06 UTC  BTC ouverture 59,948.63 spot 59,781.49 σ/min 0.039% → P(Up) modèle 0.03 | pas d'avantage suffisant (-0.023 sur Up à 0.05)",
+    "2026-11-24 23:37:06 UTC  ETH ouverture 1,681.32 spot 1,677.42 σ/min 0.047% → P(Up) modèle 0.03 | pas d'avantage suffisant (-0.022 sur Up à 0.05)"
   ],
   "halted": false,
   "last_report": "2026-11-24"
