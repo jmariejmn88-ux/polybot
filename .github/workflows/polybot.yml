@@ -38,6 +38,14 @@ jobs:
           DAILY_LOSS_LIMIT: "10"
           MIN_BANKROLL: "10"
           ASSETS: "btc,eth"
+          # Module sport (simulation) : foot + NBA, cotes Pinnacle via PinnFeed (plan gratuit)
+          SPORTS: "1"
+          SPORTS_LIST: "foot,nba"
+          SPORTS_START_BANKROLL: "100"
+          SPORTS_STAKE: "2"
+          SPORTS_MIN_EDGE: "0.03"
+          SPORTS_EVERY_MIN: "10"
+          PINNFEED_KEY: ${{ secrets.PINNFEED_KEY }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python run_loop.py --minutes 345 --every 60 --save-every 300

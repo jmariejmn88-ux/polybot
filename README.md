@@ -66,6 +66,36 @@ le bot actif **~5h45 par session** : un passage par minute, et une sauvegarde de
 `data/` toutes les 5 minutes (ou tout de suite quand un pari est pris ou réglé). Un déclenchement
 horaire garde toujours une nouvelle session prête à prendre le relais.
 
+## Paris sportifs (simulation) — foot + NBA
+
+Le module `sports.py` tourne dans la même boucle que le bot crypto, avec sa propre
+bankroll virtuelle de 100 $ (séparée).
+
+**Principe** : PinnFeed fournit les cotes de Pinnacle et la probabilité « sans marge »
+de chaque issue. Quand Polymarket vend une issue moins cher que cette probabilité
+(frais de 5 % × p × (1 − p) compris) d'au moins 3 points, le bot prend un pari virtuel
+de 2 $, au plus un par match, entre 15 min et 36 h avant le coup d'envoi. Il le règle
+quand Polymarket publie le résultat.
+
+- Foot : toutes les ligues présentes à la fois chez Pinnacle et sur Polymarket
+  (grands championnats, divisions 2, MLS, coupes, Ligue des champions, Europa League,
+  compétitions internationales…). Résultat 1X2 sur le temps réglementaire.
+- Basket : NBA (prolongation comprise).
+- Recherche toutes les 10 min : environ 290 requêtes PinnFeed par jour (plafond 900, quota gratuit 1 000).
+
+**Mise en route** :
+1. Créer une clé gratuite sur pinnfeed.io et choisir les 2 sports **soccer** et **basketball**.
+2. Dans GitHub : Settings → Secrets and variables → Actions → New repository secret,
+   nom `PINNFEED_KEY`, valeur = la clé. Ne jamais la coller ailleurs.
+3. Sans clé, le module reste en attente et le bot crypto continue normalement.
+
+**Résultats** : `data/sports_summary.md` (résumé), `data/sports_trades.csv` (paris réglés),
+`data/sports_state.json` (état). Le résumé compare le résultat réel au résultat
+« attendu » selon Pinnacle : il faut plusieurs centaines de paris pour conclure.
+
+Réglages (dans le workflow) : `SPORTS` (1/0), `SPORTS_LIST`, `SPORTS_STAKE`,
+`SPORTS_MIN_EDGE`, `SPORTS_EVERY_MIN`, `SPORTS_USE_KELLY`.
+
 ## Ce que le 1er backtest a montré (19/11/2026)
 
 Lancé sur 7 jours (1 344 marchés) : **aucun avantage prouvé** une fois corrigé le retard des prix historiques.
