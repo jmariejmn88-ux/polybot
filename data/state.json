@@ -1,8 +1,28 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 100.0,
+  "bankroll": 97.7138,
   "created": "2026-11-24 18:46:36 UTC",
-  "open": [],
+  "open": [
+    {
+      "slug": "eth-updown-15m-1795560300",
+      "title": "Ethereum Up or Down - November 24, 5:45PM-6:00PM ET",
+      "asset": "eth",
+      "side": "Down",
+      "price": 0.44,
+      "shares": 5.0,
+      "cost": 2.2862,
+      "model_p": 0.5601,
+      "edge": 0.1029,
+      "secs_left": 294,
+      "spot": 1684.2,
+      "open_price": 1684.435,
+      "sigma_min": 0.000448,
+      "fee": 0.0862,
+      "mode": "PAPER",
+      "reason": "modèle 0.56 vs prix 0.44 → avantage +0.103",
+      "opened_at": "2026-11-24 22:55:06 UTC"
+    }
+  ],
   "closed": [],
   "log": [
     "2026-11-24 18:46:36 UTC  — exécution — MODE : PAPER",
@@ -70,7 +90,13 @@
     "2026-11-24 22:52:06 UTC  ETH ouverture 1,684.43 spot 1,683.60 σ/min 0.048% → P(Up) modèle 0.35 | pas d'avantage suffisant (+0.013 sur Down à 0.62)",
     "2026-11-24 22:53:05 UTC  — exécution — MODE : PAPER",
     "2026-11-24 22:53:06 UTC  BTC ouverture 59,970.36 spot 59,935.23 σ/min 0.041% → P(Up) modèle 0.28 | pas d'avantage suffisant (+0.020 sur Up à 0.25)",
-    "2026-11-24 22:53:06 UTC  ETH ouverture 1,684.39 spot 1,683.96 σ/min 0.046% → P(Up) modèle 0.41 | pas d'avantage suffisant (+0.031 sur Down à 0.54)"
+    "2026-11-24 22:53:06 UTC  ETH ouverture 1,684.39 spot 1,683.96 σ/min 0.046% → P(Up) modèle 0.41 | pas d'avantage suffisant (+0.031 sur Down à 0.54)",
+    "2026-11-24 22:54:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 22:54:06 UTC  BTC ouverture 59,970.36 spot 59,947.31 σ/min 0.041% → P(Up) modèle 0.34 | pas d'avantage suffisant (+0.005 sur Up à 0.32)",
+    "2026-11-24 22:54:06 UTC  ETH ouverture 1,684.43 spot 1,684.71 σ/min 0.045% → P(Up) modèle 0.56 | pas d'avantage suffisant (+0.030 sur Down à 0.39)",
+    "2026-11-24 22:55:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 22:55:06 UTC  BTC ouverture 59,970.36 spot 59,931.93 σ/min 0.041% → P(Up) modèle 0.22 | pas d'avantage suffisant (-0.009 sur Up à 0.22)",
+    "2026-11-24 22:55:06 UTC  ETH ouverture 1,684.43 spot 1,684.20 σ/min 0.045% → P(Up) modèle 0.44 | 🟢 ACHAT fictif 5.00 parts Down à 0.44 (coût 2.29 $, avantage +0.103)"
   ],
   "halted": false,
   "last_report": "2026-11-24"
