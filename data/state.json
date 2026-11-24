@@ -1,8 +1,9 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 97.7138,
+  "bankroll": 102.7138,
   "created": "2026-11-24 18:46:36 UTC",
-  "open": [
+  "open": [],
+  "closed": [
     {
       "slug": "eth-updown-15m-1795560300",
       "title": "Ethereum Up or Down - November 24, 5:45PM-6:00PM ET",
@@ -20,10 +21,13 @@
       "fee": 0.0862,
       "mode": "PAPER",
       "reason": "modèle 0.56 vs prix 0.44 → avantage +0.103",
-      "opened_at": "2026-11-24 22:55:06 UTC"
+      "opened_at": "2026-11-24 22:55:06 UTC",
+      "won": true,
+      "payout": 5.0,
+      "pnl": 2.7138,
+      "settled_at": "2026-11-24 23:02:05 UTC"
     }
   ],
-  "closed": [],
   "log": [
     "2026-11-24 18:46:36 UTC  — exécution — MODE : PAPER",
     "2026-11-24 18:46:36 UTC  BTC : 804s restantes, hors plage d'entrée",
@@ -114,7 +118,11 @@
     "2026-11-24 23:00:05 UTC  ETH : 895s restantes, hors plage d'entrée",
     "2026-11-24 23:01:05 UTC  — exécution — MODE : PAPER",
     "2026-11-24 23:01:06 UTC  BTC : 834s restantes, hors plage d'entrée",
-    "2026-11-24 23:01:06 UTC  ETH : 834s restantes, hors plage d'entrée"
+    "2026-11-24 23:01:06 UTC  ETH : 834s restantes, hors plage d'entrée",
+    "2026-11-24 23:02:05 UTC  — exécution — MODE : PAPER",
+    "2026-11-24 23:02:05 UTC  ✅ GAGNÉ Ethereum Up or Down - November 24, 5:45PM-6:00PM ET [Down] P&L +2.71 $ → capital 102.71 $",
+    "2026-11-24 23:02:05 UTC  BTC : 775s restantes, hors plage d'entrée",
+    "2026-11-24 23:02:05 UTC  ETH : 775s restantes, hors plage d'entrée"
   ],
   "halted": false,
   "last_report": "2026-11-24"
