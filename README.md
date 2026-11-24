@@ -1,4 +1,4 @@
-# PolyBot v2 — paper trading sur Polymarket (crypto Up/Down 15 min)
+# PolyBot v2 — paper trading sur Polymarket 
 
 Bot qui **simule** des paris sur les marchés « Bitcoin / Ethereum Up or Down — 15 minutes » de Polymarket, avec **100 $ fictifs**.
 Il ne touche à aucun argent réel : pas de clé, pas de portefeuille.
@@ -43,7 +43,7 @@ Toutes les 5 minutes :
 
 ---
 
-## Installation (sans coder, ~10 minutes)
+## Installation 
 
 1. Crée un compte gratuit sur **github.com**.
 2. Clique sur **+** → **New repository** → nom : `polybot` → choisis **Public** → **Create repository**.
@@ -63,7 +63,7 @@ C'est tout : il tournera ensuite tout seul toutes les ~5 minutes, jour et nuit.
 Lancé sur 7 jours (1 344 marchés) : **aucun avantage prouvé** une fois corrigé le retard des prix historiques.
 Détails dans `learning.md`. Le bot reste donc en **simulation**, et c'est la simulation en direct qui tranchera.
 
-## Étape 1 : lancer le backtest (à faire en premier)
+## Étape 1 : lancer le backtest 
 
 Onglet **Actions** → **PolyBot Backtest** → **Run workflow** → laisse `7` jours et `btc,eth` → **Run workflow**.
 Après ~10 à 20 minutes, le rapport apparaît dans **`data/backtest.md`** (et en bas de la page de l'exécution).
