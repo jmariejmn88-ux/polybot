@@ -9,7 +9,7 @@ Le but : voir pendant 2 à 4 semaines si la stratégie gagne **vraiment** avant 
 
 ## Comment il décide
 
-Toutes les 5 minutes :
+Toutes les minutes (le bot tourne en continu, voir « Fonctionnement en continu ») :
 
 1. **Il règle les paris terminés** : gagné, la part vaut 1 $ ; perdu, elle vaut 0 $.
 2. **Il regarde la fenêtre de 15 min en cours** (ex. 14h00–14h15) :
@@ -56,7 +56,15 @@ Toutes les 5 minutes :
 5. Onglet **Settings** → **Actions** → **General** → *Workflow permissions* → coche **Read and write permissions** → **Save**.
 6. Onglet **Actions** → active les workflows si GitHub le demande → choisis **PolyBot (paper trading)** → **Run workflow**.
 
-C'est tout : il tournera ensuite tout seul toutes les ~5 minutes, jour et nuit.
+C'est tout : il tournera ensuite tout seul, jour et nuit.
+
+## Fonctionnement en continu
+
+Sur le plan gratuit, GitHub ne lance pas un workflow « toutes les 5 minutes » de façon fiable
+(parfois une seule fois toutes les 1 à 2 heures). Le workflow lance donc `run_loop.py`, qui garde
+le bot actif **~5h45 par session** : un passage par minute, et une sauvegarde des résultats dans
+`data/` toutes les 5 minutes (ou tout de suite quand un pari est pris ou réglé). Un déclenchement
+horaire garde toujours une nouvelle session prête à prendre le relais.
 
 ## Ce que le 1er backtest a montré (19/11/2026)
 
