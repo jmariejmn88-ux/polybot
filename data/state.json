@@ -1,8 +1,41 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 107.1811,
+  "bankroll": 105.1811,
   "created": "2026-11-24 18:46:36 UTC",
-  "open": [],
+  "open": [
+    {
+      "slug": "eth-updown-15m-1795572000",
+      "title": "Ethereum Up or Down - November 24, 9:00PM-9:15PM ET",
+      "asset": "eth",
+      "side": "Up",
+      "price": 0.16,
+      "shares": 11.8058,
+      "cost": 2.0,
+      "model_p": 0.3053,
+      "edge": 0.1359,
+      "secs_left": 146,
+      "spot": 1655.15,
+      "open_price": 1656.305,
+      "sigma_min": 0.001031,
+      "fee": 0.1111,
+      "mode": "PAPER",
+      "kelly_f": 0.1636,
+      "kelly_stake": 4.38,
+      "sizing": "fixe",
+      "ctx": {
+        "whale_mult": 1.74,
+        "whale_net24_usd": -104008509,
+        "whale_buyshare24": 0.322,
+        "funding": 5.959172108157128e-05,
+        "funding_pct": 95,
+        "funding_band": "top 25%",
+        "oi_pct": 5,
+        "oi_band": "record low"
+      },
+      "reason": "modèle 0.31 vs prix 0.16 → avantage +0.136",
+      "opened_at": "2026-11-25 02:12:36 UTC"
+    }
+  ],
   "closed": [
     {
       "slug": "eth-updown-15m-1795560300",
@@ -134,9 +167,6 @@
     }
   ],
   "log": [
-    "2026-11-25 00:12:05 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 00:12:05 UTC  BTC : déjà positionné sur cette fenêtre",
-    "2026-11-25 00:12:06 UTC  ETH ouverture 1,677.44 spot 1,671.07 σ/min 0.050% → P(Up) modèle 0.03 | pas d'avantage suffisant (aucun prix)",
     "2026-11-25 00:13:05 UTC  — exécution — MODE : PAPER",
     "2026-11-25 00:13:05 UTC  BTC : déjà positionné sur cette fenêtre",
     "2026-11-25 00:13:05 UTC  ETH : 115s restantes, hors plage d'entrée",
@@ -433,7 +463,10 @@
     "2026-11-25 02:10:35 UTC  ETH ouverture 1,656.31 spot 1,651.81 σ/min 0.103% → P(Up) modèle 0.09 | pas d'avantage suffisant (+0.022 sur Up à 0.06)",
     "2026-11-25 02:11:34 UTC  — exécution — MODE : PAPER",
     "2026-11-25 02:11:34 UTC  BTC ouverture 59,222.22 spot 58,955.06 σ/min 0.092% → P(Up) modèle 0.03 | pas d'avantage suffisant (aucun prix)",
-    "2026-11-25 02:11:34 UTC  ETH ouverture 1,656.31 spot 1,652.53 σ/min 0.103% → P(Up) modèle 0.09 | pas d'avantage suffisant (aucun prix)"
+    "2026-11-25 02:11:34 UTC  ETH ouverture 1,656.31 spot 1,652.53 σ/min 0.103% → P(Up) modèle 0.09 | pas d'avantage suffisant (aucun prix)",
+    "2026-11-25 02:12:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 02:12:34 UTC  BTC ouverture 59,193.01 spot 59,090.45 σ/min 0.094% → P(Up) modèle 0.08 | pas d'avantage suffisant (+0.028 sur Up à 0.05)",
+    "2026-11-25 02:12:36 UTC  ETH ouverture 1,656.31 spot 1,655.15 σ/min 0.103% → P(Up) modèle 0.31 | 🟢 ACHAT fictif 11.81 parts Up à 0.16 (coût 2.00 $, avantage +0.136, Kelly ¼ suggère 4.38 $) | baleines x1.74, funding top 25%"
   ],
   "halted": false,
   "last_report": "2026-11-24"
