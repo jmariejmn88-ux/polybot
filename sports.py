@@ -435,6 +435,34 @@ def best_ask(token):
     return p, sum(s for x, s in asks if x == p)
 
 
+def watch_entry(g, t1, t2, sels, pe, flip):
+    """Photo d'un match analysé, pour le tableau de bord (prix Polymarket vs Pinnacle)."""
+    pm, rates = {}, {}
+    for _label, role, _tok, gprice, rate, _mid in sels:
+        if role in ("home", "away", "draw") and gprice is not None:
+            pm[role], rates[role] = round(gprice, 4), rate
+    pin, edge = {}, {}
+    if pe:
+        for role in pm:
+            f = fair_for(role, pe["probs"], flip)
+            if f is not None:
+                pin[role] = round(f, 4)
+                edge[role] = round(f - cost_per_share(pm[role], rates[role]), 4)
+    return {"slug": g["slug"], "match": g["title"], "t1": t1, "t2": t2, "start": iso(g["start"]),
+            "ligue": (pe or {}).get("league") or g.get("league", ""), "pm": pm, "pin": pin, "edge": edge}
+
+
+def clean_watch(st):
+    """Retire les matchs commencés depuis plus de 3 h."""
+    limit = now() - dt.timedelta(hours=3)
+    for k in list(st.get("watch", {})):
+        games = [x for x in st["watch"][k].get("games", []) if (parse_time(x.get("start")) or now()) > limit]
+        if games:
+            st["watch"][k]["games"] = games
+        else:
+            del st["watch"][k]
+
+
 # ----------------------------------------------------------------- règlement
 def settle(st):
     changed = False
@@ -532,14 +560,17 @@ def scan(st):
     if skipped:
         log(st, f"recherche : pas de match Polymarket dans les {int((smax - t0).total_seconds() // 3600)} h "
                 f"pour {', '.join(skipped)} (aucun crédit utilisé)")
+    watch = st.setdefault("watch", {})
     for key, has_draw, games, pinn in found:
         matched = 0
         cands = []
+        snap = []
         for g in games:
             if g["slug"] in taken:
                 continue
             t1, t2, sels = pm_selections(g, has_draw)
             pe, flip = match_pinn(g, t1, t2, pinn)
+            snap.append(watch_entry(g, t1, t2, sels, pe, flip))
             if not pe:
                 continue
             matched += 1
@@ -551,6 +582,7 @@ def scan(st):
                 if fair - cost_per_share(gprice, rate) < CFG["MIN_EDGE"] - 0.02:
                     continue
                 cands.append((g, pe, label, role, tok, rate, fair, mid))
+        watch[key] = {"at": iso(now()), "games": snap}
         log(st, f"{key} : {len(games)} matchs Polymarket, {len(pinn)} Pinnacle, "
                 f"{matched} appariés, {len(cands)} pistes")
         for g, pe, label, role, tok, rate, fair, mid in cands:
@@ -653,6 +685,7 @@ def main(force_scan=False):
     last = parse_time(st.get("last_scan"))
     try:
         settle(st)
+        clean_watch(st)
         if force_scan or not last or (now() - last).total_seconds() >= every:
             st["last_scan"] = iso(now())
             scan(st)
