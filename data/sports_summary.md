@@ -1,6 +1,6 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-25T05:30:34Z
+Mis à jour : 2026-11-25T05:36:34Z
 
 - Bankroll disponible : **100.00 $** (départ 100 $)
 - En jeu : 0 pari(s), 0.00 $
@@ -10,4 +10,4 @@ Mis à jour : 2026-11-25T05:30:34Z
 
 Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel varie beaucoup. Il faut plusieurs centaines de paris pour conclure.
 
-Source des cotes : The Odds API (Pinnacle) — crédits restants ce mois-ci : ? / 500
+Source des cotes : The Odds API (Pinnacle) — crédits restants ce mois-ci : 499 / 500

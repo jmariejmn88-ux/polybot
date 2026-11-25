@@ -4,6 +4,11 @@
  "open": [],
  "closed": [],
  "pinn_calls": {},
- "log": [],
- "last_scan": "2026-11-25T00:45:22Z"
+ "log": [
+  "2026-11-25T05:33:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1 (aucun cr\u00e9dit utilis\u00e9)",
+  "2026-11-25T05:33:35Z ucl : 9 matchs Polymarket, 9 Pinnacle, 7 appari\u00e9s, 0 pistes"
+ ],
+ "last_scan": "2026-11-25T05:33:34Z",
+ "odds_remaining": 499,
+ "odds_used": 1
 }
