@@ -93,6 +93,15 @@ quand Polymarket publie le résultat.
 `data/sports_state.json` (état). Le résumé compare le résultat réel au résultat
 « attendu » selon Pinnacle : il faut plusieurs centaines de paris pour conclure.
 
+**Source de secours : The Odds API** (en attendant une clé PinnFeed). Avec le secret
+`ODDS_API_KEY`, le bot prend les cotes Pinnacle sur The Odds API (plan gratuit :
+500 crédits / mois) pour les 5 grands championnats (Premier League, Liga, Bundesliga,
+Serie A, Ligue 1). Recherche ~5 fois par jour, sur les matchs des 24 h suivantes, et
+seulement pour les ligues qui ont un match à venir (≈ 320 crédits / mois). Le bot
+s'arrête de lui-même s'il ne reste que 15 crédits. Dès que `PINNFEED_KEY` existe,
+PinnFeed reprend la main automatiquement. Ligues modifiables avec `ODDS_LEAGUES`
+(disponibles : epl, laliga, bundesliga, seriea, ligue1, ucl, mls, nba).
+
 Réglages (dans le workflow) : `SPORTS` (1/0), `SPORTS_LIST`, `SPORTS_STAKE`,
 `SPORTS_MIN_EDGE`, `SPORTS_EVERY_MIN`, `SPORTS_USE_KELLY`.
 

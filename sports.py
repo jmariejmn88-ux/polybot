@@ -40,6 +40,8 @@ CLOB = "https://clob.polymarket.com"
 PINN = "https://pinnfeed.io/v1"
 
 PINN_KEY = os.environ.get("PINNFEED_KEY", "").strip()
+ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
+ODDS = "https://api.the-odds-api.com/v4"
 
 
 def _f(name, default):
@@ -72,6 +74,34 @@ SPORTS = {
     "nba": {"tag": 745, "pinn": "basketball", "draw": False},
 }
 ENABLED = [s.strip() for s in os.environ.get("SPORTS_LIST", "foot,nba").split(",") if s.strip()]
+
+# Source de secours : The Odds API (plan gratuit = 500 crédits / mois).
+# Une requête = une ligue = 1 crédit. On ne l'appelle que pour les ligues qui ont
+# un match Polymarket à venir, ~5 fois par jour.
+# nom : (clé The Odds API, série Polymarket, match nul possible)
+ODDS_LEAGUES = {
+    "epl": ("soccer_epl", 10188, True),
+    "laliga": ("soccer_spain_la_liga", 10193, True),
+    "bundesliga": ("soccer_germany_bundesliga", 10194, True),
+    "seriea": ("soccer_italy_serie_a", 10203, True),
+    "ligue1": ("soccer_france_ligue_one", 10195, True),
+    "ucl": ("soccer_uefa_champs_league", 10204, True),
+    "mls": ("soccer_usa_mls", 10189, True),
+    "nba": ("basketball_nba", 10345, False),
+}
+ODDS_ENABLED = [s.strip() for s in os.environ.get(
+    "ODDS_LEAGUES", "epl,laliga,bundesliga,seriea,ligue1").split(",") if s.strip()]
+ODDS_RESERVE = _f("ODDS_RESERVE", 15)  # crédits gardés en réserve
+
+
+def source():
+    """PinnFeed si sa clé existe (plus complet), sinon The Odds API."""
+    forced = os.environ.get("SPORTS_SOURCE", "auto")
+    if forced == "pinnfeed" or (forced == "auto" and PINN_KEY):
+        return "pinnfeed" if PINN_KEY else None
+    if forced in ("oddsapi", "auto") and ODDS_KEY:
+        return "oddsapi"
+    return None
 
 CSV_HEADER = ["id", "sport", "ligue", "match", "coup_envoi", "selection", "token",
               "prix", "cout_part", "parts", "mise", "proba_pinnacle", "avantage",
@@ -249,13 +279,72 @@ def pinn_moneylines(st, sport_slug):
     return out
 
 
+# ----------------------------------------------------------------- The Odds API
+def odds_get(st, sport_key):
+    rem = st.get("odds_remaining")
+    if rem is not None and rem <= ODDS_RESERVE:
+        raise QuotaAtteint(f"crédits The Odds API presque épuisés ({rem} restants) : pause jusqu'au mois prochain")
+    params = {"apiKey": ODDS_KEY, "bookmakers": "pinnacle", "markets": "h2h",
+              "oddsFormat": "decimal", "dateFormat": "iso"}
+    url = f"{ODDS}/sports/{sport_key}/odds?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "polybot-paper/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            for h, k in (("x-requests-remaining", "odds_remaining"), ("x-requests-used", "odds_used")):
+                v = r.headers.get(h)
+                if v is not None:
+                    try:
+                        st[k] = int(float(v))
+                    except ValueError:
+                        pass
+            return json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            raise QuotaAtteint("The Odds API : trop de requêtes (429)") from e
+        if e.code == 401:
+            raise QuotaAtteint("The Odds API : clé refusée ou crédits épuisés (401) — vérifie ODDS_API_KEY") from e
+        raise
+
+
+def odds_moneylines(st, sport_key):
+    """Probabilités Pinnacle sans marge (méthode multiplicative) au format commun."""
+    out = []
+    for e in odds_get(st, sport_key) or []:
+        bk = next((b for b in e.get("bookmakers") or [] if b.get("key") == "pinnacle"), None)
+        mk = next((m for m in (bk or {}).get("markets") or [] if m.get("key") == "h2h"), None)
+        if not mk:
+            continue
+        inv = {}
+        for o in mk.get("outcomes") or []:
+            try:
+                price = float(o["price"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if price <= 1:
+                continue
+            name = o.get("name")
+            role = ("home" if name == e.get("home_team") else
+                    "away" if name == e.get("away_team") else
+                    "draw" if str(name).lower() == "draw" else None)
+            if role:
+                inv[role] = 1 / price
+        if "home" not in inv or "away" not in inv:
+            continue
+        tot = sum(inv.values())
+        out.append({"home": e.get("home_team"), "away": e.get("away_team"),
+                    "start": parse_time(e.get("commence_time")), "league": e.get("sport_title") or sport_key,
+                    "probs": {k: v / tot for k, v in inv.items()}, "updated": mk.get("last_update")})
+    return out
+
+
 # ----------------------------------------------------------------- Polymarket
-def pm_games(tag, start_min, start_max):
+def pm_games(tag, start_min, start_max, series=None):
     """Matchs Polymarket (marchés « moneyline ») dont le coup d'envoi est dans la fenêtre."""
     games, offset = [], 0
+    filt = {"series_id": series} if series else {"tag_id": tag}
     while offset < 2500:  # pages de 50 (au-delà, Polymarket exige la compression gzip)
         page = bot.http_json(f"{GAMMA}/events", {
-            "tag_id": tag, "closed": "false", "limit": 50, "offset": offset,
+            **filt, "closed": "false", "limit": 50, "offset": offset,
             "end_date_min": iso(start_min - dt.timedelta(hours=1)),
             "end_date_max": iso(start_max + dt.timedelta(hours=1))})
         for e in page:
@@ -390,34 +479,59 @@ def settle(st):
 
 
 # ----------------------------------------------------------------- recherche de paris
+def groups(st, smin, smax, taken):
+    """Donne, ligue par ligue : (nom, nul possible, matchs Polymarket, cotes Pinnacle)."""
+    src = source()
+    if src == "pinnfeed":
+        for key in ENABLED:
+            sp = SPORTS.get(key)
+            if not sp:
+                continue
+            try:
+                yield key, sp["draw"], pm_games(sp["tag"], smin, smax), pinn_moneylines(st, sp["pinn"])
+            except QuotaAtteint:
+                raise
+            except Exception as e:  # noqa: BLE001
+                log(st, f"{key} : données indisponibles ({e})")
+    elif src == "oddsapi":
+        for key in ODDS_ENABLED:
+            lg = ODDS_LEAGUES.get(key)
+            if not lg:
+                continue
+            sport_key, series, draw = lg
+            try:
+                games = [g for g in pm_games(None, smin, smax, series=series) if g["slug"] not in taken]
+                if not games:  # pas de match à venir : on économise un crédit
+                    continue
+                yield key, draw, games, odds_moneylines(st, sport_key)
+            except QuotaAtteint:
+                raise
+            except Exception as e:  # noqa: BLE001
+                log(st, f"{key} : données indisponibles ({e})")
+
+
 def scan(st):
-    if not PINN_KEY:
-        log(st, "PINNFEED_KEY absente : module sport en attente (ajoute le secret GitHub).")
+    if not source():
+        log(st, "aucune clé de cotes (PINNFEED_KEY ou ODDS_API_KEY) : module sport en attente.")
         return 0
     t0 = now()
     smin = t0 + dt.timedelta(hours=CFG["MIN_HOURS"])
-    smax = t0 + dt.timedelta(hours=CFG["MAX_HOURS"])
+    # The Odds API : fenêtre de 24 h pour ménager les crédits (~320 / mois pour 5 ligues)
+    smax = t0 + dt.timedelta(hours=_f("SPORTS_MAX_HOURS", 36 if source() == "pinnfeed" else 24))
     taken = {b["evt"] for b in st["open"]}
     new = 0
-    for key in ENABLED:
-        sp = SPORTS.get(key)
-        if not sp:
-            continue
-        try:
-            pinn = pinn_moneylines(st, sp["pinn"])
-            games = pm_games(sp["tag"], smin, smax)
-        except QuotaAtteint as e:
-            log(st, str(e))
-            return new
-        except Exception as e:  # noqa: BLE001
-            log(st, f"{key} : données indisponibles ({e})")
-            continue
+    try:
+        found = list(groups(st, smin, smax, taken))
+    except QuotaAtteint as e:
+        log(st, str(e))
+        return 0
+    for key, has_draw, games, pinn in found:
         matched = 0
         cands = []
         for g in games:
             if g["slug"] in taken:
                 continue
-            t1, t2, sels = pm_selections(g, sp["draw"])
+            t1, t2, sels = pm_selections(g, has_draw)
             pe, flip = match_pinn(g, t1, t2, pinn)
             if not pe:
                 continue
@@ -516,14 +630,19 @@ def write_summary(st):
             lines.append(f"| {b['match']} | {b['selection']} | {b['statut']} | {float(b['gain']):+.2f} $ |")
         lines.append("")
     day = now().strftime("%Y-%m-%d")
-    lines.append(f"Requêtes PinnFeed aujourd'hui : {st['pinn_calls'].get(day, 0)} / 1 000")
+    if source() == "oddsapi":
+        lines.append(f"Source des cotes : The Odds API (Pinnacle) — crédits restants ce mois-ci : "
+                     f"{st.get('odds_remaining', '?')} / 500")
+    else:
+        lines.append(f"Requêtes PinnFeed aujourd'hui : {st['pinn_calls'].get(day, 0)} / 1 000")
     with open(SUMMARY_FILE, "w") as fh:
         fh.write("\n".join(lines) + "\n")
 
 
 def main(force_scan=False):
     st = load_state()
-    every = _f("SPORTS_EVERY_MIN", 10) * 60
+    # PinnFeed : toutes les 10 min ; The Odds API : ~5 fois par jour (quota de 500 crédits / mois)
+    every = _f("SPORTS_EVERY_MIN", 10 if source() == "pinnfeed" else 288) * 60
     last = parse_time(st.get("last_scan"))
     try:
         settle(st)
