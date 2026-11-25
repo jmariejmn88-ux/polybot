@@ -1,22 +1,24 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-25 03:02:34 UTC_
+_Mis à jour : 2026-11-25 03:06:34 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
 | Capital disponible | 94.49 $ |
-| Engagé (paris en cours) | 4.00 $ |
-| **Valeur totale** | **98.49 $ (-1.5 %)** |
-| Paris réglés | 9 |
-| Taux de réussite | 56 % |
-| Gain net cumulé | -1.51 $ |
+| Engagé (paris en cours) | 0.00 $ |
+| **Valeur totale** | **94.49 $ (-5.5 %)** |
+| Paris réglés | 11 |
+| Taux de réussite | 45 % |
+| Gain net cumulé | -5.51 $ |
 | Statut | 🟢 actif |
 
 ## Derniers paris
 
 | Date | Marché | Côté | Prix | Résultat | Gain |
 |---|---|---|---|---|---|
+| 2026-11-25 02:50 | Ethereum Up or Down - November 24, 9:45PM-10:00PM ET | Down | 0.14 | ❌ | -2.00 $ |
+| 2026-11-25 02:50 | Bitcoin Up or Down - November 24, 9:45PM-10:00PM ET | Down | 0.15 | ❌ | -2.00 $ |
 | 2026-11-25 02:42 | Ethereum Up or Down - November 24, 9:30PM-9:45PM ET | Up | 0.14 | ❌ | -2.00 $ |
 | 2026-11-25 02:27 | Ethereum Up or Down - November 24, 9:15PM-9:30PM ET | Down | 0.32 | ❌ | -2.00 $ |
 | 2026-11-25 02:27 | Bitcoin Up or Down - November 24, 9:15PM-9:30PM ET | Down | 0.52 | ❌ | -2.69 $ |
@@ -26,25 +28,10 @@ _Mis à jour : 2026-11-25 03:02:34 UTC_
 | 2026-11-25 00:08 | Bitcoin Up or Down - November 24, 7:00PM-7:15PM ET | Down | 0.87 | ✅ | +0.61 $ |
 | 2026-11-24 23:22 | Ethereum Up or Down - November 24, 6:15PM-6:30PM ET | Up | 0.60 | ✅ | +1.92 $ |
 | 2026-11-24 22:55 | Ethereum Up or Down - November 24, 5:45PM-6:00PM ET | Down | 0.44 | ✅ | +2.71 $ |
-| 2026-11-25 02:50 | Bitcoin Up or Down - November 24, 9:45PM-10:00PM ET | Down | 0.15 | ⏳ | — |
-| 2026-11-25 02:50 | Ethereum Up or Down - November 24, 9:45PM-10:00PM ET | Down | 0.14 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-25 02:56:34 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-25 02:56:34 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-25 02:57:34 UTC  — exécution — MODE : PAPER
-2026-11-25 02:57:34 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-25 02:57:34 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-25 02:58:34 UTC  — exécution — MODE : PAPER
-2026-11-25 02:58:34 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-25 02:58:34 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-25 02:59:34 UTC  — exécution — MODE : PAPER
-2026-11-25 02:59:34 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-25 02:59:34 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-25 03:00:34 UTC  — exécution — MODE : PAPER
-2026-11-25 03:00:39 UTC  BTC : 861s restantes, hors plage d'entrée
 2026-11-25 03:00:39 UTC  ETH : 861s restantes, hors plage d'entrée
 2026-11-25 03:01:34 UTC  — exécution — MODE : PAPER
 2026-11-25 03:01:34 UTC  BTC : 806s restantes, hors plage d'entrée
@@ -52,4 +39,17 @@ _Mis à jour : 2026-11-25 03:02:34 UTC_
 2026-11-25 03:02:34 UTC  — exécution — MODE : PAPER
 2026-11-25 03:02:34 UTC  BTC : 746s restantes, hors plage d'entrée
 2026-11-25 03:02:34 UTC  ETH : 746s restantes, hors plage d'entrée
+2026-11-25 03:03:34 UTC  — exécution — MODE : PAPER
+2026-11-25 03:03:34 UTC  BTC : 686s restantes, hors plage d'entrée
+2026-11-25 03:03:34 UTC  ETH : 686s restantes, hors plage d'entrée
+2026-11-25 03:04:34 UTC  — exécution — MODE : PAPER
+2026-11-25 03:04:34 UTC  BTC : 626s restantes, hors plage d'entrée
+2026-11-25 03:04:34 UTC  ETH : 626s restantes, hors plage d'entrée
+2026-11-25 03:05:34 UTC  — exécution — MODE : PAPER
+2026-11-25 03:05:34 UTC  BTC ouverture 59,149.03 spot 59,022.90 σ/min 0.091% → P(Up) modèle 0.21 | pas d'avantage suffisant (+0.014 sur Up à 0.19)
+2026-11-25 03:05:35 UTC  ETH ouverture 1,653.91 spot 1,650.62 σ/min 0.101% → P(Up) modèle 0.25 | pas d'avantage suffisant (+0.031 sur Up à 0.21)
+2026-11-25 03:06:34 UTC  — exécution — MODE : PAPER
+2026-11-25 03:06:34 UTC  ❌ PERDU Bitcoin Up or Down - November 24, 9:45PM-10:00PM ET [Down] P&L -2.00 $ → capital 94.49 $
+2026-11-25 03:06:34 UTC  ❌ PERDU Ethereum Up or Down - November 24, 9:45PM-10:00PM ET [Down] P&L -2.00 $ → capital 94.49 $
+2026-11-25 03:06:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain
 ```
