@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-25 00:51:23 UTC_
+_Mis à jour : 2026-11-25 00:55:35 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -25,9 +25,6 @@ _Mis à jour : 2026-11-25 00:51:23 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-25 00:45:22 UTC  BTC : 878s restantes, hors plage d'entrée
-2026-11-25 00:45:22 UTC  ETH : 878s restantes, hors plage d'entrée
-2026-11-25 00:46:22 UTC  — exécution — MODE : PAPER
 2026-11-25 00:46:22 UTC  BTC : 818s restantes, hors plage d'entrée
 2026-11-25 00:46:22 UTC  ETH : 818s restantes, hors plage d'entrée
 2026-11-25 00:47:22 UTC  — exécution — MODE : PAPER
@@ -45,4 +42,7 @@ _Mis à jour : 2026-11-25 00:51:23 UTC_
 2026-11-25 00:51:22 UTC  — exécution — MODE : PAPER
 2026-11-25 00:51:23 UTC  BTC ouverture 59,530.07 spot 59,604.03 σ/min 0.057% → P(Up) modèle 0.78 | pas d'avantage suffisant (-0.002 sur Up à 0.77)
 2026-11-25 00:51:23 UTC  ETH ouverture 1,670.81 spot 1,673.18 σ/min 0.063% → P(Up) modèle 0.79 | pas d'avantage suffisant (+0.012 sur Down à 0.19)
+2026-11-25 00:55:34 UTC  — exécution — MODE : PAPER
+2026-11-25 00:55:34 UTC  BTC ouverture 59,530.07 spot 59,523.59 σ/min 0.058% → P(Up) modèle 0.46 | pas d'avantage suffisant (+0.021 sur Down à 0.50)
+2026-11-25 00:55:35 UTC  ETH ouverture 1,670.80 spot 1,669.95 σ/min 0.065% → P(Up) modèle 0.34 | pas d'avantage suffisant (-0.032 sur Up à 0.36)
 ```

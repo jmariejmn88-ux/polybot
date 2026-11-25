@@ -98,9 +98,6 @@
     }
   ],
   "log": [
-    "2026-11-24 22:55:06 UTC  BTC ouverture 59,970.36 spot 59,931.93 σ/min 0.041% → P(Up) modèle 0.22 | pas d'avantage suffisant (-0.009 sur Up à 0.22)",
-    "2026-11-24 22:55:06 UTC  ETH ouverture 1,684.43 spot 1,684.20 σ/min 0.045% → P(Up) modèle 0.44 | 🟢 ACHAT fictif 5.00 parts Down à 0.44 (coût 2.29 $, avantage +0.103)",
-    "2026-11-24 22:56:05 UTC  — exécution — MODE : PAPER",
     "2026-11-24 22:56:06 UTC  BTC ouverture 59,970.36 spot 59,921.02 σ/min 0.041% → P(Up) modèle 0.13 | pas d'avantage suffisant (+0.014 sur Up à 0.11)",
     "2026-11-24 22:56:06 UTC  ETH : déjà positionné sur cette fenêtre",
     "2026-11-24 22:57:05 UTC  — exécution — MODE : PAPER",
@@ -397,7 +394,10 @@
     "2026-11-25 00:50:23 UTC  ETH ouverture 1,670.81 spot 1,672.74 σ/min 0.063% → P(Up) modèle 0.73 | pas d'avantage suffisant (-0.004 sur Down à 0.26)",
     "2026-11-25 00:51:22 UTC  — exécution — MODE : PAPER",
     "2026-11-25 00:51:23 UTC  BTC ouverture 59,530.07 spot 59,604.03 σ/min 0.057% → P(Up) modèle 0.78 | pas d'avantage suffisant (-0.002 sur Up à 0.77)",
-    "2026-11-25 00:51:23 UTC  ETH ouverture 1,670.81 spot 1,673.18 σ/min 0.063% → P(Up) modèle 0.79 | pas d'avantage suffisant (+0.012 sur Down à 0.19)"
+    "2026-11-25 00:51:23 UTC  ETH ouverture 1,670.81 spot 1,673.18 σ/min 0.063% → P(Up) modèle 0.79 | pas d'avantage suffisant (+0.012 sur Down à 0.19)",
+    "2026-11-25 00:55:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 00:55:34 UTC  BTC ouverture 59,530.07 spot 59,523.59 σ/min 0.058% → P(Up) modèle 0.46 | pas d'avantage suffisant (+0.021 sur Down à 0.50)",
+    "2026-11-25 00:55:35 UTC  ETH ouverture 1,670.80 spot 1,669.95 σ/min 0.065% → P(Up) modèle 0.34 | pas d'avantage suffisant (-0.032 sur Up à 0.36)"
   ],
   "halted": false,
   "last_report": "2026-11-24"
