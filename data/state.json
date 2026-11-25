@@ -350,18 +350,6 @@
     }
   ],
   "log": [
-    "2026-11-25 17:26:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:26:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 17:27:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:27:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 17:28:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:28:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 17:29:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:29:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 17:30:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:30:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 17:31:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 17:31:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
     "2026-11-25 17:32:34 UTC  — exécution — MODE : PAPER",
     "2026-11-25 17:32:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
     "2026-11-25 17:33:34 UTC  — exécution — MODE : PAPER",
@@ -649,9 +637,21 @@
     "2026-11-25 19:54:34 UTC  — exécution — MODE : PAPER",
     "2026-11-25 19:54:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
     "2026-11-25 19:55:34 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 19:55:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain"
+    "2026-11-25 19:55:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 19:56:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 19:56:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 19:57:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 19:57:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 19:58:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 19:58:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 19:59:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 19:59:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 20:00:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 20:00:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-25 20:01:34 UTC  — exécution — MODE : PAPER",
+    "2026-11-25 20:01:34 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain"
   ],
   "halted": false,
-  "last_report": "2026-11-24",
+  "last_report": "2026-11-25",
   "paused_day": "2026-11-25"
 }
