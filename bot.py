@@ -38,6 +38,9 @@ CFG = {
     "MIN_SECONDS_LEFT": _f("MIN_SECONDS_LEFT", 120),
     "MAX_SECONDS_LEFT": _f("MAX_SECONDS_LEFT", 600),
     "MIN_PRICE": _f("MIN_PRICE", 0.05),
+    # Poids du modèle face au prix du marché (1 = modèle seul, 0 = marché seul).
+    # 0.5 : on ne parie que si le modèle s'écarte franchement du marché.
+    "MODEL_WEIGHT": _f("MODEL_WEIGHT", 0.5),
     "MAX_PRICE": _f("MAX_PRICE", 0.95),
     "MAX_TRADES_PER_DAY": _f("MAX_TRADES_PER_DAY", 20),
     "DAILY_LOSS_LIMIT": _f("DAILY_LOSS_LIMIT", 3.0),  # arrêt du jour si -3 $
@@ -340,6 +343,11 @@ def try_trade(st, asset):
     if not open_price:
         return log(st, f"{asset.upper()} : prix d'ouverture indisponible")
     p_up, sigma = prob_up(spot, open_price, closes, secs_left, inwin)
+    p_raw = p_up
+    p_mkt = ev["prices"].get("Up")
+    if p_mkt is not None and 0 < p_mkt < 1:
+        w = min(max(CFG["MODEL_WEIGHT"], 0.0), 1.0)
+        p_up = w * p_raw + (1 - w) * p_mkt  # modèle « rapproché » du marché : moins de faux signaux
     model = {"Up": p_up, "Down": 1 - p_up}
 
     best = None
@@ -353,7 +361,7 @@ def try_trade(st, asset):
             best = {"side": side, "ask": ask, "size": size, "cps": cps, "edge": edge}
 
     info = (f"{asset.upper()} ouverture {open_price:,.2f} spot {spot:,.2f} "
-            f"σ/min {sigma*100:.3f}% → P(Up) modèle {p_up:.2f}")
+            f"σ/min {sigma*100:.3f}% → P(Up) modèle {p_up:.2f} (brut {p_raw:.2f}, marché {p_mkt if p_mkt is not None else 0:.2f})")
     if not best or best["edge"] < CFG["MIN_EDGE"]:
         e = f"{best['edge']:+.3f} sur {best['side']} à {best['ask']:.2f}" if best else "aucun prix"
         return log(st, f"{info} | pas d'avantage suffisant ({e})")
@@ -375,6 +383,7 @@ def try_trade(st, asset):
     pos = {"slug": slug, "title": ev["title"], "asset": asset, "side": best["side"],
            "price": best["ask"], "shares": round(shares, 4), "cost": round(cost, 4),
            "model_p": round(model[best["side"]], 4), "edge": round(best["edge"], 4),
+           "model_raw": round(p_raw if best["side"] == "Up" else 1 - p_raw, 4),
            "secs_left": secs_left, "spot": spot, "open_price": open_price,
            "sigma_min": round(sigma, 6), "fee": round(shares * (best["cps"] - best["ask"]), 4),
            "mode": MODE, "kelly_f": round(kelly_f, 4), "kelly_stake": kelly_stake,
