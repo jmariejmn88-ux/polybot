@@ -45,8 +45,8 @@ jobs:
           SPORTS_STAKE: "2"
           SPORTS_MIN_EDGE: "0.03"
           # Cotes : PinnFeed si la clé existe (toutes les 10 min), sinon The Odds API
-          # (5 grands championnats, ~5 recherches par jour, 500 crédits gratuits / mois)
-          ODDS_LEAGUES: "epl,laliga,bundesliga,seriea,ligue1"
+          # (5 grands championnats + Ligue des champions, ~5 recherches par jour, 500 crédits gratuits / mois)
+          ODDS_LEAGUES: "epl,laliga,bundesliga,seriea,ligue1,ucl"
           PINNFEED_KEY: ${{ secrets.PINNFEED_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
