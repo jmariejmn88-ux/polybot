@@ -482,6 +482,7 @@ def settle(st):
 def groups(st, smin, smax, taken):
     """Donne, ligue par ligue : (nom, nul possible, matchs Polymarket, cotes Pinnacle)."""
     src = source()
+    skipped = st.setdefault("_skipped", [])
     if src == "pinnfeed":
         for key in ENABLED:
             sp = SPORTS.get(key)
@@ -502,6 +503,7 @@ def groups(st, smin, smax, taken):
             try:
                 games = [g for g in pm_games(None, smin, smax, series=series) if g["slug"] not in taken]
                 if not games:  # pas de match à venir : on économise un crédit
+                    skipped.append(key)
                     continue
                 yield key, draw, games, odds_moneylines(st, sport_key)
             except QuotaAtteint:
@@ -523,8 +525,13 @@ def scan(st):
     try:
         found = list(groups(st, smin, smax, taken))
     except QuotaAtteint as e:
+        st.pop("_skipped", None)
         log(st, str(e))
         return 0
+    skipped = st.pop("_skipped", [])
+    if skipped:
+        log(st, f"recherche : pas de match Polymarket dans les {int((smax - t0).total_seconds() // 3600)} h "
+                f"pour {', '.join(skipped)} (aucun crédit utilisé)")
     for key, has_draw, games, pinn in found:
         matched = 0
         cands = []
