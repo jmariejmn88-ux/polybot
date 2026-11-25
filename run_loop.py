@@ -46,7 +46,10 @@ def sauvegarder(motif):
         return
     git("commit", "-m", f"PolyBot: {motif} {time.strftime('%H:%M', time.gmtime())}")
     for essai in range(3):
-        git("pull", "--rebase", "--autostash")
+        # En cas de conflit sur data/ (ex. une ancienne session a sauvegardé entre-temps),
+        # on garde la version de cette session, qui est la plus récente.
+        if git("pull", "--rebase", "-X", "theirs", "--autostash").returncode != 0:
+            git("rebase", "--abort")
         if git("push").returncode == 0:
             print(f"💾 résultats sauvegardés ({motif})", flush=True)
             return
@@ -55,6 +58,10 @@ def sauvegarder(motif):
 
 
 def main():
+    # Repartir de la dernière version du dépôt (une session précédente a pu sauvegarder
+    # après le démarrage de celle-ci) et nettoyer un éventuel rebase resté bloqué.
+    git("rebase", "--abort")
+    git("pull", "--ff-only")
     ap = argparse.ArgumentParser()
     ap.add_argument("--minutes", type=float, default=345)
     ap.add_argument("--every", type=float, default=60)
