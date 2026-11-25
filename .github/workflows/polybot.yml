@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # pour relancer la session suivante à la fin de celle-ci
 
 concurrency:
   group: polybot
@@ -35,6 +36,8 @@ jobs:
           STAKE: "2"
           MAX_STAKE_PCT: "0.25"
           MIN_EDGE: "0.06"
+          MODEL_WEIGHT: "0.5"   # modèle rapproché du prix du marché (moins de faux signaux)
+          MIN_PRICE: "0.20"     # pas de pari sur les issues à moins de 20 ¢ (outsiders)
           DAILY_LOSS_LIMIT: "10"
           MIN_BANKROLL: "10"
           ASSETS: "btc,eth"
@@ -52,3 +55,11 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python run_loop.py --minutes 345 --every 60 --save-every 300
+      # Le planificateur GitHub (cron) est très irrégulier sur le plan gratuit.
+      # Chaque session relance donc la suivante elle-même. Annuler une session
+      # à la main arrête la chaîne ; le cron horaire la redémarre plus tard.
+      - name: Relancer la session suivante
+        if: success() || failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run polybot.yml --ref main --repo "${{ github.repository }}"
