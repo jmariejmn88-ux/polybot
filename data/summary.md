@@ -1,22 +1,23 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 01:18:48 UTC_
+_Mis à jour : 2026-11-26 01:19:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
-| Capital disponible | 92.59 $ |
-| Engagé (paris en cours) | 5.91 $ |
-| **Valeur totale** | **98.50 $ (-1.5 %)** |
-| Paris réglés | 19 |
-| Taux de réussite | 42 % |
-| Gain net cumulé | -1.50 $ |
+| Capital disponible | 97.59 $ |
+| Engagé (paris en cours) | 2.49 $ |
+| **Valeur totale** | **100.08 $ (+0.1 %)** |
+| Paris réglés | 20 |
+| Taux de réussite | 45 % |
+| Gain net cumulé | +0.08 $ |
 | Statut | 🟢 actif |
 
 ## Derniers paris
 
 | Date | Marché | Côté | Prix | Résultat | Gain |
 |---|---|---|---|---|---|
+| 2026-11-26 01:06 | Bitcoin Up or Down - November 25, 8:00PM-8:15PM ET | Up | 0.67 | ✅ | +1.57 $ |
 | 2026-11-26 00:50 | Ethereum Up or Down - November 25, 7:45PM-8:00PM ET | Up | 0.32 | ✅ | +3.97 $ |
 | 2026-11-26 00:50 | Bitcoin Up or Down - November 25, 7:45PM-8:00PM ET | Up | 0.22 | ❌ | -2.00 $ |
 | 2026-11-26 00:35 | Ethereum Up or Down - November 25, 7:30PM-7:45PM ET | Up | 0.28 | ❌ | -2.00 $ |
@@ -31,17 +32,11 @@ _Mis à jour : 2026-11-26 01:18:48 UTC_
 | 2026-11-25 02:27 | Ethereum Up or Down - November 24, 9:15PM-9:30PM ET | Down | 0.32 | ❌ | -2.00 $ |
 | 2026-11-25 02:27 | Bitcoin Up or Down - November 24, 9:15PM-9:30PM ET | Down | 0.52 | ❌ | -2.69 $ |
 | 2026-11-25 02:12 | Ethereum Up or Down - November 24, 9:00PM-9:15PM ET | Up | 0.16 | ❌ | -2.00 $ |
-| 2026-11-25 01:21 | Bitcoin Up or Down - November 24, 8:15PM-8:30PM ET | Down | 0.88 | ✅ | +0.56 $ |
-| 2026-11-26 01:06 | Bitcoin Up or Down - November 25, 8:00PM-8:15PM ET | Up | 0.67 | ⏳ | — |
 | 2026-11-26 01:06 | Ethereum Up or Down - November 25, 8:00PM-8:15PM ET | Up | 0.48 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 01:12:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 01:12:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 01:13:48 UTC  — exécution — MODE : PAPER
-2026-11-26 01:13:48 UTC  BTC : déjà positionné sur cette fenêtre
 2026-11-26 01:13:48 UTC  ETH : déjà positionné sur cette fenêtre
 2026-11-26 01:14:48 UTC  — exécution — MODE : PAPER
 2026-11-26 01:14:48 UTC  BTC : déjà positionné sur cette fenêtre
@@ -58,4 +53,8 @@ _Mis à jour : 2026-11-26 01:18:48 UTC_
 2026-11-26 01:18:48 UTC  — exécution — MODE : PAPER
 2026-11-26 01:18:48 UTC  BTC : 672s restantes, hors plage d'entrée
 2026-11-26 01:18:48 UTC  ETH : 672s restantes, hors plage d'entrée
+2026-11-26 01:19:48 UTC  — exécution — MODE : PAPER
+2026-11-26 01:19:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 8:00PM-8:15PM ET [Up] P&L +1.57 $ → capital 97.59 $
+2026-11-26 01:19:48 UTC  BTC : 612s restantes, hors plage d'entrée
+2026-11-26 01:19:48 UTC  ETH : 612s restantes, hors plage d'entrée
 ```
