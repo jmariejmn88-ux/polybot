@@ -28,6 +28,7 @@ import urllib.parse
 import urllib.request
 
 import bot
+import combos
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
@@ -474,10 +475,10 @@ def best_ask(token):
 
 def watch_entry(g, t1, t2, sels, pe, flip):
     """Photo d'un match analysé, pour le tableau de bord (prix Polymarket vs Pinnacle)."""
-    pm, rates = {}, {}
-    for _label, role, _tok, gprice, rate, _mid in sels:
+    pm, rates, toks, mids = {}, {}, {}, {}
+    for _label, role, tok, gprice, rate, mid in sels:
         if role in ("home", "away", "draw") and gprice is not None:
-            pm[role], rates[role] = round(gprice, 4), rate
+            pm[role], rates[role], toks[role], mids[role] = round(gprice, 4), rate, tok, mid
     pin, edge = {}, {}
     if pe:
         for role in pm:
@@ -486,7 +487,8 @@ def watch_entry(g, t1, t2, sels, pe, flip):
                 pin[role] = round(f, 4)
                 edge[role] = round(f - cost_per_share(pm[role], rates[role]), 4)
     return {"slug": g["slug"], "match": g["title"], "t1": t1, "t2": t2, "start": iso(g["start"]),
-            "ligue": (pe or {}).get("league") or g.get("league", ""), "pm": pm, "pin": pin, "edge": edge}
+            "ligue": (pe or {}).get("league") or g.get("league", ""), "pm": pm, "pin": pin, "edge": edge,
+            "tok": toks, "mid": mids, "rate": rates}
 
 
 def clean_watch(st):
@@ -725,6 +727,7 @@ def main(force_scan=False):
                 per[src] = iso(now())
             st["last_scan"] = iso(now())
             scan(st, due)
+        combos.run(st)  # combos fictifs : règlement + nouveaux combos à partir des matchs analysés
     finally:
         write_summary(st)
         save_state(st)
