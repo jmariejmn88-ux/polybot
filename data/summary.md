@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 02:51:48 UTC_
+_Mis à jour : 2026-11-26 02:57:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,18 +36,6 @@ _Mis à jour : 2026-11-26 02:51:48 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 02:43:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:43:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:44:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:44:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:45:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:45:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:46:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:46:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:47:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:47:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:48:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:48:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 9:30PM-9:45PM ET [Up] P&L +4.15 $ → capital 104.62 $
 2026-11-26 02:48:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 02:49:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:49:48 UTC  ⏸ nombre max de paris du jour atteint
@@ -56,4 +44,16 @@ _Mis à jour : 2026-11-26 02:51:48 UTC_
 2026-11-26 02:51:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:51:48 UTC  ✅ GAGNÉ Ethereum Up or Down - November 25, 9:30PM-9:45PM ET [Up] P&L +2.76 $ → capital 109.62 $
 2026-11-26 02:51:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:52:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:52:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:53:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:53:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:54:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:54:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:55:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:55:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:56:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:56:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:57:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:57:48 UTC  ⏸ nombre max de paris du jour atteint
 ```
