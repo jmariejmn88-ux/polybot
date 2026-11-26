@@ -29,6 +29,7 @@ import urllib.request
 
 import bot
 import combos
+import lab
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
@@ -728,6 +729,7 @@ def main(force_scan=False):
             st["last_scan"] = iso(now())
             scan(st, due)
         combos.run(st)  # combos fictifs : règlement + nouveaux combos à partir des matchs analysés
+        lab.run(st)     # laboratoire de stratégies (tendances à tester, 1 $ fictif par pari)
     finally:
         write_summary(st)
         save_state(st)
