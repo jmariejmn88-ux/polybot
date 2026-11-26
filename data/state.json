@@ -1,6 +1,6 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 98.3536,
+  "bankroll": 106.6045,
   "created": "2026-11-24 18:46:36 UTC",
   "open": [
     {
@@ -35,39 +35,6 @@
       },
       "reason": "modèle 0.54 vs prix 0.43 → avantage +0.091",
       "opened_at": "2026-11-26 01:21:50 UTC"
-    },
-    {
-      "slug": "btc-updown-15m-1795655700",
-      "title": "Bitcoin Up or Down - November 25, 8:15PM-8:30PM ET",
-      "asset": "btc",
-      "side": "Down",
-      "price": 0.23,
-      "shares": 8.2509,
-      "cost": 2.0,
-      "model_p": 0.3655,
-      "edge": 0.1231,
-      "model_raw": 0.286,
-      "secs_left": 252,
-      "spot": 60760.0,
-      "open_price": 60693.990000000005,
-      "sigma_min": 0.001023,
-      "fee": 0.1023,
-      "mode": "PAPER",
-      "kelly_f": 0.1625,
-      "kelly_stake": 4.08,
-      "sizing": "fixe",
-      "ctx": {
-        "whale_mult": 3.08,
-        "whale_net24_usd": -186804031,
-        "whale_buyshare24": 0.454,
-        "funding": 8.362456552221808e-05,
-        "funding_pct": 99,
-        "funding_band": "top 5%",
-        "oi_pct": 25,
-        "oi_band": "bottom 25%"
-      },
-      "reason": "modèle 0.37 vs prix 0.23 → avantage +0.123",
-      "opened_at": "2026-11-26 01:25:50 UTC"
     }
   ],
   "closed": [
@@ -784,16 +751,46 @@
       "payout": 5.0,
       "pnl": 2.5126,
       "settled_at": "2026-11-26 01:21:48 UTC"
+    },
+    {
+      "slug": "btc-updown-15m-1795655700",
+      "title": "Bitcoin Up or Down - November 25, 8:15PM-8:30PM ET",
+      "asset": "btc",
+      "side": "Down",
+      "price": 0.23,
+      "shares": 8.2509,
+      "cost": 2.0,
+      "model_p": 0.3655,
+      "edge": 0.1231,
+      "model_raw": 0.286,
+      "secs_left": 252,
+      "spot": 60760.0,
+      "open_price": 60693.990000000005,
+      "sigma_min": 0.001023,
+      "fee": 0.1023,
+      "mode": "PAPER",
+      "kelly_f": 0.1625,
+      "kelly_stake": 4.08,
+      "sizing": "fixe",
+      "ctx": {
+        "whale_mult": 3.08,
+        "whale_net24_usd": -186804031,
+        "whale_buyshare24": 0.454,
+        "funding": 8.362456552221808e-05,
+        "funding_pct": 99,
+        "funding_band": "top 5%",
+        "oi_pct": 25,
+        "oi_band": "bottom 25%"
+      },
+      "reason": "modèle 0.37 vs prix 0.23 → avantage +0.123",
+      "opened_at": "2026-11-26 01:25:50 UTC",
+      "won": true,
+      "payout": 8.2509,
+      "pnl": 6.2509,
+      "settled_at": "2026-11-26 01:33:48 UTC"
     }
   ],
   "log": [
-    "2026-11-25 23:53:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 23:53:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:54:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 23:54:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:55:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 23:55:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:56:48 UTC  — exécution — MODE : PAPER",
     "2026-11-25 23:56:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
     "2026-11-25 23:57:48 UTC  — exécution — MODE : PAPER",
     "2026-11-25 23:57:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
@@ -1086,7 +1083,14 @@
     "2026-11-26 01:30:48 UTC  ETH : 852s restantes, hors plage d'entrée",
     "2026-11-26 01:31:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 01:31:48 UTC  BTC : 792s restantes, hors plage d'entrée",
-    "2026-11-26 01:31:48 UTC  ETH : 792s restantes, hors plage d'entrée"
+    "2026-11-26 01:31:48 UTC  ETH : 792s restantes, hors plage d'entrée",
+    "2026-11-26 01:32:48 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 01:32:48 UTC  BTC : 732s restantes, hors plage d'entrée",
+    "2026-11-26 01:32:48 UTC  ETH : 732s restantes, hors plage d'entrée",
+    "2026-11-26 01:33:48 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 01:33:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 8:15PM-8:30PM ET [Down] P&L +6.25 $ → capital 106.60 $",
+    "2026-11-26 01:33:48 UTC  BTC : 672s restantes, hors plage d'entrée",
+    "2026-11-26 01:33:48 UTC  ETH : 672s restantes, hors plage d'entrée"
   ],
   "halted": false,
   "last_report": "2026-11-25",
