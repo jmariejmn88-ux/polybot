@@ -318,6 +318,27 @@ def pinn_moneylines(st, sport_slug):
     return out
 
 
+def pinn_lines(st, sport_slug, market):
+    """Ligne principale Pinnacle « spread » (handicap du domicile) ou « total », avec probabilités sans marge."""
+    data = pinn_get(st, "/odds", {"sport": sport_slug, "market": market, "main": "true",
+                                  "live": "prematch", "limit": 1000})
+    out = []
+    for e in data.get("events") or []:
+        if e.get("special") or e.get("parentId"):
+            continue
+        for m in e.get("markets") or []:
+            if m.get("type") != market or int(m.get("period") or 0) != 0 or m.get("line") is None:
+                continue
+            probs = {str(o.get("name")).lower(): float(o["fairProb"])
+                     for o in m.get("outcomes") or [] if o.get("fairProb") is not None}
+            if len(probs) == 2:
+                out.append({"home": e.get("home"), "away": e.get("away"), "start": parse_time(e.get("startTime")),
+                            "league": (e.get("league") or {}).get("name") or "",
+                            "line": float(m["line"]), "probs": probs})
+                break
+    return out
+
+
 # ----------------------------------------------------------------- The Odds API
 def odds_get(st, sport_key):
     rem = st.get("odds_remaining")
@@ -379,7 +400,7 @@ def odds_moneylines(st, sport_key):
 # ----------------------------------------------------------------- Polymarket
 def pm_games(tag, start_min, start_max, series=None):
     """Matchs Polymarket (marchés « moneyline ») dont le coup d'envoi est dans la fenêtre."""
-    games, offset = [], 0
+    games, offset, extras = [], 0, {}
     filt = {"series_id": series} if series else {"tag_id": tag}
     while offset < 2500:  # pages de 50 (au-delà, Polymarket exige la compression gzip)
         page = bot.http_json(f"{GAMMA}/events", {
@@ -387,17 +408,25 @@ def pm_games(tag, start_min, start_max, series=None):
             "end_date_min": iso(start_min - dt.timedelta(hours=1)),
             "end_date_max": iso(start_max + dt.timedelta(hours=1))})
         for e in page:
-            ml = [m for m in e.get("markets") or [] if m.get("sportsMarketType") == "moneyline"]
+            mk = e.get("markets") or []
+            ml = [m for m in mk if m.get("sportsMarketType") == "moneyline"]
+            ln = [m for m in mk if m.get("sportsMarketType") in ("spreads", "totals")]
             if not ml:
+                # Polymarket range handicaps et totaux de certains matchs dans un événement « More Markets »
+                if ln and re.search(r"-\s*More Markets\s*$", e.get("title", ""), re.I):
+                    base = re.sub(r"\s*-\s*More Markets\s*$", "", e.get("title", ""), flags=re.I)
+                    extras.setdefault(base, []).extend(ln)
                 continue
             start = parse_time(e.get("startTime")) or parse_time(ml[0].get("gameStartTime"))
             if not start or not (start_min <= start <= start_max):
                 continue
             games.append({"title": e.get("title", ""), "slug": e.get("slug"),
-                          "league": e.get("seriesSlug") or "", "start": start, "markets": ml})
+                          "league": e.get("seriesSlug") or "", "start": start, "markets": ml, "lines": ln})
         if len(page) < 50:
             break
         offset += 50
+    for g in games:
+        g["lines"] = g["lines"] + extras.get(g["title"], [])
     return games
 
 
@@ -492,6 +521,75 @@ def watch_entry(g, t1, t2, sels, pe, flip):
             "tok": toks, "mid": mids, "rate": rates}
 
 
+def _price(m, idx):
+    prices = jl(m.get("outcomePrices"))
+    try:
+        return round(float(prices[idx]), 4)
+    except (IndexError, TypeError, ValueError):
+        return None
+
+
+def line_entries(g, t1, t2, pinn):
+    """Handicap et total d'un match : prix Polymarket, probabilité Pinnacle et avantage (même ligne)."""
+    out = {}
+    # --- handicap : on exprime tout en handicap de l'équipe 1 (ordre du titre Polymarket)
+    sp_mk = []
+    for m in g.get("lines", []):
+        if m.get("sportsMarketType") != "spreads":
+            continue
+        outs = jl(m.get("outcomes"))
+        try:
+            line = float(m.get("line"))
+        except (TypeError, ValueError):
+            continue
+        if len(outs) != 2:
+            continue
+        first_is_t1 = similar(outs[0], t1) >= similar(outs[0], t2)
+        h1 = line if first_is_t1 else -line
+        p_first, p_second = _price(m, 0), _price(m, 1)
+        pm = {"home": p_first, "away": p_second} if first_is_t1 else {"home": p_second, "away": p_first}
+        rate = float((m.get("feeSchedule") or {}).get("rate") or 0.05)
+        sp_mk.append((h1, pm, rate))
+    pe, flip = match_pinn(g, t1, t2, pinn.get("spread", [])) if pinn.get("spread") else (None, None)
+    if sp_mk:
+        pin, H = {}, None
+        if pe:
+            H = -pe["line"] if flip else pe["line"]
+            pin = ({"home": pe["probs"].get("away"), "away": pe["probs"].get("home")} if flip
+                   else {"home": pe["probs"].get("home"), "away": pe["probs"].get("away")})
+        same = [x for x in sp_mk if H is not None and abs(x[0] - H) < 1e-9]
+        h1, pm, rate = same[0] if same else min(sp_mk, key=lambda x: (abs(abs(x[0]) - 0.5), x[0]))
+        if not same:
+            pin = {}
+        edge = {r: round(pin[r] - cost_per_share(pm[r], rate), 4)
+                for r in pm if pin.get(r) is not None and pm[r] is not None}
+        out["spread"] = {"line": h1, "pm": pm, "pin": {k: round(v, 4) for k, v in pin.items() if v is not None},
+                         "edge": edge}
+    # --- total de buts
+    tot = []
+    for m in g.get("lines", []):
+        if m.get("sportsMarketType") != "totals":
+            continue
+        outs = [str(o).lower() for o in jl(m.get("outcomes"))]
+        try:
+            line = float(m.get("line"))
+        except (TypeError, ValueError):
+            continue
+        if sorted(outs) != ["over", "under"]:
+            continue
+        pm = {outs[0]: _price(m, 0), outs[1]: _price(m, 1)}
+        tot.append((line, pm, float((m.get("feeSchedule") or {}).get("rate") or 0.05)))
+    pe, _f2 = match_pinn(g, t1, t2, pinn.get("total", [])) if pinn.get("total") else (None, None)
+    if tot:
+        same = [x for x in tot if pe and abs(x[0] - pe["line"]) < 1e-9]
+        line, pm, rate = same[0] if same else min(tot, key=lambda x: abs(x[0] - 2.5))
+        pin = {k: round(v, 4) for k, v in pe["probs"].items()} if same else {}
+        edge = {r: round(pin[r] - cost_per_share(pm[r], rate), 4)
+                for r in pm if pin.get(r) is not None and pm[r] is not None}
+        out["total"] = {"line": line, "pm": pm, "pin": pin, "edge": edge}
+    return out
+
+
 def clean_watch(st):
     """Retire les matchs commencés depuis plus de 3 h."""
     limit = now() - dt.timedelta(hours=3)
@@ -557,7 +655,17 @@ def groups(st, taken, due):
         for key in pinn_units():
             sp = SPORTS[key]
             try:
-                yield key, sp["draw"], pm_games(sp["tag"], smin, smax), pinn_moneylines(st, sp["pinn"])
+                ml = pinn_moneylines(st, sp["pinn"])
+                if os.environ.get("SPORTS_LINES", "1") == "1" and sp["pinn"] == "soccer":
+                    lines = st.setdefault("_lines", {})
+                    for mkt in ("spread", "total"):
+                        try:
+                            lines.setdefault(key, {})[mkt] = pinn_lines(st, sp["pinn"], mkt)
+                        except QuotaAtteint:
+                            raise
+                        except Exception as e:  # noqa: BLE001
+                            log(st, f"{key} : lignes {mkt} indisponibles ({e})")
+                yield key, sp["draw"], pm_games(sp["tag"], smin, smax), ml
             except QuotaAtteint as e:
                 log(st, f"PinnFeed : {e}")
                 break
@@ -588,6 +696,7 @@ def scan(st, due=None):
     taken = {b["evt"] for b in st["open"]}
     new = 0
     found = list(groups(st, taken, due))
+    lines_all = st.pop("_lines", {})  # handicaps / totaux Pinnacle récupérés pendant la recherche
     skipped = st.pop("_skipped", [])
     if skipped:
         log(st, f"recherche : pas de match Polymarket dans les {int(HORIZON_H['oddsapi'])} h "
@@ -602,7 +711,9 @@ def scan(st, due=None):
                 continue
             t1, t2, sels = pm_selections(g, has_draw)
             pe, flip = match_pinn(g, t1, t2, pinn)
-            snap.append(watch_entry(g, t1, t2, sels, pe, flip))
+            entry = watch_entry(g, t1, t2, sels, pe, flip)
+            entry["lines"] = line_entries(g, t1, t2, lines_all.get(key, {}))
+            snap.append(entry)
             if not pe:
                 continue
             matched += 1
