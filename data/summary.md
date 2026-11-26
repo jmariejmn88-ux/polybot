@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 00:05:52 UTC_
+_Mis à jour : 2026-11-26 00:11:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -34,24 +34,24 @@ _Mis à jour : 2026-11-26 00:05:52 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-25 23:59:48 UTC  — exécution — MODE : PAPER
-2026-11-25 23:59:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain
-2026-11-26 00:00:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:00:48 UTC  BTC : 852s restantes, hors plage d'entrée
-2026-11-26 00:00:48 UTC  ETH : 852s restantes, hors plage d'entrée
-2026-11-26 00:01:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:01:48 UTC  BTC : 792s restantes, hors plage d'entrée
-2026-11-26 00:01:48 UTC  ETH : 792s restantes, hors plage d'entrée
-2026-11-26 00:02:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:02:48 UTC  BTC : 732s restantes, hors plage d'entrée
-2026-11-26 00:02:48 UTC  ETH : 732s restantes, hors plage d'entrée
-2026-11-26 00:03:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:03:48 UTC  BTC : 672s restantes, hors plage d'entrée
-2026-11-26 00:03:48 UTC  ETH : 672s restantes, hors plage d'entrée
-2026-11-26 00:04:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:04:48 UTC  BTC : 612s restantes, hors plage d'entrée
-2026-11-26 00:04:48 UTC  ETH : 612s restantes, hors plage d'entrée
-2026-11-26 00:05:48 UTC  — exécution — MODE : PAPER
 2026-11-26 00:05:50 UTC  BTC ouverture 60,390.92 spot 60,326.07 σ/min 0.054% → P(Up) modèle 0.35 (brut 0.25, marché 0.46) | 🟢 ACHAT fictif 7.60 parts Up à 0.25 (coût 2.00 $, avantage +0.089, Kelly ¼ suggère 2.86 $) | baleines x3.2, funding top 25%
 2026-11-26 00:05:52 UTC  ETH ouverture 1,690.62 spot 1,688.64 σ/min 0.060% → P(Up) modèle 0.35 (brut 0.25, marché 0.45) | 🟢 ACHAT fictif 8.25 parts Up à 0.23 (coût 2.00 $, avantage +0.106, Kelly ¼ suggère 3.23 $) | baleines x2.19, funding typical
+2026-11-26 00:06:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:06:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:06:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:07:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:07:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:07:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:08:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:08:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:08:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:09:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:09:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:09:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:10:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:10:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:10:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:11:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:11:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:11:48 UTC  ETH : déjà positionné sur cette fenêtre
 ```
