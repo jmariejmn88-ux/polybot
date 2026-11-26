@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 00:21:50 UTC_
+_Mis à jour : 2026-11-26 00:27:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,24 +36,24 @@ _Mis à jour : 2026-11-26 00:21:50 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 00:16:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:16:48 UTC  BTC : 792s restantes, hors plage d'entrée
-2026-11-26 00:16:48 UTC  ETH : 792s restantes, hors plage d'entrée
-2026-11-26 00:17:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:17:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 7:00PM-7:15PM ET [Up] P&L +5.60 $ → capital 98.09 $
-2026-11-26 00:17:48 UTC  BTC : 732s restantes, hors plage d'entrée
-2026-11-26 00:17:48 UTC  ETH : 732s restantes, hors plage d'entrée
-2026-11-26 00:18:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:18:48 UTC  BTC : 672s restantes, hors plage d'entrée
-2026-11-26 00:18:48 UTC  ETH : 672s restantes, hors plage d'entrée
-2026-11-26 00:19:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:19:48 UTC  BTC : 612s restantes, hors plage d'entrée
-2026-11-26 00:19:48 UTC  ETH : 612s restantes, hors plage d'entrée
-2026-11-26 00:20:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:20:49 UTC  BTC ouverture 60,851.11 spot 60,990.20 σ/min 0.091% → P(Up) modèle 0.80 (brut 0.80, marché 0.80) | 🟢 ACHAT fictif 5.00 parts Up à 0.71 (coût 3.62 $, avantage +0.075, Kelly ¼ suggère 6.69 $) | baleines x3.13, funding top 25%
-2026-11-26 00:20:50 UTC  ETH ouverture 1,703.04 spot 1,706.09 σ/min 0.107% → P(Up) modèle 0.68 (brut 0.72, marché 0.64) | pas d'avantage suffisant (+0.000 sur Up à 0.66)
-2026-11-26 00:21:48 UTC  — exécution — MODE : PAPER
-2026-11-26 00:21:48 UTC  ✅ GAGNÉ Ethereum Up or Down - November 25, 7:00PM-7:15PM ET [Up] P&L +6.25 $ → capital 102.72 $
 2026-11-26 00:21:48 UTC  BTC : déjà positionné sur cette fenêtre
 2026-11-26 00:21:50 UTC  ETH ouverture 1,703.04 spot 1,702.21 σ/min 0.110% → P(Up) modèle 0.53 (brut 0.44, marché 0.63) | 🟢 ACHAT fictif 5.00 parts Up à 0.42 (coût 2.19 $, avantage +0.096, Kelly ¼ suggère 4.37 $) | baleines x2.22, funding typical
+2026-11-26 00:22:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:22:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:22:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:23:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:23:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:23:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:24:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:24:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:24:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:25:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:25:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:25:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:26:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:26:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:26:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 00:27:48 UTC  — exécution — MODE : PAPER
+2026-11-26 00:27:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 00:27:48 UTC  ETH : déjà positionné sur cette fenêtre
 ```
