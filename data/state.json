@@ -1,6 +1,6 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 100.6045,
+  "bankroll": 95.6804,
   "created": "2026-11-24 18:46:36 UTC",
   "open": [
     {
@@ -68,6 +68,72 @@
       },
       "reason": "modèle 0.48 vs prix 0.37 → avantage +0.097",
       "opened_at": "2026-11-26 01:52:52 UTC"
+    },
+    {
+      "slug": "btc-updown-15m-1795658400",
+      "title": "Bitcoin Up or Down - November 25, 9:00PM-9:15PM ET",
+      "asset": "btc",
+      "side": "Down",
+      "price": 0.5,
+      "shares": 5.0,
+      "cost": 2.5875,
+      "model_p": 0.5943,
+      "edge": 0.0768,
+      "model_raw": 0.4935,
+      "secs_left": 552,
+      "spot": 60771.7,
+      "open_price": 60768.695,
+      "sigma_min": 0.001043,
+      "fee": 0.0875,
+      "mode": "PAPER",
+      "kelly_f": 0.1591,
+      "kelly_stake": 4.0,
+      "sizing": "fixe",
+      "ctx": {
+        "whale_mult": 3.08,
+        "whale_net24_usd": -186804031,
+        "whale_buyshare24": 0.454,
+        "funding": 8.651075787817617e-05,
+        "funding_pct": 99,
+        "funding_band": "top 5%",
+        "oi_pct": 25,
+        "oi_band": "bottom 25%"
+      },
+      "reason": "modèle 0.59 vs prix 0.50 → avantage +0.077",
+      "opened_at": "2026-11-26 02:05:49 UTC"
+    },
+    {
+      "slug": "eth-updown-15m-1795658400",
+      "title": "Ethereum Up or Down - November 25, 9:00PM-9:15PM ET",
+      "asset": "eth",
+      "side": "Down",
+      "price": 0.45,
+      "shares": 5.0,
+      "cost": 2.3366,
+      "model_p": 0.5999,
+      "edge": 0.1326,
+      "model_raw": 0.4649,
+      "secs_left": 551,
+      "spot": 1700.27,
+      "open_price": 1699.725,
+      "sigma_min": 0.001245,
+      "fee": 0.0866,
+      "mode": "PAPER",
+      "kelly_f": 0.2489,
+      "kelly_stake": 6.1,
+      "sizing": "fixe",
+      "ctx": {
+        "whale_mult": 2.27,
+        "whale_net24_usd": 45933004,
+        "whale_buyshare24": 0.559,
+        "funding": 5.144078049664512e-05,
+        "funding_pct": 75,
+        "funding_band": "typical",
+        "oi_pct": 5,
+        "oi_band": "record low"
+      },
+      "reason": "modèle 0.60 vs prix 0.45 → avantage +0.133",
+      "opened_at": "2026-11-26 02:05:50 UTC"
     }
   ],
   "closed": [
@@ -898,9 +964,6 @@
     }
   ],
   "log": [
-    "2026-11-26 00:28:48 UTC  ETH : déjà positionné sur cette fenêtre",
-    "2026-11-26 00:29:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-26 00:29:48 UTC  BTC : déjà positionné sur cette fenêtre",
     "2026-11-26 00:29:48 UTC  ETH : déjà positionné sur cette fenêtre",
     "2026-11-26 00:30:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 00:30:48 UTC  BTC : 852s restantes, hors plage d'entrée",
@@ -1197,7 +1260,10 @@
     "2026-11-26 02:03:48 UTC  ETH : 672s restantes, hors plage d'entrée",
     "2026-11-26 02:04:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 02:04:48 UTC  BTC : 612s restantes, hors plage d'entrée",
-    "2026-11-26 02:04:48 UTC  ETH : 612s restantes, hors plage d'entrée"
+    "2026-11-26 02:04:48 UTC  ETH : 612s restantes, hors plage d'entrée",
+    "2026-11-26 02:05:48 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 02:05:49 UTC  BTC ouverture 60,768.69 spot 60,771.70 σ/min 0.104% → P(Up) modèle 0.41 (brut 0.51, marché 0.30) | 🟢 ACHAT fictif 5.00 parts Down à 0.50 (coût 2.59 $, avantage +0.077, Kelly ¼ suggère 4.00 $) | baleines x3.08, funding top 5%",
+    "2026-11-26 02:05:50 UTC  ETH ouverture 1,699.72 spot 1,700.27 σ/min 0.125% → P(Up) modèle 0.40 (brut 0.54, marché 0.27) | 🟢 ACHAT fictif 5.00 parts Down à 0.45 (coût 2.34 $, avantage +0.133, Kelly ¼ suggère 6.10 $) | baleines x2.27, funding typical"
   ],
   "halted": false,
   "last_report": "2026-11-25",
