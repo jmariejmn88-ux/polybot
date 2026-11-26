@@ -1090,8 +1090,6 @@
     }
   ],
   "log": [
-    "2026-11-26 02:00:48 UTC  ETH : 852s restantes, hors plage d'entrée",
-    "2026-11-26 02:01:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 02:01:48 UTC  BTC : 792s restantes, hors plage d'entrée",
     "2026-11-26 02:01:48 UTC  ETH : 792s restantes, hors plage d'entrée",
     "2026-11-26 02:02:48 UTC  — exécution — MODE : PAPER",
@@ -1389,7 +1387,9 @@
     "2026-11-26 04:07:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 04:07:48 UTC  ⏸ nombre max de paris du jour atteint",
     "2026-11-26 04:08:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-26 04:08:48 UTC  ⏸ nombre max de paris du jour atteint"
+    "2026-11-26 04:08:48 UTC  ⏸ nombre max de paris du jour atteint",
+    "2026-11-26 04:10:00 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 04:10:00 UTC  ⏸ nombre max de paris du jour atteint"
   ],
   "halted": false,
   "last_report": "2026-11-25",
