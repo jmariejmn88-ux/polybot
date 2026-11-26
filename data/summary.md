@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 04:03:48 UTC_
+_Mis à jour : 2026-11-26 04:08:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,16 +36,6 @@ _Mis à jour : 2026-11-26 04:03:48 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 03:54:48 UTC  — exécution — MODE : PAPER
-2026-11-26 03:54:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 03:55:48 UTC  — exécution — MODE : PAPER
-2026-11-26 03:55:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 03:56:48 UTC  — exécution — MODE : PAPER
-2026-11-26 03:56:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 03:57:48 UTC  — exécution — MODE : PAPER
-2026-11-26 03:57:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 03:58:48 UTC  — exécution — MODE : PAPER
-2026-11-26 03:58:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 03:59:48 UTC  — exécution — MODE : PAPER
 2026-11-26 03:59:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 04:00:48 UTC  — exécution — MODE : PAPER
@@ -56,4 +46,14 @@ _Mis à jour : 2026-11-26 04:03:48 UTC_
 2026-11-26 04:02:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 04:03:48 UTC  — exécution — MODE : PAPER
 2026-11-26 04:03:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 04:04:48 UTC  — exécution — MODE : PAPER
+2026-11-26 04:04:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 04:05:48 UTC  — exécution — MODE : PAPER
+2026-11-26 04:05:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 04:06:48 UTC  — exécution — MODE : PAPER
+2026-11-26 04:06:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 04:07:48 UTC  — exécution — MODE : PAPER
+2026-11-26 04:07:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 04:08:48 UTC  — exécution — MODE : PAPER
+2026-11-26 04:08:48 UTC  ⏸ nombre max de paris du jour atteint
 ```
