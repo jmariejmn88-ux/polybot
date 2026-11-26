@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 02:36:51 UTC_
+_Mis à jour : 2026-11-26 02:42:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -38,18 +38,6 @@ _Mis à jour : 2026-11-26 02:36:51 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 02:30:48 UTC  ETH : 852s restantes, hors plage d'entrée
-2026-11-26 02:31:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:31:48 UTC  BTC : 792s restantes, hors plage d'entrée
-2026-11-26 02:31:48 UTC  ETH : 792s restantes, hors plage d'entrée
-2026-11-26 02:32:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:32:48 UTC  BTC : 732s restantes, hors plage d'entrée
-2026-11-26 02:32:48 UTC  ETH : 732s restantes, hors plage d'entrée
-2026-11-26 02:33:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:33:48 UTC  BTC : 672s restantes, hors plage d'entrée
-2026-11-26 02:33:48 UTC  ETH : 672s restantes, hors plage d'entrée
-2026-11-26 02:34:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:34:48 UTC  BTC : 612s restantes, hors plage d'entrée
 2026-11-26 02:34:48 UTC  ETH : 612s restantes, hors plage d'entrée
 2026-11-26 02:35:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:35:48 UTC  BTC ouverture 60,850.50 spot 60,859.03 σ/min 0.073% → P(Up) modèle 0.48 (brut 0.53, marché 0.43) | pas d'avantage suffisant (-0.018 sur Down à 0.52)
@@ -58,4 +46,16 @@ _Mis à jour : 2026-11-26 02:36:51 UTC_
 2026-11-26 02:36:48 UTC  ✅ GAGNÉ Ethereum Up or Down - November 25, 9:15PM-9:30PM ET [Down] P&L +7.02 $ → capital 102.71 $
 2026-11-26 02:36:49 UTC  BTC ouverture 60,850.50 spot 60,812.74 σ/min 0.073% → P(Up) modèle 0.41 (brut 0.38, marché 0.43) | 🟢 ACHAT fictif 6.15 parts Up à 0.31 (coût 2.00 $, avantage +0.081, Kelly ¼ suggère 3.10 $) | baleines x3.01, funding top 5%
 2026-11-26 02:36:51 UTC  ETH ouverture 1,700.17 spot 1,700.19 σ/min 0.081% → P(Up) modèle 0.55 (brut 0.50, marché 0.60) | 🟢 ACHAT fictif 5.00 parts Up à 0.43 (coût 2.24 $, avantage +0.106, Kelly ¼ suggère 4.85 $) | baleines x2.14, funding typical
+2026-11-26 02:37:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:37:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:38:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:38:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:39:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:39:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:40:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:40:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:41:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:41:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:42:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:42:48 UTC  ⏸ nombre max de paris du jour atteint
 ```
