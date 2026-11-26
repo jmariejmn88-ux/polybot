@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 13:36:06 UTC_
+_Mis à jour : 2026-11-26 13:42:06 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,18 +36,6 @@ _Mis à jour : 2026-11-26 13:36:06 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 13:27:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:27:06 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 13:28:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:28:06 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 13:29:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:29:06 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 13:30:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:30:06 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 13:31:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:31:06 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 13:32:06 UTC  — exécution — MODE : PAPER
-2026-11-26 13:32:06 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 13:33:06 UTC  — exécution — MODE : PAPER
 2026-11-26 13:33:06 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 13:34:06 UTC  — exécution — MODE : PAPER
@@ -56,4 +44,16 @@ _Mis à jour : 2026-11-26 13:36:06 UTC_
 2026-11-26 13:35:06 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 13:36:06 UTC  — exécution — MODE : PAPER
 2026-11-26 13:36:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:37:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:37:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:38:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:38:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:39:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:39:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:40:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:40:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:41:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:41:06 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 13:42:06 UTC  — exécution — MODE : PAPER
+2026-11-26 13:42:06 UTC  ⏸ nombre max de paris du jour atteint
 ```
