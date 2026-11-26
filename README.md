@@ -102,6 +102,10 @@ s'arrête de lui-même s'il ne reste que 15 crédits. Dès que `PINNFEED_KEY` ex
 PinnFeed reprend la main automatiquement. Ligues modifiables avec `ODDS_LEAGUES`
 (disponibles : epl, laliga, bundesliga, seriea, ligue1, ucl, mls, nba).
 
+**Deux sources en même temps** : PinnFeed pour le foot (`PINN_SPORTS`) et The Odds API
+pour la NBA (`ODDS_LEAGUES`), chacune à son rythme (`SPORTS_EVERY_MIN`, `ODDS_EVERY_MIN`).
+Une ligue déjà couverte par PinnFeed n'est jamais demandée à The Odds API.
+
 Réglages (dans le workflow) : `SPORTS` (1/0), `SPORTS_LIST`, `SPORTS_STAKE`,
 `SPORTS_MIN_EDGE`, `SPORTS_EVERY_MIN`, `SPORTS_USE_KELLY`.
 

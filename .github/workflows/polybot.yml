@@ -47,9 +47,11 @@ jobs:
           SPORTS_START_BANKROLL: "100"
           SPORTS_STAKE: "2"
           SPORTS_MIN_EDGE: "0.03"
-          # Cotes : PinnFeed si la clé existe (toutes les 10 min), sinon The Odds API
-          # (5 grands championnats + Ligue des champions, ~5 recherches par jour, 500 crédits gratuits / mois)
-          ODDS_LEAGUES: "epl,laliga,bundesliga,seriea,ligue1,ucl"
+          # Cotes : PinnFeed pour le foot (toutes ligues, toutes les 10 min, plan gratuit
+          # soccer + tennis) ; The Odds API pour la NBA (toutes les 3 h ≈ 240 crédits / mois).
+          PINN_SPORTS: "foot"
+          ODDS_LEAGUES: "nba"
+          ODDS_EVERY_MIN: "180"
           PINNFEED_KEY: ${{ secrets.PINNFEED_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
