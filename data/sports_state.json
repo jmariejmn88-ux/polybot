@@ -1,9 +1,34 @@
 {
- "bankroll": 100.0,
+ "bankroll": 98.0,
  "start_bankroll": 100.0,
- "open": [],
+ "open": [
+  {
+   "id": "S17956858130",
+   "sport": "foot",
+   "ligue": "AFC - Champions League 2",
+   "match": "Tai Po FC vs. Adelaide United FC",
+   "evt": "acl2-tai-adu-2026-11-26",
+   "coup_envoi": "2026-11-26T12:15:00Z",
+   "selection": "Adelaide United FC \u2014 NON",
+   "token": "29949108795302514910682001572297692933436632063067513340225916249877963066755",
+   "marche": "7346992",
+   "prix": 0.25,
+   "cout_part": 0.2594,
+   "parts": 7.7108,
+   "mise": 2.0,
+   "proba_pinnacle": 0.2897,
+   "avantage": 0.0303,
+   "kelly": 0.0102,
+   "ouvert_le": "2026-11-26T09:36:53Z",
+   "statut": "ouvert",
+   "gain": "",
+   "regle_le": ""
+  }
+ ],
  "closed": [],
- "pinn_calls": {},
+ "pinn_calls": {
+  "2026-11-26": 2
+ },
  "log": [
   "2026-11-25T05:33:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1 (aucun cr\u00e9dit utilis\u00e9)",
   "2026-11-25T05:33:35Z ucl : 9 matchs Polymarket, 9 Pinnacle, 7 appari\u00e9s, 0 pistes",
@@ -13,10 +38,2388 @@
   "2026-11-25T17:07:36Z ucl : 9 matchs Polymarket, 9 Pinnacle, 7 appari\u00e9s, 2 pistes",
   "2026-11-25T21:55:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)",
   "2026-11-26T02:43:49Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)",
-  "2026-11-26T07:32:01Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)"
+  "2026-11-26T07:32:01Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)",
+  "2026-11-26T09:36:50Z nba : donn\u00e9es indisponibles (PinnFeed : cl\u00e9 refus\u00e9e \u2014 v\u00e9rifie le secret PINNFEED_KEY et les 2 sports choisis (soccer, basketball))",
+  "2026-11-26T09:36:50Z foot : 111 matchs Polymarket, 891 Pinnacle, 88 appari\u00e9s, 20 pistes",
+  "2026-11-26T09:36:53Z PARI foot Tai Po FC vs. Adelaide United FC / Adelaide United FC \u2014 NON @ 0.250 (Pinnacle 29.0%, avantage +3.0%) mise 2.00 $"
  ],
- "last_scan": "2026-11-26T07:32:00Z",
+ "last_scan": "2026-11-26T09:36:41Z",
  "odds_remaining": 497,
  "odds_used": 3,
- "watch": {}
+ "watch": {
+  "foot": {
+   "at": "2026-11-26T09:36:50Z",
+   "games": [
+    {
+     "slug": "uel-usg-lep-2026-11-26",
+     "match": "RU Saint-Gilloise vs. KKS Lech Pozna\u0144",
+     "t1": "RU Saint-Gilloise",
+     "t2": "KKS Lech Pozna\u0144",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.725,
+      "draw": 0.165,
+      "away": 0.115
+     },
+     "pin": {
+      "home": 0.702,
+      "draw": 0.1739,
+      "away": 0.1241
+     },
+     "edge": {
+      "home": -0.033,
+      "draw": 0.002,
+      "away": 0.004
+     }
+    },
+    {
+     "slug": "uel-plz-ben-2026-11-26",
+     "match": "FC Viktoria Plze\u0148 vs. Sport Lisboa e Benfica",
+     "t1": "FC Viktoria Plze\u0148",
+     "t2": "Sport Lisboa e Benfica",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.145,
+      "draw": 0.175,
+      "away": 0.675
+     },
+     "pin": {
+      "home": 0.1602,
+      "draw": 0.1861,
+      "away": 0.6536
+     },
+     "edge": {
+      "home": 0.009,
+      "draw": 0.0039,
+      "away": -0.0323
+     }
+    },
+    {
+     "slug": "uel-cel1-bou-2026-11-26",
+     "match": "RC Celta de Vigo vs. AFC Bournemouth",
+     "t1": "RC Celta de Vigo",
+     "t2": "AFC Bournemouth",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.245,
+      "draw": 0.265,
+      "away": 0.485
+     },
+     "pin": {
+      "home": 0.2508,
+      "draw": 0.2688,
+      "away": 0.4804
+     },
+     "edge": {
+      "home": -0.0035,
+      "draw": -0.0059,
+      "away": -0.0171
+     }
+    },
+    {
+     "slug": "uel-din-lev-2026-11-26",
+     "match": "GNK Dinamo Zagreb vs. Bayer 04 Leverkusen",
+     "t1": "GNK Dinamo Zagreb",
+     "t2": "Bayer 04 Leverkusen",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.205,
+      "draw": 0.225,
+      "away": 0.575
+     },
+     "pin": {
+      "home": 0.2097,
+      "draw": 0.2178,
+      "away": 0.5725
+     },
+     "edge": {
+      "home": -0.0034,
+      "draw": -0.0159,
+      "away": -0.0147
+     }
+    },
+    {
+     "slug": "uel-rbs-aa-2026-11-26",
+     "match": "FC Red Bull Salzburg vs. Ararat-Armenia FA",
+     "t1": "FC Red Bull Salzburg",
+     "t2": "Ararat-Armenia FA",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.855,
+      "draw": 0.095,
+      "away": 0.045
+     },
+     "pin": {
+      "home": 0.8413,
+      "draw": 0.1012,
+      "away": 0.0575
+     },
+     "edge": {
+      "home": -0.0199,
+      "draw": 0.0019,
+      "away": 0.0104
+     }
+    },
+    {
+     "slug": "uel-olm-lev2-2026-11-26",
+     "match": "Olympique de Marseille vs. PFK Levski Sofia",
+     "t1": "Olympique de Marseille",
+     "t2": "PFK Levski Sofia",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.725,
+      "draw": 0.165,
+      "away": 0.095
+     },
+     "pin": {
+      "home": 0.7134,
+      "draw": 0.1713,
+      "away": 0.1154
+     },
+     "edge": {
+      "home": -0.0216,
+      "draw": -0.0006,
+      "away": 0.0161
+     }
+    },
+    {
+     "slug": "uel-oly-mil1-2026-11-26",
+     "match": "Olympiak\u00f3s SFP vs. AC Milan",
+     "t1": "Olympiak\u00f3s SFP",
+     "t2": "AC Milan",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.335,
+      "draw": 0.275,
+      "away": 0.385
+     },
+     "pin": {
+      "home": 0.3349,
+      "draw": 0.2782,
+      "away": 0.3869
+     },
+     "edge": {
+      "home": -0.0113,
+      "draw": -0.0067,
+      "away": -0.0099
+     }
+    },
+    {
+     "slug": "uel-bes-hbs-2026-11-26",
+     "match": "Be\u015fikta\u015f JK vs. MH Hapoel Be'er Sheva",
+     "t1": "Be\u015fikta\u015f JK",
+     "t2": "MH Hapoel Be'er Sheva",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.775,
+      "draw": 0.145,
+      "away": 0.085
+     },
+     "pin": {
+      "home": 0.7658,
+      "draw": 0.1397,
+      "away": 0.0946
+     },
+     "edge": {
+      "home": -0.0179,
+      "draw": -0.0115,
+      "away": 0.0057
+     }
+    },
+    {
+     "slug": "col-kai-ma-2026-11-26",
+     "match": "Qairat FK vs. Mj\u00e4llby AIF",
+     "t1": "Qairat FK",
+     "t2": "Mj\u00e4llby AIF",
+     "start": "2026-11-26T15:30:00Z",
+     "ligue": "europa-conference-league",
+     "pm": {
+      "home": 0.445,
+      "draw": 0.275,
+      "away": 0.285
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "col-bra-agf-2026-11-26",
+     "match": "SK Brann vs. Aarhus GF",
+     "t1": "SK Brann",
+     "t2": "Aarhus GF",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "europa-conference-league",
+     "pm": {
+      "home": 0.435,
+      "draw": 0.255,
+      "away": 0.315
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "col-aja-thu-2026-11-26",
+     "match": "AFC Ajax vs. FC Thun",
+     "t1": "AFC Ajax",
+     "t2": "FC Thun",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.825,
+      "draw": 0.105,
+      "away": 0.065
+     },
+     "pin": {
+      "home": 0.808,
+      "draw": 0.1135,
+      "away": 0.0785
+     },
+     "edge": {
+      "home": -0.0242,
+      "draw": 0.0038,
+      "away": 0.0104
+     }
+    },
+    {
+     "slug": "col-paf-mid-2026-11-26",
+     "match": "P\u00e1fos FC vs. FC Midtjylland",
+     "t1": "P\u00e1fos FC",
+     "t2": "FC Midtjylland",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.315,
+      "draw": 0.265,
+      "away": 0.415
+     },
+     "pin": {
+      "home": 0.3217,
+      "draw": 0.2623,
+      "away": 0.416
+     },
+     "edge": {
+      "home": -0.0041,
+      "draw": -0.0125,
+      "away": -0.0111
+     }
+    },
+    {
+     "slug": "col-egn-lin-2026-11-26",
+     "match": "KF Egnatia Rrogozhin\u00eb vs. Lincoln Red Imps FC",
+     "t1": "KF Egnatia Rrogozhin\u00eb",
+     "t2": "Lincoln Red Imps FC",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.605,
+      "draw": 0.215,
+      "away": 0.175
+     },
+     "pin": {
+      "home": 0.5899,
+      "draw": 0.212,
+      "away": 0.198
+     },
+     "edge": {
+      "home": -0.027,
+      "draw": -0.0114,
+      "away": 0.0158
+     }
+    },
+    {
+     "slug": "col-sab-get-2026-11-26",
+     "match": "SK Iberia 1999 vs. Getafe CF",
+     "t1": "SK Iberia 1999",
+     "t2": "Getafe CF",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.12,
+      "draw": 0.215,
+      "away": 0.655
+     },
+     "pin": {
+      "home": 0.1321,
+      "draw": 0.2182,
+      "away": 0.6497
+     },
+     "edge": {
+      "home": 0.0068,
+      "draw": -0.0052,
+      "away": -0.0166
+     }
+    },
+    {
+     "slug": "col-kau-rfc1-2026-11-26",
+     "match": "FK Kauno \u017dalgiris vs. R\u012bga FC",
+     "t1": "FK Kauno \u017dalgiris",
+     "t2": "R\u012bga FC",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.265,
+      "draw": 0.285,
+      "away": 0.455
+     },
+     "pin": {
+      "home": 0.2563,
+      "draw": 0.2869,
+      "away": 0.4568
+     },
+     "edge": {
+      "home": -0.0184,
+      "draw": -0.0083,
+      "away": -0.0106
+     }
+    },
+    {
+     "slug": "col-bha-ucr-2026-11-26",
+     "match": "Brighton & Hove Albion FC vs. Universitatea Craiova CS",
+     "t1": "Brighton & Hove Albion FC",
+     "t2": "Universitatea Craiova CS",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.875,
+      "draw": 0.095,
+      "away": 0.036
+     },
+     "pin": {
+      "home": 0.8665,
+      "draw": 0.0911,
+      "away": 0.0425
+     },
+     "edge": {
+      "home": -0.014,
+      "draw": -0.0082,
+      "away": 0.0047
+     }
+    },
+    {
+     "slug": "col-jab-lug-2026-11-26",
+     "match": "FK Jablonec vs. FC Lugano",
+     "t1": "FK Jablonec",
+     "t2": "FC Lugano",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.285,
+      "draw": 0.265,
+      "away": 0.455
+     },
+     "pin": {
+      "home": 0.2845,
+      "draw": 0.2585,
+      "away": 0.457
+     },
+     "edge": {
+      "home": -0.0107,
+      "draw": -0.0162,
+      "away": -0.0104
+     }
+    },
+    {
+     "slug": "col-hmi-asm-2026-11-26",
+     "match": "Heart of Midlothian FC vs. AS Monaco FC",
+     "t1": "Heart of Midlothian FC",
+     "t2": "AS Monaco FC",
+     "start": "2026-11-26T17:45:00Z",
+     "ligue": "europa-conference-league",
+     "pm": {
+      "home": 0.155,
+      "draw": 0.205,
+      "away": 0.635
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "col-scb-kps-2026-11-26",
+     "match": "SC Braga vs. Kuopion PS",
+     "t1": "SC Braga",
+     "t2": "Kuopion PS",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "europa-conference-league",
+     "pm": {
+      "home": 0.845,
+      "draw": 0.105,
+      "away": 0.043
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "col-gen-crv-2026-11-26",
+     "match": "KAA Gent vs. FK Crvena zvezda",
+     "t1": "KAA Gent",
+     "t2": "FK Crvena zvezda",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.445,
+      "draw": 0.275,
+      "away": 0.285
+     },
+     "pin": {
+      "home": 0.4389,
+      "draw": 0.272,
+      "away": 0.2891
+     },
+     "edge": {
+      "home": -0.0184,
+      "draw": -0.013,
+      "away": -0.0061
+     }
+    },
+    {
+     "slug": "col-csk-tra-2026-11-26",
+     "match": "PFK CSKA Sofia vs. Trabzonspor",
+     "t1": "PFK CSKA Sofia",
+     "t2": "Trabzonspor",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.205,
+      "draw": 0.235,
+      "away": 0.565
+     },
+     "pin": {
+      "home": 0.2084,
+      "draw": 0.2315,
+      "away": 0.5601
+     },
+     "edge": {
+      "home": -0.0047,
+      "draw": -0.0125,
+      "away": -0.0172
+     }
+    },
+    {
+     "slug": "col-nor-pao-2026-11-26",
+     "match": "FC Nordsj\u00e6lland vs. Panathinaik\u00f3s AO",
+     "t1": "FC Nordsj\u00e6lland",
+     "t2": "Panathinaik\u00f3s AO",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.395,
+      "draw": 0.265,
+      "away": 0.345
+     },
+     "pin": {
+      "home": 0.3926,
+      "draw": 0.2661,
+      "away": 0.3413
+     },
+     "edge": {
+      "home": -0.0143,
+      "draw": -0.0087,
+      "away": -0.015
+     }
+    },
+    {
+     "slug": "col-bor-ata-2026-11-26",
+     "match": "FK Borac Banja Luka vs. Atalanta BC",
+     "t1": "FK Borac Banja Luka",
+     "t2": "Atalanta BC",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.135,
+      "draw": 0.185,
+      "away": 0.685
+     },
+     "pin": {
+      "home": 0.1383,
+      "draw": 0.1839,
+      "away": 0.6778
+     },
+     "edge": {
+      "home": -0.0025,
+      "draw": -0.0087,
+      "away": -0.018
+     }
+    },
+    {
+     "slug": "col-int-kob-2026-11-26",
+     "match": "Inter Club d'Escaldes vs. FC K\u00f8benhavn",
+     "t1": "Inter Club d'Escaldes",
+     "t2": "FC K\u00f8benhavn",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "europa-conference-league",
+     "pm": {
+      "home": 0.065,
+      "draw": 0.155,
+      "away": 0.785
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "col-scf-twe-2026-11-26",
+     "match": "SC Freiburg vs. FC Twente",
+     "t1": "SC Freiburg",
+     "t2": "FC Twente",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.52,
+      "draw": 0.245,
+      "away": 0.235
+     },
+     "pin": {
+      "home": 0.5135,
+      "draw": 0.2374,
+      "away": 0.2491
+     },
+     "edge": {
+      "home": -0.019,
+      "draw": -0.0168,
+      "away": 0.0051
+     }
+    },
+    {
+     "slug": "col-haj-kst-2026-11-26",
+     "match": "HNK Hajduk Split vs. K. Sint-Truidense VV",
+     "t1": "HNK Hajduk Split",
+     "t2": "K. Sint-Truidense VV",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Conference League",
+     "pm": {
+      "home": 0.475,
+      "draw": 0.255,
+      "away": 0.285
+     },
+     "pin": {
+      "home": 0.468,
+      "draw": 0.255,
+      "away": 0.277
+     },
+     "edge": {
+      "home": -0.0195,
+      "draw": -0.0095,
+      "away": -0.0182
+     }
+    },
+    {
+     "slug": "isp-kas-chb-2026-11-27",
+     "match": "Inter Kashi FC vs. Churchill Brothers SC",
+     "t1": "Inter Kashi FC",
+     "t2": "Churchill Brothers SC",
+     "start": "2026-11-27T14:00:00Z",
+     "ligue": "India - Super League",
+     "pm": {
+      "home": 0.25,
+      "draw": 0.245,
+      "away": 0.505
+     },
+     "pin": {
+      "home": 0.2494,
+      "draw": 0.2514,
+      "away": 0.4991
+     },
+     "edge": {
+      "home": -0.0099,
+      "draw": -0.0028,
+      "away": -0.0184
+     }
+    },
+    {
+     "slug": "aus-mac-mct-2026-11-27",
+     "match": "Macarthur FC vs. Melbourne City FC",
+     "t1": "Macarthur FC",
+     "t2": "Melbourne City FC",
+     "start": "2026-11-27T08:40:00Z",
+     "ligue": "Australia - A League",
+     "pm": {
+      "home": 0.28,
+      "draw": 0.255,
+      "away": 0.465
+     },
+     "pin": {
+      "home": 0.2787,
+      "draw": 0.2599,
+      "away": 0.4614
+     },
+     "edge": {
+      "home": -0.0114,
+      "draw": -0.0046,
+      "away": -0.0161
+     }
+    },
+    {
+     "slug": "ukr1-liv-kol-2026-11-27",
+     "match": "FK Livyi Bereh vs. FK Kolos Kovalivka",
+     "t1": "FK Livyi Bereh",
+     "t2": "FK Kolos Kovalivka",
+     "start": "2026-11-27T11:00:00Z",
+     "ligue": "Ukraine - Premier League",
+     "pm": {
+      "home": 0.37,
+      "draw": 0.315,
+      "away": 0.32
+     },
+     "pin": {
+      "home": 0.3604,
+      "draw": 0.3132,
+      "away": 0.3264
+     },
+     "edge": {
+      "home": -0.0213,
+      "draw": -0.0126,
+      "away": -0.0045
+     }
+    },
+    {
+     "slug": "scoc-lar-ayr-2026-11-27",
+     "match": "Largs Thistle FC vs. Ayr United FC",
+     "t1": "Largs Thistle FC",
+     "t2": "Ayr United FC",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "soccer-scoc",
+     "pm": {
+      "home": 0.79,
+      "draw": 0.19,
+      "away": 0.46
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "uel-ftc-cel2-2026-11-26",
+     "match": "Ferencv\u00e1rosi TC vs. NK Celje",
+     "t1": "Ferencv\u00e1rosi TC",
+     "t2": "NK Celje",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.715,
+      "draw": 0.175,
+      "away": 0.115
+     },
+     "pin": {
+      "home": 0.6998,
+      "draw": 0.1756,
+      "away": 0.1246
+     },
+     "edge": {
+      "home": -0.0254,
+      "draw": -0.0066,
+      "away": 0.0045
+     }
+    },
+    {
+     "slug": "uel-sun-jag-2026-11-26",
+     "match": "Sunderland AFC vs. Jagiellonia Bia\u0142ystok",
+     "t1": "Sunderland AFC",
+     "t2": "Jagiellonia Bia\u0142ystok",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.785,
+      "draw": 0.145,
+      "away": 0.065
+     },
+     "pin": {
+      "home": 0.7725,
+      "draw": 0.1508,
+      "away": 0.0767
+     },
+     "edge": {
+      "home": -0.0209,
+      "draw": -0.0004,
+      "away": 0.0087
+     }
+    },
+    {
+     "slug": "uel-spp-az-2026-11-26",
+     "match": "AC Sparta Praha vs. AZ",
+     "t1": "AC Sparta Praha",
+     "t2": "AZ",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.315,
+      "draw": 0.265,
+      "away": 0.425
+     },
+     "pin": {
+      "home": 0.3182,
+      "draw": 0.2652,
+      "away": 0.4166
+     },
+     "edge": {
+      "home": -0.0076,
+      "draw": -0.0095,
+      "away": -0.0206
+     }
+    },
+    {
+     "slug": "uel-juv-omo-2026-11-26",
+     "match": "Juventus FC vs. AS Om\u00f3noia Leukos\u00edas",
+     "t1": "Juventus FC",
+     "t2": "AS Om\u00f3noia Leukos\u00edas",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "uel-2025",
+     "pm": {
+      "home": 0.835,
+      "draw": 0.115,
+      "away": 0.055
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "uel-lyo-lil1-2026-11-26",
+     "match": "Olympique Lyonnais vs. Lillestr\u00f8m SK",
+     "t1": "Olympique Lyonnais",
+     "t2": "Lillestr\u00f8m SK",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "uel-2025",
+     "pm": {
+      "home": 0.805,
+      "draw": 0.125,
+      "away": 0.065
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "uel-ofi-and-2026-11-26",
+     "match": "OFI vs. RSC Anderlecht",
+     "t1": "OFI",
+     "t2": "RSC Anderlecht",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.215,
+      "draw": 0.245,
+      "away": 0.535
+     },
+     "pin": {
+      "home": 0.2153,
+      "draw": 0.2484,
+      "away": 0.5364
+     },
+     "edge": {
+      "home": -0.0082,
+      "draw": -0.0059,
+      "away": -0.0111
+     }
+    },
+    {
+     "slug": "uel-nec-ren1-2026-11-26",
+     "match": "NEC vs. Stade Rennais FC 1901",
+     "t1": "NEC",
+     "t2": "Stade Rennais FC 1901",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "uel-2025",
+     "pm": {
+      "home": 0.305,
+      "draw": 0.245,
+      "away": 0.445
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "uel-hof-stu1-2026-11-26",
+     "match": "TSG 1899 Hoffenheim vs. SK Puntigamer Sturm Graz",
+     "t1": "TSG 1899 Hoffenheim",
+     "t2": "SK Puntigamer Sturm Graz",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.735,
+      "draw": 0.155,
+      "away": 0.105
+     },
+     "pin": {
+      "home": 0.7278,
+      "draw": 0.1578,
+      "away": 0.1144
+     },
+     "edge": {
+      "home": -0.017,
+      "draw": -0.0037,
+      "away": 0.0047
+     }
+    },
+    {
+     "slug": "uel-ut-cel-2026-11-26",
+     "match": "SC Uni\u00e3o Torreense vs. Celtic FC",
+     "t1": "SC Uni\u00e3o Torreense",
+     "t2": "Celtic FC",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.195,
+      "draw": 0.215,
+      "away": 0.595
+     },
+     "pin": {
+      "home": 0.2019,
+      "draw": 0.2193,
+      "away": 0.5788
+     },
+     "edge": {
+      "home": -0.0009,
+      "draw": -0.0041,
+      "away": -0.0283
+     }
+    },
+    {
+     "slug": "uel-cry-rso-2026-11-26",
+     "match": "Crystal Palace FC vs. Real Sociedad de F\u00fatbol",
+     "t1": "Crystal Palace FC",
+     "t2": "Real Sociedad de F\u00fatbol",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "UEFA - Europa League",
+     "pm": {
+      "home": 0.475,
+      "draw": 0.245,
+      "away": 0.295
+     },
+     "pin": {
+      "home": 0.4731,
+      "draw": 0.2425,
+      "away": 0.2844
+     },
+     "edge": {
+      "home": -0.0144,
+      "draw": -0.0118,
+      "away": -0.021
+     }
+    },
+    {
+     "slug": "cde-can-puy-2026-11-27",
+     "match": "AS Cannes vs. Le Puy Foot 43",
+     "t1": "AS Cannes",
+     "t2": "Le Puy Foot 43",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "coupe-de-france",
+     "pm": {
+      "home": 0.465,
+      "draw": 0.23,
+      "away": 0.3
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "cde-pdv-vfc-2026-11-28",
+     "match": "US Le Pays du Valois vs. Valenciennes FC",
+     "t1": "US Le Pays du Valois",
+     "t2": "Valenciennes FC",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "coupe-de-france",
+     "pm": {
+      "home": 0.195,
+      "draw": 0.2,
+      "away": 0.635
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "cde-som-cae-2026-11-28",
+     "match": "US Pays de Saint-Omer vs. SM Caen",
+     "t1": "US Pays de Saint-Omer",
+     "t2": "SM Caen",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "coupe-de-france",
+     "pm": {
+      "home": 0.195,
+      "draw": 0.215,
+      "away": 0.66
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "par1-nac-rub-2026-11-25",
+     "match": "Nacional Asuncion vs. Rubio Nu",
+     "t1": "Nacional Asuncion",
+     "t2": "Rubio Nu",
+     "start": "2026-11-27T20:30:00Z",
+     "ligue": "Paraguay - Division Profesional",
+     "pm": {
+      "home": 0.57,
+      "draw": 0.255,
+      "away": 0.18
+     },
+     "pin": {
+      "home": 0.5549,
+      "draw": 0.2554,
+      "away": 0.1897
+     },
+     "edge": {
+      "home": -0.0274,
+      "draw": -0.0091,
+      "away": 0.0023
+     }
+    },
+    {
+     "slug": "bun-wer-moe-2026-11-27",
+     "match": "SV Werder Bremen vs. Borussia M\u00f6nchengladbach",
+     "t1": "SV Werder Bremen",
+     "t2": "Borussia M\u00f6nchengladbach",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "Germany - Bundesliga",
+     "pm": {
+      "home": 0.565,
+      "draw": 0.215,
+      "away": 0.225
+     },
+     "pin": {
+      "home": 0.5564,
+      "draw": 0.22,
+      "away": 0.2236
+     },
+     "edge": {
+      "home": -0.0209,
+      "draw": -0.0034,
+      "away": -0.0101
+     }
+    },
+    {
+     "slug": "lal-lev-rrc-2026-11-27",
+     "match": "Levante UD vs. Real Racing Club",
+     "t1": "Levante UD",
+     "t2": "Real Racing Club",
+     "start": "2026-11-27T20:00:00Z",
+     "ligue": "la-liga-2025",
+     "pm": {
+      "home": 0.465,
+      "draw": 0.245,
+      "away": 0.295
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "fl1-sbr-pfc-2026-11-27",
+     "match": "Stade Brestois 29 vs. Paris FC",
+     "t1": "Stade Brestois 29",
+     "t2": "Paris FC",
+     "start": "2026-11-27T19:45:00Z",
+     "ligue": "ligue-1-2025",
+     "pm": {
+      "home": 0.28,
+      "draw": 0.285,
+      "away": 0.445
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "sea-ven-bol-2026-11-27",
+     "match": "Venezia FC vs. Bologna FC 1909",
+     "t1": "Venezia FC",
+     "t2": "Bologna FC 1909",
+     "start": "2026-11-27T19:45:00Z",
+     "ligue": "Italy - Serie A",
+     "pm": {
+      "home": 0.275,
+      "draw": 0.295,
+      "away": 0.435
+     },
+     "pin": {
+      "home": 0.2743,
+      "draw": 0.296,
+      "away": 0.4297
+     },
+     "edge": {
+      "home": -0.0107,
+      "draw": -0.0094,
+      "away": -0.0176
+     }
+    },
+    {
+     "slug": "el1-don-hud-2026-11-26",
+     "match": "Doncaster Rovers FC vs. Huddersfield Town AFC",
+     "t1": "Doncaster Rovers FC",
+     "t2": "Huddersfield Town AFC",
+     "start": "2026-11-26T20:00:00Z",
+     "ligue": "England - League 1",
+     "pm": {
+      "home": 0.205,
+      "draw": 0.225,
+      "away": 0.575
+     },
+     "pin": {
+      "home": 0.2087,
+      "draw": 0.2187,
+      "away": 0.5727
+     },
+     "edge": {
+      "home": -0.0045,
+      "draw": -0.0151,
+      "away": -0.0146
+     }
+    },
+    {
+     "slug": "por-csm-nac-2026-11-27",
+     "match": "CS Mar\u00edtimo vs. CD Nacional",
+     "t1": "CS Mar\u00edtimo",
+     "t2": "CD Nacional",
+     "start": "2026-11-27T20:15:00Z",
+     "ligue": "Portugal - Primeira Liga",
+     "pm": {
+      "home": 0.45,
+      "draw": 0.285,
+      "away": 0.275
+     },
+     "pin": {
+      "home": 0.4523,
+      "draw": 0.284,
+      "away": 0.2636
+     },
+     "edge": {
+      "home": -0.0101,
+      "draw": -0.0111,
+      "away": -0.0213
+     }
+    },
+    {
+     "slug": "epl-not-che-2026-11-27",
+     "match": "Nottingham Forest FC vs. Chelsea FC",
+     "t1": "Nottingham Forest FC",
+     "t2": "Chelsea FC",
+     "start": "2026-11-27T20:00:00Z",
+     "ligue": "England - Premier League",
+     "pm": {
+      "home": 0.375,
+      "draw": 0.285,
+      "away": 0.345
+     },
+     "pin": {
+      "home": 0.3735,
+      "draw": 0.2882,
+      "away": 0.3383
+     },
+     "edge": {
+      "home": -0.0132,
+      "draw": -0.007,
+      "away": -0.0179
+     }
+    },
+    {
+     "slug": "isr-mpt-hta-2026-11-27",
+     "match": "Maccabi Petah Tikva FC vs. Hapoel Tel Aviv FC",
+     "t1": "Maccabi Petah Tikva FC",
+     "t2": "Hapoel Tel Aviv FC",
+     "start": "2026-11-27T12:00:00Z",
+     "ligue": "Israel - Premier League",
+     "pm": {
+      "home": 0.135,
+      "draw": 0.2,
+      "away": 0.67
+     },
+     "pin": {
+      "home": 0.1427,
+      "draw": 0.1981,
+      "away": 0.6592
+     },
+     "edge": {
+      "home": 0.0019,
+      "draw": -0.01,
+      "away": -0.0218
+     }
+    },
+    {
+     "slug": "clf-ilv-tps-2026-11-27",
+     "match": "Ilves vs. TPS",
+     "t1": "Ilves",
+     "t2": "TPS",
+     "start": "2026-11-27T11:30:00Z",
+     "ligue": "clf-games",
+     "pm": {
+      "home": 0.49,
+      "draw": 0.2,
+      "away": 0.325
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "hr1-ist-var-2026-11-27",
+     "match": "NK Istra 1961 vs. NK Vara\u017edin",
+     "t1": "NK Istra 1961",
+     "t2": "NK Vara\u017edin",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Croatia - HNL",
+     "pm": {
+      "home": 0.38,
+      "draw": 0.27,
+      "away": 0.345
+     },
+     "pin": {
+      "home": 0.3821,
+      "draw": 0.2735,
+      "away": 0.3444
+     },
+     "edge": {
+      "home": -0.0097,
+      "draw": -0.0063,
+      "away": -0.0119
+     }
+    },
+    {
+     "slug": "bl2-boc-svd-2026-11-27",
+     "match": "VfL Bochum vs. SV Darmstadt 98",
+     "t1": "VfL Bochum",
+     "t2": "SV Darmstadt 98",
+     "start": "2026-11-27T17:30:00Z",
+     "ligue": "Germany - Bundesliga 2",
+     "pm": {
+      "home": 0.545,
+      "draw": 0.235,
+      "away": 0.22
+     },
+     "pin": {
+      "home": 0.5429,
+      "draw": 0.2332,
+      "away": 0.2239
+     },
+     "edge": {
+      "home": -0.0145,
+      "draw": -0.0108,
+      "away": -0.0047
+     }
+    },
+    {
+     "slug": "bl2-hei-fcn-2026-11-27",
+     "match": "1. FC Heidenheim vs. 1. FC N\u00fcrnberg",
+     "t1": "1. FC Heidenheim",
+     "t2": "1. FC N\u00fcrnberg",
+     "start": "2026-11-27T17:30:00Z",
+     "ligue": "Germany - Bundesliga 2",
+     "pm": {
+      "home": 0.45,
+      "draw": 0.235,
+      "away": 0.315
+     },
+     "pin": {
+      "home": 0.4481,
+      "draw": 0.2441,
+      "away": 0.3079
+     },
+     "edge": {
+      "home": -0.0143,
+      "draw": 0.0001,
+      "away": -0.0179
+     }
+    },
+    {
+     "slug": "clf-oi-fk-2026-11-27",
+     "match": "Osters IF vs. FK Karlskrona",
+     "t1": "Osters IF",
+     "t2": "FK Karlskrona",
+     "start": "2026-11-27T17:30:00Z",
+     "ligue": "clf-games",
+     "pm": {
+      "home": 0.475,
+      "draw": 0.195,
+      "away": 0.475
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "serc-cav-scc-2026-11-27",
+     "match": "Cavese 1919 vs. Scafatese Calcio 1922",
+     "t1": "Cavese 1919",
+     "t2": "Scafatese Calcio 1922",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "serc-games",
+     "pm": {
+      "home": 0.37,
+      "draw": 0.24,
+      "away": 0.33
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "serc-caf-cfc-2026-11-27",
+     "match": "Calcio Foggia vs. Casertana FC",
+     "t1": "Calcio Foggia",
+     "t2": "Casertana FC",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "serc-games",
+     "pm": {
+      "home": 0.365,
+      "draw": 0.275,
+      "away": 0.33
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "enl-scu-wea-2026-11-27",
+     "match": "Scunthorpe United FC vs. Wealdstone FC",
+     "t1": "Scunthorpe United FC",
+     "t2": "Wealdstone FC",
+     "start": "2026-11-27T19:45:00Z",
+     "ligue": "England - National League",
+     "pm": {
+      "home": 0.425,
+      "draw": 0.23,
+      "away": 0.345
+     },
+     "pin": {
+      "home": 0.4266,
+      "draw": 0.2294,
+      "away": 0.3441
+     },
+     "edge": {
+      "home": -0.0106,
+      "draw": -0.0095,
+      "away": -0.0122
+     }
+    },
+    {
+     "slug": "aut-gak-alt-2026-11-27",
+     "match": "Grazer AK 1902 vs. SCR Altach",
+     "t1": "Grazer AK 1902",
+     "t2": "SCR Altach",
+     "start": "2026-11-27T18:30:00Z",
+     "ligue": "Austria - Bundesliga",
+     "pm": {
+      "home": 0.275,
+      "draw": 0.3,
+      "away": 0.43
+     },
+     "pin": {
+      "home": 0.2738,
+      "draw": 0.3034,
+      "away": 0.4228
+     },
+     "edge": {
+      "home": -0.0112,
+      "draw": -0.0071,
+      "away": -0.0194
+     }
+    },
+    {
+     "slug": "tur2-sar-ias-2026-11-27",
+     "match": "Sariyer SK vs. Istanbulspor AS",
+     "t1": "Sariyer SK",
+     "t2": "Istanbulspor AS",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Turkey - 1st League",
+     "pm": {
+      "home": 0.525,
+      "draw": 0.26,
+      "away": 0.21
+     },
+     "pin": {
+      "home": 0.5205,
+      "draw": 0.2604,
+      "away": 0.2191
+     },
+     "edge": {
+      "home": -0.017,
+      "draw": -0.0092,
+      "away": 0.0008
+     }
+    },
+    {
+     "slug": "ned2-bre-dbo-2026-11-27",
+     "match": "NAC Breda vs. FC Den Bosch",
+     "t1": "NAC Breda",
+     "t2": "FC Den Bosch",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.7,
+      "draw": 0.165,
+      "away": 0.135
+     },
+     "pin": {
+      "home": 0.6888,
+      "draw": 0.1715,
+      "away": 0.1397
+     },
+     "edge": {
+      "home": -0.0217,
+      "draw": -0.0004,
+      "away": -0.0011
+     }
+    },
+    {
+     "slug": "ned2-ven-waa-2026-11-27",
+     "match": "VVV Venlo vs. RKC Waalwijk",
+     "t1": "VVV Venlo",
+     "t2": "RKC Waalwijk",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.37,
+      "draw": 0.25,
+      "away": 0.395
+     },
+     "pin": {
+      "home": 0.3597,
+      "draw": 0.254,
+      "away": 0.3862
+     },
+     "edge": {
+      "home": -0.0219,
+      "draw": -0.0053,
+      "away": -0.0207
+     }
+    },
+    {
+     "slug": "bel1-ohl-kor-2026-11-27",
+     "match": "Oud-Heverlee Leuven vs. KV Kortrijk",
+     "t1": "Oud-Heverlee Leuven",
+     "t2": "KV Kortrijk",
+     "start": "2026-11-27T19:45:00Z",
+     "ligue": "Belgium - Pro League",
+     "pm": {
+      "home": 0.515,
+      "draw": 0.245,
+      "away": 0.245
+     },
+     "pin": {
+      "home": 0.5093,
+      "draw": 0.2447,
+      "away": 0.246
+     },
+     "edge": {
+      "home": -0.0182,
+      "draw": -0.0095,
+      "away": -0.0083
+     }
+    },
+    {
+     "slug": "hun-gyo-deb-2026-11-27",
+     "match": "WKW ETO FC Gyor vs. Debreceni VSC",
+     "t1": "WKW ETO FC Gyor",
+     "t2": "Debreceni VSC",
+     "start": "2026-11-27T18:30:00Z",
+     "ligue": "hungary-nb1-2026",
+     "pm": {
+      "home": 0.375,
+      "draw": 0.25,
+      "away": 0.375
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "bul-lso-sla-2026-11-27",
+     "match": "FC Lokomotiv 1929 Sofia vs. PFC Slavia Sofia",
+     "t1": "FC Lokomotiv 1929 Sofia",
+     "t2": "PFC Slavia Sofia",
+     "start": "2026-11-27T16:30:00Z",
+     "ligue": "Bulgaria - First League",
+     "pm": {
+      "home": 0.485,
+      "draw": 0.285,
+      "away": 0.235
+     },
+     "pin": {
+      "home": 0.4818,
+      "draw": 0.2824,
+      "away": 0.2357
+     },
+     "edge": {
+      "home": -0.0157,
+      "draw": -0.0127,
+      "away": -0.0083
+     }
+    },
+    {
+     "slug": "tur2-umr-man-2026-11-27",
+     "match": "Umraniyespor vs. Manisa Futbol Kulubu",
+     "t1": "Umraniyespor",
+     "t2": "Manisa Futbol Kulubu",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Turkey - 1st League",
+     "pm": {
+      "home": 0.435,
+      "draw": 0.27,
+      "away": 0.305
+     },
+     "pin": {
+      "home": 0.4266,
+      "draw": 0.2663,
+      "away": 0.3071
+     },
+     "edge": {
+      "home": -0.0207,
+      "draw": -0.0135,
+      "away": -0.0085
+     }
+    },
+    {
+     "slug": "bel2-rfb-eup-2026-11-27",
+     "match": "Royal Francs Borains vs. KAS Eupen",
+     "t1": "Royal Francs Borains",
+     "t2": "KAS Eupen",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Belgium - Challenger Pro League",
+     "pm": {
+      "home": 0.26,
+      "draw": 0.26,
+      "away": 0.485
+     },
+     "pin": {
+      "home": 0.266,
+      "draw": 0.2608,
+      "away": 0.4732
+     },
+     "edge": {
+      "home": -0.0036,
+      "draw": -0.0088,
+      "away": -0.0243
+     }
+    },
+    {
+     "slug": "bra-sao-cre-2026-11-26",
+     "match": "S\u00e3o Paulo FC vs. Clube do Remo",
+     "t1": "S\u00e3o Paulo FC",
+     "t2": "Clube do Remo",
+     "start": "2026-11-26T23:00:00Z",
+     "ligue": "Brazil - Serie A",
+     "pm": {
+      "home": 0.715,
+      "draw": 0.185,
+      "away": 0.095
+     },
+     "pin": {
+      "home": 0.7067,
+      "draw": 0.1855,
+      "away": 0.1079
+     },
+     "edge": {
+      "home": -0.0185,
+      "draw": -0.0071,
+      "away": 0.0086
+     }
+    },
+    {
+     "slug": "pt2-fei-por-2026-11-27",
+     "match": "CD Feirense vs. Portimonense SAD",
+     "t1": "CD Feirense",
+     "t2": "Portimonense SAD",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "Portugal - Liga 2",
+     "pm": {
+      "home": 0.275,
+      "draw": 0.305,
+      "away": 0.44
+     },
+     "pin": {
+      "home": 0.28,
+      "draw": 0.2968,
+      "away": 0.4232
+     },
+     "edge": {
+      "home": -0.0049,
+      "draw": -0.0188,
+      "away": -0.0291
+     }
+    },
+    {
+     "slug": "bl3-han-hav-2026-11-27",
+     "match": "Hansa Rostock vs. TSV Havelse",
+     "t1": "Hansa Rostock",
+     "t2": "TSV Havelse",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "Germany - 3. Liga",
+     "pm": {
+      "home": 0.735,
+      "draw": 0.15,
+      "away": 0.105
+     },
+     "pin": {
+      "home": 0.7229,
+      "draw": 0.154,
+      "away": 0.123
+     },
+     "edge": {
+      "home": -0.0218,
+      "draw": -0.0023,
+      "away": 0.0133
+     }
+    },
+    {
+     "slug": "slo-rad-naf-2026-11-27",
+     "match": "NK Radomlje vs. Nafta 1903 Lendava",
+     "t1": "NK Radomlje",
+     "t2": "Nafta 1903 Lendava",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Slovenia - Prva Liga",
+     "pm": {
+      "home": 0.375,
+      "draw": 0.275,
+      "away": 0.35
+     },
+     "pin": {
+      "home": 0.3673,
+      "draw": 0.2818,
+      "away": 0.3509
+     },
+     "edge": {
+      "home": -0.0194,
+      "draw": -0.0032,
+      "away": -0.0105
+     }
+    },
+    {
+     "slug": "rou1-fuc-sep-2026-11-27",
+     "match": "FC Universitatea Cluj vs. Sepsi OSK",
+     "t1": "FC Universitatea Cluj",
+     "t2": "Sepsi OSK",
+     "start": "2026-11-27T15:30:00Z",
+     "ligue": "Romania - Liga 1",
+     "pm": {
+      "home": 0.625,
+      "draw": 0.22,
+      "away": 0.155
+     },
+     "pin": {
+      "home": 0.6086,
+      "draw": 0.2237,
+      "away": 0.1677
+     },
+     "edge": {
+      "home": -0.0281,
+      "draw": -0.0049,
+      "away": 0.0061
+     }
+    },
+    {
+     "slug": "tur-riz-kas-2026-11-27",
+     "match": "\u00c7aykur Rizespor vs. Kas\u0131mpa\u015fa SK",
+     "t1": "\u00c7aykur Rizespor",
+     "t2": "Kas\u0131mpa\u015fa SK",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Turkey - Super League",
+     "pm": {
+      "home": 0.5,
+      "draw": 0.245,
+      "away": 0.25
+     },
+     "pin": {
+      "home": 0.4904,
+      "draw": 0.2507,
+      "away": 0.2589
+     },
+     "edge": {
+      "home": -0.0221,
+      "draw": -0.0035,
+      "away": -0.0005
+     }
+    },
+    {
+     "slug": "tur-ala-kon-2026-11-27",
+     "match": "Alanyaspor vs. Konyaspor",
+     "t1": "Alanyaspor",
+     "t2": "Konyaspor",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Turkey - Super League",
+     "pm": {
+      "home": 0.36,
+      "draw": 0.295,
+      "away": 0.335
+     },
+     "pin": {
+      "home": 0.3631,
+      "draw": 0.2994,
+      "away": 0.3375
+     },
+     "edge": {
+      "home": -0.0084,
+      "draw": -0.006,
+      "away": -0.0087
+     }
+    },
+    {
+     "slug": "cze1-art-fcs-2026-11-27",
+     "match": "SK Artis Brno vs. 1. FC Slov\u00e1cko",
+     "t1": "SK Artis Brno",
+     "t2": "1. FC Slov\u00e1cko",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Czech Republic - First Liga",
+     "pm": {
+      "home": 0.395,
+      "draw": 0.28,
+      "away": 0.33
+     },
+     "pin": {
+      "home": 0.3912,
+      "draw": 0.2781,
+      "away": 0.3308
+     },
+     "edge": {
+      "home": -0.0158,
+      "draw": -0.012,
+      "away": -0.0103
+     }
+    },
+    {
+     "slug": "pol-cze-pgl-2026-11-27",
+     "match": "RKS Rakow Czestochowa vs. GKS Piast Gliwice",
+     "t1": "RKS Rakow Czestochowa",
+     "t2": "GKS Piast Gliwice",
+     "start": "2026-11-27T17:00:00Z",
+     "ligue": "Poland - Ekstraklasa",
+     "pm": {
+      "home": 0.53,
+      "draw": 0.23,
+      "away": 0.245
+     },
+     "pin": {
+      "home": 0.521,
+      "draw": 0.2329,
+      "away": 0.2462
+     },
+     "edge": {
+      "home": -0.0215,
+      "draw": -0.006,
+      "away": -0.0081
+     }
+    },
+    {
+     "slug": "den-sjs-bro-2026-11-27",
+     "match": "S\u00f8nderjyske Fodbold vs. Br\u00f8ndby IF",
+     "t1": "S\u00f8nderjyske Fodbold",
+     "t2": "Br\u00f8ndby IF",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "denmark-superliga",
+     "pm": {
+      "home": 0.225,
+      "draw": 0.225,
+      "away": 0.57
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "rou1-fpp-fap-2026-11-27",
+     "match": "FC Petrolul Ploie\u015fti vs. FC Arge\u0219 Pite\u0219ti",
+     "t1": "FC Petrolul Ploie\u015fti",
+     "t2": "FC Arge\u0219 Pite\u0219ti",
+     "start": "2026-11-27T18:30:00Z",
+     "ligue": "Romania - Liga 1",
+     "pm": {
+      "home": 0.46,
+      "draw": 0.28,
+      "away": 0.265
+     },
+     "pin": {
+      "home": 0.4514,
+      "draw": 0.2783,
+      "away": 0.2703
+     },
+     "edge": {
+      "home": -0.021,
+      "draw": -0.0118,
+      "away": -0.0044
+     }
+    },
+    {
+     "slug": "es2-leg-sab-2026-11-27",
+     "match": "CD Legan\u00e9s vs. CE Sabadell FC",
+     "t1": "CD Legan\u00e9s",
+     "t2": "CE Sabadell FC",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "Spain - Segunda Division",
+     "pm": {
+      "home": 0.39,
+      "draw": 0.315,
+      "away": 0.295
+     },
+     "pin": {
+      "home": 0.3914,
+      "draw": 0.3121,
+      "away": 0.2966
+     },
+     "edge": {
+      "home": -0.0105,
+      "draw": -0.0137,
+      "away": -0.0088
+     }
+    },
+    {
+     "slug": "mex-pac-gua-2026-11-26",
+     "match": "CF Pachuca vs. CD Guadalajara",
+     "t1": "CF Pachuca",
+     "t2": "CD Guadalajara",
+     "start": "2026-11-27T01:00:00Z",
+     "ligue": "Mexico - Liga MX",
+     "pm": {
+      "home": 0.345,
+      "draw": 0.3,
+      "away": 0.365
+     },
+     "pin": {
+      "home": 0.3389,
+      "draw": 0.3047,
+      "away": 0.3564
+     },
+     "edge": {
+      "home": -0.0174,
+      "draw": -0.0058,
+      "away": -0.0202
+     }
+    },
+    {
+     "slug": "mex-leo-caz-2026-11-26",
+     "match": "Club Le\u00f3n FC vs. CF Cruz Azul",
+     "t1": "Club Le\u00f3n FC",
+     "t2": "CF Cruz Azul",
+     "start": "2026-11-27T03:10:00Z",
+     "ligue": "Mexico - Liga MX",
+     "pm": {
+      "home": 0.295,
+      "draw": 0.265,
+      "away": 0.445
+     },
+     "pin": {
+      "home": 0.2942,
+      "draw": 0.2651,
+      "away": 0.4407
+     },
+     "edge": {
+      "home": -0.0112,
+      "draw": -0.0096,
+      "away": -0.0167
+     }
+    },
+    {
+     "slug": "bol1-abb-tom-2026-11-27",
+     "match": "Club ABB vs. CD Real Tomayapo",
+     "t1": "Club ABB",
+     "t2": "CD Real Tomayapo",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "bolivia-1",
+     "pm": {
+      "home": 0.52,
+      "draw": 0.225,
+      "away": 0.215
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "ere-gro-wii-2026-11-27",
+     "match": "FC Groningen vs. Willem II Tilburg",
+     "t1": "FC Groningen",
+     "t2": "Willem II Tilburg",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eredivisie",
+     "pm": {
+      "home": 0.68,
+      "draw": 0.185,
+      "away": 0.135
+     },
+     "pin": {
+      "home": 0.6615,
+      "draw": 0.1882,
+      "away": 0.1503
+     },
+     "edge": {
+      "home": -0.0294,
+      "draw": -0.0043,
+      "away": 0.0095
+     }
+    },
+    {
+     "slug": "elc-sot-mid-2026-11-27",
+     "match": "Southampton FC vs. Middlesbrough FC",
+     "t1": "Southampton FC",
+     "t2": "Middlesbrough FC",
+     "start": "2026-11-27T20:00:00Z",
+     "ligue": "England - Championship",
+     "pm": {
+      "home": 0.335,
+      "draw": 0.255,
+      "away": 0.435
+     },
+     "pin": {
+      "home": 0.3272,
+      "draw": 0.2501,
+      "away": 0.4227
+     },
+     "edge": {
+      "home": -0.019,
+      "draw": -0.0144,
+      "away": -0.0246
+     }
+    },
+    {
+     "slug": "pol-gor-plo-2026-11-27",
+     "match": "Gornik Zabrze vs. Wisla Plock",
+     "t1": "Gornik Zabrze",
+     "t2": "Wisla Plock",
+     "start": "2026-11-27T19:30:00Z",
+     "ligue": "Poland - Ekstraklasa",
+     "pm": {
+      "home": 0.665,
+      "draw": 0.205,
+      "away": 0.14
+     },
+     "pin": {
+      "home": 0.6469,
+      "draw": 0.2046,
+      "away": 0.1485
+     },
+     "edge": {
+      "home": -0.0293,
+      "draw": -0.0086,
+      "away": 0.0025
+     }
+    },
+    {
+     "slug": "ned2-utr-alm-2026-11-27",
+     "match": "Jong FC Utrecht vs. Almere City FC",
+     "t1": "Jong FC Utrecht",
+     "t2": "Almere City FC",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.275,
+      "draw": 0.21,
+      "away": 0.51
+     },
+     "pin": {
+      "home": 0.2718,
+      "draw": 0.2333,
+      "away": 0.4949
+     },
+     "edge": {
+      "home": -0.0132,
+      "draw": 0.015,
+      "away": -0.0276
+     }
+    },
+    {
+     "slug": "ned2-dor-vit-2026-11-27",
+     "match": "FC Dordrecht vs. Vitesse Arnhem",
+     "t1": "FC Dordrecht",
+     "t2": "Vitesse Arnhem",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.27,
+      "draw": 0.265,
+      "away": 0.46
+     },
+     "pin": {
+      "home": 0.2769,
+      "draw": 0.266,
+      "away": 0.4571
+     },
+     "edge": {
+      "home": -0.0029,
+      "draw": -0.0088,
+      "away": -0.0153
+     }
+    },
+    {
+     "slug": "ned2-aja-her-2026-11-27",
+     "match": "Jong Ajax Amsterdam vs. Heracles Almelo",
+     "t1": "Jong Ajax Amsterdam",
+     "t2": "Heracles Almelo",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.155,
+      "draw": 0.165,
+      "away": 0.68
+     },
+     "pin": {
+      "home": 0.1625,
+      "draw": 0.1681,
+      "away": 0.6694
+     },
+     "edge": {
+      "home": 0.001,
+      "draw": -0.0038,
+      "away": -0.0215
+     }
+    },
+    {
+     "slug": "ned2-az-oss-2026-11-27",
+     "match": "Jong AZ Alkmaar vs. TOP Oss",
+     "t1": "Jong AZ Alkmaar",
+     "t2": "TOP Oss",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.565,
+      "draw": 0.215,
+      "away": 0.22
+     },
+     "pin": {
+      "home": 0.557,
+      "draw": 0.2228,
+      "away": 0.2202
+     },
+     "edge": {
+      "home": -0.0203,
+      "draw": -0.0006,
+      "away": -0.0084
+     }
+    },
+    {
+     "slug": "ned2-maa-psv-2026-11-27",
+     "match": "MVV Maastricht vs. Jong PSV Eindhoven",
+     "t1": "MVV Maastricht",
+     "t2": "Jong PSV Eindhoven",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Netherlands - Eerste Divisie",
+     "pm": {
+      "home": 0.475,
+      "draw": 0.225,
+      "away": 0.305
+     },
+     "pin": {
+      "home": 0.4661,
+      "draw": 0.2331,
+      "away": 0.3008
+     },
+     "edge": {
+      "home": -0.0213,
+      "draw": -0.0007,
+      "away": -0.0148
+     }
+    },
+    {
+     "slug": "qat1-lus-ara-2026-11-27",
+     "match": "Lusail SC vs. Al Arabi Doha SC",
+     "t1": "Lusail SC",
+     "t2": "Al Arabi Doha SC",
+     "start": "2026-11-27T15:30:00Z",
+     "ligue": "Qatar - Stars League",
+     "pm": {
+      "home": 0.265,
+      "draw": 0.24,
+      "away": 0.505
+     },
+     "pin": {
+      "home": 0.2699,
+      "draw": 0.2453,
+      "away": 0.4848
+     },
+     "edge": {
+      "home": -0.0048,
+      "draw": -0.0038,
+      "away": -0.0327
+     }
+    },
+    {
+     "slug": "srb-imt-mac-2026-11-27",
+     "match": "FK IMT Novi Beograd vs. FK Macva Sabac",
+     "t1": "FK IMT Novi Beograd",
+     "t2": "FK Macva Sabac",
+     "start": "2026-11-27T16:00:00Z",
+     "ligue": "Serbia - Super Liga",
+     "pm": {
+      "home": 0.655,
+      "draw": 0.225,
+      "away": 0.13
+     },
+     "pin": {
+      "home": 0.6292,
+      "draw": 0.2287,
+      "away": 0.142
+     },
+     "edge": {
+      "home": -0.0371,
+      "draw": -0.005,
+      "away": 0.0064
+     }
+    },
+    {
+     "slug": "es3-ath-leo-2026-11-27",
+     "match": "Athletic Bilbao B vs. Cultural Leonesa",
+     "t1": "Athletic Bilbao B",
+     "t2": "Cultural Leonesa",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "Spain - Primera Federacion",
+     "pm": {
+      "home": 0.445,
+      "draw": 0.285,
+      "away": 0.265
+     },
+     "pin": {
+      "home": 0.4349,
+      "draw": 0.2899,
+      "away": 0.2752
+     },
+     "edge": {
+      "home": -0.0225,
+      "draw": -0.0053,
+      "away": 0.0005
+     }
+    },
+    {
+     "slug": "ecu1-cue-man-2026-11-27",
+     "match": "CD Cuenca vs. Manta FC",
+     "t1": "CD Cuenca",
+     "t2": "Manta FC",
+     "start": "2026-11-27T21:30:00Z",
+     "ligue": "Ecuador - Serie A",
+     "pm": {
+      "home": 0.555,
+      "draw": 0.235,
+      "away": 0.21
+     },
+     "pin": {
+      "home": 0.5564,
+      "draw": 0.2434,
+      "away": 0.2002
+     },
+     "edge": {
+      "home": -0.0109,
+      "draw": -0.0006,
+      "away": -0.0181
+     }
+    },
+    {
+     "slug": "ecu1-dsc-ore-2026-11-27",
+     "match": "Delfin SC vs. Orense SC",
+     "t1": "Delfin SC",
+     "t2": "Orense SC",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "Ecuador - Serie A",
+     "pm": {
+      "home": 0.395,
+      "draw": 0.305,
+      "away": 0.31
+     },
+     "pin": {
+      "home": 0.3909,
+      "draw": 0.2981,
+      "away": 0.3109
+     },
+     "edge": {
+      "home": -0.016,
+      "draw": -0.0175,
+      "away": -0.0098
+     }
+    },
+    {
+     "slug": "es3-her-ant-2026-11-27",
+     "match": "Hercules de Alicante CF vs. Antequera CF",
+     "t1": "Hercules de Alicante CF",
+     "t2": "Antequera CF",
+     "start": "2026-11-27T20:15:00Z",
+     "ligue": "Spain - Primera Federacion",
+     "pm": {
+      "home": 0.45,
+      "draw": 0.275,
+      "away": 0.26
+     },
+     "pin": {
+      "home": 0.443,
+      "draw": 0.2827,
+      "away": 0.2743
+     },
+     "edge": {
+      "home": -0.0193,
+      "draw": -0.0023,
+      "away": 0.0046
+     }
+    },
+    {
+     "slug": "qat1-als-alg-2026-11-27",
+     "match": "Al-Sailiya SC vs. Al Gharafa SC",
+     "t1": "Al-Sailiya SC",
+     "t2": "Al Gharafa SC",
+     "start": "2026-11-27T13:00:00Z",
+     "ligue": "Qatar - Stars League",
+     "pm": {
+      "home": 0.195,
+      "draw": 0.185,
+      "away": 0.605
+     },
+     "pin": {
+      "home": 0.222,
+      "draw": 0.1916,
+      "away": 0.5864
+     },
+     "edge": {
+      "home": 0.0192,
+      "draw": -0.0009,
+      "away": -0.0306
+     }
+    },
+    {
+     "slug": "acl2-tam-shs-2026-11-26",
+     "match": "BG Tampines Rovers vs. Shanghai Shenhua FC",
+     "t1": "BG Tampines Rovers",
+     "t2": "Shanghai Shenhua FC",
+     "start": "2026-11-26T10:00:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.145,
+      "draw": 0.195,
+      "away": 0.655
+     },
+     "pin": {
+      "home": 0.1771,
+      "draw": 0.1998,
+      "away": 0.6231
+     },
+     "edge": {
+      "home": 0.0259,
+      "draw": -0.003,
+      "away": -0.0432
+     }
+    },
+    {
+     "slug": "acl2-gaw-ksc-2026-11-26",
+     "match": "Gangwon FC vs. Kitchee",
+     "t1": "Gangwon FC",
+     "t2": "Kitchee",
+     "start": "2026-11-26T10:00:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.815,
+      "draw": 0.125,
+      "away": 0.055
+     },
+     "pin": {
+      "home": 0.7871,
+      "draw": 0.1406,
+      "away": 0.0723
+     },
+     "edge": {
+      "home": -0.0355,
+      "draw": 0.0101,
+      "away": 0.0147
+     }
+    },
+    {
+     "slug": "acl2-kuc-phn-2026-11-26",
+     "match": "Kuching City FC vs. Phnom Penh Crown FC",
+     "t1": "Kuching City FC",
+     "t2": "Phnom Penh Crown FC",
+     "start": "2026-11-26T10:00:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.655,
+      "draw": 0.19,
+      "away": 0.155
+     },
+     "pin": {
+      "home": 0.6537,
+      "draw": 0.1968,
+      "away": 0.1495
+     },
+     "edge": {
+      "home": -0.0126,
+      "draw": -0.0009,
+      "away": -0.012
+     }
+    },
+    {
+     "slug": "acl2-svr-mac-2026-11-26",
+     "match": "PKR Svay Rieng vs. Machida Zelvia",
+     "t1": "PKR Svay Rieng",
+     "t2": "Machida Zelvia",
+     "start": "2026-11-26T12:15:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.285,
+      "draw": 0.24,
+      "away": 0.485
+     },
+     "pin": {
+      "home": 0.2856,
+      "draw": 0.2633,
+      "away": 0.4511
+     },
+     "edge": {
+      "home": -0.0096,
+      "draw": 0.0142,
+      "away": -0.0464
+     }
+    },
+    {
+     "slug": "acl2-pau-lio-2026-11-26",
+     "match": "BG Pathum United vs. Lion City Sailors FC",
+     "t1": "BG Pathum United",
+     "t2": "Lion City Sailors FC",
+     "start": "2026-11-26T12:15:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.375,
+      "draw": 0.275,
+      "away": 0.36
+     },
+     "pin": {
+      "home": 0.3706,
+      "draw": 0.2788,
+      "away": 0.3506
+     },
+     "edge": {
+      "home": -0.0161,
+      "draw": -0.0062,
+      "away": -0.0209
+     }
+    },
+    {
+     "slug": "acl2-tai-adu-2026-11-26",
+     "match": "Tai Po FC vs. Adelaide United FC",
+     "t1": "Tai Po FC",
+     "t2": "Adelaide United FC",
+     "start": "2026-11-26T12:15:00Z",
+     "ligue": "AFC - Champions League 2",
+     "pm": {
+      "home": 0.085,
+      "draw": 0.155,
+      "away": 0.755
+     },
+     "pin": {
+      "home": 0.1186,
+      "draw": 0.1711,
+      "away": 0.7103
+     },
+     "edge": {
+      "home": 0.0297,
+      "draw": 0.0095,
+      "away": -0.0539
+     }
+    },
+    {
+     "slug": "chl2-sw-rec-2026-11-26",
+     "match": "Santiago Wanderers vs. Deportes Recoleta",
+     "t1": "Santiago Wanderers",
+     "t2": "Deportes Recoleta",
+     "start": "2026-11-26T22:00:00Z",
+     "ligue": "Chile - Primera B",
+     "pm": {
+      "home": 0.445,
+      "draw": 0.265,
+      "away": 0.265
+     },
+     "pin": {
+      "home": 0.4386,
+      "draw": 0.2709,
+      "away": 0.2905
+     },
+     "edge": {
+      "home": -0.0188,
+      "draw": -0.0038,
+      "away": 0.0158
+     }
+    },
+    {
+     "slug": "aze1-neb-zir-2026-11-27",
+     "match": "Neftchi Baku PFC vs. Zira FK",
+     "t1": "Neftchi Baku PFC",
+     "t2": "Zira FK",
+     "start": "2026-11-27T15:00:00Z",
+     "ligue": "Azerbaijan - Premier League",
+     "pm": {
+      "home": 0.57,
+      "draw": 0.245,
+      "away": 0.195
+     },
+     "pin": {
+      "home": 0.5499,
+      "draw": 0.249,
+      "away": 0.2011
+     },
+     "edge": {
+      "home": -0.0323,
+      "draw": -0.0053,
+      "away": -0.0017
+     }
+    },
+    {
+     "slug": "saf1-stb-gal-2026-11-27",
+     "match": "Stellenbosch FC vs. TS Galaxy FC",
+     "t1": "Stellenbosch FC",
+     "t2": "TS Galaxy FC",
+     "start": "2026-11-27T17:30:00Z",
+     "ligue": "saf1-games",
+     "pm": {
+      "home": 0.48,
+      "draw": 0.455,
+      "away": 0.275
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "aze1-imi-saf-2026-11-27",
+     "match": "Imisli FK vs. Safa",
+     "t1": "Imisli FK",
+     "t2": "Safa",
+     "start": "2026-11-27T10:30:00Z",
+     "ligue": "Azerbaijan - Premier League",
+     "pm": {
+      "home": 0.43,
+      "draw": 0.295,
+      "away": 0.285
+     },
+     "pin": {
+      "home": 0.4209,
+      "draw": 0.2964,
+      "away": 0.2827
+     },
+     "edge": {
+      "home": -0.0214,
+      "draw": -0.009,
+      "away": -0.0124
+     }
+    },
+    {
+     "slug": "bel2-gen-rsc-2026-11-27",
+     "match": "Jong KRC Genk vs. RSC Anderlecht Futures",
+     "t1": "Jong KRC Genk",
+     "t2": "RSC Anderlecht Futures",
+     "start": "2026-11-27T19:00:00Z",
+     "ligue": "bel2-games",
+     "pm": {
+      "home": 0.405,
+      "draw": 0.245,
+      "away": 0.345
+     },
+     "pin": {},
+     "edge": {}
+    },
+    {
+     "slug": "mar1-tiz-mat-2026-11-27",
+     "match": "US Amal Tiznit vs. Moghreb Athletic T\u00e9touan",
+     "t1": "US Amal Tiznit",
+     "t2": "Moghreb Athletic T\u00e9touan",
+     "start": "2026-11-27T18:00:00Z",
+     "ligue": "Morocco - Botola Pro",
+     "pm": {
+      "home": 0.455,
+      "draw": 0.305,
+      "away": 0.24
+     },
+     "pin": {
+      "home": 0.4497,
+      "draw": 0.3083,
+      "away": 0.242
+     },
+     "edge": {
+      "home": -0.0177,
+      "draw": -0.0073,
+      "away": -0.0071
+     }
+    }
+   ]
+  }
+ }
 }
