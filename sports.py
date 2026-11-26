@@ -94,14 +94,51 @@ ODDS_ENABLED = [s.strip() for s in os.environ.get(
 ODDS_RESERVE = _f("ODDS_RESERVE", 15)  # crédits gardés en réserve
 
 
-def source():
-    """PinnFeed si sa clé existe (plus complet), sinon The Odds API."""
+PINN_SPORTS = [x.strip() for x in os.environ.get("PINN_SPORTS", ",".join(ENABLED)).split(",") if x.strip()]
+
+
+def pinn_units():
+    """Sports couverts par PinnFeed (si sa clé existe)."""
+    return [k for k in PINN_SPORTS if k in SPORTS] if PINN_KEY else []
+
+
+def odds_units():
+    """Ligues couvertes par The Odds API, sans doublon avec PinnFeed."""
+    if not ODDS_KEY:
+        return []
+    pu = pinn_units()
+    out = []
+    for k in ODDS_ENABLED:
+        lg = ODDS_LEAGUES.get(k)
+        if not lg:
+            continue
+        is_soccer = lg[0].startswith("soccer_")
+        if ("foot" in pu and is_soccer) or (k in pu):
+            continue  # déjà couvert par PinnFeed
+        out.append(k)
+    return out
+
+
+def sources():
+    """Sources actives : PinnFeed et/ou The Odds API (les deux peuvent tourner ensemble)."""
     forced = os.environ.get("SPORTS_SOURCE", "auto")
-    if forced == "pinnfeed" or (forced == "auto" and PINN_KEY):
-        return "pinnfeed" if PINN_KEY else None
-    if forced in ("oddsapi", "auto") and ODDS_KEY:
-        return "oddsapi"
-    return None
+    src = []
+    if pinn_units() and forced in ("auto", "pinnfeed"):
+        src.append("pinnfeed")
+    if odds_units() and forced in ("auto", "oddsapi"):
+        src.append("oddsapi")
+    return src
+
+
+def source():
+    """Compatibilité : première source active."""
+    s = sources()
+    return s[0] if s else None
+
+
+# fréquence de recherche (min) et horizon (h) de chaque source
+EVERY_MIN = {"pinnfeed": _f("SPORTS_EVERY_MIN", 10), "oddsapi": _f("ODDS_EVERY_MIN", 288)}
+HORIZON_H = {"pinnfeed": _f("SPORTS_MAX_HOURS", 36), "oddsapi": _f("ODDS_MAX_HOURS", 24)}
 
 CSV_HEADER = ["id", "sport", "ligue", "match", "coup_envoi", "selection", "token",
               "prix", "cout_part", "parts", "mise", "proba_pinnacle", "avantage",
@@ -507,58 +544,50 @@ def settle(st):
 
 
 # ----------------------------------------------------------------- recherche de paris
-def groups(st, smin, smax, taken):
+def groups(st, taken, due):
     """Donne, ligue par ligue : (nom, nul possible, matchs Polymarket, cotes Pinnacle)."""
-    src = source()
     skipped = st.setdefault("_skipped", [])
-    if src == "pinnfeed":
-        for key in ENABLED:
-            sp = SPORTS.get(key)
-            if not sp:
-                continue
+    t0 = now()
+    smin = t0 + dt.timedelta(hours=CFG["MIN_HOURS"])
+    if "pinnfeed" in due:
+        smax = t0 + dt.timedelta(hours=HORIZON_H["pinnfeed"])
+        for key in pinn_units():
+            sp = SPORTS[key]
             try:
                 yield key, sp["draw"], pm_games(sp["tag"], smin, smax), pinn_moneylines(st, sp["pinn"])
-            except QuotaAtteint:
-                raise
+            except QuotaAtteint as e:
+                log(st, f"PinnFeed : {e}")
+                break
             except Exception as e:  # noqa: BLE001
                 log(st, f"{key} : données indisponibles ({e})")
-    elif src == "oddsapi":
-        for key in ODDS_ENABLED:
-            lg = ODDS_LEAGUES.get(key)
-            if not lg:
-                continue
-            sport_key, series, draw = lg
+    if "oddsapi" in due:
+        smax = t0 + dt.timedelta(hours=HORIZON_H["oddsapi"])
+        for key in odds_units():
+            sport_key, series, draw = ODDS_LEAGUES[key]
             try:
                 games = [g for g in pm_games(None, smin, smax, series=series) if g["slug"] not in taken]
                 if not games:  # pas de match à venir : on économise un crédit
                     skipped.append(key)
                     continue
                 yield key, draw, games, odds_moneylines(st, sport_key)
-            except QuotaAtteint:
-                raise
+            except QuotaAtteint as e:
+                log(st, f"The Odds API : {e}")
+                break
             except Exception as e:  # noqa: BLE001
                 log(st, f"{key} : données indisponibles ({e})")
 
 
-def scan(st):
-    if not source():
+def scan(st, due=None):
+    if not sources():
         log(st, "aucune clé de cotes (PINNFEED_KEY ou ODDS_API_KEY) : module sport en attente.")
         return 0
-    t0 = now()
-    smin = t0 + dt.timedelta(hours=CFG["MIN_HOURS"])
-    # The Odds API : fenêtre de 24 h pour ménager les crédits (~320 / mois pour 5 ligues)
-    smax = t0 + dt.timedelta(hours=_f("SPORTS_MAX_HOURS", 36 if source() == "pinnfeed" else 24))
+    due = sources() if due is None else due
     taken = {b["evt"] for b in st["open"]}
     new = 0
-    try:
-        found = list(groups(st, smin, smax, taken))
-    except QuotaAtteint as e:
-        st.pop("_skipped", None)
-        log(st, str(e))
-        return 0
+    found = list(groups(st, taken, due))
     skipped = st.pop("_skipped", [])
     if skipped:
-        log(st, f"recherche : pas de match Polymarket dans les {int((smax - t0).total_seconds() // 3600)} h "
+        log(st, f"recherche : pas de match Polymarket dans les {int(HORIZON_H['oddsapi'])} h "
                 f"pour {', '.join(skipped)} (aucun crédit utilisé)")
     watch = st.setdefault("watch", {})
     for key, has_draw, games, pinn in found:
@@ -669,26 +698,33 @@ def write_summary(st):
             lines.append(f"| {b['match']} | {b['selection']} | {b['statut']} | {float(b['gain']):+.2f} $ |")
         lines.append("")
     day = now().strftime("%Y-%m-%d")
-    if source() == "oddsapi":
-        lines.append(f"Source des cotes : The Odds API (Pinnacle) — crédits restants ce mois-ci : "
+    if "pinnfeed" in sources():
+        lines.append(f"PinnFeed ({', '.join(pinn_units())}) — requêtes aujourd'hui : "
+                     f"{st['pinn_calls'].get(day, 0)} / 1 000")
+    if "oddsapi" in sources():
+        lines.append(f"The Odds API ({', '.join(odds_units())}) — crédits restants ce mois-ci : "
                      f"{st.get('odds_remaining', '?')} / 500")
-    else:
-        lines.append(f"Requêtes PinnFeed aujourd'hui : {st['pinn_calls'].get(day, 0)} / 1 000")
     with open(SUMMARY_FILE, "w") as fh:
         fh.write("\n".join(lines) + "\n")
 
 
 def main(force_scan=False):
     st = load_state()
-    # PinnFeed : toutes les 10 min ; The Odds API : ~5 fois par jour (quota de 500 crédits / mois)
-    every = _f("SPORTS_EVERY_MIN", 10 if source() == "pinnfeed" else 288) * 60
-    last = parse_time(st.get("last_scan"))
+    # Chaque source a son rythme : PinnFeed toutes les 10 min, The Odds API quelques fois par jour.
+    per = st.setdefault("last_scan_src", {})
     try:
         settle(st)
         clean_watch(st)
-        if force_scan or not last or (now() - last).total_seconds() >= every:
+        due = []
+        for src in sources():
+            last = parse_time(per.get(src))
+            if force_scan or not last or (now() - last).total_seconds() >= EVERY_MIN[src] * 60:
+                due.append(src)
+        if due:
+            for src in due:
+                per[src] = iso(now())
             st["last_scan"] = iso(now())
-            scan(st)
+            scan(st, due)
     finally:
         write_summary(st)
         save_state(st)
