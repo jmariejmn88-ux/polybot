@@ -72,7 +72,7 @@
   }
  ],
  "pinn_calls": {
-  "2026-11-26": 143
+  "2026-11-26": 146
  },
  "log": [
   "2026-11-25T05:33:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1 (aucun cr\u00e9dit utilis\u00e9)",
@@ -179,14 +179,15 @@
   "2026-11-26T23:12:20Z PARI foot Club Independiente Petrolero vs. CDT Real Oruro / Club Independiente Petrolero \u2014 NON @ 0.440 (Pinnacle 48.8%, avantage +3.6%) mise 2.26 $",
   "2026-11-26T23:22:20Z foot : 117 matchs Polymarket, 931 Pinnacle, 101 appari\u00e9s, 20 pistes",
   "2026-11-26T23:32:19Z foot : 117 matchs Polymarket, 934 Pinnacle, 102 appari\u00e9s, 22 pistes",
-  "2026-11-26T23:42:19Z foot : 117 matchs Polymarket, 934 Pinnacle, 102 appari\u00e9s, 21 pistes"
+  "2026-11-26T23:42:19Z foot : 117 matchs Polymarket, 934 Pinnacle, 102 appari\u00e9s, 21 pistes",
+  "2026-11-26T23:52:18Z foot : 117 matchs Polymarket, 934 Pinnacle, 102 appari\u00e9s, 21 pistes"
  ],
- "last_scan": "2026-11-26T23:42:06Z",
+ "last_scan": "2026-11-26T23:52:06Z",
  "odds_remaining": 497,
  "odds_used": 3,
  "watch": {
   "foot": {
-   "at": "2026-11-26T23:42:19Z",
+   "at": "2026-11-26T23:52:18Z",
    "games": [
     {
      "slug": "isp-kas-chb-2026-11-27",
@@ -198,7 +199,7 @@
      "pm": {
       "home": 0.23,
       "draw": 0.25,
-      "away": 0.525
+      "away": 0.52
      },
      "pin": {
       "home": 0.2344,
@@ -208,7 +209,7 @@
      "edge": {
       "home": -0.0045,
       "draw": -0.0135,
-      "away": -0.0177
+      "away": -0.0127
      },
      "tok": {
       "home": "77672952301534700587407186064625015610235366151453549223149349706655353068880",
@@ -372,7 +373,7 @@
      "pm": {
       "home": 0.1,
       "draw": 0.155,
-      "away": 0.725
+      "away": 0.72
      },
      "pin": {},
      "edge": {},
@@ -538,7 +539,7 @@
      "pm": {
       "home": 0.17,
       "draw": 0.265,
-      "away": 0.555
+      "away": 0.55
      },
      "pin": {
       "home": 0.1915,
@@ -548,7 +549,7 @@
      "edge": {
       "home": 0.0144,
       "draw": -0.0031,
-      "away": -0.0304
+      "away": -0.0254
      },
      "tok": {
       "home": "90920973910952813100962301962932822398327481872655103152866560738590807869024",
@@ -633,7 +634,7 @@
      "start": "2026-11-27T19:00:00Z",
      "ligue": "France - Cup",
      "pm": {
-      "home": 0.315,
+      "home": 0.32,
       "draw": 0.24,
       "away": 0.455
      },
@@ -643,7 +644,7 @@
       "away": 0.4259
      },
      "edge": {
-      "home": 0.0037,
+      "home": -0.0014,
       "draw": -0.0045,
       "away": -0.0415
      },
@@ -1185,8 +1186,8 @@
      "ligue": "Club Friendlies",
      "pm": {
       "home": 0.495,
-      "draw": 0.25,
-      "away": 0.29
+      "draw": 0.245,
+      "away": 0.285
      },
      "pin": {
       "home": 0.4641,
@@ -1195,8 +1196,8 @@
      },
      "edge": {
       "home": -0.0434,
-      "draw": 0.0011,
-      "away": -0.0249
+      "draw": 0.0063,
+      "away": -0.0198
      },
      "tok": {
       "home": "45600784919741244166606594140420046358479725928883815400987461011648720830283",
@@ -1226,8 +1227,8 @@
       "total": {
        "line": 2.5,
        "pm": {
-        "over": 0.565,
-        "under": 0.435
+        "over": 0.57,
+        "under": 0.43
        },
        "pin": {},
        "edge": {}
@@ -1242,7 +1243,7 @@
      "start": "2026-11-27T17:00:00Z",
      "ligue": "Croatia - HNL",
      "pm": {
-      "home": 0.385,
+      "home": 0.39,
       "draw": 0.27,
       "away": 0.35
      },
@@ -1252,7 +1253,7 @@
       "away": 0.3441
      },
      "edge": {
-      "home": -0.014,
+      "home": -0.0191,
       "draw": -0.0067,
       "away": -0.0173
      },
@@ -2045,8 +2046,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.325,
-        "away": 0.675
+        "home": 0.335,
+        "away": 0.665
        },
        "pin": {},
        "edge": {}
@@ -2109,8 +2110,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.29,
-        "away": 0.71
+        "home": 0.34,
+        "away": 0.66
        },
        "pin": {},
        "edge": {}
@@ -2229,8 +2230,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.325,
-        "away": 0.675
+        "home": 0.335,
+        "away": 0.665
        },
        "pin": {},
        "edge": {}
@@ -2238,8 +2239,8 @@
       "total": {
        "line": 2.5,
        "pm": {
-        "over": 0.505,
-        "under": 0.495
+        "over": 0.5,
+        "under": 0.5
        },
        "pin": {},
        "edge": {}
@@ -2254,19 +2255,19 @@
      "start": "2026-11-28T10:00:00Z",
      "ligue": "Belarus - Premier League",
      "pm": {
-      "home": 0.425,
-      "draw": 0.305,
+      "home": 0.415,
+      "draw": 0.295,
       "away": 0.27
      },
      "pin": {
-      "home": 0.4301,
-      "draw": 0.3047,
-      "away": 0.2652
+      "home": 0.3981,
+      "draw": 0.3019,
+      "away": 0.2999
      },
      "edge": {
-      "home": -0.0071,
-      "draw": -0.0109,
-      "away": -0.0147
+      "home": -0.029,
+      "draw": -0.0035,
+      "away": 0.0201
      },
      "tok": {
       "home": "90339858023294025510528998299821880759087163650116179111095224558488608539423",
@@ -2287,8 +2288,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.355,
-        "away": 0.645
+        "home": 0.35,
+        "away": 0.65
        },
        "pin": {},
        "edge": {}
@@ -2436,7 +2437,7 @@
      "pm": {
       "home": 0.56,
       "draw": 0.245,
-      "away": 0.19
+      "away": 0.185
      },
      "pin": {
       "home": 0.5526,
@@ -2446,7 +2447,7 @@
      "edge": {
       "home": -0.0198,
       "draw": -0.0091,
-      "away": 0.0046
+      "away": 0.0098
      },
      "tok": {
       "home": "28152655851101636757729217591050834014812700596108640463474229663942769005085",
@@ -2583,8 +2584,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.295,
-        "away": 0.705
+        "home": 0.34,
+        "away": 0.66
        },
        "pin": {},
        "edge": {}
@@ -2833,8 +2834,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.355,
-        "away": 0.645
+        "home": 0.335,
+        "away": 0.665
        },
        "pin": {},
        "edge": {}
@@ -3100,9 +3101,9 @@
      "start": "2026-11-28T08:30:00Z",
      "ligue": "Indonesia - Super League",
      "pm": {
-      "home": 0.54,
+      "home": 0.535,
       "draw": 0.235,
-      "away": 0.2
+      "away": 0.205
      },
      "pin": {
       "home": 0.5361,
@@ -3110,9 +3111,9 @@
       "away": 0.2214
      },
      "edge": {
-      "home": -0.0163,
+      "home": -0.0114,
       "draw": -0.0014,
-      "away": 0.0134
+      "away": 0.0082
      },
      "tok": {
       "home": "95641690682283871602681094596477074627637731782980890764191499512986340389559",
@@ -3365,8 +3366,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.365,
-        "away": 0.635
+        "home": 0.385,
+        "away": 0.615
        },
        "pin": {},
        "edge": {}
@@ -3461,7 +3462,7 @@
      "ligue": "Slovenia - Prva Liga",
      "pm": {
       "home": 0.38,
-      "draw": 0.275,
+      "draw": 0.265,
       "away": 0.36
      },
      "pin": {
@@ -3471,7 +3472,7 @@
      },
      "edge": {
       "home": -0.0228,
-      "draw": -0.0066,
+      "draw": 0.0036,
       "away": -0.0189
      },
      "tok": {
@@ -3928,7 +3929,7 @@
      "start": "2026-11-27T18:30:00Z",
      "ligue": "Romania - Liga 1",
      "pm": {
-      "home": 0.415,
+      "home": 0.42,
       "draw": 0.285,
       "away": 0.3
      },
@@ -3938,7 +3939,7 @@
       "away": 0.3014
      },
      "edge": {
-      "home": -0.0112,
+      "home": -0.0162,
       "draw": -0.0125,
       "away": -0.0091
      },
@@ -4051,18 +4052,18 @@
      "ligue": "Mexico - Liga MX",
      "pm": {
       "home": 0.305,
-      "draw": 0.295,
+      "draw": 0.305,
       "away": 0.395
      },
      "pin": {
-      "home": 0.2998,
-      "draw": 0.3054,
-      "away": 0.3948
+      "home": 0.2986,
+      "draw": 0.3052,
+      "away": 0.3962
      },
      "edge": {
-      "home": -0.0158,
-      "draw": 0.0,
-      "away": -0.0121
+      "home": -0.017,
+      "draw": -0.0104,
+      "away": -0.0108
      },
      "tok": {
       "home": "66620081037177710130443440064662192329274380782231689941575587472663034349790",
@@ -4083,8 +4084,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.12,
-        "away": 0.88
+        "home": 0.125,
+        "away": 0.875
        },
        "pin": {},
        "edge": {}
@@ -4458,7 +4459,7 @@
      "pm": {
       "home": 0.385,
       "draw": 0.315,
-      "away": 0.3
+      "away": 0.295
      },
      "pin": {
       "home": 0.3844,
@@ -4468,7 +4469,7 @@
      "edge": {
       "home": -0.0124,
       "draw": -0.0096,
-      "away": -0.0111
+      "away": -0.006
      },
      "tok": {
       "home": "61174030115767726181015203806719176012463934820535743952252078981199355986396",
@@ -4661,7 +4662,7 @@
      "start": "2026-11-28T02:00:00Z",
      "ligue": "Costa Rica - Primera Division",
      "pm": {
-      "home": 0.745,
+      "home": 0.74,
       "draw": 0.155,
       "away": 0.085
      },
@@ -4671,7 +4672,7 @@
       "away": 0.1033
      },
      "edge": {
-      "home": -0.018,
+      "home": -0.0131,
       "draw": -0.0013,
       "away": 0.0144
      },
@@ -4963,8 +4964,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.38,
-        "away": 0.62
+        "home": 0.4,
+        "away": 0.6
        },
        "pin": {},
        "edge": {}
@@ -5692,16 +5693,16 @@
       "total": {
        "line": 2.5,
        "pm": {
-        "over": 0.47,
-        "under": 0.53
+        "over": 0.475,
+        "under": 0.525
        },
        "pin": {
         "over": 0.473,
         "under": 0.527
        },
        "edge": {
-        "over": -0.0095,
-        "under": -0.0155
+        "over": -0.0145,
+        "under": -0.0105
        }
       }
      }
@@ -5832,7 +5833,7 @@
      "pm": {
       "home": 0.42,
       "draw": 0.29,
-      "away": 0.315
+      "away": 0.32
      },
      "pin": {},
      "edge": {},
@@ -5971,8 +5972,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.365,
-        "away": 0.635
+        "home": 0.355,
+        "away": 0.645
        },
        "pin": {},
        "edge": {}
@@ -6002,7 +6003,7 @@
      "start": "2026-11-27T15:00:00Z",
      "ligue": "Azerbaijan - Premier League",
      "pm": {
-      "home": 0.57,
+      "home": 0.565,
       "draw": 0.24,
       "away": 0.18
      },
@@ -6012,7 +6013,7 @@
       "away": 0.2011
      },
      "edge": {
-      "home": -0.0323,
+      "home": -0.0274,
       "draw": -0.0002,
       "away": 0.0137
      },
@@ -6035,7 +6036,7 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.33,
+        "home": 0.325,
         "away": 0.67
        },
        "pin": {},
@@ -6516,7 +6517,7 @@
      "start": "2026-11-27T12:00:00Z",
      "ligue": "Uzbekistan - Super League",
      "pm": {
-      "home": 0.45,
+      "home": 0.445,
       "draw": 0.285,
       "away": 0.27
      },
@@ -6526,7 +6527,7 @@
       "away": 0.2763
      },
      "edge": {
-      "home": -0.0237,
+      "home": -0.0187,
       "draw": -0.0101,
       "away": -0.0035
      },
@@ -6549,8 +6550,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.245,
-        "away": 0.755
+        "home": 0.24,
+        "away": 0.76
        },
        "pin": {},
        "edge": {}
@@ -6644,7 +6645,7 @@
      "start": "2026-11-27T17:15:00Z",
      "ligue": "clf-games",
      "pm": {
-      "home": 0.285,
+      "home": 0.28,
       "draw": 0.295,
       "away": 0.69
      },
@@ -6727,8 +6728,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.43,
-        "away": 0.57
+        "home": 0.425,
+        "away": 0.575
        },
        "pin": {},
        "edge": {}
@@ -6736,8 +6737,8 @@
       "total": {
        "line": 2.5,
        "pm": {
-        "over": 0.64,
-        "under": 0.36
+        "over": 0.645,
+        "under": 0.355
        },
        "pin": {},
        "edge": {}
@@ -6856,14 +6857,14 @@
   }
  },
  "last_scan_src": {
-  "pinnfeed": "2026-11-26T23:42:06Z",
+  "pinnfeed": "2026-11-26T23:52:06Z",
   "oddsapi": "2026-11-26T21:39:06Z"
  },
  "combo_bankroll": 100.0,
  "combo_start": 100.0,
  "combos_open": [],
  "combos_closed": [],
- "combo_try": "2026-11-26T23:42:06Z",
+ "combo_try": "2026-11-26T23:52:06Z",
  "lab": {
   "open": [],
   "closed": [],
@@ -6871,7 +6872,7 @@
    "laliga_outsiders": "La Liga \u2013 outsiders cote 5 \u00e0 9",
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
   },
-  "last_watch": "2026-11-26T23:42:06Z",
+  "last_watch": "2026-11-26T23:52:06Z",
   "last_totals": "2026-11-26T23:33:06Z",
   "bilan": {
    "laliga_outsiders": {
