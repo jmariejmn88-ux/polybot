@@ -1,6 +1,6 @@
 {
   "start_bankroll": 100.0,
-  "bankroll": 106.6045,
+  "bankroll": 104.6045,
   "created": "2026-11-24 18:46:36 UTC",
   "open": [
     {
@@ -35,6 +35,39 @@
       },
       "reason": "modèle 0.54 vs prix 0.43 → avantage +0.091",
       "opened_at": "2026-11-26 01:21:50 UTC"
+    },
+    {
+      "slug": "eth-updown-15m-1795656600",
+      "title": "Ethereum Up or Down - November 25, 8:30PM-8:45PM ET",
+      "asset": "eth",
+      "side": "Up",
+      "price": 0.24,
+      "shares": 7.9124,
+      "cost": 2.0,
+      "model_p": 0.4599,
+      "edge": 0.2071,
+      "model_raw": 0.2948,
+      "secs_left": 551,
+      "spot": 1696.56,
+      "open_price": 1699.84,
+      "sigma_min": 0.001228,
+      "fee": 0.101,
+      "mode": "PAPER",
+      "kelly_f": 0.2772,
+      "kelly_stake": 7.39,
+      "sizing": "fixe",
+      "ctx": {
+        "whale_mult": 2.27,
+        "whale_net24_usd": 45933004,
+        "whale_buyshare24": 0.559,
+        "funding": 5.07333348560903e-05,
+        "funding_pct": 75,
+        "funding_band": "typical",
+        "oi_pct": 5,
+        "oi_band": "record low"
+      },
+      "reason": "modèle 0.46 vs prix 0.24 → avantage +0.207",
+      "opened_at": "2026-11-26 01:35:50 UTC"
     }
   ],
   "closed": [
@@ -791,12 +824,6 @@
     }
   ],
   "log": [
-    "2026-11-25 23:56:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:57:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 23:57:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:58:48 UTC  — exécution — MODE : PAPER",
-    "2026-11-25 23:58:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-25 23:59:48 UTC  — exécution — MODE : PAPER",
     "2026-11-25 23:59:48 UTC  ⏸ perte du jour -10.14 $ ≥ limite : pause jusqu'à demain",
     "2026-11-26 00:00:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 00:00:48 UTC  BTC : 852s restantes, hors plage d'entrée",
@@ -1090,7 +1117,13 @@
     "2026-11-26 01:33:48 UTC  — exécution — MODE : PAPER",
     "2026-11-26 01:33:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 8:15PM-8:30PM ET [Down] P&L +6.25 $ → capital 106.60 $",
     "2026-11-26 01:33:48 UTC  BTC : 672s restantes, hors plage d'entrée",
-    "2026-11-26 01:33:48 UTC  ETH : 672s restantes, hors plage d'entrée"
+    "2026-11-26 01:33:48 UTC  ETH : 672s restantes, hors plage d'entrée",
+    "2026-11-26 01:34:48 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 01:34:48 UTC  BTC : 612s restantes, hors plage d'entrée",
+    "2026-11-26 01:34:48 UTC  ETH : 612s restantes, hors plage d'entrée",
+    "2026-11-26 01:35:48 UTC  — exécution — MODE : PAPER",
+    "2026-11-26 01:35:49 UTC  BTC ouverture 60,684.72 spot 60,617.66 σ/min 0.103% → P(Up) modèle 0.34 (brut 0.36, marché 0.33) | pas d'avantage suffisant (-0.015 sur Up à 0.34)",
+    "2026-11-26 01:35:50 UTC  ETH ouverture 1,699.84 spot 1,696.56 σ/min 0.123% → P(Up) modèle 0.46 (brut 0.29, marché 0.62) | 🟢 ACHAT fictif 7.91 parts Up à 0.24 (coût 2.00 $, avantage +0.207, Kelly ¼ suggère 7.39 $) | baleines x2.27, funding typical"
   ],
   "halted": false,
   "last_report": "2026-11-25",
