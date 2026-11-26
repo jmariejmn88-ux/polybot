@@ -1,22 +1,23 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 02:42:48 UTC_
+_Mis à jour : 2026-11-26 02:48:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
-| Capital disponible | 98.47 $ |
-| Engagé (paris en cours) | 4.24 $ |
-| **Valeur totale** | **102.71 $ (+2.7 %)** |
-| Paris réglés | 29 |
-| Taux de réussite | 41 % |
-| Gain net cumulé | +2.71 $ |
+| Capital disponible | 104.62 $ |
+| Engagé (paris en cours) | 2.24 $ |
+| **Valeur totale** | **106.86 $ (+6.9 %)** |
+| Paris réglés | 30 |
+| Taux de réussite | 43 % |
+| Gain net cumulé | +6.86 $ |
 | Statut | 🟢 actif |
 
 ## Derniers paris
 
 | Date | Marché | Côté | Prix | Résultat | Gain |
 |---|---|---|---|---|---|
+| 2026-11-26 02:36 | Bitcoin Up or Down - November 25, 9:30PM-9:45PM ET | Up | 0.31 | ✅ | +4.15 $ |
 | 2026-11-26 02:20 | Ethereum Up or Down - November 25, 9:15PM-9:30PM ET | Down | 0.21 | ✅ | +7.02 $ |
 | 2026-11-26 02:05 | Ethereum Up or Down - November 25, 9:00PM-9:15PM ET | Down | 0.45 | ❌ | -2.34 $ |
 | 2026-11-26 02:05 | Bitcoin Up or Down - November 25, 9:00PM-9:15PM ET | Down | 0.50 | ❌ | -2.59 $ |
@@ -31,26 +32,11 @@ _Mis à jour : 2026-11-26 02:42:48 UTC_
 | 2026-11-26 00:50 | Bitcoin Up or Down - November 25, 7:45PM-8:00PM ET | Up | 0.22 | ❌ | -2.00 $ |
 | 2026-11-26 00:35 | Ethereum Up or Down - November 25, 7:30PM-7:45PM ET | Up | 0.28 | ❌ | -2.00 $ |
 | 2026-11-26 00:35 | Bitcoin Up or Down - November 25, 7:30PM-7:45PM ET | Up | 0.20 | ❌ | -2.00 $ |
-| 2026-11-26 00:21 | Ethereum Up or Down - November 25, 7:15PM-7:30PM ET | Up | 0.42 | ❌ | -2.19 $ |
-| 2026-11-26 02:36 | Bitcoin Up or Down - November 25, 9:30PM-9:45PM ET | Up | 0.31 | ⏳ | — |
 | 2026-11-26 02:36 | Ethereum Up or Down - November 25, 9:30PM-9:45PM ET | Up | 0.43 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 02:34:48 UTC  ETH : 612s restantes, hors plage d'entrée
-2026-11-26 02:35:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:35:48 UTC  BTC ouverture 60,850.50 spot 60,859.03 σ/min 0.073% → P(Up) modèle 0.48 (brut 0.53, marché 0.43) | pas d'avantage suffisant (-0.018 sur Down à 0.52)
-2026-11-26 02:35:49 UTC  ETH ouverture 1,700.17 spot 1,701.12 σ/min 0.081% → P(Up) modèle 0.53 (brut 0.59, marché 0.47) | pas d'avantage suffisant (+0.011 sur Down à 0.44)
-2026-11-26 02:36:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:36:48 UTC  ✅ GAGNÉ Ethereum Up or Down - November 25, 9:15PM-9:30PM ET [Down] P&L +7.02 $ → capital 102.71 $
-2026-11-26 02:36:49 UTC  BTC ouverture 60,850.50 spot 60,812.74 σ/min 0.073% → P(Up) modèle 0.41 (brut 0.38, marché 0.43) | 🟢 ACHAT fictif 6.15 parts Up à 0.31 (coût 2.00 $, avantage +0.081, Kelly ¼ suggère 3.10 $) | baleines x3.01, funding top 5%
-2026-11-26 02:36:51 UTC  ETH ouverture 1,700.17 spot 1,700.19 σ/min 0.081% → P(Up) modèle 0.55 (brut 0.50, marché 0.60) | 🟢 ACHAT fictif 5.00 parts Up à 0.43 (coût 2.24 $, avantage +0.106, Kelly ¼ suggère 4.85 $) | baleines x2.14, funding typical
-2026-11-26 02:37:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:37:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:38:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:38:48 UTC  ⏸ nombre max de paris du jour atteint
-2026-11-26 02:39:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:39:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 02:40:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:40:48 UTC  ⏸ nombre max de paris du jour atteint
@@ -58,4 +44,17 @@ _Mis à jour : 2026-11-26 02:42:48 UTC_
 2026-11-26 02:41:48 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 02:42:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:42:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:43:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:43:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:44:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:44:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:45:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:45:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:46:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:46:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:47:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:47:48 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 02:48:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:48:48 UTC  ✅ GAGNÉ Bitcoin Up or Down - November 25, 9:30PM-9:45PM ET [Up] P&L +4.15 $ → capital 104.62 $
+2026-11-26 02:48:48 UTC  ⏸ nombre max de paris du jour atteint
 ```

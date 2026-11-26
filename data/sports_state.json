@@ -11,9 +11,11 @@
   "2026-11-25T10:21:44Z ucl : 9 matchs Polymarket, 9 Pinnacle, 7 appari\u00e9s, 0 pistes",
   "2026-11-25T17:07:36Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1 (aucun cr\u00e9dit utilis\u00e9)",
   "2026-11-25T17:07:36Z ucl : 9 matchs Polymarket, 9 Pinnacle, 7 appari\u00e9s, 2 pistes",
-  "2026-11-25T21:55:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)"
+  "2026-11-25T21:55:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)",
+  "2026-11-26T02:43:49Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1, ucl (aucun cr\u00e9dit utilis\u00e9)"
  ],
- "last_scan": "2026-11-25T21:55:34Z",
+ "last_scan": "2026-11-26T02:43:48Z",
  "odds_remaining": 497,
- "odds_used": 3
+ "odds_used": 3,
+ "watch": {}
 }
