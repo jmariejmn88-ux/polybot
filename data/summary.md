@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 10:49:55 UTC_
+_Mis à jour : 2026-11-26 10:52:45 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,8 +36,6 @@ _Mis à jour : 2026-11-26 10:49:55 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 10:40:55 UTC  — exécution — MODE : PAPER
-2026-11-26 10:40:55 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 10:41:55 UTC  — exécution — MODE : PAPER
 2026-11-26 10:41:55 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 10:42:55 UTC  — exécution — MODE : PAPER
@@ -56,4 +54,6 @@ _Mis à jour : 2026-11-26 10:49:55 UTC_
 2026-11-26 10:48:55 UTC  ⏸ nombre max de paris du jour atteint
 2026-11-26 10:49:55 UTC  — exécution — MODE : PAPER
 2026-11-26 10:49:55 UTC  ⏸ nombre max de paris du jour atteint
+2026-11-26 10:52:45 UTC  — exécution — MODE : PAPER
+2026-11-26 10:52:45 UTC  ⏸ nombre max de paris du jour atteint
 ```

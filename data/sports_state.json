@@ -2365,5 +2365,10 @@
  "last_scan_src": {
   "pinnfeed": "2026-11-26T10:47:55Z",
   "oddsapi": "2026-11-26T09:37:55Z"
- }
+ },
+ "combo_bankroll": 100.0,
+ "combo_start": 100.0,
+ "combos_open": [],
+ "combos_closed": [],
+ "combo_try": "2026-11-26T10:47:55Z"
 }
