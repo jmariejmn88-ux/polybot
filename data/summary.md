@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-26 02:12:48 UTC_
+_Mis à jour : 2026-11-26 02:18:48 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -38,24 +38,24 @@ _Mis à jour : 2026-11-26 02:12:48 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-26 02:06:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:06:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:07:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:07:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:07:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:08:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:08:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:08:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:09:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:09:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:09:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:10:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:10:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:10:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:11:48 UTC  — exécution — MODE : PAPER
-2026-11-26 02:11:48 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-26 02:11:48 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-26 02:12:48 UTC  — exécution — MODE : PAPER
 2026-11-26 02:12:48 UTC  BTC : déjà positionné sur cette fenêtre
 2026-11-26 02:12:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 02:13:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:13:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 02:13:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 02:14:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:14:48 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-26 02:14:48 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-26 02:15:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:15:48 UTC  BTC : 852s restantes, hors plage d'entrée
+2026-11-26 02:15:48 UTC  ETH : 852s restantes, hors plage d'entrée
+2026-11-26 02:16:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:16:48 UTC  BTC : 792s restantes, hors plage d'entrée
+2026-11-26 02:16:48 UTC  ETH : 792s restantes, hors plage d'entrée
+2026-11-26 02:17:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:17:48 UTC  BTC : 732s restantes, hors plage d'entrée
+2026-11-26 02:17:48 UTC  ETH : 732s restantes, hors plage d'entrée
+2026-11-26 02:18:48 UTC  — exécution — MODE : PAPER
+2026-11-26 02:18:48 UTC  BTC : 672s restantes, hors plage d'entrée
+2026-11-26 02:18:48 UTC  ETH : 672s restantes, hors plage d'entrée
 ```
