@@ -1,29 +1,7 @@
 {
- "bankroll": 80.347,
+ "bankroll": 90.347,
  "start_bankroll": 100.0,
  "open": [
-  {
-   "id": "S17957233391",
-   "sport": "foot",
-   "ligue": "France - Cup",
-   "match": "US Pays de Saint-Omer vs. SM Caen",
-   "evt": "cde-som-cae-2026-11-28",
-   "coup_envoi": "2026-11-27T19:00:00Z",
-   "selection": "US Pays de Saint-Omer \u2014 OUI",
-   "token": "5412956371171095100667060183453876064499481540257525584052194212758300271635",
-   "marche": "7123554",
-   "prix": 0.12,
-   "cout_part": 0.1253,
-   "parts": 10.0,
-   "mise": 1.2528,
-   "proba_pinnacle": 0.1572,
-   "avantage": 0.032,
-   "kelly": 0.0091,
-   "ouvert_le": "2026-11-26T20:02:19Z",
-   "statut": "ouvert",
-   "gain": "",
-   "regle_le": ""
-  },
   {
    "id": "S17957347402",
    "sport": "foot",
@@ -267,13 +245,34 @@
    "statut": "perdu",
    "gain": -3.8943,
    "regle_le": "2026-11-27T22:59:46Z"
+  },
+  {
+   "id": "S17957233391",
+   "sport": "foot",
+   "ligue": "France - Cup",
+   "match": "US Pays de Saint-Omer vs. SM Caen",
+   "evt": "cde-som-cae-2026-11-28",
+   "coup_envoi": "2026-11-27T19:00:00Z",
+   "selection": "US Pays de Saint-Omer \u2014 OUI",
+   "token": "5412956371171095100667060183453876064499481540257525584052194212758300271635",
+   "marche": "7123554",
+   "prix": 0.12,
+   "cout_part": 0.1253,
+   "parts": 10.0,
+   "mise": 1.2528,
+   "proba_pinnacle": 0.1572,
+   "avantage": 0.032,
+   "kelly": 0.0091,
+   "ouvert_le": "2026-11-26T20:02:19Z",
+   "statut": "gagn\u00e9",
+   "gain": 8.7472,
+   "regle_le": "2026-11-27T23:29:32Z"
   }
  ],
  "pinn_calls": {
   "2026-11-27": 508
  },
  "log": [
-  "2026-11-26T18:40:25Z foot : 116 matchs Polymarket, 909 Pinnacle, 98 appari\u00e9s, 10 pistes",
   "2026-11-26T18:50:26Z foot : 116 matchs Polymarket, 910 Pinnacle, 98 appari\u00e9s, 12 pistes",
   "2026-11-26T19:00:30Z foot : 117 matchs Polymarket, 908 Pinnacle, 99 appari\u00e9s, 12 pistes",
   "2026-11-26T19:12:19Z foot : 117 matchs Polymarket, 908 Pinnacle, 98 appari\u00e9s, 14 pistes",
@@ -472,7 +471,8 @@
   "2026-11-27T22:59:32Z foot : 391 matchs Polymarket, 1044 Pinnacle, 321 appari\u00e9s, 47 pistes",
   "2026-11-27T22:59:46Z PERDU Jong Ajax Amsterdam vs. Heracles Almelo / Draw (Jong Ajax Amsterdam vs. Heracles Almelo) \u2014 NON : -3.89 $ \u2192 bankroll 80.35 $",
   "2026-11-27T23:09:51Z foot : 395 matchs Polymarket, 1039 Pinnacle, 323 appari\u00e9s, 49 pistes",
-  "2026-11-27T23:21:18Z foot : 395 matchs Polymarket, 1061 Pinnacle, 324 appari\u00e9s, 47 pistes"
+  "2026-11-27T23:21:18Z foot : 395 matchs Polymarket, 1061 Pinnacle, 324 appari\u00e9s, 47 pistes",
+  "2026-11-27T23:29:32Z GAGN\u00c9 US Pays de Saint-Omer vs. SM Caen / US Pays de Saint-Omer \u2014 OUI : +8.75 $ \u2192 bankroll 90.35 $"
  ],
  "last_scan": "2026-11-27T23:20:21Z",
  "odds_remaining": 489,
