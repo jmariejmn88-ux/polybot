@@ -1,12 +1,12 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-27 00:08:08 UTC_
+_Mis à jour : 2026-11-27 00:09:08 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
-| Capital disponible | 106.54 $ |
-| Engagé (paris en cours) | 3.08 $ |
+| Capital disponible | 104.51 $ |
+| Engagé (paris en cours) | 5.12 $ |
 | **Valeur totale** | **109.62 $ (+9.6 %)** |
 | Paris réglés | 31 |
 | Taux de réussite | 45 % |
@@ -33,13 +33,11 @@ _Mis à jour : 2026-11-27 00:08:08 UTC_
 | 2026-11-26 00:50 | Bitcoin Up or Down - November 25, 7:45PM-8:00PM ET | Up | 0.22 | ❌ | -2.00 $ |
 | 2026-11-26 00:35 | Ethereum Up or Down - November 25, 7:30PM-7:45PM ET | Up | 0.28 | ❌ | -2.00 $ |
 | 2026-11-27 00:08 | Bitcoin Up or Down - November 26, 7:00PM-7:15PM ET | Up | 0.60 | ⏳ | — |
+| 2026-11-27 00:09 | Ethereum Up or Down - November 26, 7:00PM-7:15PM ET | Up | 0.39 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-27 00:02:06 UTC  BTC : 774s restantes, hors plage d'entrée
-2026-11-27 00:02:06 UTC  ETH : 774s restantes, hors plage d'entrée
-2026-11-27 00:03:06 UTC  — exécution — MODE : PAPER
 2026-11-27 00:03:06 UTC  BTC : 714s restantes, hors plage d'entrée
 2026-11-27 00:03:06 UTC  ETH : 714s restantes, hors plage d'entrée
 2026-11-27 00:04:06 UTC  — exécution — MODE : PAPER
@@ -57,4 +55,7 @@ _Mis à jour : 2026-11-27 00:08:08 UTC_
 2026-11-27 00:08:06 UTC  — exécution — MODE : PAPER
 2026-11-27 00:08:07 UTC  BTC ouverture 60,493.54 spot 60,516.49 σ/min 0.044% → P(Up) modèle 0.68 (brut 0.63, marché 0.72) | 🟢 ACHAT fictif 5.00 parts Up à 0.60 (coût 3.08 $, avantage +0.063, Kelly ¼ suggère 4.52 $) | baleines x1.29, funding typical
 2026-11-27 00:08:08 UTC  ETH ouverture 1,687.67 spot 1,688.62 σ/min 0.054% → P(Up) modèle 0.73 (brut 0.66, marché 0.80) | pas d'avantage suffisant (+0.004 sur Up à 0.71)
+2026-11-27 00:09:06 UTC  — exécution — MODE : PAPER
+2026-11-27 00:09:06 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-27 00:09:08 UTC  ETH ouverture 1,687.66 spot 1,687.50 σ/min 0.056% → P(Up) modèle 0.63 (brut 0.47, marché 0.80) | 🟢 ACHAT fictif 5.00 parts Up à 0.39 (coût 2.03 $, avantage +0.226, Kelly ¼ suggère 10.13 $) | baleines x0.56, funding top 25%
 ```
