@@ -25,28 +25,6 @@
    "regle_le": ""
   },
   {
-   "id": "S17957757504",
-   "sport": "foot",
-   "ligue": "France - Cup",
-   "match": "US Le Pays du Valois vs. Valenciennes FC",
-   "evt": "cde-pdv-vfc-2026-11-28",
-   "coup_envoi": "2026-11-27T19:00:00Z",
-   "selection": "Valenciennes FC \u2014 NON",
-   "token": "37635562011121539390917854075822803333708087786873414197865177515541235218142",
-   "marche": "7123543",
-   "prix": 0.54,
-   "cout_part": 0.5524,
-   "parts": 5.0,
-   "mise": 2.7621,
-   "proba_pinnacle": 0.5861,
-   "avantage": 0.0336,
-   "kelly": 0.0188,
-   "ouvert_le": "2026-11-27T10:35:50Z",
-   "statut": "ouvert",
-   "gain": "",
-   "regle_le": ""
-  },
-  {
    "id": "S17957763655",
    "sport": "foot",
    "ligue": "Spain - Primera Federacion",
@@ -267,13 +245,34 @@
    "statut": "gagn\u00e9",
    "gain": 8.7472,
    "regle_le": "2026-11-27T23:29:32Z"
+  },
+  {
+   "id": "S17957757504",
+   "sport": "foot",
+   "ligue": "France - Cup",
+   "match": "US Le Pays du Valois vs. Valenciennes FC",
+   "evt": "cde-pdv-vfc-2026-11-28",
+   "coup_envoi": "2026-11-27T19:00:00Z",
+   "selection": "Valenciennes FC \u2014 NON",
+   "token": "37635562011121539390917854075822803333708087786873414197865177515541235218142",
+   "marche": "7123543",
+   "prix": 0.54,
+   "cout_part": 0.5524,
+   "parts": 5.0,
+   "mise": 2.7621,
+   "proba_pinnacle": 0.5861,
+   "avantage": 0.0336,
+   "kelly": 0.0188,
+   "ouvert_le": "2026-11-27T10:35:50Z",
+   "statut": "perdu",
+   "gain": -2.7621,
+   "regle_le": "2026-11-27T23:51:58Z"
   }
  ],
  "pinn_calls": {
   "2026-11-27": 520
  },
  "log": [
-  "2026-11-26T19:22:20Z foot : 117 matchs Polymarket, 919 Pinnacle, 99 appari\u00e9s, 14 pistes",
   "2026-11-26T19:32:19Z foot : 119 matchs Polymarket, 918 Pinnacle, 101 appari\u00e9s, 14 pistes",
   "2026-11-26T19:42:19Z foot : 119 matchs Polymarket, 919 Pinnacle, 101 appari\u00e9s, 15 pistes",
   "2026-11-26T19:52:19Z foot : 100 matchs Polymarket, 925 Pinnacle, 87 appari\u00e9s, 13 pistes",
@@ -472,7 +471,8 @@
   "2026-11-27T23:29:32Z GAGN\u00c9 US Pays de Saint-Omer vs. SM Caen / US Pays de Saint-Omer \u2014 OUI : +8.75 $ \u2192 bankroll 90.35 $",
   "2026-11-27T23:31:29Z foot : 401 matchs Polymarket, 1061 Pinnacle, 329 appari\u00e9s, 50 pistes",
   "2026-11-27T23:41:37Z foot : 401 matchs Polymarket, 1062 Pinnacle, 329 appari\u00e9s, 46 pistes",
-  "2026-11-27T23:51:45Z foot : 398 matchs Polymarket, 1062 Pinnacle, 326 appari\u00e9s, 47 pistes"
+  "2026-11-27T23:51:45Z foot : 398 matchs Polymarket, 1062 Pinnacle, 326 appari\u00e9s, 47 pistes",
+  "2026-11-27T23:51:58Z PERDU US Le Pays du Valois vs. Valenciennes FC / Valenciennes FC \u2014 NON : -2.76 $ \u2192 bankroll 90.35 $"
  ],
  "last_scan": "2026-11-27T23:50:51Z",
  "odds_remaining": 489,

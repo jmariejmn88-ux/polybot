@@ -1,12 +1,12 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-27T23:51:55Z
+Mis à jour : 2026-11-27T23:51:58Z
 
 - Bankroll disponible : **90.35 $** (départ 100 $)
-- En jeu : 8 pari(s), 18.53 $
-- Réglés : 4 (gagnés 2, perdus 2)
-- Résultat réel : **+8.88 $** (ROI +97.1%)
-- Résultat « attendu » selon Pinnacle : +1.10 $
+- En jeu : 7 pari(s), 15.77 $
+- Réglés : 5 (gagnés 2, perdus 3)
+- Résultat réel : **+6.12 $** (ROI +51.4%)
+- Résultat « attendu » selon Pinnacle : +1.27 $
 
 Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel varie beaucoup. Il faut plusieurs centaines de paris pour conclure.
 
@@ -15,7 +15,6 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | Match | Sélection | Prix | Pinnacle | Mise |
 |---|---|---|---|---|
 | Club Independiente Petrolero vs. CDT Real Oruro (2026-11-27T23:00) | Club Independiente Petrolero — NON | 0.44 | 49% | 2.26 $ |
-| US Le Pays du Valois vs. Valenciennes FC (2026-11-27T19:00) | Valenciennes FC — NON | 0.54 | 59% | 2.76 $ |
 | Hercules de Alicante CF vs. Antequera CF (2026-11-27T20:15) | Hercules de Alicante CF — NON | 0.55 | 60% | 2.81 $ |
 | FC Emmen vs. Helmond Sport (2026-11-28T15:30) | FC Emmen — OUI | 0.42 | 50% | 2.19 $ |
 | US Castanet vs. Pau FC (2026-11-28T17:30) | Pau FC — NON | 0.35 | 40% | 2.00 $ |
@@ -27,6 +26,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 
 | Match | Sélection | Statut | Gain |
 |---|---|---|---|
+| US Le Pays du Valois vs. Valenciennes FC | Valenciennes FC — NON | perdu | -2.76 $ |
 | US Pays de Saint-Omer vs. SM Caen | US Pays de Saint-Omer — OUI | gagné | +8.75 $ |
 | Jong Ajax Amsterdam vs. Heracles Almelo | Draw (Jong Ajax Amsterdam vs. Heracles Almelo) — NON | perdu | -3.89 $ |
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
