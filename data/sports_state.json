@@ -113,28 +113,6 @@
    "regle_le": ""
   },
   {
-   "id": "S17957769677",
-   "sport": "foot",
-   "ligue": "Netherlands - Eerste Divisie",
-   "match": "Jong Ajax Amsterdam vs. Heracles Almelo",
-   "evt": "ned2-aja-her-2026-11-27",
-   "coup_envoi": "2026-11-27T19:00:00Z",
-   "selection": "Draw (Jong Ajax Amsterdam vs. Heracles Almelo) \u2014 NON",
-   "token": "92784982875184329188772323513900247084385855398174150944681940192624288813376",
-   "marche": "7303865",
-   "prix": 0.77,
-   "cout_part": 0.7789,
-   "parts": 5.0,
-   "mise": 3.8943,
-   "proba_pinnacle": 0.828,
-   "avantage": 0.0491,
-   "kelly": 0.0556,
-   "ouvert_le": "2026-11-27T10:56:07Z",
-   "statut": "ouvert",
-   "gain": "",
-   "regle_le": ""
-  },
-  {
    "id": "S17957955218",
    "sport": "foot",
    "ligue": "France - Cup",
@@ -267,13 +245,34 @@
    "statut": "gagn\u00e9",
    "gain": 6.0283,
    "regle_le": "2026-11-27T15:59:15Z"
+  },
+  {
+   "id": "S17957769677",
+   "sport": "foot",
+   "ligue": "Netherlands - Eerste Divisie",
+   "match": "Jong Ajax Amsterdam vs. Heracles Almelo",
+   "evt": "ned2-aja-her-2026-11-27",
+   "coup_envoi": "2026-11-27T19:00:00Z",
+   "selection": "Draw (Jong Ajax Amsterdam vs. Heracles Almelo) \u2014 NON",
+   "token": "92784982875184329188772323513900247084385855398174150944681940192624288813376",
+   "marche": "7303865",
+   "prix": 0.77,
+   "cout_part": 0.7789,
+   "parts": 5.0,
+   "mise": 3.8943,
+   "proba_pinnacle": 0.828,
+   "avantage": 0.0491,
+   "kelly": 0.0556,
+   "ouvert_le": "2026-11-27T10:56:07Z",
+   "statut": "perdu",
+   "gain": -3.8943,
+   "regle_le": "2026-11-27T22:59:46Z"
   }
  ],
  "pinn_calls": {
   "2026-11-27": 500
  },
  "log": [
-  "2026-11-26T18:20:28Z foot : 116 matchs Polymarket, 908 Pinnacle, 98 appari\u00e9s, 12 pistes",
   "2026-11-26T18:30:25Z foot : 116 matchs Polymarket, 909 Pinnacle, 98 appari\u00e9s, 11 pistes",
   "2026-11-26T18:38:17Z recherche : pas de match Polymarket dans les 24 h pour nba (aucun cr\u00e9dit utilis\u00e9)",
   "2026-11-26T18:40:25Z foot : 116 matchs Polymarket, 909 Pinnacle, 98 appari\u00e9s, 10 pistes",
@@ -472,7 +471,8 @@
   "2026-11-27T22:28:39Z foot : 393 matchs Polymarket, 1037 Pinnacle, 322 appari\u00e9s, 47 pistes",
   "2026-11-27T22:38:58Z foot : 396 matchs Polymarket, 1040 Pinnacle, 325 appari\u00e9s, 47 pistes",
   "2026-11-27T22:49:15Z foot : 391 matchs Polymarket, 1044 Pinnacle, 321 appari\u00e9s, 45 pistes",
-  "2026-11-27T22:59:32Z foot : 391 matchs Polymarket, 1044 Pinnacle, 321 appari\u00e9s, 47 pistes"
+  "2026-11-27T22:59:32Z foot : 391 matchs Polymarket, 1044 Pinnacle, 321 appari\u00e9s, 47 pistes",
+  "2026-11-27T22:59:46Z PERDU Jong Ajax Amsterdam vs. Heracles Almelo / Draw (Jong Ajax Amsterdam vs. Heracles Almelo) \u2014 NON : -3.89 $ \u2192 bankroll 80.35 $"
  ],
  "last_scan": "2026-11-27T22:58:29Z",
  "odds_remaining": 489,

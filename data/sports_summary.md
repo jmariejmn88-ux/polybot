@@ -1,12 +1,12 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-27T22:59:44Z
+Mis à jour : 2026-11-27T22:59:46Z
 
 - Bankroll disponible : **80.35 $** (départ 100 $)
-- En jeu : 10 pari(s), 23.68 $
-- Réglés : 2 (gagnés 1, perdus 1)
-- Résultat réel : **+4.03 $** (ROI +100.7%)
-- Résultat « attendu » selon Pinnacle : +0.53 $
+- En jeu : 9 pari(s), 19.79 $
+- Réglés : 3 (gagnés 1, perdus 2)
+- Résultat réel : **+0.13 $** (ROI +1.7%)
+- Résultat « attendu » selon Pinnacle : +0.78 $
 
 Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel varie beaucoup. Il faut plusieurs centaines de paris pour conclure.
 
@@ -19,7 +19,6 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | US Le Pays du Valois vs. Valenciennes FC (2026-11-27T19:00) | Valenciennes FC — NON | 0.54 | 59% | 2.76 $ |
 | Hercules de Alicante CF vs. Antequera CF (2026-11-27T20:15) | Hercules de Alicante CF — NON | 0.55 | 60% | 2.81 $ |
 | FC Emmen vs. Helmond Sport (2026-11-28T15:30) | FC Emmen — OUI | 0.42 | 50% | 2.19 $ |
-| Jong Ajax Amsterdam vs. Heracles Almelo (2026-11-27T19:00) | Draw (Jong Ajax Amsterdam vs. Heracles Almelo) — NON | 0.77 | 83% | 3.89 $ |
 | US Castanet vs. Pau FC (2026-11-28T17:30) | Pau FC — NON | 0.35 | 40% | 2.00 $ |
 | Vannes OC vs. US Concarneau (2026-11-28T19:00) | US Concarneau — NON | 0.36 | 40% | 2.00 $ |
 | US Feurs vs. FC Annecy (2026-11-28T16:00) | US Feurs — OUI | 0.23 | 28% | 2.00 $ |
@@ -29,6 +28,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 
 | Match | Sélection | Statut | Gain |
 |---|---|---|---|
+| Jong Ajax Amsterdam vs. Heracles Almelo | Draw (Jong Ajax Amsterdam vs. Heracles Almelo) — NON | perdu | -3.89 $ |
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
