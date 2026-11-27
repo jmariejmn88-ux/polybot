@@ -1,6 +1,6 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-27T16:05:37Z
+Mis à jour : 2026-11-27T16:10:39Z
 
 - Bankroll disponible : **86.86 $** (départ 100 $)
 - En jeu : 7 pari(s), 17.17 $
