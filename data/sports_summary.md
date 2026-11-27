@@ -1,6 +1,6 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-27T09:32:11Z
+Mis à jour : 2026-11-27T09:37:25Z
 
 - Bankroll disponible : **92.49 $** (départ 100 $)
 - En jeu : 3 pari(s), 5.51 $
@@ -24,5 +24,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 |---|---|---|---|
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 185 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 189 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 494 / 500
