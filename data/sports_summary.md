@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-27T16:10:39Z
+Mis à jour : 2026-11-27T16:16:04Z
 
-- Bankroll disponible : **86.86 $** (départ 100 $)
-- En jeu : 7 pari(s), 17.17 $
+- Bankroll disponible : **84.86 $** (départ 100 $)
+- En jeu : 8 pari(s), 19.17 $
 - Réglés : 2 (gagnés 1, perdus 1)
 - Résultat réel : **+4.03 $** (ROI +100.7%)
 - Résultat « attendu » selon Pinnacle : +0.53 $
@@ -21,6 +21,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FC Emmen vs. Helmond Sport (2026-11-28T15:30) | FC Emmen — OUI | 0.42 | 50% | 2.19 $ |
 | Jong Ajax Amsterdam vs. Heracles Almelo (2026-11-27T19:00) | Draw (Jong Ajax Amsterdam vs. Heracles Almelo) — NON | 0.77 | 83% | 3.89 $ |
 | US Castanet vs. Pau FC (2026-11-28T17:30) | Pau FC — NON | 0.35 | 40% | 2.00 $ |
+| Vannes OC vs. US Concarneau (2026-11-28T19:00) | US Concarneau — NON | 0.36 | 40% | 2.00 $ |
 
 ## 15 derniers résultats
 
@@ -29,5 +30,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 340 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 344 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 491 / 500
