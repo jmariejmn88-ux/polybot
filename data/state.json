@@ -1238,14 +1238,6 @@
     }
   ],
   "log": [
-    "2026-11-27 12:23:14 UTC  — exécution — MODE : PAPER",
-    "2026-11-27 12:23:14 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-27 12:24:14 UTC  — exécution — MODE : PAPER",
-    "2026-11-27 12:24:14 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-27 12:25:14 UTC  — exécution — MODE : PAPER",
-    "2026-11-27 12:25:14 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
-    "2026-11-27 12:26:14 UTC  — exécution — MODE : PAPER",
-    "2026-11-27 12:26:14 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
     "2026-11-27 12:27:17 UTC  — exécution — MODE : PAPER",
     "2026-11-27 12:27:17 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
     "2026-11-27 12:28:31 UTC  — exécution — MODE : PAPER",
@@ -1537,7 +1529,15 @@
     "2026-11-27 14:56:15 UTC  — exécution — MODE : PAPER",
     "2026-11-27 14:56:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
     "2026-11-27 14:57:15 UTC  — exécution — MODE : PAPER",
-    "2026-11-27 14:57:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain"
+    "2026-11-27 14:57:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-27 14:58:15 UTC  — exécution — MODE : PAPER",
+    "2026-11-27 14:58:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-27 14:59:15 UTC  — exécution — MODE : PAPER",
+    "2026-11-27 14:59:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-27 15:00:15 UTC  — exécution — MODE : PAPER",
+    "2026-11-27 15:00:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-27 15:01:15 UTC  — exécution — MODE : PAPER",
+    "2026-11-27 15:01:15 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain"
   ],
   "halted": false,
   "last_report": "2026-11-26",
