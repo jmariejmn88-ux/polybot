@@ -548,8 +548,12 @@ def line_entries(g, t1, t2, pinn):
         h1 = line if first_is_t1 else -line
         p_first, p_second = _price(m, 0), _price(m, 1)
         pm = {"home": p_first, "away": p_second} if first_is_t1 else {"home": p_second, "away": p_first}
+        toks = jl(m.get("clobTokenIds"))
+        tk = {}
+        if len(toks) == 2:
+            tk = {"home": toks[0], "away": toks[1]} if first_is_t1 else {"home": toks[1], "away": toks[0]}
         rate = float((m.get("feeSchedule") or {}).get("rate") or 0.05)
-        sp_mk.append((h1, pm, rate))
+        sp_mk.append((h1, pm, rate, m.get("id"), tk))
     pe, flip = match_pinn(g, t1, t2, pinn.get("spread", [])) if pinn.get("spread") else (None, None)
     if sp_mk:
         pin, H = {}, None
@@ -558,13 +562,13 @@ def line_entries(g, t1, t2, pinn):
             pin = ({"home": pe["probs"].get("away"), "away": pe["probs"].get("home")} if flip
                    else {"home": pe["probs"].get("home"), "away": pe["probs"].get("away")})
         same = [x for x in sp_mk if H is not None and abs(x[0] - H) < 1e-9]
-        h1, pm, rate = same[0] if same else min(sp_mk, key=lambda x: (abs(abs(x[0]) - 0.5), x[0]))
+        h1, pm, rate, mid, tk = same[0] if same else min(sp_mk, key=lambda x: (abs(abs(x[0]) - 0.5), x[0]))
         if not same:
             pin = {}
         edge = {r: round(pin[r] - cost_per_share(pm[r], rate), 4)
                 for r in pm if pin.get(r) is not None and pm[r] is not None}
         out["spread"] = {"line": h1, "pm": pm, "pin": {k: round(v, 4) for k, v in pin.items() if v is not None},
-                         "edge": edge}
+                         "edge": edge, "mid": mid, "tok": tk}
     # --- total de buts
     tot = []
     for m in g.get("lines", []):
@@ -578,15 +582,17 @@ def line_entries(g, t1, t2, pinn):
         if sorted(outs) != ["over", "under"]:
             continue
         pm = {outs[0]: _price(m, 0), outs[1]: _price(m, 1)}
-        tot.append((line, pm, float((m.get("feeSchedule") or {}).get("rate") or 0.05)))
+        toks = jl(m.get("clobTokenIds"))
+        tk = {outs[0]: toks[0], outs[1]: toks[1]} if len(toks) == 2 else {}
+        tot.append((line, pm, float((m.get("feeSchedule") or {}).get("rate") or 0.05), m.get("id"), tk))
     pe, _f2 = match_pinn(g, t1, t2, pinn.get("total", [])) if pinn.get("total") else (None, None)
     if tot:
         same = [x for x in tot if pe and abs(x[0] - pe["line"]) < 1e-9]
-        line, pm, rate = same[0] if same else min(tot, key=lambda x: abs(x[0] - 2.5))
+        line, pm, rate, mid, tk = same[0] if same else min(tot, key=lambda x: abs(x[0] - 2.5))
         pin = {k: round(v, 4) for k, v in pe["probs"].items()} if same else {}
         edge = {r: round(pin[r] - cost_per_share(pm[r], rate), 4)
                 for r in pm if pin.get(r) is not None and pm[r] is not None}
-        out["total"] = {"line": line, "pm": pm, "pin": pin, "edge": edge}
+        out["total"] = {"line": line, "pm": pm, "pin": pin, "edge": edge, "mid": mid, "tok": tk}
     return out
 
 
