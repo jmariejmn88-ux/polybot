@@ -72,7 +72,7 @@
   }
  ],
  "pinn_calls": {
-  "2026-11-27": 86
+  "2026-11-27": 87
  },
  "log": [
   "2026-11-25T05:33:35Z recherche : pas de match Polymarket dans les 24 h pour epl, laliga, bundesliga, seriea, ligue1 (aucun cr\u00e9dit utilis\u00e9)",
@@ -216,7 +216,8 @@
   "2026-11-27T04:03:56Z foot : 307 matchs Polymarket, 959 Pinnacle, 252 appari\u00e9s, 41 pistes",
   "2026-11-27T04:13:54Z foot : 307 matchs Polymarket, 960 Pinnacle, 252 appari\u00e9s, 42 pistes",
   "2026-11-27T04:23:55Z foot : 309 matchs Polymarket, 960 Pinnacle, 254 appari\u00e9s, 45 pistes",
-  "2026-11-27T04:33:57Z foot : 317 matchs Polymarket, 960 Pinnacle, 262 appari\u00e9s, 45 pistes"
+  "2026-11-27T04:33:57Z foot : 317 matchs Polymarket, 960 Pinnacle, 262 appari\u00e9s, 45 pistes",
+  "2026-11-27T04:34:19Z LABO Serie B \u2013 moins de 2,5 buts : Palermo FC vs. Benevento Calcio / Moins de 2,5 buts @ 0.430 (pas de cote Pinnacle)"
  ],
  "last_scan": "2026-11-27T04:33:16Z",
  "odds_remaining": 495,
@@ -18695,6 +18696,27 @@
     "statut": "ouvert",
     "gain": "",
     "regle_le": ""
+   },
+   {
+    "id": "L7",
+    "strategie": "serieb_under25",
+    "slug": "itsb-pal-ben-2026-11-28-more-markets",
+    "match": "Palermo FC vs. Benevento Calcio",
+    "ligue": "Serie B",
+    "coup_envoi": "2026-11-28T18:30:00Z",
+    "selection": "Moins de 2,5 buts",
+    "token": "984340016862907508896828507882137841018611578323628602422688591129495024046",
+    "marche": "7328273",
+    "prix": 0.43,
+    "cout_part": 0.4423,
+    "parts": 2.2611,
+    "mise": 1.0,
+    "proba_pinnacle": null,
+    "ecart_pinnacle": null,
+    "ouvert_le": "2026-11-27T04:34:19Z",
+    "statut": "ouvert",
+    "gain": "",
+    "regle_le": ""
    }
   ],
   "closed": [],
@@ -18703,7 +18725,7 @@
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
   },
   "last_watch": "2026-11-27T04:33:16Z",
-  "last_totals": "2026-11-27T04:04:16Z",
+  "last_totals": "2026-11-27T04:34:16Z",
   "bilan": {
    "laliga_outsiders": {
     "nom": "La Liga \u2013 outsiders cote 5 \u00e0 9",
@@ -18715,7 +18737,7 @@
    },
    "serieb_under25": {
     "nom": "Serie B \u2013 moins de 2,5 buts",
-    "paris": 4,
+    "paris": 5,
     "regles": 0,
     "gagnes": 0,
     "gain": 0,
