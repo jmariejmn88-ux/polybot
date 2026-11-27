@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-27 21:32:10 UTC_
+_Mis à jour : 2026-11-27 21:36:10 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,14 +36,6 @@ _Mis à jour : 2026-11-27 21:32:10 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-27 21:22:55 UTC  — exécution — MODE : PAPER
-2026-11-27 21:22:55 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
-2026-11-27 21:23:55 UTC  — exécution — MODE : PAPER
-2026-11-27 21:23:55 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
-2026-11-27 21:24:55 UTC  — exécution — MODE : PAPER
-2026-11-27 21:24:55 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
-2026-11-27 21:25:55 UTC  — exécution — MODE : PAPER
-2026-11-27 21:25:55 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
 2026-11-27 21:27:10 UTC  — exécution — MODE : PAPER
 2026-11-27 21:27:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
 2026-11-27 21:28:10 UTC  — exécution — MODE : PAPER
@@ -56,4 +48,12 @@ _Mis à jour : 2026-11-27 21:32:10 UTC_
 2026-11-27 21:31:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
 2026-11-27 21:32:10 UTC  — exécution — MODE : PAPER
 2026-11-27 21:32:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
+2026-11-27 21:33:10 UTC  — exécution — MODE : PAPER
+2026-11-27 21:33:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
+2026-11-27 21:34:10 UTC  — exécution — MODE : PAPER
+2026-11-27 21:34:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
+2026-11-27 21:35:10 UTC  — exécution — MODE : PAPER
+2026-11-27 21:35:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
+2026-11-27 21:36:10 UTC  — exécution — MODE : PAPER
+2026-11-27 21:36:10 UTC  ⏸ perte du jour -10.93 $ ≥ limite : pause jusqu'à demain
 ```
