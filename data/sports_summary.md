@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T18:04:42Z
+Mis à jour : 2026-11-28T18:10:32Z
 
-- Bankroll disponible : **77.14 $** (départ 100 $)
-- En jeu : 14 pari(s), 26.40 $
+- Bankroll disponible : **76.67 $** (départ 100 $)
+- En jeu : 15 pari(s), 26.87 $
 - Réglés : 8 (gagnés 3, perdus 5)
 - Résultat réel : **+3.53 $** (ROI +18.1%)
 - Résultat « attendu » selon Pinnacle : +2.33 $
@@ -28,6 +28,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | Ravenna FC 1913 vs. SEF Torres Sassari (2026-11-29T13:30) | Ravenna FC 1913 — NON | 0.33 | 38% | 2.00 $ |
 | Rs Berkane vs. Colombe Sportive Du Dja Et Lobo (2026-11-28T19:00) | Rs Berkane — NON | 0.20 | 25% | 2.00 $ |
 | FK Zemun vs. FK Radnicki 1923 Kragujevac (2026-11-28T13:00) | FK Radnicki 1923 Kragujevac — OUI | 0.44 | 49% | 2.26 $ |
+| Qarabag FK vs. Sumqayit FK (2026-11-29T13:00) | Sumqayit FK — OUI | 0.09 | 13% | 0.47 $ |
 
 ## 15 derniers résultats
 
@@ -42,5 +43,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 405 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 408 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 483 / 500
