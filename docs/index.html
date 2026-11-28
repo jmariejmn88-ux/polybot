@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolyBot · Tableau de bord</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --card:#1b2129; --card2:#212833; --line:#2a323d; --line2:#343d4a;
+    --tx:#e8edf3; --mute:#8b96a5; --dim:#5f6b7a;
+    --green:#3dd68c; --green-bg:#173a2a; --green-bd:#1f5a3c;
+    --red:#ff5c6c; --red-bg:#3d1a20; --red-bd:#5e2430;
+    --blue:#3b82f6; --gold:#f5b942; --track:#2c3440;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* ---------- barre du haut ---------- */
+  header{position:sticky;top:0;z-index:5;background:rgba(14,17,22,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .top{display:flex;align-items:center;gap:18px;padding:12px 22px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:-.3px}
+  .logo i{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#3b82f6,#6366f1);display:grid;place-items:center;font-style:normal;font-size:14px}
+  .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:12.5px;color:var(--mute);white-space:nowrap}
+  .pill.paper{color:var(--gold);border-color:#4a3a17;background:#2a2113}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--dim)}
+  .dot.ok{background:var(--green);box-shadow:0 0 0 3px #3dd68c33}.dot.warn{background:var(--gold)}.dot.bad{background:var(--red)}
+  .grow{flex:1}
+  .repo{display:flex;gap:6px}
+  .repo input{width:210px;background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:9px;padding:7px 10px;font-size:12.5px}
+  .btn{background:var(--card2);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-size:12.5px;font-weight:600}
+  .btn:hover{border-color:#4b5666}
+  .tabs{display:flex;gap:4px;padding:0 22px;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{background:none;border:0;padding:10px 12px 12px;color:var(--mute);font-weight:600;font-size:15px;border-bottom:2px solid transparent;white-space:nowrap}
+  .tab:hover{color:var(--tx)}
+  .tab.on{color:var(--tx);border-bottom-color:var(--tx)}
+
+  /* ---------- mise en page ---------- */
+  .wrap{display:grid;grid-template-columns:232px 1fr;gap:26px;padding:22px;max-width:1500px;margin:0 auto}
+  aside{position:sticky;top:110px;align-self:start}
+  .side a{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:11px;color:var(--tx);text-decoration:none;font-weight:600;font-size:15px;cursor:pointer}
+  .side a:hover{background:var(--card)}
+  .side a.on{background:var(--card2)}
+  .side a .n{margin-left:auto;color:var(--mute);font-weight:500;font-size:13px}
+  .side a .ic{width:22px;text-align:center}
+  .side hr{border:0;border-top:1px solid var(--line);margin:12px 6px}
+  .side .note{font-size:12px;color:var(--dim);padding:8px 13px}
+
+  .head{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+  .head h1{margin:0;font-size:26px;letter-spacing:-.5px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{padding:7px 13px;border-radius:10px;font-weight:600;color:var(--mute);background:none;border:0}
+  .chip.on{background:var(--card2);color:var(--tx)}
+  .alert{display:none;margin-bottom:16px;padding:12px 15px;border-radius:12px;border:1px solid #4a3a17;background:#2a2113;color:#f3d79a;font-size:13.5px}
+  .alert.bad{border-color:var(--red-bd);background:var(--red-bg);color:#ffc2c8}
+
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:236px;transition:border-color .15s}
+  .card:hover{border-color:var(--line2)}
+  .card.wide{grid-column:span 2}
+  .card.full{grid-column:1/-1}
+  .card.hidden{display:none}
+
+  .ch{display:flex;gap:12px;align-items:flex-start}
+  .ico{width:46px;height:46px;border-radius:11px;flex:none;display:grid;place-items:center;font-size:22px;font-weight:800}
+  .ico.btc{background:#f7931a;color:#fff}.ico.eth{background:#627eea;color:#fff}
+  .ico.foot{background:#1f6f43}.ico.bank{background:#2563eb;color:#fff;font-size:15px}
+  .ico.sport{background:#7c3aed}.ico.log{background:#334155}.ico.hist{background:#0f766e}
+  .title{font-weight:650;font-size:16px;line-height:1.3;flex:1;min-width:0}
+  .sub{color:var(--mute);font-size:12.5px;font-weight:500;margin-top:3px}
+
+  .gauge{flex:none;width:84px;text-align:center;margin-top:-4px}
+  .gauge svg{display:block;margin:0 auto}
+  .gauge .v{font-weight:700;font-size:19px;margin-top:-30px}
+  .gauge .l{color:var(--mute);font-size:12.5px;margin-top:-1px}
+
+  .bets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:18px}
+  .bet{border-radius:10px;padding:12px 8px;text-align:center;font-weight:650;font-size:15.5px;border:1px solid transparent}
+  .bet.up{background:var(--green-bg);color:var(--green)}
+  .bet.down{background:var(--red-bg);color:var(--red)}
+  .bet.pick{border-color:currentColor;box-shadow:inset 0 0 0 1px currentColor}
+  .bet.mute{opacity:.45}
+  .bet small{display:block;font-weight:500;font-size:11.5px;opacity:.85;margin-top:1px}
+
+  .foot{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--mute);font-size:12.5px}
+  .foot .new{color:var(--gold);font-weight:700}
+  .foot .r{margin-left:auto}
+  .tag{white-space:nowrap;padding:2px 8px;border-radius:6px;font-size:11.5px;font-weight:700;background:var(--card2);color:var(--mute)}
+  .tag.g{background:var(--green-bg);color:var(--green)}.tag.r{background:var(--red-bg);color:var(--red)}.tag.y{background:#2a2113;color:var(--gold)}
+
+  .bar{height:5px;border-radius:9px;background:var(--track);overflow:hidden;margin-top:12px;position:relative}
+  .bar i{position:absolute;inset:0 auto 0 0;background:var(--blue);border-radius:9px}
+  .bar .zone{position:absolute;top:0;bottom:0;left:33.3%;width:53.4%;background:#3dd68c26}
+
+  /* carte « capital » façon US100 */
+  .hero{padding:0;overflow:hidden;position:relative}
+  .hero .in{padding:18px 18px 0}
+  .hero .big{font-size:30px;font-weight:750;letter-spacing:-.6px;margin-top:auto}
+  .hero canvas{width:100%;height:128px;display:block}
+  .hero .bottom{display:flex;align-items:baseline;gap:10px;padding:0 18px 16px}
+  .pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--mute)}
+  .badge{position:absolute;top:16px;right:16px;font-size:11.5px;font-weight:700;padding:4px 8px;border-radius:7px;background:var(--card2);color:var(--mute);border:1px solid var(--line2)}
+
+  .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+  .kv div{background:var(--card2);border-radius:11px;padding:10px 12px}
+  .kv .l{color:var(--mute);font-size:12px}
+  .kv .v{font-weight:700;font-size:17px;margin-top:2px}
+
+  .rows{margin-top:12px;overflow:auto;max-height:330px}
+  .row{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:10px 4px;border-top:1px solid var(--line)}
+  .row:first-child{border-top:0}
+  .row .t{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .s{color:var(--mute);font-size:12px}
+  .row .w{font-weight:700;text-align:right;white-space:nowrap}
+  .em{font-size:18px}
+  .empty{color:var(--mute);text-align:center;padding:30px 10px;margin:auto}
+  .log{margin-top:12px;overflow:auto;max-height:330px;font:12px/1.55 ui-monospace,Menlo,monospace}
+  .log div{padding:3px 0;border-top:1px dashed #232a33;color:var(--mute)}
+  .log .buy{color:#9ec5ff}.log .win{color:var(--green)}.log .lose{color:var(--red)}.log .warn{color:var(--gold)}
+  .log b{color:var(--dim);font-weight:500}
+
+
+  /* ---------- vue Bot sport (style « Combos en direct ») ---------- */
+  body.sportmode aside{display:none}
+  body.sportmode .wrap{grid-template-columns:1fr}
+  #sportView{display:none}
+  body.sportmode #sportView{display:grid;grid-template-columns:220px minmax(0,1fr) 350px;gap:24px}
+  body.sportmode #grid,body.sportmode .head{display:none}
+  .lg a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:11px;font-weight:600;font-size:15px;cursor:pointer;color:var(--tx)}
+  .lg a:hover{background:var(--card)} .lg a.on{background:var(--card2)}
+  .lg a .n{margin-left:auto;color:var(--mute);font-weight:500;font-size:13px}
+  .lg .cap{color:var(--mute);font-size:13px;font-weight:600;padding:16px 12px 6px}
+  .sv-h{display:flex;align-items:center;gap:6px 14px;margin:2px 0 18px;flex-wrap:wrap}.sv-h h1{white-space:nowrap}
+  .sv-h h1{margin:0;font-size:30px;letter-spacing:-.6px}
+  .sv-h .meta{color:var(--mute);font-size:12.5px}
+  .lgname{color:var(--mute);font-weight:700;font-size:18px;margin:22px 2px 10px}
+  .lgname:first-of-type{margin-top:0}
+  .mt{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
+  .mt.bet{border-color:#3b82f6aa;box-shadow:0 0 0 1px #3b82f633}
+  .mt-top{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mute);margin-bottom:10px}
+  .mt-top{flex-wrap:wrap}.mt-top .live{color:var(--red);font-weight:700;white-space:nowrap}
+  .mt-top .live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;vertical-align:1px}
+  .mt-body{display:grid;grid-template-columns:minmax(0,1fr) 150px 120px 120px;gap:10px;align-items:stretch}
+  .teams{display:grid;grid-template-rows:1fr 1fr;gap:8px}
+  .team{display:flex;align-items:center;gap:12px;min-width:0}
+  .crest{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff}
+  .team b{font-size:16px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .col{display:flex;flex-direction:column;gap:6px}
+  .col .h{font-size:11px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center}
+  .px{flex:1;display:flex;align-items:center;justify-content:space-between;gap:6px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-weight:700;font-size:14.5px;white-space:nowrap}
+  .px span{color:var(--mute);font-weight:600;font-size:12.5px}
+  .px.pick{border-color:var(--blue);background:#172645}
+  .px.g{color:var(--green)} .px.r{color:#ff8a96} .px.n{color:var(--mute)}
+  .px.hot{background:var(--green-bg);border-color:var(--green-bd)}
+  .nomatch{color:var(--dim);font-size:12.5px;text-align:center;align-self:center;grid-column:span 2}
+  .panel2{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;position:sticky;top:110px;align-self:start}
+  .panel2 h3{margin:0 0 4px;font-size:17px;display:flex;align-items:center;gap:8px}
+  .panel2 .meta{color:var(--mute);font-size:12.5px}
+  .slip{border-top:1px solid var(--line);padding:11px 0}
+  .slip .a{font-weight:650;font-size:14px}.slip .b{color:var(--mute);font-size:12.5px;margin-top:2px}
+  .slip .c{display:flex;justify-content:space-between;margin-top:6px;font-size:13px}
+  .legend{color:var(--dim);font-size:12px;margin-top:12px;line-height:1.5}
+  @media (max-width:1150px){ body.sportmode #sportView{grid-template-columns:1fr} .lg{display:flex;flex-wrap:wrap;gap:4px} .lg .cap{display:none} .panel2{position:static} }
+  @media (max-width:820px){ .mt-body{grid-template-columns:1fr 1fr 1fr} .teams{grid-column:1/-1} .sv-h h1{font-size:24px} }
+
+
+  .cmb{background:var(--card2);border:1px solid var(--line2);border-radius:12px;padding:11px 12px;margin-top:10px}
+  .cmb .hd{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--mute)}
+  .cmb .leg{display:flex;gap:8px;align-items:center;padding:6px 0;border-top:1px dashed #2f3844;font-size:13px}
+  .cmb .leg:first-of-type{border-top:0}
+  .cmb .leg .p{margin-left:auto;color:var(--mute);white-space:nowrap}
+  .cmb .ft{display:flex;justify-content:space-between;margin-top:6px;font-size:13px;font-weight:650}
+  .lr{width:18px;text-align:center}
+
+
+  .pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:thin}
+  .pill2{flex:none;border:0;border-radius:999px;padding:9px 16px;background:var(--card2);color:var(--tx);font-weight:650;font-size:14px;white-space:nowrap}
+  .pill2 span{color:var(--mute);font-weight:500;font-size:12px;margin-left:4px}
+  .pill2.on{background:#2346e8;color:#fff}.pill2.on span{color:#dbe3ff}
+  .dayhead{display:grid;grid-template-columns:minmax(0,1fr) 160px 160px 160px;gap:10px;align-items:end;margin:22px 4px 10px;color:var(--mute);font-weight:700}
+  .dayhead span:first-child{font-size:19px;color:var(--tx);opacity:.85}
+  .dayhead span:not(:first-child){font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;text-align:center}
+  .mt2{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
+  .mt2.bet{border-color:#3b82f6aa;box-shadow:0 0 0 1px #3b82f633}
+  .mt2-body{display:grid;grid-template-columns:minmax(0,1fr) 160px 160px 160px;gap:10px;align-items:stretch}
+  .ocol{display:flex;flex-direction:column;gap:6px;justify-content:center}
+  .opt{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+  .opt .o1{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+  .opt .o1 span{color:var(--mute);font-weight:650;font-size:12.5px;white-space:nowrap}
+  .opt .o1 b{font-size:15px}
+  .opt .o2{color:var(--dim);font-size:11px;margin-top:1px;white-space:nowrap}
+  .opt .o2 i{font-style:normal;font-weight:650}
+  .opt.up .o2 i{color:var(--green)} .opt.down .o2 i{color:#ff8a96}
+  .opt.hot{background:var(--green-bg);border-color:var(--green-bd)} .opt.hot .o2 i{color:var(--green)}
+  .opt.pick{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+  .opt.none{color:var(--dim);text-align:center;flex:1;display:grid;place-items:center}
+  @media (max-width:1150px){ .dayhead{grid-template-columns:1fr} .dayhead span:not(:first-child){display:none} }
+  @media (max-width:820px){ .mt2-body{grid-template-columns:1fr 1fr 1fr} .mt2-body .teams{grid-column:1/-1} }
+
+
+  .opt.clk{cursor:pointer;transition:border-color .12s,transform .05s}
+  .opt.clk:hover{border-color:#4b5666}
+  .opt.clk:active{transform:scale(.98)}
+  .opt.sel{border-color:#6d5efc;background:#241f4d;box-shadow:inset 0 0 0 1px #6d5efc}
+  .slipbox{background:var(--card2);border:1px solid #6d5efc66;border-radius:12px;padding:10px 12px;margin-top:8px}
+  .leg2{display:flex;gap:8px;align-items:center;padding:7px 0;border-top:1px dashed #2f3844;font-size:13px}
+  .leg2:first-child{border-top:0}
+  .leg2 .s{color:var(--mute);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .leg2 .p{margin-left:auto;color:var(--mute);white-space:nowrap;font-size:12px}
+  .leg2 .x{background:none;border:0;color:var(--dim);font-size:13px;padding:2px 4px}
+  .leg2 .x:hover{color:var(--red)}
+  .kv2{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13.5px;border-top:1px solid var(--line)}
+  .kv2 span{color:var(--mute)}
+  .kv2 input{width:70px;background:var(--card);border:1px solid var(--line2);color:var(--tx);border-radius:7px;padding:4px 6px;font:inherit;text-align:right}
+
+
+  .tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:-6px 0 6px}
+  .seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:3px}
+  .seg button{background:none;border:0;padding:6px 11px;border-radius:7px;color:var(--mute);font-weight:650;font-size:13px}
+  .seg button.on{background:var(--card2);color:var(--tx)}
+  #sortSel,#teamQ{background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:8px 10px;font:inherit;font-size:13px}
+  #teamQ{width:170px}
+
+
+  #sportView.detail .pills, #sportView.detail .tools, #sportView.detail .sv-h{display:none}
+  .fiche{margin-left:auto;color:var(--mute);font-size:12.5px;font-weight:650}
+  .mt2 .tag + .fiche{margin-left:10px}
+  .md{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+  .md-top{display:flex;align-items:center;gap:14px}
+  .md-top h2{margin:0;font-size:24px;letter-spacing:-.4px}
+  .back{width:38px;height:38px;border-radius:50%;border:0;background:var(--card2);font-size:22px;line-height:1}
+  .md-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:22px 0 10px}
+  .md-team{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:19px;font-weight:600;color:var(--mute);text-align:center}
+  .crest.big{width:72px;height:72px;font-size:18px}
+  .md-time{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .md-time b{font-size:22px}.md-time span{color:var(--mute)}
+  .md-src{display:flex;justify-content:space-between;margin:16px 2px 4px;font-weight:650;color:var(--mute)}
+  .md-chart{min-height:300px}
+  .md-chart svg{display:block}
+  .ranges{display:flex;justify-content:flex-end;gap:4px;margin-top:4px}
+  .ranges button{background:none;border:0;color:var(--mute);font-weight:700;font-size:15px;padding:6px 9px;border-radius:8px}
+  .ranges button.on{color:var(--tx)}
+  .mtabs{display:flex;gap:22px;margin:16px 0 12px;border-bottom:1px solid var(--line)}
+  .mtabs span{padding:8px 0;font-weight:700;font-size:16px;color:var(--mute)}
+  .mtabs span.on{color:var(--tx);border-bottom:2px solid var(--tx)}
+  .md-lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .md-lines .h{font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:6px;text-align:center}
+  @media (max-width:820px){ .md-lines{grid-template-columns:1fr} .crest.big{width:54px;height:54px} .md-team{font-size:15px} }
+
+
+  .mtabs{overflow-x:auto;scrollbar-width:none}
+  .mtabs span{cursor:pointer;white-space:nowrap}
+  .mtabs span:hover{color:var(--tx)}
+  .xsec{margin-top:16px}
+  .xsec .h{font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:8px}
+  .xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+  .xgrid .opt .o1 span{white-space:normal;overflow:hidden;text-overflow:ellipsis}
+
+
+  body.statsmode #grid, body.statsmode aside{display:none}
+  body.statsmode .wrap{grid-template-columns:1fr}
+  #statsView{display:none}
+  body.statsmode #statsView{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .stcol h2{margin:0 0 12px;font-size:22px;display:flex;align-items:baseline;gap:10px}
+  .stcol .meta{color:var(--mute);font-size:12.5px;font-weight:500}
+  .card.st{min-height:0;margin-bottom:14px}
+  .card.st .kv{grid-template-columns:repeat(4,1fr)}
+  .stc{width:100%;height:140px;display:block;margin-top:8px}
+  .bet.clkb{font:inherit;font-weight:650;font-size:15.5px;cursor:pointer;width:100%;transition:filter .12s,transform .05s}
+  .bet.clkb:hover{filter:brightness(1.25)}
+  .bet.clkb:active{transform:scale(.98)}
+  .btn.go{background:#1f5a3c;border-color:#2b7a52;color:#d7ffe9}
+  .btn.go:hover{background:#246b47}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#1f2937;border:1px solid var(--line2);color:var(--tx);padding:11px 16px;border-radius:12px;font-size:13.5px;transition:.2s;z-index:20}
+  #toast.on{opacity:1;transform:translateX(-50%)} #toast.bad{border-color:var(--red-bd);color:#ffc2c8}
+  @media (max-width:1150px){ body.statsmode #statsView{grid-template-columns:1fr} .card.st .kv{grid-template-columns:1fr 1fr} }
+
+  footer{color:var(--dim);font-size:12px;text-align:center;padding:10px 22px 30px}
+
+  @media (max-width:1150px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card.wide{grid-column:1/-1}}
+  @media (max-width:820px){
+    .wrap{grid-template-columns:1fr;padding:14px}
+    aside{display:none}
+    .grid{grid-template-columns:1fr}
+    .top{flex-wrap:wrap;padding:10px 14px}.repo{width:100%}.repo input{flex:1}
+    .tabs{padding:0 10px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="logo"><i>⚡</i>PolyBot</div>
+    <span class="pill paper">Simulation · argent fictif</span>
+    <span class="pill"><span class="dot" id="statusDot"></span><span id="statusTxt">Chargement…</span></span>
+    <div class="grow"></div>
+    <div class="repo">
+      <input id="repo" title="Dépôt GitHub (propriétaire/nom)" spellcheck="false">
+      <button class="btn" id="refresh">↻ Actualiser</button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-f="all">Tout</button>
+    <button class="tab" data-f="crypto">Crypto</button>
+    <button class="tab" data-f="sport">Sports</button>
+    <button class="tab" data-f="sport" data-combos>🎰 Combos</button>
+    <button class="tab" data-f="stats">Statistiques</button>
+    <button class="tab" data-f="open">En cours</button>
+    <button class="tab" data-f="closed">Réglés</button>
+    <button class="tab" data-f="log">Journal</button>
+  </nav>
+</header>
+
+<div class="wrap">
+  <aside>
+    <nav class="side" id="side">
+      <a class="on" data-f="all"><span class="ic">▦</span>Tout <span class="n" id="n_all"></span></a>
+      <a data-f="live"><span class="ic">◔</span>15 min (direct)</a>
+      <a data-f="open"><span class="ic">⏱</span>Paris en cours <span class="n" id="n_open"></span></a>
+      <a data-f="closed"><span class="ic">✓</span>Paris réglés <span class="n" id="n_closed"></span></a>
+      <hr>
+      <a data-f="crypto"><span class="ic">₿</span>Crypto</a>
+      <a data-f="sport"><span class="ic">⚽</span>Sports</a>
+      <a data-f="sport" data-combos><span class="ic">🎰</span>Combos</a>
+      <a data-f="stats"><span class="ic">📊</span>Statistiques</a>
+      <a data-f="log"><span class="ic">≡</span>Journal</a>
+      <hr>
+      <div class="note">Actualisation automatique toutes les 60 s. Aucun argent réel n'est engagé.</div>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="head">
+      <h1 id="h1">Tableau de bord</h1>
+      <div class="chips" id="chips">
+        <button class="chip on" data-f="all">Tous</button>
+        <button class="chip" data-f="live">Direct</button>
+        <button class="chip" data-f="stats">Statistiques</button>
+      </div>
+    </div>
+    <div class="alert" id="alert"></div>
+    <div class="grid" id="grid"></div>
+    <div id="statsView"></div>
+    <div id="sportView">
+      <nav class="lg" id="lgNav"></nav>
+      <div>
+        <div class="sv-h"><h1>Combos & matchs</h1><span class="meta" id="svMeta"></span></div>
+        <div class="pills" id="svPills"></div>
+        <div class="tools">
+          <div class="seg" id="valSeg"><button data-val="all" class="on">Tout</button><button data-val="pos">Avantage &gt; 0</button><button data-val="hot">≥ +3 ✓</button></div>
+          <select id="sortSel"><option value="time">Trier : heure</option><option value="edge">Trier : meilleur avantage</option></select>
+          <input id="teamQ" type="search" placeholder="🔍 Équipe…" spellcheck="false">
+          <span class="meta" id="toolInfo"></span>
+        </div>
+        <div id="svList"></div>
+      </div>
+      <div class="panel2" id="svPanel"></div>
+    </div>
+  </main>
+</div>
+<footer>Données lues depuis <span id="src"></span> (GitHub peut garder une copie jusqu'à 5 min) · prix en direct : Coinbase.</footer>
+
+<script>
+(() => {
+  const DEFAULT_REPO = "jmariejmn88-ux/polybot";
+  const $ = id => document.getElementById(id);
+  const store = { get(k,d){ try{ return localStorage.getItem(k) ?? d; }catch(e){ return d; } },
+                  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} } };
+  let repo = store.get("polybot_repo", DEFAULT_REPO);
+  let filter = "all";
+  let CRY = null, SPO = null, PX = {};
+  $("repo").value = repo;
+
+  const fmt = (v,d=2) => Math.abs(v).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+  const usd = v => (v<0?"−":"") + fmt(v) + " $";
+  const sgn = v => (v>0?"+":v<0?"−":"") + fmt(v) + " $";
+  const pct = v => (v>0?"+":"") + (v*100).toFixed(1).replace(".",",") + " %";
+  const cls = v => v>0?"pos":v<0?"neg":"neu";
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const parseUTC = s => s ? new Date(String(s).replace(" UTC","Z").replace(" ","T")) : null;
+  const hm = d => d ? d.toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",timeZone:"UTC"}) : "—";
+  const hhmm = d => d ? d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",timeZone:"UTC"}) : "—";
+
+  // ---------- jauge en arc (style Polymarket) ----------
+  function gauge(p, label){
+    const v = Math.max(0, Math.min(1, +p || 0));
+    const r = 34, cx = 42, cy = 42, a0 = Math.PI*0.8, a1 = Math.PI*2.2;
+    const pt = a => [cx + r*Math.cos(a), cy + r*Math.sin(a)];
+    const arc = (from,to) => { const [x0,y0]=pt(from),[x1,y1]=pt(to);
+      return `M${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 ${to-from>Math.PI?1:0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`; };
+    const col = v >= .5 ? "var(--green)" : "var(--red)";
+    const fill = v > 0.005 ? `<path d="${arc(a0, a0+(a1-a0)*v)}" stroke="${col}" stroke-width="6" fill="none" stroke-linecap="round"/>` : "";
+    return `<div class="gauge"><svg width="84" height="62" viewBox="0 0 84 62"><path d="${arc(a0,a1)}" stroke="var(--track)" stroke-width="6" fill="none" stroke-linecap="round"/>${fill}</svg>`
+      + `<div class="v">${p==null?"—":Math.round(v*100)+"%"}</div><div class="l">${esc(label)}</div></div>`;
+  }
+  const card = (cats, html, extra="") => `<section class="card ${extra}" data-cat="${cats}">${html}</section>`;
+
+  // ---------- chargement ----------
+  async function getJSON(name){
+    const r = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/${name}?t=${Date.now()}`, {cache:"no-store"});
+    if(!r.ok) throw new Error(name + " : HTTP " + r.status);
+    return r.json();
+  }
+  async function load(){
+    $("src").textContent = `github.com/${repo}`;
+    const [c, s] = await Promise.allSettled([getJSON("state.json"), getJSON("sports_state.json")]);
+    CRY = c.status === "fulfilled" ? c.value : null;
+    SPO = s.status === "fulfilled" ? s.value : null;
+    if(!CRY && !SPO){
+      setStatus("bad","Données introuvables");
+      alertBox(`Impossible de lire les données du dépôt <b>${esc(repo)}</b>. Vérifie que le dépôt est public et que le nom est correct.`, true);
+    }
+    render();
+  }
+  async function prices(){
+    for(const [k,prod] of [["btc","BTC-USD"],["eth","ETH-USD"]]){
+      try{ const r = await fetch(`https://api.exchange.coinbase.com/products/${prod}/ticker`,{cache:"no-store"});
+           PX[k] = +(await r.json()).price; }catch(e){}
+    }
+    paintLive();
+  }
+
+  function setStatus(k,t){ $("statusDot").className = "dot "+k; $("statusTxt").textContent = t; }
+  function alertBox(html, bad){ const a=$("alert"); if(!html){a.style.display="none";return;} a.innerHTML=html; a.className="alert"+(bad?" bad":""); a.style.display="block"; }
+
+  // ---------- calculs ----------
+  function cryptoStats(st){
+    const closed = (st.closed||[]).slice().sort((a,b)=>(a.settled_at||"").localeCompare(b.settled_at||""));
+    const open = st.open||[];
+    const locked = open.reduce((s,p)=>s+(+p.cost||0),0);
+    const pnl = closed.reduce((s,p)=>s+(+p.pnl||0),0);
+    const today = new Date().toISOString().slice(0,10);
+    return { closed, open, locked, pnl, start:+st.start_bankroll||0, equity:(+st.bankroll||0)+locked,
+             wins: closed.filter(p=>p.won).length,
+             todayPnl: closed.filter(p=>(p.settled_at||"").startsWith(today)).reduce((s,p)=>s+(+p.pnl||0),0) };
+  }
+  function sportStats(st){
+    const open = st.open||[], closed = st.closed||[];
+    const locked = open.reduce((s,b)=>s+(+b.mise||0),0);
+    const all = closed.concat(open).filter(b=>+b.prix>0);
+    return { open, closed, locked, start:+st.start_bankroll||100, equity:(+st.bankroll||0)+locked,
+             pnl: closed.reduce((s,b)=>s+(+b.gain||0),0),
+             exp: closed.reduce((s,b)=>s+(+b.avantage||0)*(+b.parts||0),0),
+             wins: closed.filter(b=>b.statut==="gagné").length,
+             avgOdds: all.length ? all.reduce((s,b)=>s+1/(+b.prix),0)/all.length : null,
+             expWin: all.length ? all.reduce((s,b)=>s+(+b.proba_pinnacle||0),0)/all.length : null, nAll: all.length };
+  }
+  function lastModel(st, asset){
+    const L = st.log||[], re = new RegExp("^(.{23})\\s+"+asset.toUpperCase()+" .*P\\(Up\\) modèle ([0-9.]+)");
+    for(let i=L.length-1;i>=0;i--){ const m = L[i].match(re); if(m) return {p:+m[2], at:parseUTC(m[1])}; }
+    return null;
+  }
+
+  // type de pari lisible
+  function sportType(b){
+    const sel = String(b.selection||""), yes = /— OUI$/.test(sel), no = /— NON$/.test(sel);
+    const lab = sel.replace(/ — (OUI|NON)$/,""), draw = /^draw|^nul/i.test(lab);
+    if(b.sport==="nba" || (!yes && !no)) return {k:"Vainqueur du match", d:`${lab} gagne (prolongation comprise)`, c:"g"};
+    if(draw) return yes ? {k:"Match nul", d:"Le match finit à égalité (temps réglementaire)", c:"y"}
+                        : {k:"Pas de nul", d:"Une des deux équipes gagne", c:"y"};
+    return yes ? {k:"Victoire (1N2)", d:`${lab} gagne (temps réglementaire)`, c:"g"}
+               : {k:"Double chance", d:`${lab} ne gagne pas (nul ou défaite)`, c:"r"};
+  }
+  function cryptoType(p){
+    return p.side==="Up" ? {k:"Hausse 15 min", d:`${(p.asset||"").toUpperCase()} termine plus haut qu'à l'ouverture`, c:"g"}
+                         : {k:"Baisse 15 min", d:`${(p.asset||"").toUpperCase()} termine plus bas qu'à l'ouverture`, c:"r"};
+  }
+  const typeTag = t => `<span class="tag ${t.c}" title="${esc(t.d)}">${esc(t.k)}</span>`;
+
+  // ---------- rendu ----------
+  function render(){
+    const cards = [];
+    const C = CRY ? cryptoStats(CRY) : null, S = SPO ? sportStats(SPO) : null;
+
+    // état du bot crypto
+    let paused = "";
+    if(CRY){
+      const runs = (CRY.log||[]).filter(l=>l.includes("exécution"));
+      const last = runs.length ? parseUTC(runs[runs.length-1].slice(0,23)) : null;
+      const age = last ? (Date.now()-last.getTime())/60000 : Infinity;
+      const lastLine = (CRY.log||[]).slice(-1)[0] || "";
+      if(lastLine.includes("perte du jour")) paused = "Pause : limite de perte du jour atteinte (reprise demain 00:00 UTC)";
+      else if(lastLine.includes("annonce économique")) paused = "Pause : annonce économique en cours";
+      if(CRY.halted){ setStatus("bad","Bot arrêté (capital trop bas)"); }
+      else if(age<=20){ setStatus(paused?"warn":"ok", (paused?"En pause":"Actif")+` · passage il y a ${Math.max(0,Math.round(age))} min`); }
+      else if(age<=120){ setStatus("warn",`En retard · ${Math.round(age)} min`); }
+      else setStatus("bad", last ? `Inactif depuis ${hm(last)} UTC` : "Jamais lancé");
+      if(!CRY.halted && age>20) alertBox(`⚠️ Le bot n'a pas tourné depuis <b>${isFinite(age)?Math.round(age)+" min":"le début"}</b>. Onglet <b>Actions</b> du dépôt → <b>Run workflow</b>.`, age>120);
+      else if(paused) alertBox("⏸ " + esc(paused) + ". Le bot continue de tourner et de régler les paris en cours.");
+      else alertBox("");
+    }
+
+    // 1. Capital total (carte façon US100)
+    if(C || S){
+      const start = (C?C.start:0) + (S?S.start:0), eq = (C?C.equity:0) + (S?S.equity:0);
+      cards.push(card("all crypto sport stats", `<div class="in"><div class="ch"><div class="ico bank">$</div>
+        <div class="title">Capital total<div class="sub">Crypto ${C?usd(C.equity):"—"} · Sport ${S?usd(S.equity):"—"}</div></div></div></div>
+        <span class="badge">SIMULATION</span><canvas id="chart"></canvas>
+        <div class="bottom"><span class="big">${usd(eq)}</span><span class="${cls(eq-start)}">${pct(start?eq/start-1:0)}</span>
+        <span class="r neu" style="margin-left:auto;font-size:12.5px">départ ${usd(start)}</span></div>`, "hero"));
+    }
+
+    // 2-3. Fenêtres 15 min BTC / ETH en direct
+    if(CRY){
+      for(const [k,name] of [["btc","Bitcoin"],["eth","Ethereum"]]){
+        const m = lastModel(CRY,k), op = C.open.find(p=>p.asset===k);
+        const p = op ? (op.side==="Up" ? +op.model_p : 1-(+op.model_p)) : (m ? m.p : null);
+        const pickUp = op && op.side==="Up", pickDown = op && op.side==="Down";
+        cards.push(card("all crypto live", `<div class="ch"><div class="ico ${k}">${k==="btc"?"₿":"Ξ"}</div>
+          <div class="title">${name} Up or Down – 15 min<div class="sub">Spot <span class="mono" id="px_${k}">—</span> · fin dans <b class="mono cd">—</b></div></div>
+          ${gauge(p,"Up (modèle)")}</div>
+          <div class="bar"><span class="zone" title="Zone d'entrée : 10 → 2 min avant la fin"></span><i class="prog"></i></div>
+          <div class="bets"><button class="bet up clkb ${pickUp?"pick":""}" data-crypto="${k}|Up" title="Ajouter « ${name} en hausse » à ton combo (pari fictif)">Up<small>${p==null?"modèle —":"modèle "+Math.round(p*100)+" %"}</small></button>
+          <button class="bet down clkb ${pickDown?"pick":""}" data-crypto="${k}|Down" title="Ajouter « ${name} en baisse » à ton combo (pari fictif)">Down<small>${p==null?"modèle —":"modèle "+Math.round((1-p)*100)+" %"}</small></button></div>
+          <div class="foot">${op?`<span class="tag ${op.side==="Up"?"g":"r"}">Pari en cours : ${op.side} à ${(+op.price).toFixed(2)}</span>`
+            : paused?`<span class="tag y">En pause</span>`:`<span class="new">✦ DIRECT</span>`}
+          <span class="r">${m?"modèle "+hhmm(m.at)+" UTC":"pas encore de calcul"}</span></div>`));
+      }
+    }
+
+    // 4. Statistiques crypto
+    if(C){
+      cards.push(card("all crypto stats", `<div class="ch"><div class="ico bank">₿</div><div class="title">Bot crypto<div class="sub">BTC & ETH · 15 min · mise fixe</div></div>
+        ${gauge(C.closed.length?C.wins/C.closed.length:null,"réussite")}</div>
+        <div class="kv"><div><div class="l">Capital</div><div class="v">${usd(C.equity)}</div></div>
+        <div><div class="l">Gain net</div><div class="v ${cls(C.pnl)}">${sgn(C.pnl)}</div></div>
+        <div><div class="l">Paris réglés</div><div class="v">${C.closed.length} <span class="neu" style="font-size:13px">(${C.wins} ✅)</span></div></div>
+        <div><div class="l">Aujourd'hui</div><div class="v ${cls(C.todayPnl)}">${sgn(C.todayPnl)}</div></div></div>`));
+    }
+
+    // 5. Statistiques sport
+    if(S){
+      const ls = SPO.last_scan ? new Date(SPO.last_scan) : null;
+      cards.push(card("all sport stats", `<div class="ch" data-f="sport" style="cursor:pointer" title="Ouvrir la vue des matchs"><div class="ico sport">⚽</div><div class="title">Bot sport ›<div class="sub">Cotes Pinnacle · LDC + 5 grands championnats</div></div>
+        ${gauge(S.closed.length?S.wins/S.closed.length:S.expWin,S.closed.length?"réussite":"attendue")}</div>
+        <div class="kv"><div><div class="l">Capital</div><div class="v">${usd(S.equity)}</div></div>
+        <div><div class="l">Gain net / attendu</div><div class="v"><span class="${cls(S.pnl)}">${sgn(S.pnl)}</span> <span class="neu" style="font-size:12.5px">/ ${sgn(S.exp)}</span></div></div>
+        <div><div class="l">Cote moyenne</div><div class="v">${S.avgOdds?S.avgOdds.toFixed(2).replace(".",","):"—"}</div></div>
+        <div><div class="l">Crédits cotes</div><div class="v">${SPO.odds_remaining!=null?SPO.odds_remaining+" / 500":"—"}</div></div></div>
+        <div class="foot">Dernière recherche ${ls?hm(ls)+" UTC":"—"}<span class="r">${S.open.length} en cours · ${S.closed.length} réglés</span></div>`));
+    }
+
+    // 5 bis. Combos
+    if(SPO && (SPO.combos_open || SPO.combos_closed)){
+      const K = comboStats(SPO);
+      const realWin = K.closed.length ? K.wins/K.closed.length : null;
+      cards.push(card("all sport stats open closed", `<div class="ch" data-f="sport" style="cursor:pointer"><div class="ico sport">🎰</div><div class="title">Combos ›<div class="sub">2 ou 3 matchs · tous doivent gagner</div></div>
+        ${gauge(realWin!=null?realWin:K.predAvg, realWin!=null?"réussite":"succès prédit")}</div>
+        <div class="kv"><div><div class="l">Cagnotte combos</div><div class="v">${usd(K.equity)}</div></div>
+        <div><div class="l">Gain net</div><div class="v ${cls(K.pnl)}">${sgn(K.pnl)}</div></div>
+        <div><div class="l">Cote moyenne</div><div class="v">${K.oddsAvg?K.oddsAvg.toFixed(2).replace(".",","):"—"}</div></div>
+        <div><div class="l">Succès prédit moyen</div><div class="v">${K.predAvg!=null?Math.round(K.predAvg*100)+" %":"—"}</div></div></div>
+        <div class="foot">${K.open.length} en cours · ${K.closed.length} réglés${K.closed.length?` · ${K.wins} gagnés`:""}<span class="r">voir dans Sports ›</span></div>`));
+    }
+
+    // 5 ter. Laboratoire de stratégies
+    if(SPO && SPO.lab){
+      const LB = SPO.lab, B = LB.bilan || {};
+      const rows = Object.entries(B).map(([k,x])=>{
+        const win = x.regles ? Math.round(x.gagnes/x.regles*100)+" %" : "—";
+        const ec = x.ecart_moyen==null ? "—" : (x.ecart_moyen>0?"+":"")+(x.ecart_moyen*100).toFixed(1).replace(".",",")+" pts";
+        return `<div class="row" style="grid-template-columns:1fr auto auto auto"><div style="min-width:0"><div class="t">${esc(x.nom)}</div>
+          <div class="s">${x.paris} pari${x.paris>1?"s":""} · ${x.regles} réglé${x.regles>1?"s":""} · réussite ${win}</div></div>
+          <span class="tag ${x.ecart_moyen==null?"":x.ecart_moyen>0?"g":"r"}" title="Écart moyen entre Pinnacle et le prix payé">${ec}</span>
+          <span class="w ${cls(x.gain)}">${sgn(x.gain||0)}</span><span></span></div>`; }).join("");
+      const last = (LB.open||[]).slice(-4).reverse().map(b=>`<div class="row" style="grid-template-columns:1fr auto"><div style="min-width:0">
+          <div class="t">${esc(b.match)}</div><div class="s">${esc(b.selection)} · ${cents(+b.prix)}${b.proba_pinnacle!=null?` · Pinnacle ${Math.round(b.proba_pinnacle*100)} %`:""} · ${hm(new Date(b.coup_envoi))} UTC</div></div>
+          <span class="tag y">⏳ 1 $</span></div>`).join("");
+      cards.push(card("all sport stats open closed", `<div class="ch"><div class="ico hist">🧪</div><div class="title">Laboratoire de stratégies<div class="sub">Tendances testées à 1 $ fictif, même sans avantage</div></div></div>
+        <div class="rows">${rows || `<div class="empty">Pas encore de pari.</div>`}</div>
+        ${last ? `<div class="sub" style="margin-top:10px">Paris en cours</div><div class="rows">${last}</div>` : ""}
+        <div class="foot">Écart vert = prix payé sous Pinnacle (bon signe) · rouge = tendance déjà dans le prix</div>`, "wide"));
+    }
+
+    // 6. Paris en cours (une carte par pari)
+    const openCards = [];
+    if(C) C.open.forEach(p=>{
+      const isUp = p.side==="Up", pm = isUp ? +p.model_p : 1-(+p.model_p);
+      openCards.push(card("all crypto open", `<div class="ch"><div class="ico ${p.asset}">${p.asset==="btc"?"₿":"Ξ"}</div>
+        <div class="title">${esc(p.title)}<div class="sub">ouvert ${esc((p.opened_at||"").slice(11,16))} UTC</div></div>${gauge(pm,"Up (modèle)")}</div>
+        <div class="bets"><div class="bet up ${isUp?"pick":"mute"}">Up<small>${isUp?"acheté "+(+p.price).toFixed(2):"—"}</small></div>
+        <div class="bet down ${!isUp?"pick":"mute"}">Down<small>${!isUp?"acheté "+(+p.price).toFixed(2):"—"}</small></div></div>
+        <div class="foot">${typeTag(cryptoType(p))}<span class="new">⏱ EN COURS</span><span class="r">mise ${usd(+p.cost)} · avantage ${pct(+p.edge||0)}</span></div>`));
+    });
+    if(S) S.open.forEach(b=>{
+      const yes = /OUI/.test(b.selection), pick = String(b.selection).replace(/ — (OUI|NON)$/,"");
+      openCards.push(card("all sport open", `<div class="ch"><div class="ico foot">⚽</div>
+        <div class="title">${esc(b.match)}<div class="sub">${esc(b.ligue||"")} · coup d'envoi ${hm(new Date(b.coup_envoi))} UTC</div></div>${gauge(+b.proba_pinnacle,"Pinnacle")}</div>
+        <div class="sub" style="margin-top:10px">${typeTag(sportType(b))} <b style="color:var(--tx)">${esc(sportType(b).d)}</b></div>
+        <div class="bets"><div class="bet up ${yes?"pick":"mute"}">Oui<small>${yes?"acheté "+(+b.prix).toFixed(2):"—"}</small></div>
+        <div class="bet down ${!yes?"pick":"mute"}">Non<small>${!yes?"acheté "+(+b.prix).toFixed(2):"—"}</small></div></div>
+        <div class="foot"><span class="new">⏱ EN COURS</span><span class="r">mise ${usd(+b.mise)} · avantage ${pct(+b.avantage||0)}</span></div>`));
+    });
+    if(!openCards.length) openCards.push(card("all open", `<div class="ch"><div class="ico hist">⏱</div><div class="title">Paris en cours<div class="sub">Crypto et sport</div></div></div>
+      <div class="empty">Aucun pari en cours.<br><span style="font-size:12.5px">Le bot ne parie que lorsqu'il voit un avantage suffisant.</span></div>`));
+    cards.push(...openCards);
+
+    // 7. Paris réglés (crypto + sport mélangés)
+    const settled = [];
+    if(C) C.closed.forEach(p=>settled.push({t:parseUTC(p.settled_at), k:"crypto", em:p.asset==="btc"?"₿":"Ξ", title:p.title,
+      sub:`${p.side} à ${(+p.price).toFixed(2)} · mise ${usd(+p.cost)}`, won:p.won, pnl:+p.pnl, ty:cryptoType(p)}));
+    if(S) S.closed.forEach(b=>settled.push({t:new Date(b.regle_le), k:"sport", em:"⚽", title:b.match,
+      sub:`${sportType(b).d} · à ${(+b.prix).toFixed(2)} · mise ${usd(+b.mise)}`, won:b.statut==="gagné", pnl:+b.gain, ty:sportType(b)}));
+    settled.sort((a,b)=>(b.t||0)-(a.t||0));
+    cards.push(card("all closed crypto sport", `<div class="ch"><div class="ico hist">✓</div><div class="title">Derniers paris réglés<div class="sub">${settled.length} au total · ${settled.filter(x=>x.won).length} gagnés</div></div></div>
+      ${settled.length ? `<div class="rows">${settled.slice(0,40).map(x=>`<div class="row"><span class="em">${x.em}</span>
+        <div style="min-width:0"><div class="t">${esc(x.title)}</div><div class="s">${typeTag(x.ty)} ${esc(x.sub)} · ${hm(x.t)}</div></div>
+        <span class="tag ${x.won?"g":"r"}">${x.won?"Gagné":"Perdu"}</span><span class="w ${cls(x.pnl)}">${sgn(x.pnl)}</span></div>`).join("")}</div>`
+        : `<div class="empty">Pas encore de pari réglé.</div>`}`, "wide"));
+
+    // 8. Par crypto / côté
+    if(C){
+      const g = {};
+      C.closed.forEach(p=>[(p.asset||"?").toUpperCase(),"Côté "+p.side].forEach(k=>{const x=g[k]||={n:0,w:0,pnl:0,st:0};x.n++;x.w+=p.won?1:0;x.pnl+=+p.pnl||0;x.st+=+p.cost||0;}));
+      cards.push(card("all crypto stats closed", `<div class="ch"><div class="ico bank">%</div><div class="title">Par crypto et par côté<div class="sub">Paris crypto réglés</div></div></div>
+        ${Object.keys(g).length?`<div class="rows">${Object.entries(g).map(([k,x])=>`<div class="row" style="grid-template-columns:1fr auto auto auto">
+          <div class="t">${esc(k)}</div><span class="s">${x.n} paris · ${Math.round(x.w/x.n*100)} %</span><span class="w ${cls(x.pnl)}">${sgn(x.pnl)}</span>
+          <span class="tag ${x.pnl>=0?"g":"r"}">${x.st?pct(x.pnl/x.st):"—"}</span></div>`).join("")}</div>`:`<div class="empty">Disponible après les premiers paris.</div>`}`));
+    }
+
+    // 8 bis. Par type de pari (tous paris pris, crypto + sport)
+    {
+      const T = {};
+      const add = (t, done, won, pnl, stake) => { const x = T[t.k] ||= {c:t.c,n:0,d:0,w:0,pnl:0,st:0}; x.n++; if(done){x.d++;x.w+=won?1:0;x.pnl+=pnl;x.st+=stake;} };
+      if(C){ C.open.forEach(p=>add(cryptoType(p),false)); C.closed.forEach(p=>add(cryptoType(p),true,p.won,+p.pnl||0,+p.cost||0)); }
+      if(S){ S.open.forEach(b=>add(sportType(b),false)); S.closed.forEach(b=>add(sportType(b),true,b.statut==="gagné",+b.gain||0,+b.mise||0)); }
+      const ent = Object.entries(T).sort((a,b)=>b[1].n-a[1].n);
+      cards.push(card("all stats crypto sport", `<div class="ch"><div class="ico hist">🏷</div><div class="title">Par type de pari<div class="sub">Tous les paris pris (en cours et réglés)</div></div></div>
+        ${ent.length?`<div class="rows">${ent.map(([k,x])=>`<div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="tag ${x.c}">${esc(k)}</span>
+          <span class="s">${x.n} pari${x.n>1?"s":""}${x.d?` · ${Math.round(x.w/x.d*100)} % gagnés`:""}</span>
+          <span class="w ${cls(x.pnl)}">${x.d?sgn(x.pnl):"—"}</span><span class="s">${x.st?pct(x.pnl/x.st):""}</span></div>`).join("")}</div>`
+          :`<div class="empty">Disponible après les premiers paris.</div>`}`));
+    }
+
+    // 9. Journal fusionné
+    const lines = [];
+    if(CRY) (CRY.log||[]).filter(l=>!l.includes("— exécution —")).forEach(l=>lines.push({t:parseUTC(l.slice(0,23)), s:"₿", m:l.slice(24).trim()}));
+    if(SPO) (SPO.log||[]).forEach(l=>lines.push({t:new Date(l.slice(0,20)), s:"⚽", m:l.slice(21).trim()}));
+    lines.sort((a,b)=>(b.t||0)-(a.t||0));
+    const dedup = []; lines.forEach(x=>{ const prev = dedup[dedup.length-1]; if(prev && prev.m===x.m && prev.s===x.s){prev.n=(prev.n||1)+1;} else dedup.push(x); });
+    cards.push(card("all log", `<div class="ch"><div class="ico log">≡</div><div class="title">Journal du bot<div class="sub">Crypto et sport, du plus récent au plus ancien</div></div></div>
+      <div class="log">${dedup.slice(0,80).map(x=>{
+        const c = /ACHAT|PARI /.test(x.m)?"buy":/GAGNÉ/.test(x.m)?"win":/PERDU/.test(x.m)?"lose":/⏸|⚠️|⛔/.test(x.m)?"warn":"";
+        return `<div class="${c}"><b>${hhmm(x.t)}</b> ${x.s} ${esc(x.m)}${x.n?` <b>×${x.n}</b>`:""}</div>`; }).join("") || `<div class="empty">Journal vide.</div>`}</div>`, "wide"));
+
+    $("grid").innerHTML = cards.join("");
+    $("n_all").textContent = cards.length;
+    $("n_open").textContent = (C?C.open.length:0)+(S?S.open.length:0);
+    $("n_closed").textContent = settled.length;
+    applyFilter();
+    drawChart(C, S);
+    paintLive();
+    settleMine();
+  }
+
+  // courbe du capital total (crypto + sport) au fil des paris réglés
+  function drawChart(C, S){
+    const c = $("chart"); if(!c) return;
+    const ev = [];
+    if(C) C.closed.forEach(p=>ev.push([parseUTC(p.settled_at), +p.pnl||0]));
+    if(S) S.closed.forEach(b=>ev.push([new Date(b.regle_le), +b.gain||0]));
+    ev.sort((a,b)=>(a[0]||0)-(b[0]||0));
+    const start = (C?C.start:0)+(S?S.start:0); let v = start; const pts=[start]; ev.forEach(e=>{v+=e[1];pts.push(v);});
+    const dpr = devicePixelRatio||1, W = c.clientWidth, H = c.clientHeight;
+    c.width = W*dpr; c.height = H*dpr; const g = c.getContext("2d"); g.scale(dpr,dpr);
+    let lo = Math.min(...pts), hi = Math.max(...pts); if(hi-lo<1){hi+=1;lo-=1;}
+    const pad = 10, x = i => pts.length<2 ? W/2 : i*W/(pts.length-1), y = val => pad + (hi-val)*(H-2*pad)/(hi-lo);
+    g.setLineDash([2,4]); g.strokeStyle="#5f6b7a88"; g.beginPath(); g.moveTo(0,y(start)); g.lineTo(W,y(start)); g.stroke(); g.setLineDash([]);
+    g.strokeStyle="#ffffff0d"; for(let k=1;k<6;k++){ g.beginPath(); g.moveTo(W*k/6,0); g.lineTo(W*k/6,H); g.stroke(); }
+    if(pts.length<2){ g.fillStyle="#8b96a5"; g.font="12px sans-serif"; g.textAlign="center"; g.fillText("La courbe apparaîtra après le premier pari réglé", W/2, H/2); return; }
+    const up = pts[pts.length-1] >= start, col = up ? "#3dd68c" : "#ff5c6c";
+    const grad = g.createLinearGradient(0,0,0,H); grad.addColorStop(0, up?"#3dd68c55":"#ff5c6c55"); grad.addColorStop(1,"#00000000");
+    g.beginPath(); pts.forEach((p,i)=>i?g.lineTo(x(i),y(p)):g.moveTo(x(i),y(p))); g.lineTo(W,H); g.lineTo(0,H); g.closePath(); g.fillStyle=grad; g.fill();
+    g.beginPath(); pts.forEach((p,i)=>i?g.lineTo(x(i),y(p)):g.moveTo(x(i),y(p))); g.strokeStyle=col; g.lineWidth=2; g.stroke();
+  }
+
+  // compte à rebours de la fenêtre 15 min + prix spot
+  function paintLive(){
+    const now = Date.now()/1000, end = Math.ceil(now/900)*900, left = end-now, done = 1-left/900;
+    const mm = String(Math.floor(left/60)).padStart(2,"0"), ss = String(Math.floor(left%60)).padStart(2,"0");
+    document.querySelectorAll(".cd").forEach(e=>e.textContent=`${mm}:${ss}`);
+    document.querySelectorAll(".prog").forEach(e=>{ e.style.width=(done*100).toFixed(1)+"%"; e.style.background = left<=600&&left>=120 ? "var(--green)" : "var(--blue)"; });
+    for(const k of ["btc","eth"]){ const e=$("px_"+k); if(e && PX[k]) e.textContent = PX[k].toLocaleString("fr-FR",{maximumFractionDigits:2})+" $"; }
+  }
+
+
+
+  // ---------- combos ----------
+  function comboStats(st){
+    const open = st.combos_open||[], closed = st.combos_closed||[];
+    const locked = open.reduce((s,c)=>s+(+c.mise||0),0);
+    const all = open.concat(closed);
+    return { open, closed, start:+st.combo_start||100, equity:(+st.combo_bankroll||0)+locked,
+             pnl: closed.reduce((s,c)=>s+(+c.gain||0),0), wins: closed.filter(c=>c.statut==="gagné").length,
+             predAvg: all.length ? all.reduce((s,c)=>s+(+c.prediction||0),0)/all.length : null,
+             oddsAvg: all.length ? all.reduce((s,c)=>s+(+c.cote||0),0)/all.length : null };
+  }
+  function comboHTML(c){
+    const legs = c.legs.map(l=>{ const r = l.resultat; const ic = r===1?"✅":r===0?"❌":r===0.5?"↩":"⏳";
+      return `<div class="leg"><span class="lr">${ic}</span><span><b>${esc(l.pick)}</b> <span class="s" style="color:var(--mute)">· ${esc(l.type)} · ${esc(l.match)}</span></span>
+        <span class="p">${cents(+l.prix)} · ${Math.round(+l.proba*100)} %</span></div>`; }).join("");
+    const st = c.statut==="ouvert" ? `<span class="tag y">⏳ ${c.n} matchs</span>` : c.statut==="gagné" ? `<span class="tag g">Gagné</span>` : `<span class="tag r">${esc(c.statut)}</span>`;
+    return `<div class="cmb"><div class="hd">${st}<span>cote <b style="color:var(--tx)">${(+c.cote).toFixed(2).replace(".",",")}</b> · succès prédit <b style="color:var(--tx)">${Math.round(+c.prediction*100)} %</b></span></div>
+      ${legs}<div class="ft"><span>Mise ${usd(+c.mise)}</span>${c.statut==="ouvert"?`<span class="pos">gain possible +${fmt(+c.gain_potentiel)} $</span>`:`<span class="${cls(+c.gain)}">${sgn(+c.gain)}</span>`}</div></div>`;
+  }
+
+
+  // ---------- constructeur de combo (simulation, calcul seulement) ----------
+  let SLIP = []; try{ SLIP = JSON.parse(store.get("polybot_slip","[]")) || []; }catch(e){ SLIP = []; }
+  let STAKE = +store.get("polybot_stake","1") || 1;
+  const FEE = 0.05, MAKER = 0.05;   // frais taker sport et part du teneur de marché, comme le bot
+  const costOf = p => p + FEE*p*(1-p);
+  function slipCalc(){
+    const live = SLIP.filter(x=>new Date(x.liveUntil || x.start).getTime() > Date.now());
+    const n = live.length;
+    let price = 1, pred = 1, allPin = true;
+    live.forEach(x=>{ price *= costOf(+x.price); if(x.pin==null) allPin = false; else pred *= +x.pin; });
+    if(n>=2) price = Math.min(price*(1+MAKER), 0.99);
+    const ev = allPin && n ? pred/price - 1 : null;
+    return {live, n, price, odds: n ? 1/price : null, pred: allPin && n ? pred : null, ev, gain: n ? STAKE/price - STAKE : 0};
+  }
+  function slipHTML(){
+    const c = slipCalc();
+    const head = `<h3>🧩 Ton combo <span class="meta" style="font-weight:500">calcul · aucun pari réel</span></h3>`;
+    if(!c.n) return head + `<div class="slip"><div class="b">Clique sur des options (1N2, handicap, total) pour composer un combo. Une seule option par match.</div></div><div style="height:18px"></div>`;
+    const legs = c.live.map(x=>`<div class="leg2"><div style="min-width:0"><b>${esc(x.label)}</b><div class="s">${esc(x.match)} · ${hm(new Date(x.start))} UTC</div></div>
+        <span class="p">${cents(+x.price)}${x.pin!=null?` · ${Math.round(x.pin*100)} %`:" · Pin —"}</span><button class="x" data-unpick="${esc(x.id)}" title="Retirer">✕</button></div>`).join("");
+    const evTxt = c.ev==null ? `<span class="neu">— (une option sans cote Pinnacle)</span>`
+                : `<span class="${c.ev>=0.03?"pos":c.ev>0?"pos":"neg"}">${c.ev>0?"+":""}${(c.ev*100).toFixed(1).replace(".",",")} %</span>${c.ev>=0.03?" ✓":""}`;
+    return head + `<div class="slipbox">${legs}
+      ${c.n<2?`<div class="s" style="margin:6px 0 2px">Ajoute au moins une autre sélection pour faire un combo.</div>`:""}
+      <div class="kv2"><span>Cote ${c.n>=2?"du combo":""}</span><b>${c.odds.toFixed(2).replace(".",",")}</b></div>
+      <div class="kv2"><span>Succès prédit (Pinnacle)</span><b>${c.pred==null?"—":(c.pred*100).toFixed(1).replace(".",",")+" %"}</b></div>
+      <div class="kv2"><span>Avantage</span><b>${evTxt}</b></div>
+      <div class="kv2"><span>Mise fictive</span><span><input id="stake" type="number" min="0.1" step="0.5" value="${STAKE}"> $</span></div>
+      <div class="kv2"><span>Gain possible</span><b class="pos">+${fmt(c.gain)} $</b></div>
+      <div class="s" style="margin-top:6px">Prix = prix Polymarket + frais${c.n>=2?" + 5 % (teneur de marché)":""}. Succès prédit = produit des probabilités Pinnacle.</div>
+      ${(()=>{ const miss = c.live.filter(x=>!x.mid || !x.token);
+        return miss.length ? `<div class="s" style="margin-top:8px;color:var(--gold)">⚠️ ${miss.length} sélection(s) sans identifiant de marché : impossible de la régler automatiquement. Retire-la ou attends la prochaine recherche du bot.</div>`
+          : `<button class="btn go" data-validate style="margin-top:10px;width:100%">✅ Valider ${c.n>=2?"le combo":"le pari"} (${fmt(STAKE)} $ fictifs)</button>`; })()}
+      <button class="btn" data-clear style="margin-top:8px;width:100%">Vider</button></div><div style="height:18px"></div>`;
+  }
+  // ---------- mes combos validés (gardés dans ce navigateur, réglés automatiquement) ----------
+  let MINE = []; try{ MINE = JSON.parse(store.get("polybot_mine","[]")) || []; }catch(e){ MINE = []; }
+  const saveMine = () => store.set("polybot_mine", JSON.stringify(MINE));
+  function validateSlip(){
+    const c = slipCalc(); if(!c.n || c.live.some(x=>!x.mid||!x.token)) return;
+    MINE.push({id:"M"+Date.now(), at:new Date().toISOString(), n:c.n, price:+c.price.toFixed(4), odds:+c.odds.toFixed(2),
+      pred:c.pred==null?null:+c.pred.toFixed(4), ev:c.ev==null?null:+c.ev.toFixed(4), stake:STAKE, payout:+(STAKE/c.price).toFixed(2),
+      status:"ouvert", gain:null,
+      legs:c.live.map(x=>({label:x.label, match:x.match, start:x.start, settle:x.settle||null, price:+x.price, pin:x.pin, mid:x.mid, token:x.token, res:null}))});
+    SLIP = []; saveSlip(); saveMine(); renderSport(); if(filter==="stats") renderStats();
+  }
+  let settling = false;
+  async function settleMine(){
+    if(settling) return; settling = true;
+    try{
+      let changed = false;
+      for(const c of MINE.filter(c=>c.status==="ouvert")){
+        for(const l of c.legs){
+          if(l.res!=null) continue;
+          const due = l.settle ? new Date(l.settle).getTime() : new Date(l.start).getTime() + 2*3600e3;
+          if(Date.now() < due) continue;
+          try{ const r = await fetch(`https://gamma-api.polymarket.com/markets/${encodeURIComponent(l.mid)}`, {cache:"no-store"});
+            if(!r.ok) continue; const m = await r.json(); if(!m || !m.closed) continue;
+            const t = jsonList(m.clobTokenIds), p = jsonList(m.outcomePrices).map(Number), i = t.indexOf(l.token);
+            if(i<0 || !isFinite(p[i])) continue;
+            if(p[i]===1 || p[i]===0 || Math.abs(p[i]-0.5)<1e-9){ l.res = p[i]; changed = true; }
+          }catch(e){}
+        }
+        const res = c.legs.map(l=>l.res);
+        if(res.includes(0) || res.every(v=>v!=null)){
+          const mult = res.includes(0) ? 0 : res.reduce((a,b)=>a*b,1);
+          c.gain = +(c.payout*mult - c.stake).toFixed(2); c.status = mult===1 ? "gagné" : mult===0 ? "perdu" : "partiel";
+          c.settled = new Date().toISOString(); changed = true;
+        }
+      }
+      if(changed){ saveMine(); if(filter==="sport") renderSport(); if(filter==="stats") renderStats(); }
+    } finally { settling = false; }
+  }
+  function mineStats(){
+    const done = MINE.filter(c=>c.status!=="ouvert"), open = MINE.filter(c=>c.status==="ouvert");
+    return {open, done, wins: done.filter(c=>c.status==="gagné").length, pnl: done.reduce((s,c)=>s+(+c.gain||0),0),
+            staked: done.reduce((s,c)=>s+(+c.stake||0),0),
+            predAvg: MINE.filter(c=>c.pred!=null).reduce((s,c,_,a)=>s+c.pred/a.length,0) || null};
+  }
+  function mineHTML(c){
+    const legs = c.legs.map(l=>`<div class="leg2"><span class="lr">${l.res===1?"✅":l.res===0?"❌":l.res===0.5?"↩":"⏳"}</span>
+      <div style="min-width:0"><b>${esc(l.label)}</b><div class="s">${esc(l.match)}</div></div><span class="p">${cents(+l.price)}</span></div>`).join("");
+    const st = c.status==="ouvert" ? `<span class="tag y">⏳ en cours</span>` : c.status==="gagné" ? `<span class="tag g">Gagné</span>` : `<span class="tag r">${esc(c.status)}</span>`;
+    return `<div class="cmb"><div class="hd">${st}<span>cote <b style="color:var(--tx)">${(+c.odds).toFixed(2).replace(".",",")}</b>${c.pred!=null?` · prédit ${Math.round(c.pred*100)} %`:""}</span></div>${legs}
+      <div class="ft"><span>Mise ${usd(+c.stake)}</span>${c.status==="ouvert"?`<span class="pos">gain possible +${fmt(c.payout-c.stake)} $</span>`:`<span class="${cls(+c.gain)}">${sgn(+c.gain)}</span>`}</div></div>`;
+  }
+  function mineBlock(){
+    const M = mineStats();
+    if(!MINE.length) return "";
+    return `<h3>📋 Mes combos validés</h3><div class="meta">${M.open.length} en cours · ${M.done.length} réglés${M.done.length?` · ${M.wins} gagnés · ${sgn(M.pnl)}`:""} · gardés dans ce navigateur</div>
+      ${MINE.slice().reverse().slice(0,6).map(mineHTML).join("")}<div style="height:18px"></div>`;
+  }
+  function saveSlip(){ store.set("polybot_slip", JSON.stringify(SLIP)); store.set("polybot_stake", String(STAKE)); }
+  document.addEventListener("click", e=>{
+    const o = e.target.closest("[data-pick]");
+    if(o){ const x = JSON.parse(decodeURIComponent(o.dataset.pick));
+      const i = SLIP.findIndex(y=>y.id===x.id);
+      if(i>=0) SLIP.splice(i,1);                       // re-clic = retirer
+      else { SLIP = SLIP.filter(y=>y.slug!==x.slug); SLIP.push(x); }   // une option par match
+      saveSlip(); renderSport(); return; }
+    const u = e.target.closest("[data-unpick]"); if(u){ SLIP = SLIP.filter(y=>y.id!==u.dataset.unpick); saveSlip(); renderSport(); return; }
+    if(e.target.closest("[data-clear]")){ SLIP = []; saveSlip(); renderSport(); }
+    if(e.target.closest("[data-validate]")){ validateSlip(); }
+  });
+  document.addEventListener("input", e=>{ if(e.target.id==="stake"){ STAKE = Math.max(0.1, +e.target.value||1); saveSlip();
+    const c = slipCalc(); const g = e.target.closest(".slipbox").querySelectorAll(".kv2 b.pos"); if(g.length) g[g.length-1].textContent = "+"+fmt(c.gain)+" $"; } });
+
+
+
+  // ---------- onglets de la fiche : marchés annexes lus chez Polymarket ----------
+  const TABS = [["lines","Lignes de jeu"],["scorers","Buteurs"],["exact","Score exact"],["ht","Mi-temps"],["corners","Corners"],["players","Joueurs"]];
+  const SUFFIX = {more:"-more-markets", corners:"-total-corners", ht:"-halftime-result", exact:"-exact-score", first:"-first-to-score", props:"-player-props"};
+  let curTab = "lines";
+  const EXTRA = {};   // slug -> {at, data:{more:[...], ...}} ou {loading:true}
+  const EXMK = {};    // id de marché -> marché (pour retrouver ses jetons)
+  const jsonList = v => { if(Array.isArray(v)) return v; try{ return JSON.parse(v||"[]"); }catch(e){ return []; } };
+  async function loadExtras(slug){
+    const c = EXTRA[slug];
+    if(c && (c.loading || Date.now()-c.at < 60000)) return;
+    EXTRA[slug] = {loading:true, at:Date.now(), data:c && c.data};
+    const data = {};
+    await Promise.all(Object.entries(SUFFIX).map(async ([k,suf])=>{
+      try{ const r = await fetch(`https://gamma-api.polymarket.com/events?slug=${encodeURIComponent(slug+suf)}`, {cache:"no-store"});
+           const ev = r.ok ? (await r.json())[0] : null; data[k] = ev ? (ev.markets||[]).filter(m=>!m.closed) : []; }
+      catch(e){ data[k] = null; }
+    }));
+    Object.values(data).forEach(list=>(list||[]).forEach(m=>{ EXMK[m.id] = m; }));
+    EXTRA[slug] = {at:Date.now(), data};
+    if(curMatch===slug && ROWS[slug] && $("mdTab")) $("mdTab").innerHTML = tabHTML(ROWS[slug]);
+  }
+  const yesP = m => { const o = jsonList(m.outcomes), p = jsonList(m.outcomePrices).map(Number), i = o.findIndex(x=>/^yes$/i.test(x));
+    return i>=0 ? p[i] : null; };
+  // une case simple (Polymarket seul), cliquable pour le combo
+  function cell(g, id, label, price, sub){
+    if(price==null || !isFinite(price)) return "";
+    const [mid, side] = String(id).split("|"), m = EXMK[mid];
+    let token = null;
+    if(m){ const o = jsonList(m.outcomes), t = jsonList(m.clobTokenIds);
+      const i = side==="o"||side==="y" ? 0 : side==="u"||side==="n" ? 1 : o.findIndex(x=>/^yes$/i.test(x));
+      token = t[i] ?? null; }
+    const sel = {id:g.slug+"|x|"+id, slug:g.slug, match:g.match, start:g.start, label, price, pin:null, mid: m ? m.id : null, token};
+    const inSlip = SLIP.some(x=>x.id===sel.id);
+    return `<div class="opt clk ${inSlip?"sel":""}" data-pick="${encodeURIComponent(JSON.stringify(sel))}">
+      <div class="o1"><span>${esc(sub||label)}</span><b>${cents(price)}</b></div></div>`; }
+  const section = (title, body) => body ? `<div class="xsec"><div class="h">${esc(title)}</div><div class="xgrid">${body}</div></div>` : "";
+  const none = t => `<div class="empty">${t}</div>`;
+  function tabHTML(r){
+    const g = r.g;
+    if(curTab==="lines"){
+      const ex = (EXTRA[g.slug]||{}).data || {};
+      const btts = (ex.more||[]).filter(m=>m.sportsMarketType==="both_teams_to_score");
+      const bt = btts.map(m=>{ const o = jsonList(m.outcomes), p = jsonList(m.outcomePrices).map(Number);
+        return cell(g, m.id+"|y", "Les deux équipes marquent", p[0], "Oui") + cell(g, m.id+"|n", "Les deux équipes ne marquent pas", p[1], "Non"); }).join("");
+      return `<div class="md-lines"><div><div class="h">1N2</div><div class="ocol">${r.ml}</div></div>
+        <div><div class="h">Handicap</div><div class="ocol">${r.hc}</div></div>
+        <div><div class="h">Total</div><div class="ocol">${r.tt}</div></div></div>`
+        + section("Les deux équipes marquent", bt);
+    }
+    const c = EXTRA[g.slug];
+    if(!c || (c.loading && !c.data)) { loadExtras(g.slug); return none("Chargement des marchés Polymarket…"); }
+    loadExtras(g.slug);
+    const ex = c.data || {};
+    if(Object.values(ex).every(v=>v===null)) return none("Marchés indisponibles (Polymarket ne répond pas).");
+    const by = (list, type) => (list||[]).filter(m=>m.sportsMarketType===type);
+    if(curTab==="scorers"){
+      const sc = by(ex.props,"soccer_anytime_goalscorer").map(m=>({m, name:String(m.groupItemTitle||m.question).replace(/^Goalscorer:\s*/i,"").replace(/:\s*Anytime Goalscorer$/i,""), p:yesP(m)}))
+        .filter(x=>x.p!=null).sort((a,b)=>b.p-a.p);
+      const first = by(ex.first,"soccer_first_to_score").map(m=>cell(g, m.id, `${m.groupItemTitle} marque en premier`, yesP(m), m.groupItemTitle)).join("");
+      const out = section("Buteur à tout moment", sc.map(x=>cell(g, x.m.id, `${x.name} marque`, x.p, x.name)).join("")) + section("Première équipe à marquer", first);
+      return out || none("Pas de marché buteurs sur Polymarket pour ce match.");
+    }
+    if(curTab==="exact"){
+      const sc = by(ex.exact,"soccer_exact_score").map(m=>{ const t = String(m.groupItemTitle||m.question);
+          const mm = t.match(/(\d+)\s*-\s*(\d+)/); return {m, h: mm?+mm[1]:null, a: mm?+mm[2]:null, t, p:yesP(m)}; })
+        .filter(x=>x.p!=null);
+      if(!sc.length) return none("Pas de marché score exact sur Polymarket pour ce match.");
+      const grp = (f, title) => section(title, sc.filter(f).sort((a,b)=>b.p-a.p).map(x=>cell(g, x.m.id, x.h!=null?`Score exact ${x.h}-${x.a}`:(/any other/i.test(x.t)?"Score exact : autre score":x.t), x.p, x.h!=null?`${x.h} - ${x.a}`:(/any other/i.test(x.t)?"Autre score":x.t.replace(/^.*?:\s*/,"")))).join(""));
+      return grp(x=>x.h!=null && x.h>x.a, `Victoire ${g.t1}`) + grp(x=>x.h!=null && x.h===x.a, "Match nul") + grp(x=>x.h!=null && x.h<x.a, `Victoire ${g.t2}`) + grp(x=>x.h==null, "Autres");
+    }
+    if(curTab==="ht"){
+      const res = by(ex.ht,"soccer_halftime_result").map(m=>{ const draw = /draw/i.test(m.question||"")||/draw/i.test(m.groupItemTitle||"");
+        return cell(g, m.id, draw?"Nul à la mi-temps":`${m.groupItemTitle} mène à la mi-temps`, yesP(m), draw?"Nul":m.groupItemTitle); }).join("");
+      const ou = (type, title) => section(title, by(ex.more,type).sort((a,b)=>(+a.line)-(+b.line)).map(m=>{ const p = jsonList(m.outcomePrices).map(Number), L = String(m.line).replace(".",",");
+        return cell(g, m.id+"|o", `${title} : plus de ${L}`, p[0], `O ${L}`) + cell(g, m.id+"|u", `${title} : moins de ${L}`, p[1], `U ${L}`); }).join(""));
+      const bt1 = by(ex.more,"both_teams_to_score_first_half").map(m=>{ const p = jsonList(m.outcomePrices).map(Number);
+        return cell(g, m.id+"|y", "Les deux marquent en 1re mi-temps", p[0], "Oui") + cell(g, m.id+"|n", "Pas les deux en 1re mi-temps", p[1], "Non"); }).join("");
+      const out = section("Résultat à la mi-temps", res) + ou("first_half_totals","Buts en 1re mi-temps") + ou("second_half_totals","Buts en 2e mi-temps") + section("Les deux marquent en 1re mi-temps", bt1);
+      return out || none("Pas de marché mi-temps sur Polymarket pour ce match.");
+    }
+    if(curTab==="corners"){
+      const rows = by(ex.corners,"total_corners").sort((a,b)=>(+a.line)-(+b.line)).map(m=>{ const p = jsonList(m.outcomePrices).map(Number), L = String(m.line).replace(".",",");
+        return cell(g, m.id+"|o", `Plus de ${L} corners`, p[0], `O ${L}`) + cell(g, m.id+"|u", `Moins de ${L} corners`, p[1], `U ${L}`); }).join("");
+      return section("Total de corners", rows) || none("Pas de marché corners sur Polymarket pour ce match.");
+    }
+    if(curTab==="players"){
+      const types = [["soccer_player_goals","Buts du joueur"],["soccer_player_goals_plus_assists","Buts + passes décisives"]];
+      const known = new Set(["soccer_anytime_goalscorer", ...types.map(t=>t[0])]);
+      let out = types.map(([t,title])=>section(title, by(ex.props,t).map(m=>({m,p:yesP(m)})).filter(x=>x.p!=null).sort((a,b)=>b.p-a.p)
+        .map(x=>cell(g, x.m.id, String(x.m.groupItemTitle||x.m.question), x.p)).join(""))).join("");
+      const other = (ex.props||[]).filter(m=>!known.has(m.sportsMarketType)).map(m=>({m,p:yesP(m)})).filter(x=>x.p!=null);
+      out += section("Autres paris joueurs", other.map(x=>cell(g, x.m.id, String(x.m.groupItemTitle||x.m.question), x.p)).join(""));
+      return out || none("Pas de pari joueurs sur Polymarket pour ce match.");
+    }
+    return "";
+  }
+  document.addEventListener("click", e=>{ const t = e.target.closest("[data-tab]"); if(!t || !curMatch) return;
+    curTab = t.dataset.tab; document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("on", x.dataset.tab===curTab));
+    $("mdTab").innerHTML = tabHTML(ROWS[curMatch]); });
+
+  // ---------- fiche match (historique des probabilités Polymarket) ----------
+  let ROWS = {}, curMatch = null, curRange = "TOUT";
+  const RANGES = {"1H":["1h",1],"6H":["6h",5],"1J":["1d",10],"1S":["1w",60],"1M":["1m",180],"TOUT":["max",240]};
+  const HIST = {};   // cache : token|intervalle -> {at, data}
+  function detailHTML(r){
+    const g = r.g, t = new Date(g.start);
+    const date = t.toLocaleDateString("fr-FR",{day:"numeric",month:"long",timeZone:"UTC"});
+    return `<div class="md">
+      <div class="md-top"><button class="back" data-back title="Retour à la liste">‹</button><h2>${esc(g.t1)} – ${esc(g.t2)}</h2>
+        ${r.bets.length?`<span class="tag" style="background:#172645;color:#9ec5ff">🎯 Pari du bot</span>`:""}</div>
+      <div class="md-head">
+        <div class="md-team">${crest(g.t1).replace('class="crest"','class="crest big"')}<span>${esc(g.t1)}</span></div>
+        <div class="md-time"><b>${t.getTime()<=Date.now()?"EN COURS":hhmm(t)}</b><span>${date}</span><span class="s">${esc(r.comp)}</span></div>
+        <div class="md-team">${crest(g.t2).replace('class="crest"','class="crest big"')}<span>${esc(g.t2)}</span></div>
+      </div>
+      <div class="md-src"><span>Probabilités Polymarket</span><span class="s">pointillés = Pinnacle (probabilité juste)</span></div>
+      <div id="mdChart" class="md-chart"><div class="empty">Chargement de l'historique…</div></div>
+      <div class="ranges">${Object.keys(RANGES).map(k=>`<button data-range="${k}" class="${k===curRange?"on":""}">${k}</button>`).join("")}</div>
+      <div class="mtabs">${TABS.map(([k,l])=>`<span data-tab="${k}" class="${k===curTab?"on":""}">${l}</span>`).join("")}</div>
+      <div id="mdTab">${tabHTML(r)}</div>
+      <div class="s" style="margin-top:10px">Clique sur une option pour l'ajouter à ton combo. Hors « Lignes de jeu », Polymarket seul : Pinnacle ne fournit pas ces marchés avec le plan gratuit.</div>
+    </div>`;
+  }
+  async function hist(tok, range){
+    const [iv, fid] = RANGES[range], k = tok+"|"+iv;
+    if(HIST[k] && Date.now()-HIST[k].at < 60000) return HIST[k].data;
+    const r = await fetch(`https://clob.polymarket.com/prices-history?market=${encodeURIComponent(tok)}&interval=${iv}&fidelity=${fid}`, {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data = ((await r.json()).history || []).map(x=>({t:+x.t, p:+x.p})).filter(x=>isFinite(x.t)&&isFinite(x.p));
+    HIST[k] = {at:Date.now(), data}; return data;
+  }
+  async function drawHistory(g){
+    const box = $("mdChart"); if(!box) return;
+    const slug = g.slug, range = curRange;
+    const series = [["home", g.t1, "#3b5bff"], ["draw", "Nul", "#8b96a5"], ["away", g.t2, "#e5484d"]]
+      .filter(([r])=>(g.tok||{})[r]).map(([r,name,col])=>({r, name, col, tok:g.tok[r], pin:(g.pin||{})[r]}));
+    if(!series.length){ box.innerHTML = `<div class="empty">Pas d'historique pour ce match (identifiants absents : attends la prochaine recherche du bot).</div>`; return; }
+    let res;
+    try{ res = await Promise.all(series.map(x=>hist(x.tok, range))); }
+    catch(e){ box.innerHTML = `<div class="empty">Historique indisponible (${esc(e.message)}).</div>`; return; }
+    if(curMatch!==slug || curRange!==range || !$("mdChart")) return;   // l'utilisateur a changé de vue entre-temps
+    series.forEach((x,i)=>x.h = res[i]);
+    const pts2 = series.flatMap(x=>x.h);
+    if(!pts2.length){ box.innerHTML = `<div class="empty">Pas encore d'échanges sur cette période.</div>`; return; }
+    const W = Math.max(320, box.clientWidth), H = 300, L = 10, R = 200, T = 18, B = 34;
+    const t0 = Math.min(...pts2.map(p=>p.t)), t1 = Math.max(...pts2.map(p=>p.t));
+    const vals = pts2.map(p=>p.p).concat(series.map(x=>x.pin).filter(v=>v!=null));
+    let lo = Math.floor((Math.min(...vals)-0.02)*20)/20, hi = Math.ceil((Math.max(...vals)+0.02)*20)/20;
+    lo = Math.max(0, lo); hi = Math.min(1, hi); if(hi-lo<0.1){ hi = Math.min(1, lo+0.1); }
+    const X = t => L + (t1===t0 ? (W-L-R)/2 : (t-t0)*(W-L-R)/(t1-t0)), Y = v => T + (hi-v)*(H-T-B)/(hi-lo);
+    let svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+    const step = (hi-lo) > 0.5 ? 0.1 : 0.05;
+    for(let v = Math.ceil(lo/step)*step; v <= hi+1e-9; v += step){
+      svg += `<line x1="${L}" x2="${W-48}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ffffff1a" stroke-dasharray="2 5"/>`
+          + `<text x="${W-8}" y="${Y(v)+4}" text-anchor="end" fill="#8b96a5" font-size="12">${Math.round(v*100)}%</text>`;
+    }
+    const span = t1-t0, nT = Math.min(6, Math.max(2, Math.floor((W-L-R)/110)));
+    for(let i=0;i<=nT;i++){ const t = t0 + span*i/nT, d = new Date(t*1000);
+      const lab = span <= 2*86400 ? d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",timeZone:"UTC"}) : d.toLocaleDateString("fr-FR",{day:"numeric",month:"short",timeZone:"UTC"});
+      svg += `<text x="${X(t)}" y="${H-10}" text-anchor="${i===0?"start":i===nT?"end":"middle"}" fill="#8b96a5" font-size="12">${lab}</text>`; }
+    series.forEach(x=>{
+      if(x.pin!=null) svg += `<line x1="${L}" x2="${W-R}" y1="${Y(x.pin)}" y2="${Y(x.pin)}" stroke="${x.col}" stroke-opacity=".55" stroke-dasharray="6 5"/>`;
+      if(!x.h.length) return;
+      let d = `M${X(x.h[0].t).toFixed(1)} ${Y(x.h[0].p).toFixed(1)}`;
+      for(let i=1;i<x.h.length;i++) d += ` H${X(x.h[i].t).toFixed(1)} V${Y(x.h[i].p).toFixed(1)}`;   // en escalier, comme Polymarket
+      const last = x.h[x.h.length-1];
+      svg += `<path d="${d}" fill="none" stroke="${x.col}" stroke-width="2.2"/><circle cx="${X(last.t)}" cy="${Y(last.p)}" r="5" fill="${x.col}"/>`;
+      x.last = last.p; });
+    // étiquettes à droite, sans chevauchement
+    const labs = series.filter(x=>x.last!=null).map(x=>({x, y:Y(x.last)})).sort((a,b)=>a.y-b.y);
+    for(let i=1;i<labs.length;i++) if(labs[i].y-labs[i-1].y < 52) labs[i].y = labs[i-1].y + 52;
+    const over = labs.length ? labs[labs.length-1].y - (H-B-10) : 0; if(over>0) labs.forEach(l=>l.y -= over);
+    labs.forEach(({x,y})=>{ svg += `<text x="${W-R+12}" y="${y-14}" fill="${x.col}" font-size="13" font-weight="600">${esc(x.name.length>13?abbr(x.name):x.name)}</text>`
+      + `<text x="${W-R+12}" y="${y+18}" fill="${x.col}" font-size="30" font-weight="800">${Math.round(x.last*100)}%</text>`; });
+    box.innerHTML = svg + `</svg>`;
+  }
+  document.addEventListener("click", e=>{
+    if(e.target.closest("[data-pick]")) return;
+    const m = e.target.closest("[data-match]"); if(m){ curMatch = m.dataset.match; curTab = "lines"; loadExtras(curMatch); renderSport(); window.scrollTo({top:0}); return; }
+    if(e.target.closest("[data-back]")){ curMatch = null; renderSport(); return; }
+    const rg = e.target.closest("[data-range]"); if(rg && curMatch){ curRange = rg.dataset.range;
+      document.querySelectorAll("[data-range]").forEach(b=>b.classList.toggle("on", b.dataset.range===curRange));
+      $("mdChart").innerHTML = `<div class="empty">Chargement…</div>`; drawHistory(ROWS[curMatch].g); }
+  });
+  addEventListener("resize", ()=>{ if(curMatch && ROWS[curMatch]) drawHistory(ROWS[curMatch].g); });
+
+  // ---------- vue Bot sport ----------
+  const LEAGUES = {epl:"Premier League", laliga:"LaLiga", bundesliga:"Bundesliga", seriea:"Serie A", ligue1:"Ligue 1",
+                   ucl:"Ligue des champions", mls:"MLS", nba:"NBA", foot:"Football"};
+  let lgFilter = "all", sportFilter = "all";
+  let valFilter = store.get("polybot_val","all"), sortBy = store.get("polybot_sort","time"), teamQuery = "";
+  function syncTools(){ document.querySelectorAll("#valSeg button").forEach(b=>b.classList.toggle("on", b.dataset.val===valFilter)); $("sortSel").value = sortBy; }
+  document.addEventListener("click", e=>{ const v = e.target.closest("[data-val]"); if(!v) return; valFilter = v.dataset.val; store.set("polybot_val",valFilter); syncTools(); renderSport(); });
+  document.addEventListener("change", e=>{ if(e.target.id==="sortSel"){ sortBy = e.target.value; store.set("polybot_sort",sortBy); renderSport(); } });
+  document.addEventListener("input", e=>{ if(e.target.id==="teamQ"){ teamQuery = e.target.value; renderSport(); } });
+  const abbr = n => (String(n||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\b(FC|CF|SC|AC|AFC|FK|SK|CD|UD|SV|VfB|VfL|TSG|RCD|SS|AS|US|de|del|la|le|the|club)\b/gi,"").trim().split(/\s+/)[0]||"?").slice(0,3).toUpperCase();
+  const hue = n => { let h=0; for(const c of String(n)) h=(h*31+c.charCodeAt(0))%360; return h; };
+  const crest = n => `<div class="crest" style="background:hsl(${hue(n)} 45% 32%)">${esc(abbr(n))}</div>`;
+  const cents = v => v==null ? "—" : Math.round(v*100)+"¢";
+  const pts = v => v==null ? "—" : (v>0?"+":"")+(v*100).toFixed(1).replace(".",",");
+
+  function renderSport(){
+    ROWS = {};
+    const st = SPO || {}, watch = st.watch || {}, open = st.open || [];
+    const minEdge = 0.03;
+    // ----- format « Combos Football » : sports à gauche, compétitions en pastilles, matchs par date
+    const all = [];
+    Object.keys(watch).forEach(k=>(watch[k].games||[]).forEach(g=>{
+      const sport = k==="nba" ? "nba" : "foot";
+      const comp = !Object.keys(g.pin||{}).length ? "Sans cote Pinnacle" : (g.ligue && !/^[a-z0-9-]+$/.test(g.ligue)) ? g.ligue : (LEAGUES[k]||k);
+      all.push({g, sport, comp}); }));
+    const nSport = sp => all.filter(x=>sp==="all"||x.sport===sp).length;
+    if(!["all","foot","nba"].includes(sportFilter)) sportFilter = "all";
+    $("lgNav").innerHTML = `<div class="cap">Sports</div>`
+      + [["all","▦ Tous"],["foot","⚽ Football"],["nba","🏀 NBA"]].map(([k,l])=>`<a data-sp="${k}" class="${sportFilter===k?"on":""}">${l} <span class="n">${nSport(k)}</span></a>`).join("")
+      + `<a data-f="all" style="margin-top:14px;color:var(--mute)">‹ Retour au tableau de bord</a>`;
+    const pool = all.filter(x=>sportFilter==="all"||x.sport===sportFilter);
+    const comps = {}; pool.forEach(x=>comps[x.comp]=(comps[x.comp]||0)+1);
+    const compKeys = Object.keys(comps).sort((a,b)=>(a==="Sans cote Pinnacle")-(b==="Sans cote Pinnacle") || comps[b]-comps[a] || a.localeCompare(b));
+    if(lgFilter!=="all" && !comps[lgFilter]) lgFilter = "all";
+    $("svPills").innerHTML = `<button class="pill2 ${lgFilter==="all"?"on":""}" data-lg="all">TOUS</button>`
+      + compKeys.map(k=>`<button class="pill2 ${lgFilter===k?"on":""}" data-lg="${esc(k)}">${esc(k.replace(/^[A-Za-z ]+ - /,""))} <span>${comps[k]}</span></button>`).join("");
+    // meilleur avantage d'un match, toutes colonnes confondues
+    const bestEdge = g => { const v = [...Object.values(g.edge||{}), ...Object.values((g.lines||{}).spread?.edge||{}), ...Object.values((g.lines||{}).total?.edge||{})].filter(x=>x!=null);
+      return v.length ? Math.max(...v) : null; };
+    const normT = t => String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+    const q = normT(teamQuery).trim();
+    let shown = pool.filter(x=>lgFilter==="all"||x.comp===lgFilter)
+      .filter(x=>!q || normT(x.g.t1+" "+x.g.t2+" "+x.comp).includes(q))
+      .filter(x=>{ if(valFilter==="all") return true; const b = bestEdge(x.g); return b!=null && (valFilter==="pos" ? b>0 : b>=minEdge); });
+    shown.sort(sortBy==="edge" ? (a,b)=>(bestEdge(b.g)??-9)-(bestEdge(a.g)??-9) : (a,b)=>new Date(a.g.start)-new Date(b.g.start));
+    $("toolInfo").textContent = `${shown.length} match${shown.length>1?"s":""} affiché${shown.length>1?"s":""}`;
+    const last = st.last_scan ? new Date(st.last_scan) : null;
+    $("svMeta").textContent = `Dernière recherche ${last?hm(last)+" UTC":"—"} · ${all.length} match${all.length>1?"s":""} analysé${all.length>1?"s":""}`;
+
+    const betOn = {}; open.forEach(b=>{ (betOn[b.evt] ||= []).push(b); });
+    const now = Date.now();
+    // une option : libellé + prix Polymarket, puis Pinnacle et avantage
+    const opt = (label, price, pin, edge, picked, sel) => {
+      const e = edge==null ? null : edge;
+      const c = e==null ? "" : e>=minEdge ? "hot" : e>0 ? "up" : "down";
+      const inSlip = sel && SLIP.some(x=>x.id===sel.id);
+      const data = sel && price!=null ? ` data-pick="${encodeURIComponent(JSON.stringify({...sel, price, pin: pin==null?null:pin}))}"` : "";
+      return `<div class="opt ${c} ${picked?"pick":""} ${inSlip?"sel":""} ${data?"clk":""}"${data} title="${pin!=null?`Pinnacle ${Math.round(pin*100)} % · avantage ${pts(e)} pts`:"Pas de cote Pinnacle sur cette ligne"}">
+        <div class="o1"><span>${esc(label)}</span><b>${cents(price)}</b></div>
+        <div class="o2">${pin!=null?`Pin ${Math.round(pin*100)} %`:"Pin —"}${e!=null?` · <i>${pts(e)}${e>=minEdge?" ✓":""}</i>`:""}</div></div>`; };
+    const fmtLine = v => (v>0?"+":"")+String(v).replace(".",",");
+    let html = "", lastDay = "";
+    for(const {g, comp} of shown){
+      const t = new Date(g.start), started = t.getTime() <= now;
+      const day = sortBy==="edge" ? "Meilleures occasions d'abord" : t.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",timeZone:"UTC"});
+      if(day!==lastDay){
+        html += `<div class="dayhead"><span>${day.charAt(0).toUpperCase()+day.slice(1)}</span><span>1N2</span><span>Handicap</span><span>Total</span></div>`;
+        lastDay = day;
+      }
+      const bets = betOn[g.slug] || [];
+      const picked = role => bets.some(b=>{ const yes=/OUI$/.test(b.selection), lab=String(b.selection).replace(/ — (OUI|NON)$/,"");
+        const r = /^draw|^Draw|^Nul/i.test(lab) ? "draw" : (lab===g.t1 ? "home" : lab===g.t2 ? "away" : null);
+        return yes && r===role; });
+      const a1 = abbr(g.t1), a2 = abbr(g.t2);
+      const ml = [["home",a1],["draw","NUL"],["away",a2]].filter(([r])=>g.pm[r]!=null)
+        .map(([r,l])=>opt(l, g.pm[r], (g.pin||{})[r], (g.edge||{})[r], picked(r),
+          {id:g.slug+"|1n2|"+r, slug:g.slug, match:g.match, start:g.start, mid:(g.mid||{})[r], token:(g.tok||{})[r],
+           label: r==="draw" ? "Match nul" : (r==="home"?g.t1:g.t2)+" gagne"})).join("");
+      const L = g.lines || {}, S2 = L.spread, T = L.total;
+      const base = {slug:g.slug, match:g.match, start:g.start};
+      const hc = S2 ? opt(`${a1} ${fmtLine(S2.line)}`, S2.pm.home, S2.pin.home, S2.edge.home, false, {...base, id:g.slug+"|hc|home", label:`${g.t1} ${fmtLine(S2.line)}`, mid:S2.mid, token:(S2.tok||{}).home})
+                    + opt(`${a2} ${fmtLine(-S2.line)}`, S2.pm.away, S2.pin.away, S2.edge.away, false, {...base, id:g.slug+"|hc|away", label:`${g.t2} ${fmtLine(-S2.line)}`, mid:S2.mid, token:(S2.tok||{}).away})
+                    : `<div class="opt none">—</div>`;
+      const tl = String(T ? T.line : "").replace(".",",");
+      const tt = T ? opt(`O ${tl}`, T.pm.over, T.pin.over, T.edge.over, false, {...base, id:g.slug+"|tot|over", label:`Plus de ${tl} buts`, mid:T.mid, token:(T.tok||{}).over})
+                   + opt(`U ${tl}`, T.pm.under, T.pin.under, T.edge.under, false, {...base, id:g.slug+"|tot|under", label:`Moins de ${tl} buts`, mid:T.mid, token:(T.tok||{}).under})
+                   : `<div class="opt none">—</div>`;
+      const be = bestEdge(g);
+      ROWS[g.slug] = {g, comp, ml, hc, tt, bets};
+      html += `<div class="mt2 ${bets.length?"bet":""}"><div class="mt-top" data-match="${esc(g.slug)}" style="cursor:pointer">${started?`<span class="live">EN COURS</span>`:`<b style="color:var(--tx)">${sortBy==="edge"?t.toLocaleDateString("fr-FR",{weekday:"short",day:"2-digit",month:"2-digit",timeZone:"UTC"})+" · ":""}${hhmm(t)}</b>`}
+          ${be!=null?`<span class="tag ${be>=minEdge?"g":be>0?"":"r"}" style="margin-left:6px">meilleur ${pts(be)} pts</span>`:""}
+          <span>· ${esc(comp)}</span>${bets.length?`<span class="tag" style="margin-left:auto;background:#172645;color:#9ec5ff">🎯 Pari du bot</span>`:""}<span class="fiche">Fiche ›</span></div>
+        <div class="mt2-body"><div class="teams" data-match="${esc(g.slug)}" style="cursor:pointer"><div class="team">${crest(g.t1)}<b>${esc(g.t1)}</b></div><div class="team">${crest(g.t2)}<b>${esc(g.t2)}</b></div></div>
+          <div class="ocol">${ml}</div><div class="ocol">${hc}</div><div class="ocol">${tt}</div></div></div>`;
+    }
+    if(!html) html = `<div class="mt"><div class="empty">Aucun match analysé pour l'instant.<br><span style="font-size:12.5px">La liste se remplit à chaque recherche du bot, pour les matchs à venir.</span></div></div>`;
+    $("sportView").classList.toggle("detail", !!(curMatch && ROWS[curMatch]));
+    if(curMatch && ROWS[curMatch]){ $("svList").innerHTML = detailHTML(ROWS[curMatch]); drawHistory(ROWS[curMatch].g); }
+    else { curMatch = null; $("svList").innerHTML = html; }
+
+    const S = SPO ? sportStats(SPO) : null;
+    const K = comboStats(st);
+    const comboBlock = `<h3>🎰 Combos <span class="meta" style="font-weight:500">simulation · 1 $ par combo</span></h3>
+      <div class="meta">${K.open.length} en cours · ${K.closed.length} réglés${K.closed.length?` · ${K.wins} gagnés`:""} · cagnotte ${usd(K.equity)} (${sgn(K.pnl)})</div>
+      ${K.open.length ? K.open.slice().reverse().map(comboHTML).join("") : `<div class="slip"><div class="b">Aucun combo en cours. Le bot en construit jusqu'à 2 par jour (2 et 3 matchs) quand le succès prédit dépasse le prix d'au moins 3 %.</div></div>`}
+      ${K.closed.length ? `<div class="meta" style="margin-top:12px">Derniers combos réglés</div>` + K.closed.slice(-3).reverse().map(comboHTML).join("") : ""}
+      <div style="height:18px"></div>`;
+    $("svPanel").innerHTML = slipHTML() + mineBlock() + comboBlock + `<h3>🎯 Paris du bot</h3><div class="meta">${open.length} en cours · ${(st.closed||[]).length} réglés</div>`
+      + (open.length ? open.map(b=>`<div class="slip"><div class="a">${typeTag(sportType(b))} ${esc(sportType(b).d)}</div>
+          <div class="b">${esc(b.match)} · ${hm(new Date(b.coup_envoi))} UTC</div>
+          <div class="c"><span>Prix ${cents(+b.prix)} · Pinnacle ${Math.round(+b.proba_pinnacle*100)} %</span><b>${usd(+b.mise)}</b></div></div>`).join("")
+        : `<div class="slip"><div class="b">Aucun pari en cours. Le bot parie quand Polymarket est au moins 3 points moins cher que Pinnacle, frais compris.</div></div>`)
+      + (S ? `<div class="kv"><div><div class="l">Capital</div><div class="v">${usd(S.equity)}</div></div>
+          <div><div class="l">Gain net</div><div class="v ${cls(S.pnl)}">${sgn(S.pnl)}</div></div>
+          <div><div class="l">Cote moyenne</div><div class="v">${S.avgOdds?S.avgOdds.toFixed(2).replace(".",","):"—"}</div></div>
+          <div><div class="l">Crédits cotes</div><div class="v">${st.odds_remaining!=null?st.odds_remaining:"—"}</div></div></div>` : "")
+      + `<div class="legend"><b style="color:var(--tx)">Lire un match :</b> Polymarket = prix d'achat d'une part (gagne 1 $). Pinnacle = probabilité juste.
+         Avantage = Pinnacle − prix (frais compris), en points. <span style="color:var(--green)">Vert ✓</span> = au moins +3 : le bot peut parier.</div>`;
+  }
+  document.addEventListener("click", e=>{
+    const a = e.target.closest("[data-lg]"); if(a){ lgFilter = a.dataset.lg; renderSport(); return; }
+    const b = e.target.closest("[data-sp]"); if(b){ sportFilter = b.dataset.sp; lgFilter = "all"; renderSport(); } });
+
+
+  // ---------- boutons Up / Down : pari fictif sur la fenêtre 15 min en cours ----------
+  async function addCrypto(asset, side){
+    const now = Date.now()/1000, start = Math.floor(now/900)*900, end = start + 900;
+    const slug = `${asset}-updown-15m-${start}`, name = asset==="btc" ? "Bitcoin" : "Ethereum";
+    toast(`Lecture du prix ${name} sur Polymarket…`);
+    try{
+      const r = await fetch(`https://gamma-api.polymarket.com/events?slug=${slug}`, {cache:"no-store"});
+      const ev = r.ok ? (await r.json())[0] : null, m = ev && (ev.markets||[])[0];
+      if(!m) throw new Error("fenêtre introuvable");
+      const o = jsonList(m.outcomes), t = jsonList(m.clobTokenIds), pr = jsonList(m.outcomePrices).map(Number), i = o.indexOf(side);
+      if(i<0 || !isFinite(pr[i])) throw new Error("prix indisponible");
+      const hm2 = x => new Date(x*1000).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",timeZone:"UTC"});
+      const pick = {id:slug+"|"+side, slug, match:`${name} 15 min · ${hm2(start)}–${hm2(end)} UTC`, start:new Date(start*1000).toISOString(),
+        liveUntil:new Date(end*1000).toISOString(), settle:new Date((end+180)*1000).toISOString(),
+        label:`${name} en ${side==="Up"?"hausse":"baisse"}`, price:pr[i], pin:null, mid:m.id, token:t[i]};
+      SLIP = SLIP.filter(y=>y.slug!==slug); SLIP.push(pick); saveSlip();
+      toast(`Ajouté : ${pick.label} à ${cents(pick.price)} (fin ${hm2(end)} UTC)`);
+      filter = "sport"; applyFilter(); window.scrollTo({top:0});
+    }catch(e){ toast(`Impossible d'ajouter ce pari (${e.message}).`, true); }
+  }
+  function toast(msg, bad){ let t = $("toast"); if(!t){ t = document.createElement("div"); t.id = "toast"; document.body.appendChild(t); }
+    t.textContent = msg; t.className = bad ? "bad on" : "on"; clearTimeout(t._h); t._h = setTimeout(()=>t.className="", 3500); }
+  document.addEventListener("click", e=>{ const b = e.target.closest("[data-crypto]"); if(!b) return;
+    const [a, side] = b.dataset.crypto.split("|"); addCrypto(a, side); });
+
+  // ---------- page Statistiques : crypto et sport séparés ----------
+  function miniCurve(id, start, events, color){
+    const c = $(id); if(!c) return; const dpr = devicePixelRatio||1, W = c.clientWidth, H = c.clientHeight;
+    c.width = W*dpr; c.height = H*dpr; const g = c.getContext("2d"); g.scale(dpr,dpr);
+    const pts = [start]; let v = start; events.forEach(x=>{ v += x; pts.push(v); });
+    if(pts.length<2){ g.fillStyle="#8b96a5"; g.font="12px sans-serif"; g.textAlign="center"; g.fillText("Pas encore de pari réglé", W/2, H/2); return; }
+    let lo = Math.min(...pts), hi = Math.max(...pts); if(hi-lo<1){ hi+=1; lo-=1; }
+    const x = i => i*W/(pts.length-1), y = val => 8 + (hi-val)*(H-16)/(hi-lo);
+    g.setLineDash([2,4]); g.strokeStyle="#5f6b7a88"; g.beginPath(); g.moveTo(0,y(start)); g.lineTo(W,y(start)); g.stroke(); g.setLineDash([]);
+    const col = pts[pts.length-1] >= start ? "#3dd68c" : "#ff5c6c";
+    const grad = g.createLinearGradient(0,0,0,H); grad.addColorStop(0, col+"55"); grad.addColorStop(1, "#00000000");
+    g.beginPath(); pts.forEach((p,i)=>i?g.lineTo(x(i),y(p)):g.moveTo(x(i),y(p))); g.lineTo(W,H); g.lineTo(0,H); g.closePath(); g.fillStyle=grad; g.fill();
+    g.beginPath(); pts.forEach((p,i)=>i?g.lineTo(x(i),y(p)):g.moveTo(x(i),y(p))); g.strokeStyle=col; g.lineWidth=2; g.stroke();
+  }
+  const kpi = (l, v, c="") => `<div><div class="l">${l}</div><div class="v ${c}">${v}</div></div>`;
+  const rate = (w, n) => n ? Math.round(w/n*100)+" %" : "—";
+  function renderStats(){
+    const box = $("statsView"); if(!box) return;
+    const C = CRY ? cryptoStats(CRY) : null, S = SPO ? sportStats(SPO) : null, K = SPO ? comboStats(SPO) : null, M = mineStats();
+    let html = `<div class="stcol"><h2>₿ Crypto <span class="meta">BTC & ETH · fenêtres 15 min</span></h2>`;
+    if(C){
+      const n = C.closed.length, avgP = n ? C.closed.reduce((s,p)=>s+(+p.price||0),0)/n : null, staked = C.closed.reduce((s,p)=>s+(+p.cost||0),0);
+      html += `<div class="card st"><div class="kv">${kpi("Capital", usd(C.equity))}${kpi("Gain net", sgn(C.pnl), cls(C.pnl))}
+          ${kpi("Paris réglés", n)}${kpi("Réussite", rate(C.wins, n))}${kpi("Aujourd'hui", sgn(C.todayPnl), cls(C.todayPnl))}${kpi("Rendement", staked?pct(C.pnl/staked):"—", cls(C.pnl))}
+          ${kpi("Prix moyen payé", avgP==null?"—":cents(avgP))}${kpi("En cours", `${C.open.length} · ${usd(C.locked)}`)}</div>
+        <div class="sub" style="margin-top:14px">Évolution du capital crypto</div><canvas id="stCry" class="stc"></canvas></div>`;
+      const g = {}; C.closed.forEach(p=>[(p.asset||"?").toUpperCase(), "Côté "+p.side].forEach(k=>{ const x = g[k] ||= {n:0,w:0,pnl:0,st:0}; x.n++; x.w += p.won?1:0; x.pnl += +p.pnl||0; x.st += +p.cost||0; }));
+      html += `<div class="card st"><div class="sub">Par crypto et par côté</div><div class="rows">${Object.entries(g).map(([k,x])=>`<div class="row" style="grid-template-columns:1fr auto auto auto">
+          <div class="t">${esc(k)}</div><span class="s">${x.n} paris · ${rate(x.w,x.n)}</span><span class="w ${cls(x.pnl)}">${sgn(x.pnl)}</span><span class="tag ${x.pnl>=0?"g":"r"}">${x.st?pct(x.pnl/x.st):"—"}</span></div>`).join("") || `<div class="empty">Pas encore de pari réglé.</div>`}</div></div>`;
+    } else html += `<div class="card st"><div class="empty">Données crypto indisponibles.</div></div>`;
+    html += `</div><div class="stcol"><h2>⚽ Sport <span class="meta">foot (PinnFeed) · NBA (The Odds API)</span></h2>`;
+    if(S){
+      const n = S.closed.length;
+      html += `<div class="card st"><div class="sub">Paris simples du bot</div><div class="kv">${kpi("Capital", usd(S.equity))}${kpi("Gain net", sgn(S.pnl), cls(S.pnl))}
+          ${kpi("Gain attendu (Pinnacle)", sgn(S.exp), cls(S.exp))}${kpi("Paris réglés", n)}${kpi("Réussite", rate(S.wins, n))}${kpi("Réussite attendue", S.expWin==null?"—":Math.round(S.expWin*100)+" %")}
+          ${kpi("Cote moyenne", S.avgOdds?S.avgOdds.toFixed(2).replace(".",","):"—")}${kpi("En cours", `${S.open.length} · ${usd(S.locked)}`)}</div>
+        <div class="sub" style="margin-top:14px">Évolution du capital sport</div><canvas id="stSpo" class="stc"></canvas></div>`;
+      const T = {}; S.closed.concat(S.open).forEach(b=>{ const t = sportType(b), x = T[t.k] ||= {c:t.c,n:0,d:0,w:0,pnl:0};
+        x.n++; if(b.statut!=="ouvert"){ x.d++; x.w += b.statut==="gagné"?1:0; x.pnl += +b.gain||0; } });
+      html += `<div class="card st"><div class="sub">Par type de pari</div><div class="rows">${Object.entries(T).map(([k,x])=>`<div class="row" style="grid-template-columns:auto 1fr auto">
+          <span class="tag ${x.c}">${esc(k)}</span><span class="s">${x.n} pari${x.n>1?"s":""}${x.d?` · ${rate(x.w,x.d)}`:""}</span><span class="w ${cls(x.pnl)}">${x.d?sgn(x.pnl):"—"}</span></div>`).join("") || `<div class="empty">Pas encore de pari.</div>`}</div></div>`;
+    }
+    if(K) html += `<div class="card st"><div class="sub">🎰 Combos du bot</div><div class="kv">${kpi("Cagnotte", usd(K.equity))}${kpi("Gain net", sgn(K.pnl), cls(K.pnl))}
+        ${kpi("Réglés", `${K.closed.length} (${K.wins} ✅)`)}${kpi("Succès prédit moyen", K.predAvg==null?"—":Math.round(K.predAvg*100)+" %")}</div></div>`;
+    html += `<div class="card st"><div class="sub">📋 Mes combos validés <span class="meta">(ce navigateur)</span></div><div class="kv">${kpi("Validés", MINE.length)}${kpi("Gain net", sgn(M.pnl), cls(M.pnl))}
+        ${kpi("Réglés", `${M.done.length} (${M.wins} ✅)`)}${kpi("Rendement", M.staked?pct(M.pnl/M.staked):"—", cls(M.pnl))}</div>
+        ${MINE.length?"":`<div class="s" style="margin-top:8px">Compose un combo dans la page Combos puis clique « Valider ».</div>`}</div>`;
+    const LB = SPO && SPO.lab && SPO.lab.bilan;
+    if(LB) html += `<div class="card st"><div class="sub">🧪 Laboratoire</div><div class="rows">${Object.values(LB).map(x=>`<div class="row" style="grid-template-columns:1fr auto auto">
+        <div class="t">${esc(x.nom)}</div><span class="s">${x.paris} paris · ${rate(x.gagnes, x.regles)}</span><span class="w ${cls(x.gain)}">${sgn(x.gain||0)}</span></div>`).join("")}</div></div>`;
+    box.innerHTML = html + `</div>`;
+    if(C) miniCurve("stCry", C.start, C.closed.map(p=>+p.pnl||0));
+    if(S) miniCurve("stSpo", S.start, S.closed.slice().sort((a,b)=>new Date(a.regle_le)-new Date(b.regle_le)).map(b=>+b.gain||0));
+  }
+
+  // ---------- filtres (onglets, menu, puces) ----------
+  const NAMES = {all:"Tableau de bord", stats:"Statistiques", crypto:"Crypto", sport:"Sports", open:"Paris en cours", closed:"Paris réglés", log:"Journal", live:"En direct", stats:"Statistiques"};
+  function applyFilter(){
+    document.querySelectorAll("#grid .card").forEach(c=>c.classList.toggle("hidden", !c.dataset.cat.split(" ").includes(filter)));
+    document.querySelectorAll("[data-f]").forEach(b=>b.classList.toggle("on", b.dataset.f===filter));
+    $("h1").textContent = NAMES[filter] || "Tableau de bord";
+    document.body.classList.toggle("sportmode", filter==="sport");
+    document.body.classList.toggle("statsmode", filter==="stats");
+    if(filter==="sport") renderSport();
+    if(filter==="stats") renderStats();
+    if(filter==="all"||filter==="crypto"||filter==="sport"||filter==="stats") { const C=CRY?cryptoStats(CRY):null, S=SPO?sportStats(SPO):null; drawChart(C,S); }
+  }
+  document.addEventListener("click", e=>{ const b = e.target.closest("[data-f]"); if(!b) return; filter = b.dataset.f; applyFilter(); });
+
+  $("refresh").onclick = () => { const v = $("repo").value.trim(); if(v && v!==repo){ repo=v; store.set("polybot_repo",v); } load(); prices(); };
+  $("repo").addEventListener("keydown", e=>{ if(e.key==="Enter") $("refresh").click(); });
+  addEventListener("resize", ()=>{ const C=CRY?cryptoStats(CRY):null, S=SPO?sportStats(SPO):null; drawChart(C,S); });
+
+  syncTools(); load(); prices();
+  setInterval(load, 60000); setInterval(prices, 15000); setInterval(paintLive, 1000);
+})();
+</script>
+</body>
+</html>
