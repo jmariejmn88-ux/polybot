@@ -1,12 +1,12 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 00:23:39 UTC_
+_Mis à jour : 2026-11-28 00:24:37 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
-| Capital disponible | 93.63 $ |
-| Engagé (paris en cours) | 1.06 $ |
+| Capital disponible | 91.63 $ |
+| Engagé (paris en cours) | 3.06 $ |
 | **Valeur totale** | **94.69 $ (-5.3 %)** |
 | Paris réglés | 37 |
 | Taux de réussite | 38 % |
@@ -33,13 +33,11 @@ _Mis à jour : 2026-11-28 00:23:39 UTC_
 | 2026-11-26 01:35 | Ethereum Up or Down - November 25, 8:30PM-8:45PM ET | Up | 0.24 | ❌ | -2.00 $ |
 | 2026-11-26 01:21 | Ethereum Up or Down - November 25, 8:15PM-8:30PM ET | Up | 0.43 | ❌ | -2.24 $ |
 | 2026-11-28 00:23 | Ethereum Up or Down - November 27, 7:15PM-7:30PM ET | Up | 0.20 | ⏳ | — |
+| 2026-11-28 00:24 | Bitcoin Up or Down - November 27, 7:15PM-7:30PM ET | Up | 0.34 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 00:18:20 UTC  — exécution — MODE : PAPER
-2026-11-28 00:18:20 UTC  BTC : 700s restantes, hors plage d'entrée
-2026-11-28 00:18:20 UTC  ETH : 700s restantes, hors plage d'entrée
 2026-11-28 00:19:20 UTC  — exécution — MODE : PAPER
 2026-11-28 00:19:20 UTC  BTC : 640s restantes, hors plage d'entrée
 2026-11-28 00:19:20 UTC  ETH : 640s restantes, hors plage d'entrée
@@ -57,4 +55,7 @@ _Mis à jour : 2026-11-28 00:23:39 UTC_
 2026-11-28 00:23:36 UTC  — exécution — MODE : PAPER
 2026-11-28 00:23:37 UTC  BTC ouverture 59,914.74 spot 59,897.09 σ/min 0.036% → P(Up) modèle 0.41 (brut 0.37, marché 0.46) | pas d'avantage suffisant (+0.037 sur Up à 0.36)
 2026-11-28 00:23:39 UTC  ETH ouverture 1,663.84 spot 1,662.71 σ/min 0.048% → P(Up) modèle 0.36 (brut 0.28, marché 0.44) | 🟢 ACHAT fictif 5.00 parts Up à 0.20 (coût 1.06 $, avantage +0.147, Kelly ¼ suggère 4.41 $) | baleines x1.97, funding bottom 25%
+2026-11-28 00:24:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:24:37 UTC  BTC ouverture 59,914.74 spot 59,901.37 σ/min 0.036% → P(Up) modèle 0.42 (brut 0.39, marché 0.46) | 🟢 ACHAT fictif 5.62 parts Up à 0.34 (coût 2.00 $, avantage +0.068, Kelly ¼ suggère 2.48 $) | baleines x2.4, funding typical
+2026-11-28 00:24:37 UTC  ETH : déjà positionné sur cette fenêtre
 ```
