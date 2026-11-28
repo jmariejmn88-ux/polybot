@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 02:35:17 UTC_
+_Mis à jour : 2026-11-28 02:41:46 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,18 +36,6 @@ _Mis à jour : 2026-11-28 02:35:17 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 02:26:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:26:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
-2026-11-28 02:27:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:27:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
-2026-11-28 02:28:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:28:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
-2026-11-28 02:29:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:29:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
-2026-11-28 02:30:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:30:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
-2026-11-28 02:31:17 UTC  — exécution — MODE : PAPER
-2026-11-28 02:31:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 02:32:17 UTC  — exécution — MODE : PAPER
 2026-11-28 02:32:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 02:33:17 UTC  — exécution — MODE : PAPER
@@ -56,4 +44,16 @@ _Mis à jour : 2026-11-28 02:35:17 UTC_
 2026-11-28 02:34:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 02:35:17 UTC  — exécution — MODE : PAPER
 2026-11-28 02:35:17 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:36:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:36:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:37:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:37:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:38:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:38:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:39:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:39:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:40:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:40:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 02:41:46 UTC  — exécution — MODE : PAPER
+2026-11-28 02:41:46 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 ```
