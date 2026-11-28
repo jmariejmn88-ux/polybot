@@ -490,10 +490,9 @@
   }
  ],
  "pinn_calls": {
-  "2026-11-28": 247
+  "2026-11-28": 251
  },
  "log": [
-  "2026-11-27T06:44:18Z foot : 368 matchs Polymarket, 991 Pinnacle, 293 appari\u00e9s, 59 pistes",
   "2026-11-27T06:54:22Z foot : 368 matchs Polymarket, 991 Pinnacle, 293 appari\u00e9s, 58 pistes",
   "2026-11-27T07:04:30Z foot : 372 matchs Polymarket, 994 Pinnacle, 296 appari\u00e9s, 60 pistes",
   "2026-11-27T07:14:35Z foot : 372 matchs Polymarket, 996 Pinnacle, 296 appari\u00e9s, 59 pistes",
@@ -692,9 +691,10 @@
   "2026-11-28T10:00:55Z foot : 528 matchs Polymarket, 1282 Pinnacle, 445 appari\u00e9s, 79 pistes",
   "2026-11-28T10:11:17Z foot : 534 matchs Polymarket, 1264 Pinnacle, 445 appari\u00e9s, 78 pistes",
   "2026-11-28T10:21:41Z foot : 531 matchs Polymarket, 1275 Pinnacle, 443 appari\u00e9s, 79 pistes",
-  "2026-11-28T10:31:41Z foot : donn\u00e9es indisponibles (GET https://gamma-api.polymarket.com/events?tag_id=100350&closed=false&limit=50&offset=2050&end_date_min=2026-11-28T09%3A45%3A47Z&end_date_max=2026-11-29T23%3A30%3A47Z a \u00e9chou\u00e9 : HTTP Error 422: Unknown)"
+  "2026-11-28T10:31:41Z foot : donn\u00e9es indisponibles (GET https://gamma-api.polymarket.com/events?tag_id=100350&closed=false&limit=50&offset=2050&end_date_min=2026-11-28T09%3A45%3A47Z&end_date_max=2026-11-29T23%3A30%3A47Z a \u00e9chou\u00e9 : HTTP Error 422: Unknown)",
+  "2026-11-28T10:41:34Z foot : donn\u00e9es indisponibles (GET https://gamma-api.polymarket.com/events?tag_id=100350&closed=false&limit=50&offset=2050&end_date_min=2026-11-28T09%3A55%3A47Z&end_date_max=2026-11-29T23%3A40%3A47Z a \u00e9chou\u00e9 : HTTP Error 422: Unknown)"
  ],
- "last_scan": "2026-11-28T10:30:47Z",
+ "last_scan": "2026-11-28T10:40:47Z",
  "odds_remaining": 485,
  "odds_used": 15,
  "watch": {
@@ -34868,14 +34868,14 @@
   }
  },
  "last_scan_src": {
-  "pinnfeed": "2026-11-28T10:30:47Z",
+  "pinnfeed": "2026-11-28T10:40:47Z",
   "oddsapi": "2026-11-28T09:42:59Z"
  },
  "combo_bankroll": 100.0,
  "combo_start": 100.0,
  "combos_open": [],
  "combos_closed": [],
- "combo_try": "2026-11-28T10:30:47Z",
+ "combo_try": "2026-11-28T10:40:47Z",
  "lab": {
   "open": [
    {
@@ -35136,7 +35136,7 @@
    "laliga_outsiders": "La Liga \u2013 outsiders cote 5 \u00e0 9",
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
   },
-  "last_watch": "2026-11-28T10:30:47Z",
+  "last_watch": "2026-11-28T10:40:47Z",
   "last_totals": "2026-11-28T10:31:44Z",
   "bilan": {
    "laliga_outsiders": {
