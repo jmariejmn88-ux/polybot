@@ -1,12 +1,12 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T04:53:41Z
+Mis à jour : 2026-11-28T04:54:44Z
 
 - Bankroll disponible : **85.56 $** (départ 100 $)
-- En jeu : 12 pari(s), 22.75 $
-- Réglés : 6 (gagnés 3, perdus 3)
-- Résultat réel : **+8.31 $** (ROI +56.4%)
-- Résultat « attendu » selon Pinnacle : +1.44 $
+- En jeu : 11 pari(s), 20.49 $
+- Réglés : 7 (gagnés 3, perdus 4)
+- Résultat réel : **+6.05 $** (ROI +35.6%)
+- Résultat « attendu » selon Pinnacle : +1.62 $
 
 Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel varie beaucoup. Il faut plusieurs centaines de paris pour conclure.
 
@@ -14,7 +14,6 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 
 | Match | Sélection | Prix | Pinnacle | Mise |
 |---|---|---|---|---|
-| Club Independiente Petrolero vs. CDT Real Oruro (2026-11-27T23:00) | Club Independiente Petrolero — NON | 0.44 | 49% | 2.26 $ |
 | FC Emmen vs. Helmond Sport (2026-11-28T15:30) | FC Emmen — OUI | 0.42 | 50% | 2.19 $ |
 | US Castanet vs. Pau FC (2026-11-28T17:30) | Pau FC — NON | 0.35 | 40% | 2.00 $ |
 | Vannes OC vs. US Concarneau (2026-11-28T19:00) | US Concarneau — NON | 0.36 | 40% | 2.00 $ |
@@ -31,6 +30,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 
 | Match | Sélection | Statut | Gain |
 |---|---|---|---|
+| Club Independiente Petrolero vs. CDT Real Oruro | Club Independiente Petrolero — NON | perdu | -2.26 $ |
 | Hercules de Alicante CF vs. Antequera CF | Hercules de Alicante CF — NON | gagné | +2.19 $ |
 | US Le Pays du Valois vs. Valenciennes FC | Valenciennes FC — NON | perdu | -2.76 $ |
 | US Pays de Saint-Omer vs. SM Caen | US Pays de Saint-Omer — OUI | gagné | +8.75 $ |

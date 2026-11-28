@@ -3,28 +3,6 @@
  "start_bankroll": 100.0,
  "open": [
   {
-   "id": "S17957347402",
-   "sport": "foot",
-   "ligue": "Bolivia - Primera Division",
-   "match": "Club Independiente Petrolero vs. CDT Real Oruro",
-   "evt": "bol1-idp-oru-2026-11-27",
-   "coup_envoi": "2026-11-27T23:00:00Z",
-   "selection": "Club Independiente Petrolero \u2014 NON",
-   "token": "31075109559603435245194371886216041030139393915823089823602633807881616741655",
-   "marche": "7297014",
-   "prix": 0.44,
-   "cout_part": 0.4523,
-   "parts": 5.0,
-   "mise": 2.2616,
-   "proba_pinnacle": 0.4885,
-   "avantage": 0.0362,
-   "kelly": 0.0165,
-   "ouvert_le": "2026-11-26T23:12:20Z",
-   "statut": "ouvert",
-   "gain": "",
-   "regle_le": ""
-  },
-  {
    "id": "S17957769666",
    "sport": "foot",
    "ligue": "Netherlands - Eerste Divisie",
@@ -399,13 +377,34 @@
    "statut": "gagn\u00e9",
    "gain": 2.1881,
    "regle_le": "2026-11-28T00:23:39Z"
+  },
+  {
+   "id": "S17957347402",
+   "sport": "foot",
+   "ligue": "Bolivia - Primera Division",
+   "match": "Club Independiente Petrolero vs. CDT Real Oruro",
+   "evt": "bol1-idp-oru-2026-11-27",
+   "coup_envoi": "2026-11-27T23:00:00Z",
+   "selection": "Club Independiente Petrolero \u2014 NON",
+   "token": "31075109559603435245194371886216041030139393915823089823602633807881616741655",
+   "marche": "7297014",
+   "prix": 0.44,
+   "cout_part": 0.4523,
+   "parts": 5.0,
+   "mise": 2.2616,
+   "proba_pinnacle": 0.4885,
+   "avantage": 0.0362,
+   "kelly": 0.0165,
+   "ouvert_le": "2026-11-26T23:12:20Z",
+   "statut": "perdu",
+   "gain": -2.2616,
+   "regle_le": "2026-11-28T04:54:44Z"
   }
  ],
  "pinn_calls": {
   "2026-11-28": 119
  },
  "log": [
-  "2026-11-27T01:13:39Z foot : 153 matchs Polymarket, 947 Pinnacle, 133 appari\u00e9s, 21 pistes",
   "2026-11-27T01:23:37Z foot : 154 matchs Polymarket, 947 Pinnacle, 134 appari\u00e9s, 21 pistes",
   "2026-11-27T01:33:39Z foot : 163 matchs Polymarket, 948 Pinnacle, 141 appari\u00e9s, 25 pistes",
   "2026-11-27T01:43:40Z foot : 163 matchs Polymarket, 950 Pinnacle, 141 appari\u00e9s, 21 pistes",
@@ -604,7 +603,8 @@
   "2026-11-28T04:32:10Z foot : 504 matchs Polymarket, 1224 Pinnacle, 430 appari\u00e9s, 94 pistes",
   "2026-11-28T04:42:44Z foot : 504 matchs Polymarket, 1224 Pinnacle, 430 appari\u00e9s, 95 pistes",
   "2026-11-28T04:43:06Z LABO Serie B \u2013 moins de 2,5 buts : SS Arezzo vs. Pisa SC / Moins de 2,5 buts @ 0.520 (pas de cote Pinnacle)",
-  "2026-11-28T04:53:22Z foot : 497 matchs Polymarket, 1227 Pinnacle, 423 appari\u00e9s, 92 pistes"
+  "2026-11-28T04:53:22Z foot : 497 matchs Polymarket, 1227 Pinnacle, 423 appari\u00e9s, 92 pistes",
+  "2026-11-28T04:54:44Z PERDU Club Independiente Petrolero vs. CDT Real Oruro / Club Independiente Petrolero \u2014 NON : -2.26 $ \u2192 bankroll 85.56 $"
  ],
  "last_scan": "2026-11-28T04:52:09Z",
  "odds_remaining": 487,
