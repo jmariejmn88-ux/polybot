@@ -1460,14 +1460,6 @@
     }
   ],
   "log": [
-    "2026-11-28 00:43:58 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:43:58 UTC  BTC : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:43:58 UTC  ETH : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:44:58 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:44:58 UTC  BTC : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:44:58 UTC  ETH : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:45:58 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:45:58 UTC  BTC : 842s restantes, hors plage d'entrée",
     "2026-11-28 00:45:58 UTC  ETH : 842s restantes, hors plage d'entrée",
     "2026-11-28 00:46:58 UTC  — exécution — MODE : PAPER",
     "2026-11-28 00:46:58 UTC  ❌ PERDU Ethereum Up or Down - November 27, 7:30PM-7:45PM ET [Down] P&L -2.00 $ → capital 87.63 $",
@@ -1759,7 +1751,15 @@
     "2026-11-28 03:11:59 UTC  — exécution — MODE : PAPER",
     "2026-11-28 03:11:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
     "2026-11-28 03:12:59 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 03:12:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
+    "2026-11-28 03:12:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 03:13:59 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 03:13:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 03:14:59 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 03:14:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 03:15:59 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 03:15:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 03:16:59 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 03:16:59 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
   ],
   "halted": false,
   "last_report": "2026-11-27",

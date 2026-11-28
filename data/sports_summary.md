@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T03:12:59Z
+Mis à jour : 2026-11-28T03:18:32Z
 
-- Bankroll disponible : **91.35 $** (départ 100 $)
-- En jeu : 8 pari(s), 16.96 $
+- Bankroll disponible : **87.56 $** (départ 100 $)
+- En jeu : 11 pari(s), 20.75 $
 - Réglés : 6 (gagnés 3, perdus 3)
 - Résultat réel : **+8.31 $** (ROI +56.4%)
 - Résultat « attendu » selon Pinnacle : +1.44 $
@@ -22,6 +22,9 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | Samsunspor vs. Gençlerbirliği SK (2026-11-28T13:00) | Samsunspor — NON | 0.49 | 64% | 2.51 $ |
 | CA Nacional Potosí vs. CD Oriente Petrolero (2026-11-28T23:30) | CA Nacional Potosí — NON | 0.13 | 17% | 2.00 $ |
 | FCSB vs. FK Csíkszereda Miercurea Ciuc (2026-11-28T18:00) | FCSB — NON | 0.20 | 24% | 2.00 $ |
+| Queen of the South FC vs. Dunfermline Athletic FC (2026-11-28T15:00) | Dunfermline Athletic FC — NON | 0.22 | 29% | 1.14 $ |
+| Elgin City FC vs. Partick Thistle FC (2026-11-28T15:00) | Partick Thistle FC — NON | 0.26 | 31% | 1.35 $ |
+| Stranraer FC vs. Clachnacuddin FC (2026-11-28T15:00) | Stranraer FC — NON | 0.25 | 32% | 1.30 $ |
 
 ## 15 derniers résultats
 
@@ -34,5 +37,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 78 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 82 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 488 / 500
