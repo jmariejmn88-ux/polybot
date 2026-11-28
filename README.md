@@ -66,6 +66,14 @@ le bot actif **~5h45 par session** : un passage par minute, et une sauvegarde de
 `data/` toutes les 5 minutes (ou tout de suite quand un pari est pris ou réglé). Un déclenchement
 horaire garde toujours une nouvelle session prête à prendre le relais.
 
+## Tableau de bord en ligne (ordinateur et téléphone)
+
+Le tableau de bord est dans `docs/index.html`. Avec GitHub Pages activé
+(Settings → Pages → Branch `main`, dossier `/docs`), il s'ouvre à l'adresse
+https://jmariejmn88-ux.github.io/polybot/ sur n'importe quel appareil.
+Il lit les mêmes données publiques que la version locale (aucune clé, aucun secret).
+Les combos que tu valides sont gardés dans le navigateur de chaque appareil.
+
 ## Paris sportifs (simulation) — foot + NBA
 
 Le module `sports.py` tourne dans la même boucle que le bot crypto, avec sa propre
