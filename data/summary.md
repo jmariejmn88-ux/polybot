@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 00:58:19 UTC_
+_Mis à jour : 2026-11-28 01:02:19 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,14 +36,6 @@ _Mis à jour : 2026-11-28 00:58:19 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 00:49:58 UTC  BTC : 602s restantes, hors plage d'entrée
-2026-11-28 00:49:58 UTC  ETH : 602s restantes, hors plage d'entrée
-2026-11-28 00:50:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:50:59 UTC  BTC ouverture 59,931.14 spot 59,867.84 σ/min 0.033% → P(Up) modèle 0.14 (brut 0.13, marché 0.14) | pas d'avantage suffisant (+0.013 sur Down à 0.84)
-2026-11-28 00:50:59 UTC  ETH ouverture 1,663.77 spot 1,660.95 σ/min 0.042% → P(Up) modèle 0.07 (brut 0.08, marché 0.07) | pas d'avantage suffisant (-0.017 sur Down à 0.94)
-2026-11-28 00:51:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:51:58 UTC  ❌ PERDU Bitcoin Up or Down - November 27, 7:30PM-7:45PM ET [Down] P&L -2.00 $ → capital 87.63 $
-2026-11-28 00:51:58 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 00:53:19 UTC  — exécution — MODE : PAPER
 2026-11-28 00:53:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 00:54:19 UTC  — exécution — MODE : PAPER
@@ -56,4 +48,12 @@ _Mis à jour : 2026-11-28 00:58:19 UTC_
 2026-11-28 00:57:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 00:58:19 UTC  — exécution — MODE : PAPER
 2026-11-28 00:58:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 00:59:19 UTC  — exécution — MODE : PAPER
+2026-11-28 00:59:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 01:00:19 UTC  — exécution — MODE : PAPER
+2026-11-28 01:00:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 01:01:19 UTC  — exécution — MODE : PAPER
+2026-11-28 01:01:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 01:02:19 UTC  — exécution — MODE : PAPER
+2026-11-28 01:02:19 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 ```
