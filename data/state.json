@@ -1460,14 +1460,6 @@
     }
   ],
   "log": [
-    "2026-11-28 00:11:10 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:11:10 UTC  BTC : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:11:10 UTC  ETH : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:12:20 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:12:20 UTC  BTC : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:12:20 UTC  ETH : déjà positionné sur cette fenêtre",
-    "2026-11-28 00:13:20 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:13:20 UTC  BTC : déjà positionné sur cette fenêtre",
     "2026-11-28 00:13:20 UTC  ETH : déjà positionné sur cette fenêtre",
     "2026-11-28 00:14:20 UTC  — exécution — MODE : PAPER",
     "2026-11-28 00:14:20 UTC  BTC : déjà positionné sur cette fenêtre",
@@ -1759,7 +1751,15 @@
     "2026-11-28 02:19:56 UTC  — exécution — MODE : PAPER",
     "2026-11-28 02:19:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
     "2026-11-28 02:20:56 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 02:20:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
+    "2026-11-28 02:20:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:21:56 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:21:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:22:56 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:22:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:23:56 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:23:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:24:56 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:24:56 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
   ],
   "halted": false,
   "last_report": "2026-11-27",
