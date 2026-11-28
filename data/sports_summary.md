@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T03:44:43Z
+Mis à jour : 2026-11-28T03:50:12Z
 
-- Bankroll disponible : **87.56 $** (départ 100 $)
-- En jeu : 11 pari(s), 20.75 $
+- Bankroll disponible : **85.56 $** (départ 100 $)
+- En jeu : 12 pari(s), 22.75 $
 - Réglés : 6 (gagnés 3, perdus 3)
 - Résultat réel : **+8.31 $** (ROI +56.4%)
 - Résultat « attendu » selon Pinnacle : +1.44 $
@@ -25,6 +25,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | Queen of the South FC vs. Dunfermline Athletic FC (2026-11-28T15:00) | Dunfermline Athletic FC — NON | 0.22 | 29% | 1.14 $ |
 | Elgin City FC vs. Partick Thistle FC (2026-11-28T15:00) | Partick Thistle FC — NON | 0.26 | 31% | 1.35 $ |
 | Stranraer FC vs. Clachnacuddin FC (2026-11-28T15:00) | Stranraer FC — NON | 0.25 | 32% | 1.30 $ |
+| Queen's Park FC vs. The Spartans FC (2026-11-28T15:00) | The Spartans FC — OUI | 0.18 | 22% | 2.00 $ |
 
 ## 15 derniers résultats
 
@@ -37,5 +38,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 90 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 94 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 487 / 500
