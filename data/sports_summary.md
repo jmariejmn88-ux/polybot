@@ -1,12 +1,12 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T16:49:41Z
+Mis à jour : 2026-11-28T16:55:41Z
 
 - Bankroll disponible : **77.14 $** (départ 100 $)
-- En jeu : 15 pari(s), 28.91 $
-- Réglés : 7 (gagnés 3, perdus 4)
-- Résultat réel : **+6.05 $** (ROI +35.6%)
-- Résultat « attendu » selon Pinnacle : +1.62 $
+- En jeu : 14 pari(s), 26.40 $
+- Réglés : 8 (gagnés 3, perdus 5)
+- Résultat réel : **+3.53 $** (ROI +18.1%)
+- Résultat « attendu » selon Pinnacle : +2.33 $
 
 Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel varie beaucoup. Il faut plusieurs centaines de paris pour conclure.
 
@@ -18,7 +18,6 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | US Castanet vs. Pau FC (2026-11-28T17:30) | Pau FC — NON | 0.35 | 40% | 2.00 $ |
 | Vannes OC vs. US Concarneau (2026-11-28T19:00) | US Concarneau — NON | 0.36 | 40% | 2.00 $ |
 | US Feurs vs. FC Annecy (2026-11-28T16:00) | US Feurs — OUI | 0.23 | 28% | 2.00 $ |
-| Samsunspor vs. Gençlerbirliği SK (2026-11-28T13:00) | Samsunspor — NON | 0.49 | 64% | 2.51 $ |
 | CA Nacional Potosí vs. CD Oriente Petrolero (2026-11-28T23:30) | CA Nacional Potosí — NON | 0.13 | 17% | 2.00 $ |
 | FCSB vs. FK Csíkszereda Miercurea Ciuc (2026-11-28T18:00) | FCSB — NON | 0.20 | 24% | 2.00 $ |
 | Queen of the South FC vs. Dunfermline Athletic FC (2026-11-28T15:00) | Dunfermline Athletic FC — NON | 0.22 | 29% | 1.14 $ |
@@ -34,6 +33,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 
 | Match | Sélection | Statut | Gain |
 |---|---|---|---|
+| Samsunspor vs. Gençlerbirliği SK | Samsunspor — NON | perdu | -2.51 $ |
 | Club Independiente Petrolero vs. CDT Real Oruro | Club Independiente Petrolero — NON | perdu | -2.26 $ |
 | Hercules de Alicante CF vs. Antequera CF | Hercules de Alicante CF — NON | gagné | +2.19 $ |
 | US Le Pays du Valois vs. Valenciennes FC | Valenciennes FC — NON | perdu | -2.76 $ |
