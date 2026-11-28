@@ -468,10 +468,9 @@
   }
  ],
  "pinn_calls": {
-  "2026-11-28": 211
+  "2026-11-28": 215
  },
  "log": [
-  "2026-11-27T05:14:00Z foot : 334 matchs Polymarket, 978 Pinnacle, 270 appari\u00e9s, 45 pistes",
   "2026-11-27T05:23:59Z foot : 335 matchs Polymarket, 978 Pinnacle, 271 appari\u00e9s, 49 pistes",
   "2026-11-27T05:34:05Z foot : 344 matchs Polymarket, 979 Pinnacle, 278 appari\u00e9s, 44 pistes",
   "2026-11-27T05:34:15Z LABO La Liga \u2013 outsiders cote 5 \u00e0 9 : Elche CF vs. Club Atl\u00e9tico de Madrid / Elche CF gagne @ 0.140 (Pinnacle 15%, \u00e9cart -0.1%)",
@@ -670,9 +669,10 @@
   "2026-11-28T08:25:55Z foot : 525 matchs Polymarket, 1271 Pinnacle, 442 appari\u00e9s, 90 pistes",
   "2026-11-28T08:36:32Z foot : 525 matchs Polymarket, 1277 Pinnacle, 442 appari\u00e9s, 89 pistes",
   "2026-11-28T08:47:07Z foot : 527 matchs Polymarket, 1275 Pinnacle, 444 appari\u00e9s, 86 pistes",
-  "2026-11-28T08:57:48Z foot : 527 matchs Polymarket, 1275 Pinnacle, 444 appari\u00e9s, 87 pistes"
+  "2026-11-28T08:57:48Z foot : 527 matchs Polymarket, 1275 Pinnacle, 444 appari\u00e9s, 87 pistes",
+  "2026-11-28T09:08:00Z foot : donn\u00e9es indisponibles (GET https://gamma-api.polymarket.com/events?tag_id=100350&closed=false&limit=50&offset=2050&end_date_min=2026-11-28T08%3A22%3A09Z&end_date_max=2026-11-29T22%3A07%3A09Z a \u00e9chou\u00e9 : HTTP Error 422: Unknown)"
  ],
- "last_scan": "2026-11-28T08:56:28Z",
+ "last_scan": "2026-11-28T09:07:09Z",
  "odds_remaining": 486,
  "odds_used": 14,
  "watch": {
@@ -34622,14 +34622,14 @@
   }
  },
  "last_scan_src": {
-  "pinnfeed": "2026-11-28T08:56:28Z",
+  "pinnfeed": "2026-11-28T09:07:09Z",
   "oddsapi": "2026-11-28T06:42:04Z"
  },
  "combo_bankroll": 100.0,
  "combo_start": 100.0,
  "combos_open": [],
  "combos_closed": [],
- "combo_try": "2026-11-28T08:56:28Z",
+ "combo_try": "2026-11-28T09:07:09Z",
  "lab": {
   "open": [
    {
@@ -34890,7 +34890,7 @@
    "laliga_outsiders": "La Liga \u2013 outsiders cote 5 \u00e0 9",
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
   },
-  "last_watch": "2026-11-28T08:56:28Z",
+  "last_watch": "2026-11-28T09:07:09Z",
   "last_totals": "2026-11-28T08:58:05Z",
   "bilan": {
    "laliga_outsiders": {
