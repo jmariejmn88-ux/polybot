@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 00:24:37 UTC_
+_Mis à jour : 2026-11-28 00:30:36 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -38,24 +38,24 @@ _Mis à jour : 2026-11-28 00:24:37 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 00:19:20 UTC  — exécution — MODE : PAPER
-2026-11-28 00:19:20 UTC  BTC : 640s restantes, hors plage d'entrée
-2026-11-28 00:19:20 UTC  ETH : 640s restantes, hors plage d'entrée
-2026-11-28 00:20:20 UTC  — exécution — MODE : PAPER
-2026-11-28 00:20:21 UTC  BTC ouverture 59,914.74 spot 59,914.37 σ/min 0.036% → P(Up) modèle 0.45 (brut 0.50, marché 0.40) | pas d'avantage suffisant (-0.014 sur Down à 0.55)
-2026-11-28 00:20:21 UTC  ETH ouverture 1,663.84 spot 1,663.81 σ/min 0.049% → P(Up) modèle 0.45 (brut 0.50, marché 0.40) | pas d'avantage suffisant (-0.002 sur Up à 0.43)
-2026-11-28 00:21:20 UTC  — exécution — MODE : PAPER
-2026-11-28 00:21:20 UTC  ❌ PERDU Bitcoin Up or Down - November 27, 7:00PM-7:15PM ET [Down] P&L -2.00 $ → capital 94.69 $
-2026-11-28 00:21:20 UTC  ❌ PERDU Ethereum Up or Down - November 27, 7:00PM-7:15PM ET [Down] P&L -2.00 $ → capital 94.69 $
-2026-11-28 00:21:21 UTC  BTC ouverture 59,914.74 spot 59,912.84 σ/min 0.036% → P(Up) modèle 0.47 (brut 0.49, marché 0.46) | pas d'avantage suffisant (-0.004 sur Up à 0.46)
-2026-11-28 00:21:21 UTC  ETH ouverture 1,663.84 spot 1,663.85 σ/min 0.049% → P(Up) modèle 0.47 (brut 0.50, marché 0.44) | pas d'avantage suffisant (+0.014 sur Up à 0.44)
-2026-11-28 00:22:36 UTC  — exécution — MODE : PAPER
-2026-11-28 00:22:37 UTC  BTC ouverture 59,914.74 spot 59,866.55 σ/min 0.037% → P(Up) modèle 0.33 (brut 0.20, marché 0.46) | pas d'avantage suffisant (-0.180 sur Down à 0.84)
-2026-11-28 00:22:38 UTC  ETH ouverture 1,663.84 spot 1,661.74 σ/min 0.050% → P(Up) modèle 0.30 (brut 0.16, marché 0.44) | pas d'avantage suffisant (-0.209 sur Down à 0.90)
-2026-11-28 00:23:36 UTC  — exécution — MODE : PAPER
-2026-11-28 00:23:37 UTC  BTC ouverture 59,914.74 spot 59,897.09 σ/min 0.036% → P(Up) modèle 0.41 (brut 0.37, marché 0.46) | pas d'avantage suffisant (+0.037 sur Up à 0.36)
-2026-11-28 00:23:39 UTC  ETH ouverture 1,663.84 spot 1,662.71 σ/min 0.048% → P(Up) modèle 0.36 (brut 0.28, marché 0.44) | 🟢 ACHAT fictif 5.00 parts Up à 0.20 (coût 1.06 $, avantage +0.147, Kelly ¼ suggère 4.41 $) | baleines x1.97, funding bottom 25%
-2026-11-28 00:24:36 UTC  — exécution — MODE : PAPER
 2026-11-28 00:24:37 UTC  BTC ouverture 59,914.74 spot 59,901.37 σ/min 0.036% → P(Up) modèle 0.42 (brut 0.39, marché 0.46) | 🟢 ACHAT fictif 5.62 parts Up à 0.34 (coût 2.00 $, avantage +0.068, Kelly ¼ suggère 2.48 $) | baleines x2.4, funding typical
 2026-11-28 00:24:37 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:25:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:25:36 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-28 00:25:36 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:26:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:26:36 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-28 00:26:36 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:27:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:27:36 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-28 00:27:36 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:28:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:28:36 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-28 00:28:36 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:29:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:29:36 UTC  BTC : déjà positionné sur cette fenêtre
+2026-11-28 00:29:36 UTC  ETH : déjà positionné sur cette fenêtre
+2026-11-28 00:30:36 UTC  — exécution — MODE : PAPER
+2026-11-28 00:30:36 UTC  BTC : 864s restantes, hors plage d'entrée
+2026-11-28 00:30:36 UTC  ETH : 864s restantes, hors plage d'entrée
 ```
