@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T05:51:54Z
+Mis à jour : 2026-11-28T05:57:25Z
 
-- Bankroll disponible : **83.40 $** (départ 100 $)
-- En jeu : 12 pari(s), 22.65 $
+- Bankroll disponible : **81.40 $** (départ 100 $)
+- En jeu : 13 pari(s), 24.65 $
 - Réglés : 7 (gagnés 3, perdus 4)
 - Résultat réel : **+6.05 $** (ROI +35.6%)
 - Résultat « attendu » selon Pinnacle : +1.62 $
@@ -26,6 +26,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | Stranraer FC vs. Clachnacuddin FC (2026-11-28T15:00) | Stranraer FC — NON | 0.25 | 32% | 1.30 $ |
 | Queen's Park FC vs. The Spartans FC (2026-11-28T15:00) | The Spartans FC — OUI | 0.18 | 22% | 2.00 $ |
 | Club Guabirá vs. FC Universitario (2026-11-28T21:15) | Club Guabirá — NON | 0.42 | 46% | 2.16 $ |
+| Ravenna FC 1913 vs. SEF Torres Sassari (2026-11-29T13:30) | Ravenna FC 1913 — NON | 0.33 | 38% | 2.00 $ |
 
 ## 15 derniers résultats
 
@@ -39,5 +40,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 139 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 143 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 487 / 500
