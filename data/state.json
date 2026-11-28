@@ -1460,14 +1460,6 @@
     }
   ],
   "log": [
-    "2026-11-28 00:30:36 UTC  BTC : 864s restantes, hors plage d'entrée",
-    "2026-11-28 00:30:36 UTC  ETH : 864s restantes, hors plage d'entrée",
-    "2026-11-28 00:31:36 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:31:36 UTC  BTC : 804s restantes, hors plage d'entrée",
-    "2026-11-28 00:31:36 UTC  ETH : 804s restantes, hors plage d'entrée",
-    "2026-11-28 00:32:49 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 00:32:49 UTC  BTC : 731s restantes, hors plage d'entrée",
-    "2026-11-28 00:32:49 UTC  ETH : 731s restantes, hors plage d'entrée",
     "2026-11-28 00:33:49 UTC  — exécution — MODE : PAPER",
     "2026-11-28 00:33:49 UTC  BTC : 671s restantes, hors plage d'entrée",
     "2026-11-28 00:33:49 UTC  ETH : 671s restantes, hors plage d'entrée",
@@ -1759,7 +1751,15 @@
     "2026-11-28 02:51:08 UTC  — exécution — MODE : PAPER",
     "2026-11-28 02:51:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
     "2026-11-28 02:52:08 UTC  — exécution — MODE : PAPER",
-    "2026-11-28 02:52:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
+    "2026-11-28 02:52:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:53:08 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:53:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:54:08 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:54:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:55:08 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:55:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain",
+    "2026-11-28 02:56:08 UTC  — exécution — MODE : PAPER",
+    "2026-11-28 02:56:08 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain"
   ],
   "halted": false,
   "last_report": "2026-11-27",
