@@ -1,9 +1,9 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T00:17:20Z
+Mis à jour : 2026-11-28T00:22:33Z
 
-- Bankroll disponible : **88.35 $** (départ 100 $)
-- En jeu : 8 pari(s), 17.77 $
+- Bankroll disponible : **86.35 $** (départ 100 $)
+- En jeu : 9 pari(s), 19.77 $
 - Réglés : 5 (gagnés 2, perdus 3)
 - Résultat réel : **+6.12 $** (ROI +51.4%)
 - Résultat « attendu » selon Pinnacle : +1.27 $
@@ -22,6 +22,7 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | US Feurs vs. FC Annecy (2026-11-28T16:00) | US Feurs — OUI | 0.23 | 28% | 2.00 $ |
 | Samsunspor vs. Gençlerbirliği SK (2026-11-28T13:00) | Samsunspor — NON | 0.49 | 64% | 2.51 $ |
 | CA Nacional Potosí vs. CD Oriente Petrolero (2026-11-28T23:30) | CA Nacional Potosí — NON | 0.13 | 17% | 2.00 $ |
+| FCSB vs. FK Csíkszereda Miercurea Ciuc (2026-11-28T18:00) | FCSB — NON | 0.20 | 24% | 2.00 $ |
 
 ## 15 derniers résultats
 
@@ -33,5 +34,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 9 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 13 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 489 / 500
