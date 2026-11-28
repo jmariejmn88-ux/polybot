@@ -493,7 +493,6 @@
   "2026-11-28": 357
  },
  "log": [
-  "2026-11-27T10:56:03Z foot : 398 matchs Polymarket, 1013 Pinnacle, 313 appari\u00e9s, 62 pistes",
   "2026-11-27T10:56:06Z PARI foot FC Emmen vs. Helmond Sport / FC Emmen \u2014 OUI @ 0.425 (Pinnacle 49.9%, avantage +6.2%) mise 2.19 $",
   "2026-11-27T10:56:07Z PARI foot Jong Ajax Amsterdam vs. Heracles Almelo / Draw (Jong Ajax Amsterdam vs. Heracles Almelo) \u2014 NON @ 0.770 (Pinnacle 82.8%, avantage +4.9%) mise 3.89 $",
   "2026-11-27T11:06:08Z foot : 401 matchs Polymarket, 999 Pinnacle, 314 appari\u00e9s, 59 pistes",
@@ -692,7 +691,8 @@
   "2026-11-28T14:47:24Z foot : 375 matchs Polymarket, 1101 Pinnacle, 301 appari\u00e9s, 50 pistes",
   "2026-11-28T14:57:26Z foot : 375 matchs Polymarket, 1102 Pinnacle, 302 appari\u00e9s, 50 pistes",
   "2026-11-28T15:07:21Z foot : 373 matchs Polymarket, 889 Pinnacle, 300 appari\u00e9s, 48 pistes",
-  "2026-11-28T15:17:20Z foot : 361 matchs Polymarket, 929 Pinnacle, 289 appari\u00e9s, 49 pistes"
+  "2026-11-28T15:17:20Z foot : 361 matchs Polymarket, 929 Pinnacle, 289 appari\u00e9s, 49 pistes",
+  "2026-11-28T15:20:30Z LABO GAGN\u00c9 La Liga \u2013 outsiders cote 5 \u00e0 9 : Real Betis Balompi\u00e9 vs. Rayo Vallecano de Madrid +4.34 $"
  ],
  "last_scan": "2026-11-28T15:16:30Z",
  "odds_remaining": 484,
@@ -24065,27 +24065,6 @@
     "regle_le": ""
    },
    {
-    "id": "L4",
-    "strategie": "laliga_outsiders",
-    "slug": "lal-bet-ray-2026-11-28",
-    "match": "Real Betis Balompi\u00e9 vs. Rayo Vallecano de Madrid",
-    "ligue": "Spain - La Liga",
-    "coup_envoi": "2026-11-28T13:00:00Z",
-    "selection": "Rayo Vallecano de Madrid gagne",
-    "token": "76827727172665002699113138067254014226914036571385254167126712762533091218044",
-    "marche": "7196188",
-    "prix": 0.18,
-    "cout_part": 0.1874,
-    "parts": 5.3367,
-    "mise": 1.0,
-    "proba_pinnacle": 0.1838,
-    "ecart_pinnacle": -0.0036,
-    "ouvert_le": "2026-11-27T01:03:46Z",
-    "statut": "ouvert",
-    "gain": "",
-    "regle_le": ""
-   },
-   {
     "id": "L5",
     "strategie": "serieb_under25",
     "slug": "itsb-vic-ces-2026-11-28-more-markets",
@@ -24254,7 +24233,29 @@
     "regle_le": ""
    }
   ],
-  "closed": [],
+  "closed": [
+   {
+    "id": "L4",
+    "strategie": "laliga_outsiders",
+    "slug": "lal-bet-ray-2026-11-28",
+    "match": "Real Betis Balompi\u00e9 vs. Rayo Vallecano de Madrid",
+    "ligue": "Spain - La Liga",
+    "coup_envoi": "2026-11-28T13:00:00Z",
+    "selection": "Rayo Vallecano de Madrid gagne",
+    "token": "76827727172665002699113138067254014226914036571385254167126712762533091218044",
+    "marche": "7196188",
+    "prix": 0.18,
+    "cout_part": 0.1874,
+    "parts": 5.3367,
+    "mise": 1.0,
+    "proba_pinnacle": 0.1838,
+    "ecart_pinnacle": -0.0036,
+    "ouvert_le": "2026-11-27T01:03:46Z",
+    "statut": "gagn\u00e9",
+    "gain": 4.3367,
+    "regle_le": "2026-11-28T15:20:30Z"
+   }
+  ],
   "strategies": {
    "laliga_outsiders": "La Liga \u2013 outsiders cote 5 \u00e0 9",
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
@@ -24265,9 +24266,9 @@
    "laliga_outsiders": {
     "nom": "La Liga \u2013 outsiders cote 5 \u00e0 9",
     "paris": 3,
-    "regles": 0,
-    "gagnes": 0,
-    "gain": 0,
+    "regles": 1,
+    "gagnes": 1,
+    "gain": 4.34,
     "ecart_moyen": -0.0015
    },
    "serieb_under25": {
