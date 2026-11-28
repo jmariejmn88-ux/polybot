@@ -1,6 +1,6 @@
 # PolyBot Sport — simulation (argent virtuel)
 
-Mis à jour : 2026-11-28T04:05:46Z
+Mis à jour : 2026-11-28T04:11:16Z
 
 - Bankroll disponible : **85.56 $** (départ 100 $)
 - En jeu : 12 pari(s), 22.75 $
@@ -38,5 +38,5 @@ Le résultat attendu sert de contrôle : sur peu de paris, le résultat réel va
 | FK Buxoro vs. PFK Mash AL Mubarek | FK Buxoro — NON | gagné | +6.03 $ |
 | Tai Po FC vs. Adelaide United FC | Adelaide United FC — NON | perdu | -2.00 $ |
 
-PinnFeed (foot) — requêtes aujourd'hui : 98 / 1 000
+PinnFeed (foot) — requêtes aujourd'hui : 102 / 1 000
 The Odds API (nba) — crédits restants ce mois-ci : 487 / 500
