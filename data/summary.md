@@ -1,22 +1,23 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 00:46:58 UTC_
+_Mis à jour : 2026-11-28 00:51:58 UTC_
 
 | Indicateur | Valeur |
 |---|---|
 | Capital de départ | 100.00 $ |
 | Capital disponible | 87.63 $ |
-| Engagé (paris en cours) | 2.00 $ |
-| **Valeur totale** | **89.63 $ (-10.4 %)** |
-| Paris réglés | 40 |
-| Taux de réussite | 35 % |
-| Gain net cumulé | -10.37 $ |
+| Engagé (paris en cours) | 0.00 $ |
+| **Valeur totale** | **87.63 $ (-12.4 %)** |
+| Paris réglés | 41 |
+| Taux de réussite | 34 % |
+| Gain net cumulé | -12.37 $ |
 | Statut | 🟢 actif |
 
 ## Derniers paris
 
 | Date | Marché | Côté | Prix | Résultat | Gain |
 |---|---|---|---|---|---|
+| 2026-11-28 00:40 | Bitcoin Up or Down - November 27, 7:30PM-7:45PM ET | Down | 0.37 | ❌ | -2.00 $ |
 | 2026-11-28 00:40 | Ethereum Up or Down - November 27, 7:30PM-7:45PM ET | Down | 0.21 | ❌ | -2.00 $ |
 | 2026-11-28 00:23 | Ethereum Up or Down - November 27, 7:15PM-7:30PM ET | Up | 0.20 | ❌ | -1.06 $ |
 | 2026-11-28 00:24 | Bitcoin Up or Down - November 27, 7:15PM-7:30PM ET | Up | 0.34 | ❌ | -2.00 $ |
@@ -31,30 +32,28 @@ _Mis à jour : 2026-11-28 00:46:58 UTC_
 | 2026-11-26 02:20 | Ethereum Up or Down - November 25, 9:15PM-9:30PM ET | Down | 0.21 | ✅ | +7.02 $ |
 | 2026-11-26 02:05 | Ethereum Up or Down - November 25, 9:00PM-9:15PM ET | Down | 0.45 | ❌ | -2.34 $ |
 | 2026-11-26 02:05 | Bitcoin Up or Down - November 25, 9:00PM-9:15PM ET | Down | 0.50 | ❌ | -2.59 $ |
-| 2026-11-26 01:52 | Ethereum Up or Down - November 25, 8:45PM-9:00PM ET | Down | 0.37 | ❌ | -2.00 $ |
-| 2026-11-28 00:40 | Bitcoin Up or Down - November 27, 7:30PM-7:45PM ET | Down | 0.37 | ⏳ | — |
 
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 00:40:52 UTC  ETH ouverture 1,662.78 spot 1,663.60 σ/min 0.043% → P(Up) modèle 0.62 (brut 0.73, marché 0.52) | 🟢 ACHAT fictif 9.02 parts Down à 0.21 (coût 2.00 $, avantage +0.153, Kelly ¼ suggère 4.42 $) | baleines x1.97, funding bottom 25%
-2026-11-28 00:41:49 UTC  — exécution — MODE : PAPER
-2026-11-28 00:41:49 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-28 00:41:49 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-28 00:42:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:42:58 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-28 00:42:58 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-28 00:43:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:43:58 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-28 00:43:58 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-28 00:44:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:44:58 UTC  BTC : déjà positionné sur cette fenêtre
-2026-11-28 00:44:58 UTC  ETH : déjà positionné sur cette fenêtre
-2026-11-28 00:45:58 UTC  — exécution — MODE : PAPER
-2026-11-28 00:45:58 UTC  BTC : 842s restantes, hors plage d'entrée
 2026-11-28 00:45:58 UTC  ETH : 842s restantes, hors plage d'entrée
 2026-11-28 00:46:58 UTC  — exécution — MODE : PAPER
 2026-11-28 00:46:58 UTC  ❌ PERDU Ethereum Up or Down - November 27, 7:30PM-7:45PM ET [Down] P&L -2.00 $ → capital 87.63 $
 2026-11-28 00:46:58 UTC  BTC : 782s restantes, hors plage d'entrée
 2026-11-28 00:46:58 UTC  ETH : 782s restantes, hors plage d'entrée
+2026-11-28 00:47:58 UTC  — exécution — MODE : PAPER
+2026-11-28 00:47:58 UTC  BTC : 722s restantes, hors plage d'entrée
+2026-11-28 00:47:58 UTC  ETH : 722s restantes, hors plage d'entrée
+2026-11-28 00:48:58 UTC  — exécution — MODE : PAPER
+2026-11-28 00:48:58 UTC  BTC : 662s restantes, hors plage d'entrée
+2026-11-28 00:48:58 UTC  ETH : 662s restantes, hors plage d'entrée
+2026-11-28 00:49:58 UTC  — exécution — MODE : PAPER
+2026-11-28 00:49:58 UTC  BTC : 602s restantes, hors plage d'entrée
+2026-11-28 00:49:58 UTC  ETH : 602s restantes, hors plage d'entrée
+2026-11-28 00:50:58 UTC  — exécution — MODE : PAPER
+2026-11-28 00:50:59 UTC  BTC ouverture 59,931.14 spot 59,867.84 σ/min 0.033% → P(Up) modèle 0.14 (brut 0.13, marché 0.14) | pas d'avantage suffisant (+0.013 sur Down à 0.84)
+2026-11-28 00:50:59 UTC  ETH ouverture 1,663.77 spot 1,660.95 σ/min 0.042% → P(Up) modèle 0.07 (brut 0.08, marché 0.07) | pas d'avantage suffisant (-0.017 sur Down à 0.94)
+2026-11-28 00:51:58 UTC  — exécution — MODE : PAPER
+2026-11-28 00:51:58 UTC  ❌ PERDU Bitcoin Up or Down - November 27, 7:30PM-7:45PM ET [Down] P&L -2.00 $ → capital 87.63 $
+2026-11-28 00:51:58 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 ```
