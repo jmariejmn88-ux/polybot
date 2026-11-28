@@ -1,6 +1,6 @@
 # 📊 PolyBot — paper trading (argent fictif)
 
-_Mis à jour : 2026-11-28 16:36:30 UTC_
+_Mis à jour : 2026-11-28 16:37:41 UTC_
 
 | Indicateur | Valeur |
 |---|---|
@@ -36,8 +36,6 @@ _Mis à jour : 2026-11-28 16:36:30 UTC_
 ## Journal (20 dernières lignes)
 
 ```
-2026-11-28 16:27:30 UTC  — exécution — MODE : PAPER
-2026-11-28 16:27:30 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 16:28:30 UTC  — exécution — MODE : PAPER
 2026-11-28 16:28:30 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 16:29:30 UTC  — exécution — MODE : PAPER
@@ -56,4 +54,6 @@ _Mis à jour : 2026-11-28 16:36:30 UTC_
 2026-11-28 16:35:30 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 2026-11-28 16:36:30 UTC  — exécution — MODE : PAPER
 2026-11-28 16:36:30 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
+2026-11-28 16:37:41 UTC  — exécution — MODE : PAPER
+2026-11-28 16:37:41 UTC  ⏸ perte du jour -11.06 $ ≥ limite : pause jusqu'à demain
 ```
