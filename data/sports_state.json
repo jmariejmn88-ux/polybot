@@ -471,7 +471,6 @@
   "2026-11-28": 227
  },
  "log": [
-  "2026-11-27T05:44:00Z foot : 344 matchs Polymarket, 979 Pinnacle, 278 appari\u00e9s, 48 pistes",
   "2026-11-27T05:54:01Z foot : 350 matchs Polymarket, 979 Pinnacle, 284 appari\u00e9s, 52 pistes",
   "2026-11-27T06:04:04Z foot : 364 matchs Polymarket, 983 Pinnacle, 289 appari\u00e9s, 61 pistes",
   "2026-11-27T06:14:06Z foot : 364 matchs Polymarket, 990 Pinnacle, 289 appari\u00e9s, 57 pistes",
@@ -670,11 +669,12 @@
   "2026-11-28T09:08:00Z foot : donn\u00e9es indisponibles (GET https://gamma-api.polymarket.com/events?tag_id=100350&closed=false&limit=50&offset=2050&end_date_min=2026-11-28T08%3A22%3A09Z&end_date_max=2026-11-29T22%3A07%3A09Z a \u00e9chou\u00e9 : HTTP Error 422: Unknown)",
   "2026-11-28T09:18:31Z foot : 530 matchs Polymarket, 1276 Pinnacle, 447 appari\u00e9s, 77 pistes",
   "2026-11-28T09:29:06Z foot : 530 matchs Polymarket, 1276 Pinnacle, 447 appari\u00e9s, 81 pistes",
-  "2026-11-28T09:39:39Z foot : 533 matchs Polymarket, 1275 Pinnacle, 450 appari\u00e9s, 84 pistes"
+  "2026-11-28T09:39:39Z foot : 533 matchs Polymarket, 1275 Pinnacle, 450 appari\u00e9s, 84 pistes",
+  "2026-11-28T09:43:00Z nba : 5 matchs Polymarket, 5 Pinnacle, 5 appari\u00e9s, 0 pistes"
  ],
- "last_scan": "2026-11-28T09:38:24Z",
- "odds_remaining": 486,
- "odds_used": 14,
+ "last_scan": "2026-11-28T09:42:59Z",
+ "odds_remaining": 485,
+ "odds_used": 15,
  "watch": {
   "foot": {
    "at": "2026-11-28T09:39:39Z",
@@ -34784,7 +34784,7 @@
    ]
   },
   "nba": {
-   "at": "2026-11-28T06:42:05Z",
+   "at": "2026-11-28T09:43:00Z",
    "games": [
     {
      "slug": "nba-orl-was-2026-11-28",
@@ -34798,12 +34798,12 @@
       "away": 0.395
      },
      "pin": {
-      "home": 0.6103,
-      "away": 0.3897
+      "home": 0.6025,
+      "away": 0.3975
      },
      "edge": {
-      "home": -0.0067,
-      "away": -0.0172
+      "home": -0.0145,
+      "away": -0.0094
      },
      "tok": {
       "home": "53188375255653763023247792138164187935945959700488799536549907032078473013119",
@@ -34835,8 +34835,8 @@
       "total": {
        "line": 193.5,
        "pm": {
-        "over": 0.925,
-        "under": 0.075
+        "over": 0.935,
+        "under": 0.065
        },
        "pin": {},
        "edge": {},
@@ -34856,16 +34856,16 @@
      "start": "2026-11-28T23:00:00Z",
      "ligue": "NBA",
      "pm": {
-      "home": 0.315,
-      "away": 0.685
+      "home": 0.305,
+      "away": 0.695
      },
      "pin": {
-      "home": 0.3154,
-      "away": 0.6846
+      "home": 0.3133,
+      "away": 0.6867
      },
      "edge": {
-      "home": -0.0104,
-      "away": -0.0112
+      "home": -0.0023,
+      "away": -0.0189
      },
      "tok": {
       "home": "55967905228636255916056060400578252650829963401221148840020507927738846312259",
@@ -34897,8 +34897,8 @@
       "total": {
        "line": 184.5,
        "pm": {
-        "over": 0.9455,
-        "under": 0.0545
+        "over": 0.96,
+        "under": 0.04
        },
        "pin": {},
        "edge": {},
@@ -34922,12 +34922,12 @@
       "away": 0.565
      },
      "pin": {
-      "home": 0.4318,
-      "away": 0.5682
+      "home": 0.4329,
+      "away": 0.5671
      },
      "edge": {
-      "home": -0.0155,
-      "away": -0.0091
+      "home": -0.0144,
+      "away": -0.0102
      },
      "tok": {
       "home": "104746504118717300110262411640865393647451671620802814999140848418915045458343",
@@ -34945,8 +34945,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.405,
-        "away": 0.595
+        "home": 0.4,
+        "away": 0.6
        },
        "pin": {},
        "edge": {},
@@ -34959,8 +34959,8 @@
       "total": {
        "line": 206.5,
        "pm": {
-        "over": 0.955,
-        "under": 0.045
+        "over": 0.945,
+        "under": 0.055
        },
        "pin": {},
        "edge": {},
@@ -34984,12 +34984,12 @@
       "away": 0.175
      },
      "pin": {
-      "home": 0.8096,
-      "away": 0.1904
+      "home": 0.8108,
+      "away": 0.1892
      },
      "edge": {
-      "home": -0.0226,
-      "away": 0.0082
+      "home": -0.0214,
+      "away": 0.007
      },
      "tok": {
       "home": "47865225721905273682085485777724636746397146826917779253950068250507198793369",
@@ -35021,8 +35021,8 @@
       "total": {
        "line": 198.5,
        "pm": {
-        "over": 0.9355,
-        "under": 0.0645
+        "over": 0.9365,
+        "under": 0.0635
        },
        "pin": {},
        "edge": {},
@@ -35046,12 +35046,12 @@
       "away": 0.805
      },
      "pin": {
-      "home": 0.198,
-      "away": 0.802
+      "home": 0.191,
+      "away": 0.809
      },
      "edge": {
-      "home": -0.0048,
-      "away": -0.0109
+      "home": -0.0118,
+      "away": -0.0039
      },
      "tok": {
       "home": "52440721695233975255682661073311521230840521536094809699935913709464802871399",
@@ -35069,8 +35069,8 @@
       "spread": {
        "line": -1.5,
        "pm": {
-        "home": 0.155,
-        "away": 0.845
+        "home": 0.17,
+        "away": 0.83
        },
        "pin": {},
        "edge": {},
@@ -35083,8 +35083,8 @@
       "total": {
        "line": 193.5,
        "pm": {
-        "over": 0.93,
-        "under": 0.07
+        "over": 0.935,
+        "under": 0.065
        },
        "pin": {},
        "edge": {},
@@ -35101,13 +35101,13 @@
  },
  "last_scan_src": {
   "pinnfeed": "2026-11-28T09:38:24Z",
-  "oddsapi": "2026-11-28T06:42:04Z"
+  "oddsapi": "2026-11-28T09:42:59Z"
  },
  "combo_bankroll": 100.0,
  "combo_start": 100.0,
  "combos_open": [],
  "combos_closed": [],
- "combo_try": "2026-11-28T09:38:24Z",
+ "combo_try": "2026-11-28T09:42:59Z",
  "lab": {
   "open": [
    {
@@ -35368,7 +35368,7 @@
    "laliga_outsiders": "La Liga \u2013 outsiders cote 5 \u00e0 9",
    "serieb_under25": "Serie B \u2013 moins de 2,5 buts"
   },
-  "last_watch": "2026-11-28T09:38:24Z",
+  "last_watch": "2026-11-28T09:42:59Z",
   "last_totals": "2026-11-28T09:29:22Z",
   "bilan": {
    "laliga_outsiders": {
